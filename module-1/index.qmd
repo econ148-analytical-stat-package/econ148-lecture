@@ -1,0 +1,36 @@
+---
+title: " `"
+title-slide-attributes:
+  data-background-image: "https://chris-allones.github.io/RTalks/dbm-special-lecture-2024/img/bg_sem_2.jpg"
+  data-background-size: "cover"
+format: 
+  revealjs:
+    theme: [simple, custom.scss]
+    preview-links: true
+    code-fold: false
+    code-summary: "code"
+    chalkboard: true
+    slide-number: true
+    footer: "SEM: fundamentals and applications | link: bit.ly/sem2024-dbm-lecture"
+engine: knitr
+from: markdown+emoji
+editor: visual
+---
+## Quarto
+
+Quarto enables you to weave together content and executable code into a finished presentation. To learn more about Quarto presentations see <https://quarto.org/docs/presentations/>.
+
+## Bullets
+
+When you click the **Render** button a document will be generated that includes:
+
+-   Content authored with markdown
+-   Output from executable code
+
+## Code
+
+When you click the **Render** button a presentation will be generated that includes both content and the output of embedded code. You can embed code like this:
+
+```{r}
+1 + 1
+```
