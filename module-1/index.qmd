@@ -1,7 +1,7 @@
 ---
-title: " `"
+title: ". "
 title-slide-attributes:
-  data-background-image: "https://chris-allones.github.io/RTalks/dbm-special-lecture-2024/img/bg_sem_2.jpg"
+  data-background-image: "plot/module1.png"
   data-background-size: "cover"
 format: 
   revealjs:
@@ -11,26 +11,44 @@ format:
     code-summary: "code"
     chalkboard: true
     slide-number: true
-    footer: "SEM: fundamentals and applications | link: bit.ly/sem2024-dbm-lecture"
+    footer: "Econ 148: Analytical and Statistical packages for economists 1"
 engine: knitr
 from: markdown+emoji
 editor: visual
 ---
-## Quarto
-
-Quarto enables you to weave together content and executable code into a finished presentation. To learn more about Quarto presentations see <https://quarto.org/docs/presentations/>.
-
-## Bullets
-
-When you click the **Render** button a document will be generated that includes:
-
--   Content authored with markdown
--   Output from executable code
-
-## Code
-
-When you click the **Render** button a presentation will be generated that includes both content and the output of embedded code. You can embed code like this:
 
 ```{r}
-1 + 1
+#| echo: false
+#| include: false
+knitr::opts_chunk$set(comment = "", collapse = TRUE)
+
+## working directory
+setwd("D:/OneDrive - KMITL/VSU/lectures/econ148-analytical-stat-package/github-repository/econ148-lecture/module-1")
+
+## Libraries
+library(tidyverse)
+
 ```
+
+
+## Topics
+
+- Methods of data collection
+
+- Sampling design in surveys
+
+- Measurement issues in survey research
+
+- Questionnaire construction
+
+- Basics of interviewing
+
+- Creating a codebook
+
+- Data entry
+
+
+# Methods of data collection
+
+
+## 
