@@ -101,3 +101,13 @@ pre {
   overflow-y: auto;
   white-space: nowrap;
 }
+
+/* Callout */
+
+.callout.callout-style-default.my-callout .callout-body {
+    font-size: 2.0rem;
+}
+
+.reveal .callout.callout-style-default div.callout-body {
+ 	  font-size: var(--r-main-font-size);
+}

@@ -11,7 +11,7 @@ format:
     code-summary: "code"
     chalkboard: true
     slide-number: true
-    footer: "Econ 148: Analytical and Statistical packages for economists 1"
+    footer: "Econ 148: Analytical and statistical packages for economists 1"
 engine: knitr
 from: markdown+emoji
 editor: visual
@@ -31,7 +31,7 @@ library(tidyverse)
 ```
 
 
-## Topics
+## Lessons
 
 - Methods of data collection
 
@@ -48,7 +48,103 @@ library(tidyverse)
 - Data entry
 
 
-# Methods of data collection
+# Lesson 1: Methods of data collection
 
 
-## 
+## Introduction
+
+
+Appropriate measurement of variables is needed in studying behavior.
+
+- Quantitative - numerical values
+    
+- Qualitative - can be grouped and assigned numerical values
+
+<br>
+
+:::{.fragment}
+
+:::{.callout-note style="font-size: 1.0em;"}
+
+## Note
+
+:::{.incremental}
+- Use of faulty data results in misleading conclusions
+- Research processes call for objectivity, integrity, and analytical rigor.
+- Data should be accurate as possible; free from error, bias, and subjectivity.
+:::
+
+:::
+
+:::
+
+
+## Methods of data collection
+
+- Census and survey method
+
+- Observation method
+
+- Experimental method
+
+
+## Methods of data collection
+
+### Census and survey method
+
+> collect data directly from the subject of the study (respondent units or informants) using a pre-constructed set of questions (questionnaire)
+
+:::{.incremental}
+- **Census**
+
+  - data collection from all units of a population
+  
+  - e.g., population census and housing
+    
+- **Survey**
+
+  - data collection from a sample of units from a population
+  
+  - e.g., family income and expenditure survey, annual poverty inficator survey
+:::
+
+## Methods of data collection
+
+### Observation method
+
+> records data as things occur, making use of an appropriate and accepted method of measurement
+
+- e.g., person's blood pressure, number of new covid cases, number of typhoons in a year
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
