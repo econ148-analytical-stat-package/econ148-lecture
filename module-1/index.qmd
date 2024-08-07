@@ -511,11 +511,70 @@ cat("The sample size needed for the study is:", floor(sample_size), "\n")
 ```
 
 
+## Sampling design
+
+### Slovin's formula
+
+> a generalization of the Cochran's formula and can be used when estimating a population proportion.
+
+$$
+n = \frac{N}{1 + N(E^2)}
+$$
+
+## Sampling design
+
+### Slovin's formula
+
+:::{.callout-tip}
+
+## Example
+
+A market study by a company wishes to know the proportion of individual that likes its product. It uses a systematic sampling methodology to select the individuals to be part of the survey and used the Slovin's formula to determine the sample size. The company wants to have a 95% confidence level and a margin of error of 10%. Its market is expected to be around 1000 individuals. Assume 5% margin of error. What is the sample size needed for the study?
+
+$$
+n = \frac{N}{1 + N(E^2)} = \frac{1000}{1 + 1000(0.05^2)} = 286
+$$
+
+:::
 
 
+## Sampling design
 
+### Slovin's formula
 
+:::{.callout-tip}
 
+## Example in R
+
+:::
+
+```{{r}}
+# Define the parameters
+N <- 1000
+margin_of_error <- 0.05
+
+# Calculate the sample size using Slovin's formula
+sample_size <- N / (1 + N * margin_of_error^2)
+
+# Print the sample size
+cat("The sample size needed for the study is:", ceiling(sample_size), "\n")
+
+```
+
+<br>
+
+```{r}
+# Define the parameters
+N <- 1000
+margin_of_error <- 0.05
+
+# Calculate the sample size using Slovin's formula
+sample_size <- N / (1 + N * margin_of_error^2)
+
+# Print the sample size
+cat("The sample size needed for the study is:", ceiling(sample_size), "\n")
+
+```
 
 
 
