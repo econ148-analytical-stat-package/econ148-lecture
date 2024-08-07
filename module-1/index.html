@@ -28,6 +28,71 @@
       margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
       vertical-align: middle;
     }
+    /* CSS for syntax highlighting */
+    pre > code.sourceCode { white-space: pre; position: relative; }
+    pre > code.sourceCode > span { line-height: 1.25; }
+    pre > code.sourceCode > span:empty { height: 1.2em; }
+    .sourceCode { overflow: visible; }
+    code.sourceCode > span { color: inherit; text-decoration: inherit; }
+    div.sourceCode { margin: 1em 0; }
+    pre.sourceCode { margin: 0; }
+    @media screen {
+    div.sourceCode { overflow: auto; }
+    }
+    @media print {
+    pre > code.sourceCode { white-space: pre-wrap; }
+    pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+    }
+    pre.numberSource code
+      { counter-reset: source-line 0; }
+    pre.numberSource code > span
+      { position: relative; left: -4em; counter-increment: source-line; }
+    pre.numberSource code > span > a:first-child::before
+      { content: counter(source-line);
+        position: relative; left: -1em; text-align: right; vertical-align: baseline;
+        border: none; display: inline-block;
+        -webkit-touch-callout: none; -webkit-user-select: none;
+        -khtml-user-select: none; -moz-user-select: none;
+        -ms-user-select: none; user-select: none;
+        padding: 0 4px; width: 4em;
+        color: #aaaaaa;
+      }
+    pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+    div.sourceCode
+      { color: #003b4f; background-color: #f1f3f5; }
+    @media screen {
+    pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+    }
+    code span { color: #003b4f; } /* Normal */
+    code span.al { color: #ad0000; } /* Alert */
+    code span.an { color: #5e5e5e; } /* Annotation */
+    code span.at { color: #657422; } /* Attribute */
+    code span.bn { color: #ad0000; } /* BaseN */
+    code span.bu { } /* BuiltIn */
+    code span.cf { color: #003b4f; } /* ControlFlow */
+    code span.ch { color: #20794d; } /* Char */
+    code span.cn { color: #8f5902; } /* Constant */
+    code span.co { color: #5e5e5e; } /* Comment */
+    code span.cv { color: #5e5e5e; font-style: italic; } /* CommentVar */
+    code span.do { color: #5e5e5e; font-style: italic; } /* Documentation */
+    code span.dt { color: #ad0000; } /* DataType */
+    code span.dv { color: #ad0000; } /* DecVal */
+    code span.er { color: #ad0000; } /* Error */
+    code span.ex { } /* Extension */
+    code span.fl { color: #ad0000; } /* Float */
+    code span.fu { color: #4758ab; } /* Function */
+    code span.im { color: #00769e; } /* Import */
+    code span.in { color: #5e5e5e; } /* Information */
+    code span.kw { color: #003b4f; } /* Keyword */
+    code span.op { color: #5e5e5e; } /* Operator */
+    code span.ot { color: #003b4f; } /* Other */
+    code span.pp { color: #ad0000; } /* Preprocessor */
+    code span.sc { color: #5e5e5e; } /* SpecialChar */
+    code span.ss { color: #20794d; } /* SpecialString */
+    code span.st { color: #20794d; } /* String */
+    code span.va { color: #111111; } /* Variable */
+    code span.vs { color: #20794d; } /* VerbatimString */
+    code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
   </style>
   <link rel="stylesheet" href="index_files/libs/revealjs/dist/theme/quarto.css">
   <link href="index_files/libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
@@ -420,6 +485,522 @@
 <ul>
 <li>e.g., person’s blood pressure, number of new covid cases, number of typhoons in a year</li>
 </ul>
+</section>
+<section id="methods-of-data-collection-3" class="slide level2">
+<h2>Methods of data collection</h2>
+<h3 id="experimental-method">Experimental method</h3>
+<blockquote>
+<p>collect data through well designed and controlled statistical experiments where the goal is keeping all others constant so as to leave the effect of several studied variables to be shown in the observed measurement in the dependent variable</p>
+</blockquote>
+<ul>
+<li>e.g., effect of fertilizer on soil quality, effect of a specific teaching methodology on school performance, effect of universal basic income on welfare measures</li>
+</ul>
+</section>
+<section id="tools-of-data-collection" class="slide level2">
+<h2>Tools of data collection</h2>
+<h3 id="questionnaire-approach">Questionnaire approach</h3>
+<blockquote>
+<p>set a pre-specified questions; replies are recorded by respondentes. Assumes that respondent is capable of understanding and answering the questions by him/herself without influence from investigator/enumerator.</p>
+</blockquote>
+<ul>
+<li>respondent-bias is minimized by keeping questions simple and direct, i.e., yes/no/can’t say, good/satisfactory/unsatisfactory</li>
+</ul>
+</section>
+<section id="tools-of-data-collection-1" class="slide level2">
+<h2>Tools of data collection</h2>
+<h3 id="schedule-approach">Schedule approach</h3>
+<blockquote>
+<p>questions are detailed and is asked by hte investigator/enumerator. Investigator must be ingenious in explaining concepts to obtain reliable information. At times, training is necessary.</p>
+</blockquote>
+<ul>
+<li>data may be collected by personal, face-to-face suveys, or conducted through the phone or be done through e-mails or chatting over the internet.</li>
+</ul>
+</section>
+<section id="tools-of-data-collection-2" class="slide level2">
+<h2>Tools of data collection</h2>
+<h3 id="data-types">Data types</h3>
+<ul>
+<li><p><strong>Primary data</strong></p>
+<ul>
+<li><p>data collected through surveys and census are called primary</p></li>
+<li><p>They are collected afresh.</p></li>
+</ul></li>
+<li><p><strong>Secondary data</strong></p>
+<ul>
+<li>data on subjects or observations already collected by someone else (e.g., government agencies, research institutions, and other organizations)</li>
+</ul></li>
+</ul>
+</section>
+<section id="tools-of-data-collection-3" class="slide level2">
+<h2>Tools of data collection</h2>
+<h3 id="errors-in-data">Errors in data</h3>
+<div>
+<ul>
+<li class="fragment"><p><strong>Sampling error</strong></p>
+<ul>
+<li class="fragment">arises because because of misrepresentation of the population through the sample.</li>
+</ul></li>
+<li class="fragment"><p><strong>Measurement error</strong></p>
+<ul>
+<li class="fragment">faulty measurement from lack of clarity about what is to be measured or how it is measured</li>
+</ul></li>
+<li class="fragment"><p><strong>Non-sampling error</strong></p>
+<ul>
+<li class="fragment">omission of information or non-response</li>
+</ul></li>
+<li class="fragment"><p><strong>Total survey error</strong></p>
+<ul>
+<li class="fragment">summation of all possible errors</li>
+</ul></li>
+</ul>
+</div>
+</section></section>
+<section>
+<section id="lesson-2-sampling-design-in-surveys" class="title-slide slide level1 center">
+<h1>Lesson 2: Sampling design in surveys</h1>
+
+</section>
+<section id="sampling-design" class="slide level2">
+<h2>Sampling design</h2>
+<h3 id="non-random-sampling">Non-random sampling</h3>
+<blockquote>
+<p>selection of respondent units does not depend on randomness but on some other criteria</p>
+</blockquote>
+<div style="font-size: 1.0em;">
+<div class="callout callout-note callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Note</strong></p>
+</div>
+<div class="callout-content">
+<p>non-random samples do not provide representativeness, and is only useful for exploratory research.</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="sampling-design-1" class="slide level2">
+<h2>Sampling design</h2>
+<h3 id="non-random-sampling-1">Non-random sampling</h3>
+<div>
+<ul>
+<li class="fragment"><p><strong>Purposive sample</strong></p>
+<ul>
+<li class="fragment">selecting observations based on one’s expert knowledge or judgement</li>
+</ul></li>
+<li class="fragment"><p><strong>Convenience sample</strong></p>
+<ul>
+<li class="fragment">taking observations that are conveniently located in the perspective of the investigator.</li>
+</ul></li>
+<li class="fragment"><p><strong>Snowball sample</strong></p>
+<ul>
+<li class="fragment">relies on referrals from initial respondents to generate additional respondents</li>
+</ul></li>
+</ul>
+</div>
+</section>
+<section id="sampling-design-2" class="slide level2">
+<h2>Sampling design</h2>
+<h3 id="representative-sample">Representative sample</h3>
+<blockquote>
+<p>contains the relevant characteristics of the population of the population is the same proportion as the population</p>
+</blockquote>
+</section>
+<section id="sampling-design-3" class="slide level2">
+<h2>Sampling design</h2>
+<h3 id="random-sampling">Random sampling</h3>
+<blockquote>
+<p>provides samples that are representative of the population. It is a method of sampling in which each unit in the population has a determined chance of being included in the sample.</p>
+</blockquote>
+<div>
+<ul>
+<li class="fragment"><p>with a random sample, we can infer the results to the population and indicate the extent of error to which the estimates are the subject (i.e., presion estimate).</p></li>
+<li class="fragment"><p>with a random sample, the sample statistics derived from the sample are random variables themeselves, given that the composition of observation can vary.</p></li>
+</ul>
+</div>
+</section>
+<section id="sampling-design-4" class="slide level2">
+<h2>Sampling design</h2>
+<h3 id="simple-random-sampling-with-replacement">Simple random sampling with replacement</h3>
+<blockquote>
+<p>each unit in the population has an equal chance of being selected in the sample and each sample has an equal probability of getting selected.</p>
+</blockquote>
+<div>
+<ul>
+<li class="fragment"><p>select <span class="math inline">\(\text{n}\)</span> number units from a population <span class="math inline">\(\text{N}\)</span> units</p></li>
+<li class="fragment"><p>we select the first unit of observation at random, note its particulars for colelction of data and place it back in the population.</p></li>
+<li class="fragment"><p>repeat <span class="math inline">\(\text{n}\)</span> times, each unit in the population has the probability of <span class="math inline">\(1/N^n\)</span> being choses into the sample.</p></li>
+<li class="fragment"><p>can use a table of random numbers or the random number generator</p></li>
+</ul>
+</div>
+</section>
+<section id="sampling-design-5" class="slide level2">
+<h2>Sampling design</h2>
+<div class="callout callout-tip callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Example in R</strong></p>
+</div>
+<div class="callout-content">
+<p>Using four six-sided dice, let’s randomly select four numbers between 1 and 6 with replacement. Samping with replacement simply means that each number is “replaced” after it is selected, so that the same number can show up more thant once.</p>
+</div>
+</div>
+</div>
+<p><br></p>
+<div class="fragment">
+<div class="columns">
+<div class="column">
+<div class="sourceCode" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href=""></a><span class="fu">sample</span>(x, size, <span class="at">replace =</span> <span class="cn">FALSE</span>, <span class="at">prob =</span> <span class="cn">NULL</span>)</span>
+<span id="cb1-2"><a href=""></a></span>
+<span id="cb1-3"><a href=""></a>x<span class="sc">:</span> vector of elements to choose from</span>
+<span id="cb1-4"><a href=""></a>size<span class="sc">:</span> number of items to choose</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p><br></p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href=""></a><span class="do">## random sample with replacement</span></span>
+<span id="cb2-2"><a href=""></a><span class="fu">sample</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">6</span>, <span class="dv">4</span>, <span class="at">replace =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb2-3"><a href=""></a>[<span class="dv">1</span>] <span class="dv">5</span> <span class="dv">2</span> <span class="dv">4</span> <span class="dv">5</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div><div class="column">
+
+</div>
+</div>
+</div>
+</section>
+<section id="sampling-design-6" class="slide level2">
+<h2>Sampling design</h2>
+<h3 id="simple-random-sampling-without-replacement">Simple random sampling without replacement</h3>
+<blockquote>
+<p>similar with random sampling with replacement, but the selected unit is not replaced back in the population, i.e., no unit gets repeated in the sample.</p>
+</blockquote>
+</section>
+<section id="sampling-design-7" class="slide level2">
+<h2>Sampling design</h2>
+<div class="callout callout-tip callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Example in R</strong></p>
+</div>
+<div class="callout-content">
+
+</div>
+</div>
+</div>
+<p><br></p>
+<div class="columns">
+<div class="column">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href=""></a><span class="do">## random sample without replacement</span></span>
+<span id="cb3-2"><a href=""></a><span class="fu">sample</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">20</span>, <span class="dv">5</span>)</span>
+<span id="cb3-3"><a href=""></a>[<span class="dv">1</span>] <span class="dv">17</span>  <span class="dv">2</span>  <span class="dv">8</span> <span class="dv">20</span>  <span class="dv">3</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p><br></p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href=""></a><span class="do">## random sample without replacement</span></span>
+<span id="cb4-2"><a href=""></a><span class="fu">sample</span>(LETTERS)</span>
+<span id="cb4-3"><a href=""></a> [<span class="dv">1</span>] <span class="st">"Z"</span> <span class="st">"K"</span> <span class="st">"O"</span> <span class="st">"I"</span> <span class="st">"V"</span> <span class="st">"P"</span> <span class="st">"C"</span> <span class="st">"H"</span> <span class="st">"L"</span> <span class="st">"M"</span> <span class="st">"Y"</span> <span class="st">"E"</span> <span class="st">"U"</span> <span class="st">"F"</span> <span class="st">"S"</span> <span class="st">"J"</span> <span class="st">"T"</span> <span class="st">"A"</span> <span class="st">"D"</span></span>
+<span id="cb4-4"><a href=""></a>[<span class="dv">20</span>] <span class="st">"N"</span> <span class="st">"W"</span> <span class="st">"Q"</span> <span class="st">"X"</span> <span class="st">"B"</span> <span class="st">"R"</span> <span class="st">"G"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div><div class="column">
+
+</div>
+</div>
+</section>
+<section id="sampling-design-8" class="slide level2">
+<h2>Sampling design</h2>
+<h3 id="systematic-sampling">Systematic sampling</h3>
+<blockquote>
+<p>selecting a sample from a larger population at a regular intervals</p>
+</blockquote>
+<ul>
+<li><p>let <span class="math inline">\(\text{k}\)</span> be the integer nearest to the quotient <span class="math inline">\(\text{N/n}\)</span></p></li>
+<li><p>select a starting point <span class="math inline">\(\text{r}\)</span> which is between <span class="math inline">\(\text{1}\)</span> and <span class="math inline">\(\text{k}\)</span>, with will be called the <span class="math inline">\(\text{r}^{th}\)</span> unit or <span class="math inline">\(U_r\)</span></p></li>
+<li><p>sample will then be a set of composef of <span class="math inline">\(U_r, U_{r+k}, U_{r+2k}, \ldots, U_{r+(n-1)k}\)</span></p></li>
+</ul>
+</section>
+<section id="sampling-design-9" class="slide level2">
+<h2>Sampling design</h2>
+<div class="callout callout-tip callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Example in R</strong></p>
+</div>
+<div class="callout-content">
+<ul>
+<li>insert examples</li>
+</ul>
+</div>
+</div>
+</div>
+</section>
+<section id="sampling-design-10" class="slide level2">
+<h2>Sampling design</h2>
+<h3 id="stratified-sampling">Stratified sampling</h3>
+<blockquote>
+<p>probability of selection of a unit is porportional to a given measure of its size and this measure may be a characteristic related to a given measure of its size.</p>
+</blockquote>
+<div>
+<ul>
+<li class="fragment"><p><strong>proportional sampling</strong></p>
+<ul>
+<li class="fragment">weigh the sample observations with suitable weights at the estimation stage to obtain unbiased estimates of population parameters, the weights being the probabilities of selection units.</li>
+</ul></li>
+<li class="fragment"><p><strong>disproportional sampling</strong></p>
+<ul>
+<li class="fragment">takes into account the variability of each subgroup, adding more observations to subgroups that are more variable.</li>
+</ul></li>
+</ul>
+</div>
+</section>
+<section id="sampling-design-11" class="slide level2">
+<h2>Sampling design</h2>
+<div class="callout callout-tip callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Example in R</strong></p>
+</div>
+<div class="callout-content">
+<ul>
+<li>insert examples</li>
+</ul>
+</div>
+</div>
+</div>
+</section>
+<section id="sampling-design-12" class="slide level2">
+<h2>Sampling design</h2>
+<h3 id="cluster-sampling">Cluster sampling</h3>
+<blockquote>
+<p>use when subgroups are mutually heterogenous but are internally heterogenous.</p>
+</blockquote>
+<ul>
+<li>e.g., all inhabitant in a municipality from part of a population, barangays can serve as clusters wherein its inhabitant can serve as observations.</li>
+</ul>
+</section>
+<section id="sampling-design-13" class="slide level2">
+<h2>Sampling design</h2>
+<div class="callout callout-tip callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Example in R</strong></p>
+</div>
+<div class="callout-content">
+<ul>
+<li>insert examples</li>
+</ul>
+</div>
+</div>
+</div>
+</section>
+<section id="section" class="slide level2">
+<h2></h2>
+<table class="caption-top" style="width:99%;">
+<colgroup>
+<col style="width: 16%">
+<col style="width: 41%">
+<col style="width: 42%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Sampling design</th>
+<th style="text-align: left;">Advantages</th>
+<th>Disadvantages</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><ol type="1">
+<li>Simple random</li>
+</ol></td>
+<td style="text-align: left;"><ul>
+<li>Requires little advance knowledge of population</li>
+</ul></td>
+<td><ul>
+<li>May not capture specific groups</li>
+<li>May not be efficient</li>
+</ul></td>
+</tr>
+<tr class="even">
+<td><ol start="2" type="1">
+<li>Systematic random</li>
+</ol></td>
+<td style="text-align: left;"><ul>
+<li>High precision</li>
+<li>Easy to analyze data and compute sampling errors</li>
+</ul></td>
+<td><ul>
+<li>Ordering of elements in sampling frame may create bias.</li>
+<li>May not capture specific groups</li>
+<li>May not be efficient</li>
+</ul></td>
+</tr>
+<tr class="odd">
+<td><ol start="3" type="1">
+<li>Stratified random</li>
+</ol></td>
+<td style="text-align: left;"><ul>
+<li>captures specific groups</li>
+<li>disproportionate sampling possible</li>
+<li>highest precision</li>
+</ul></td>
+<td><ul>
+<li>requires advance knowledge of population</li>
+<li>more complex to analyze data and compute sampling errors</li>
+</ul></td>
+</tr>
+<tr class="even">
+<td><ol start="4" type="1">
+<li>Cluster</li>
+</ol></td>
+<td style="text-align: left;"><ul>
+<li>lower field costs</li>
+<li>enables sampling of groups if individuals not available</li>
+</ul></td>
+<td><ul>
+<li>more complex to analyze data and compute sampling errors</li>
+<li>lowest precision</li>
+</ul></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="sampling-design-14" class="slide level2">
+<h2>Sampling design</h2>
+<h3 id="sample-size-determination-requirements">Sample size determination requirements</h3>
+<ul>
+<li><p><strong>Confidence level</strong></p>
+<ul>
+<li><p>the probability that the confidence interval will contain the true population parameter.</p></li>
+<li><p>e.g., 90%, 95%, 99%</p></li>
+<li><p><span class="math inline">\(\alpha\)</span> is the level of signficance, which is the probability of having results due to chance.</p></li>
+<li><p>critical value <span class="math inline">\(Z\)</span> for 95% confidence level is 1.96</p></li>
+</ul></li>
+</ul>
+</section>
+<section id="sampling-design-15" class="slide level2">
+<h2>Sampling design</h2>
+<h3 id="sample-size-determination-requirements-1">Sample size determination requirements</h3>
+<ul>
+<li><p><strong>Margin of error <span class="math inline">\(E\)</span></strong></p>
+<ul>
+<li>maximum allowable/tolerable error, the error that comes due to sampling.</li>
+</ul></li>
+<li><p><strong>Variance of the population of interest (<span class="math inline">\(\sigma^2\)</span>)</strong></p>
+<ul>
+<li>usually unknown but usually stable over time, information can be derived from official studies or census.</li>
+</ul></li>
+<li><p><strong>Perceived value of proportion (<span class="math inline">\(p\)</span>)</strong></p>
+<ul>
+<li>the ratio at which the characteristics being studied is present in the population.</li>
+</ul></li>
+</ul>
+</section>
+<section id="sampling-design-16" class="slide level2">
+<h2>Sampling design</h2>
+<div class="callout callout-note callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Take note</strong></p>
+</div>
+<div class="callout-content">
+<div>
+<ul>
+<li class="fragment"><p>Confidence level shows the pecentage of times when the true population parameter is observed in the calculated confidence interval.</p></li>
+<li class="fragment"><p>Margin of error is the value that is added or subtracted to the sample statistic in order to create an interval estimate.</p></li>
+<li class="fragment"><p>In estimating proportions, the confidence interval and margin of error need not to be complementary; one can have a confidence level of 95% and a margin of error of 5% or a margin of error of 4%, depending on the researcher.</p></li>
+<li class="fragment"><p>In estimating means, the margin of error will not be a percentage but in the units of the variable which mean is to be predicted; the smaller the margin of error, the more precise will be the interval estimate.</p></li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="sampling-design-17" class="slide level2">
+<h2>Sampling design</h2>
+<h3 id="cochrans-formula">Cochran’s formula</h3>
+<blockquote>
+<p>can be used when estimating proportions (commonly in market research) and when population is no known.</p>
+</blockquote>
+<p><span class="math display">\[
+n = \frac{Z^2 \cdot p(1-p)}{E^2}
+\]</span></p>
+</section>
+<section id="sampling-design-18" class="slide level2">
+<h2>Sampling design</h2>
+<h3 id="cochrans-formula-1">Cochran’s formula</h3>
+<div class="callout callout-tip callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Example</strong></p>
+</div>
+<div class="callout-content">
+<p>A market study by a company wishes to know the proportion of individual that likes its product. It uses a systematic sampling methodology to select the individuals to be part of the survey and used the Cochran’s formula to determine the sample size. The company wants to have a 95% confidence level and a margin of error of 10%. The company hypothesized the proportion of the population that likes the product at 75%. What is the sample size needed for the study?</p>
+<p><span class="math display">\[
+n = \frac{Z^2 \times p(1-p)}{E^2} = \frac{1.96^2 \times 0.75(1-0.75)}{0.1^2} = 72
+\]</span></p>
+</div>
+</div>
+</div>
+</section>
+<section id="sampling-design-19" class="slide level2">
+<h2>Sampling design</h2>
+<h3 id="cochrans-formula-2">Cochran’s formula</h3>
+<div class="callout callout-tip callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Example in R</strong></p>
+</div>
+<div class="callout-content">
+
+</div>
+</div>
+</div>
+<div class="sourceCode" id="cb5"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb5-1"><a href=""></a><span class="in">```{r}</span></span>
+<span id="cb5-2"><a href=""></a><span class="in"># Define the parameters</span></span>
+<span id="cb5-3"><a href=""></a><span class="in">confidence_level &lt;- 0.95</span></span>
+<span id="cb5-4"><a href=""></a><span class="in">margin_of_error &lt;- 0.10</span></span>
+<span id="cb5-5"><a href=""></a><span class="in">p &lt;- 0.75</span></span>
+<span id="cb5-6"><a href=""></a></span>
+<span id="cb5-7"><a href=""></a><span class="in"># Calculate the Z-value for the given confidence level</span></span>
+<span id="cb5-8"><a href=""></a><span class="in">Z &lt;- qnorm(1 - (1 - confidence_level) / 2)</span></span>
+<span id="cb5-9"><a href=""></a></span>
+<span id="cb5-10"><a href=""></a><span class="in"># Calculate the sample size using Cochran's formula</span></span>
+<span id="cb5-11"><a href=""></a><span class="in">sample_size &lt;- (Z^2 * p * (1 - p)) / (margin_of_error^2)</span></span>
+<span id="cb5-12"><a href=""></a></span>
+<span id="cb5-13"><a href=""></a><span class="in"># Print the sample size</span></span>
+<span id="cb5-14"><a href=""></a><span class="in">cat("The sample size needed for the study is:", floor(sample_size), "\n")</span></span>
+<span id="cb5-15"><a href=""></a></span>
+<span id="cb5-16"><a href=""></a><span class="in">```</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p><br></p>
+<div class="cell">
+<pre><code>The sample size needed for the study is: 72 </code></pre>
+</div>
 <div class="quarto-auto-generated-content">
 <div class="footer footer-default">
 <p>Econ 148: Analytical and statistical packages for economists 1</p>

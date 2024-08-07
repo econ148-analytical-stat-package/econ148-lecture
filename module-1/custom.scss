@@ -10,6 +10,7 @@ $link-color: #1d3557;
 /*-- scss:rules --*/
 
 
+
 h1 {
   text-align: center;
   color: #457b9d !important;
@@ -18,6 +19,11 @@ h1 {
 h2 {
   color: #1d3557 !important;
 }
+
+table td {
+  font-size: 0.8em;
+}
+
 
 
 .center-text {
