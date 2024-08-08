@@ -577,14 +577,60 @@ cat("The sample size needed for the study is:", ceiling(sample_size), "\n")
 ```
 
 
+## Sampling design
+
+### Margin of error formula
+
+$$
+\text{confidence interval} = \bar{X} \pm Z_{\alpha /2} \times \frac{s}{\sqrt{n}}
+$$
+$$
+\text{margin of error (E)} = Z_{\alpha /2} \times \frac{s}{\sqrt{n}}
+$$
+
+::: {.callout-tip}
+## Example
+
+A local government wishes to look at the impact of the COVID-19 pandemic on SMEs income across town. Before the pandemic it was able to capture information on incomes of SMEs, the annual average income was 600,000 with a standard deviation of 140,000. Setting a margin of error of 30,000 and a confidence level of 95%, how many individual entrepreneurs will be surveyed in order to get a representative sample of the town's SME population?
+
+:::
 
 
+## Sampling design
 
+::: {.callout-tip}
+## Example in R
 
+A local government wishes to look at the impact of the COVID-19 pandemic on SMEs income across town. Before the pandemic it was able to capture information on incomes of SMEs, the annual average income was 600,000 with a standard deviation of 140,000. Setting a margin of error of 30,000 and a confidence level of 95%, how many individual entrepreneurs will be surveyed in order to get a representative sample of the town's SME population?
 
+:::
 
+```{{r}}
+# Define the parameters
+Z <- qnorm(1 - (1 - 0.95) / 2)
+s <- 140000
+E <- 30000
 
+# Calculate the sample size using the margin of error formula
+sample_size <- (Z * s / E)^2
 
+# Print the sample size
+cat("The sample size needed for the study is:", ceiling(sample_size), "\n")
+```
+
+```{r}
+# Define the parameters
+Z <- qnorm(1 - (1 - 0.95) / 2)
+s <- 140000
+E <- 30000
+
+# Calculate the sample size using the margin of error formula
+sample_size <- (Z * s / E)^2
+
+# Print the sample size
+cat("The sample size needed for the study is:", ceiling(sample_size), "\n")
+
+```
 
 
 
