@@ -1,0 +1,610 @@
+---
+title: ". "
+title-slide-attributes:
+  data-background-image: "plot/module1.png"
+  data-background-size: "cover"
+format: 
+  revealjs:
+    theme: [simple, custom.scss]
+    preview-links: true
+    code-fold: false
+    code-summary: "code"
+    chalkboard: true
+    slide-number: true
+    footer: "Econ 148: Analytical and statistical packages for economists 1"
+engine: knitr
+from: markdown+emoji
+editor: visual
+---
+
+```{r}
+#| echo: false
+#| include: false
+knitr::opts_chunk$set(comment = "", collapse = TRUE)
+
+## working directory
+setwd("D:/Githu-repository/econ148-analytical-stat-packages/econ148-lecture/module-1")
+
+## Libraries
+library(tidyverse)
+
+```
+
+## Lessons
+
+-   Methods of data collection
+
+-   Sampling design in surveys
+
+-   Measurement issues in survey research
+
+-   Questionnaire construction
+
+-   Basics of interviewing
+
+-   Creating a codebook
+
+-   Data entry
+
+# Lesson 1: Methods of data collection
+
+## Introduction
+
+Appropriate measurement of variables is needed in studying behavior.
+
+-   Quantitative - numerical values
+
+-   Qualitative - can be grouped and assigned numerical values
+
+<br>
+
+::: fragment
+::: {.callout-note style="font-size: 1.0em;"}
+## Note
+
+::: incremental
+-   Use of faulty data results in misleading conclusions
+-   Research processes call for objectivity, integrity, and analytical rigor.
+-   Data should be accurate as possible; free from error, bias, and subjectivity.
+:::
+:::
+:::
+
+## Methods of data collection
+
+-   Census and survey method
+
+-   Observation method
+
+-   Experimental method
+
+## Methods of data collection
+
+### Census and survey method
+
+> collect data directly from the subject of the study (respondent units or informants) using a pre-constructed set of questions (questionnaire)
+
+::: incremental
+-   **Census**
+
+    -   data collection from all units of a population
+
+    -   e.g., population census and housing
+
+-   **Survey**
+
+    -   data collection from a sample of units from a population
+
+    -   e.g., family income and expenditure survey, annual poverty inficator survey
+:::
+
+## Methods of data collection
+
+### Observation method
+
+> records data as things occur, making use of an appropriate and accepted method of measurement
+
+-   e.g., person's blood pressure, number of new covid cases, number of typhoons in a year
+
+## Methods of data collection
+
+### Experimental method
+
+> collect data through well designed and controlled statistical experiments where the goal is keeping all others constant so as to leave the effect of several studied variables to be shown in the observed measurement in the dependent variable
+
+-   e.g., effect of fertilizer on soil quality, effect of a specific teaching methodology on school performance, effect of universal basic income on welfare measures
+
+## Tools of data collection
+
+### Questionnaire approach
+
+> set a pre-specified questions; replies are recorded by respondentes. Assumes that respondent is capable of understanding and answering the questions by him/herself without influence from investigator/enumerator.
+
+-   respondent-bias is minimized by keeping questions simple and direct, i.e., yes/no/can't say, good/satisfactory/unsatisfactory
+
+## Tools of data collection
+
+### Schedule approach
+
+> questions are detailed and is asked by hte investigator/enumerator. Investigator must be ingenious in explaining concepts to obtain reliable information. At times, training is necessary.
+
+-   data may be collected by personal, face-to-face suveys, or conducted through the phone or be done through e-mails or chatting over the internet.
+
+## Tools of data collection
+
+### Data types
+
+-   **Primary data**
+
+    -   data collected through surveys and census are called primary
+
+    -   They are collected afresh.
+
+-   **Secondary data**
+
+    -   data on subjects or observations already collected by someone else (e.g., government agencies, research institutions, and other organizations)
+
+## Tools of data collection
+
+### Errors in data
+
+::: incremental
+-   **Sampling error**
+
+    -   arises because because of misrepresentation of the population through the sample.
+
+-   **Measurement error**
+
+    -   faulty measurement from lack of clarity about what is to be measured or how it is measured
+
+-   **Non-sampling error**
+
+    -   omission of information or non-response
+
+-   **Total survey error**
+
+    -   summation of all possible errors
+:::
+
+# Lesson 2: Sampling design in surveys
+
+## Sampling design
+
+### Non-random sampling
+
+> selection of respondent units does not depend on randomness but on some other criteria
+
+::: {.callout-note style="font-size: 1.0em;"}
+non-random samples do not provide representativeness, and is only useful for exploratory research.
+:::
+
+## Sampling design
+
+### Non-random sampling
+
+::: incremental
+-   **Purposive sample**
+
+    -   selecting observations based on one's expert knowledge or judgement
+
+-   **Convenience sample**
+
+    -   taking observations that are conveniently located in the perspective of the investigator.
+
+-   **Snowball sample**
+
+    -   relies on referrals from initial respondents to generate additional respondents
+:::
+
+## Sampling design
+
+### Representative sample
+
+> contains the relevant characteristics of the population of the population is the same proportion as the population
+
+## Sampling design
+
+### Random sampling
+
+> provides samples that are representative of the population. It is a method of sampling in which each unit in the population has a determined chance of being included in the sample.
+
+::: incremental
+-   with a random sample, we can infer the results to the population and indicate the extent of error to which the estimates are the subject (i.e., presion estimate).
+
+-   with a random sample, the sample statistics derived from the sample are random variables themeselves, given that the composition of observation can vary.
+:::
+
+## Sampling design
+
+### Simple random sampling with replacement
+
+> each unit in the population has an equal chance of being selected in the sample and each sample has an equal probability of getting selected.
+
+::: incremental
+-   select $\text{n}$ number units from a population $\text{N}$ units
+
+-   we select the first unit of observation at random, note its particulars for colelction of data and place it back in the population.
+
+-   repeat $\text{n}$ times, each unit in the population has the probability of $1/N^n$ being choses into the sample.
+
+-   can use a table of random numbers or the random number generator
+:::
+
+## Sampling design
+
+::: callout-tip
+## Example in R
+
+Using four six-sided dice, let's randomly select four numbers between 1 and 6 with replacement. Samping with replacement simply means that each number is "replaced" after it is selected, so that the same number can show up more thant once.
+:::
+
+<br>
+
+. . .
+
+::: columns
+::: column
+``` r
+sample(x, size, replace = FALSE, prob = NULL)
+
+x: vector of elements to choose from
+size: number of items to choose
+```
+
+<br>
+
+```{r}
+#| echo: true
+
+## random sample with replacement
+sample(1:6, 4, replace = TRUE)
+```
+:::
+
+::: column
+:::
+:::
+
+## Sampling design
+
+### Simple random sampling without replacement
+
+> similar with random sampling with replacement, but the selected unit is not replaced back in the population, i.e., no unit gets repeated in the sample.
+
+## Sampling design
+
+::: callout-tip
+## Example in R
+:::
+
+<br>
+
+::: columns
+::: column
+```{r}
+#| echo: true
+
+## random sample without replacement
+sample(1:20, 5)
+```
+
+<br>
+
+```{r}
+#| echo: true
+
+## random sample without replacement
+sample(LETTERS)
+```
+:::
+
+::: column
+:::
+:::
+
+## Sampling design
+
+### Systematic sampling
+
+> selecting a sample from a larger population at a regular intervals
+
+-   let $\text{k}$ be the integer nearest to the quotient $\text{N/n}$
+
+-   select a starting point $\text{r}$ which is between $\text{1}$ and $\text{k}$, with will be called the $\text{r}^{th}$ unit or $U_r$
+
+-   sample will then be a set of composef of $U_r, U_{r+k}, U_{r+2k}, \ldots, U_{r+(n-1)k}$
+
+## Sampling design
+
+::: callout-tip
+## Example in R
+
+-   insert examples
+:::
+
+## Sampling design
+
+### Stratified sampling
+
+> probability of selection of a unit is porportional to a given measure of its size and this measure may be a characteristic related to a given measure of its size.
+
+::: incremental
+-   **proportional sampling**
+
+    -   weigh the sample observations with suitable weights at the estimation stage to obtain unbiased estimates of population parameters, the weights being the probabilities of selection units.
+
+-   **disproportional sampling**
+
+    -   takes into account the variability of each subgroup, adding more observations to subgroups that are more variable.
+:::
+
+## Sampling design
+
+::: callout-tip
+## Example in R
+
+-   insert examples
+:::
+
+## Sampling design
+
+### Cluster sampling
+
+> use when subgroups are mutually heterogenous but are internally heterogenous.
+
+-   e.g., all inhabitant in a municipality from part of a population, barangays can serve as clusters wherein its inhabitant can serve as observations.
+
+## Sampling design
+
+::: callout-tip
+## Example in R
+
+-   insert examples
+:::
+
+## 
+
++-----------------------+-------------------------------------------------------------+--------------------------------------------------------------+
+| Sampling design       | Advantages                                                  | Disadvantages                                                |
++=======================+:============================================================+==============================================================+
+| 1.  Simple random     | -   Requires little advance knowledge of population         | -   May not capture specific groups                          |
+|                       |                                                             | -   May not be efficient                                     |
++-----------------------+-------------------------------------------------------------+--------------------------------------------------------------+
+| 2.  Systematic random | -   High precision                                          | -   Ordering of elements in sampling frame may create bias.  |
+|                       | -   Easy to analyze data and compute sampling errors        | -   May not capture specific groups                          |
+|                       |                                                             | -   May not be efficient                                     |
++-----------------------+-------------------------------------------------------------+--------------------------------------------------------------+
+| 3.  Stratified random | -   captures specific groups                                | -   requires advance knowledge of population                 |
+|                       | -   disproportionate sampling possible                      | -   more complex to analyze data and compute sampling errors |
+|                       | -   highest precision                                       |                                                              |
++-----------------------+-------------------------------------------------------------+--------------------------------------------------------------+
+| 4.  Cluster           | -   lower field costs                                       | -   more complex to analyze data and compute sampling errors |
+|                       | -   enables sampling of groups if individuals not available | -   lowest precision                                         |
++-----------------------+-------------------------------------------------------------+--------------------------------------------------------------+
+
+## Sampling design
+
+### Sample size determination requirements
+
+-   **Confidence level**
+
+    -   the probability that the confidence interval will contain the true population parameter.
+
+    -   e.g., 90%, 95%, 99%
+
+    -   $\alpha$ is the level of signficance, which is the probability of having results due to chance.
+
+    -   critical value $Z$ for 95% confidence level is 1.96
+
+## Sampling design
+
+### Sample size determination requirements
+
+-   **Margin of error** $E$
+
+    -   maximum allowable/tolerable error, the error that comes due to sampling.
+
+-   **Variance of the population of interest (**$\sigma^2$)
+
+    -   usually unknown but usually stable over time, information can be derived from official studies or census.
+
+-   **Perceived value of proportion (**$p$)
+
+    -   the ratio at which the characteristics being studied is present in the population.
+
+## Sampling design
+
+::: callout-note
+## Take note
+
+::: incremental
+-   Confidence level shows the pecentage of times when the true population parameter is observed in the calculated confidence interval.
+
+-   Margin of error is the value that is added or subtracted to the sample statistic in order to create an interval estimate.
+
+-   In estimating proportions, the confidence interval and margin of error need not to be complementary; one can have a confidence level of 95% and a margin of error of 5% or a margin of error of 4%, depending on the researcher.
+
+-   In estimating means, the margin of error will not be a percentage but in the units of the variable which mean is to be predicted; the smaller the margin of error, the more precise will be the interval estimate.
+:::
+:::
+
+## Sampling design
+
+### Cochran's formula
+
+> can be used when estimating proportions (commonly in market research) and when population is no known.
+
+$$
+n = \frac{Z^2 \cdot p(1-p)}{E^2}
+$$
+
+## Sampling design
+
+### Cochran's formula
+
+::: callout-tip
+## Example
+
+A market study by a company wishes to know the proportion of individual that likes its product. It uses a systematic sampling methodology to select the individuals to be part of the survey and used the Cochran's formula to determine the sample size. The company wants to have a 95% confidence level and a margin of error of 10%. The company hypothesized the proportion of the population that likes the product at 75%. What is the sample size needed for the study?
+
+$$
+n = \frac{Z^2 \times p(1-p)}{E^2} = \frac{1.96^2 \times 0.75(1-0.75)}{0.1^2} = 72
+$$
+:::
+
+## Sampling design
+
+### Cochran's formula
+
+::: callout-tip
+## Example in R
+:::
+
+```{{r}}
+# Define the parameters
+confidence_level <- 0.95
+margin_of_error <- 0.10
+p <- 0.75
+
+# Calculate the Z-value for the given confidence level
+Z <- qnorm(1 - (1 - confidence_level) / 2)
+
+# Calculate the sample size using Cochran's formula
+sample_size <- (Z^2 * p * (1 - p)) / (margin_of_error^2)
+
+# Print the sample size
+cat("The sample size needed for the study is:", floor(sample_size), "\n")
+
+```
+
+<br>
+
+```{r}
+#| echo: FALSE
+
+# Define the parameters
+confidence_level <- 0.95
+margin_of_error <- 0.10
+p <- 0.75
+
+# Calculate the Z-value for the given confidence level
+Z <- qnorm(1 - (1 - confidence_level) / 2)
+
+# Calculate the sample size using Cochran's formula
+sample_size <- (Z^2 * p * (1 - p)) / (margin_of_error^2)
+
+# Print the sample size
+cat("The sample size needed for the study is:", floor(sample_size), "\n")
+
+```
+
+## Sampling design
+
+### Slovin's formula
+
+> a generalization of the Cochran's formula and can be used when estimating a population proportion.
+
+$$
+n = \frac{N}{1 + N(E^2)}
+$$
+
+## Sampling design
+
+### Slovin's formula
+
+::: callout-tip
+## Example
+
+A market study by a company wishes to know the proportion of individual that likes its product. It uses a systematic sampling methodology to select the individuals to be part of the survey and used the Slovin's formula to determine the sample size. The company wants to have a 95% confidence level and a margin of error of 10%. Its market is expected to be around 1000 individuals. Assume 5% margin of error. What is the sample size needed for the study?
+
+$$
+n = \frac{N}{1 + N(E^2)} = \frac{1000}{1 + 1000(0.05^2)} = 286
+$$
+:::
+
+## Sampling design
+
+### Slovin's formula
+
+::: callout-tip
+## Example in R
+:::
+
+```{{r}}
+# Define the parameters
+N <- 1000
+margin_of_error <- 0.05
+
+# Calculate the sample size using Slovin's formula
+sample_size <- N / (1 + N * margin_of_error^2)
+
+# Print the sample size
+cat("The sample size needed for the study is:", ceiling(sample_size), "\n")
+
+```
+
+<br>
+
+```{r}
+# Define the parameters
+N <- 1000
+margin_of_error <- 0.05
+
+# Calculate the sample size using Slovin's formula
+sample_size <- N / (1 + N * margin_of_error^2)
+
+# Print the sample size
+cat("The sample size needed for the study is:", ceiling(sample_size), "\n")
+
+```
+
+## Sampling design
+
+### Margin of error formula
+
+$$
+\text{confidence interval} = \bar{X} \pm Z_{\alpha /2} \times \frac{s}{\sqrt{n}}
+$$ $$
+\text{margin of error (E)} = Z_{\alpha /2} \times \frac{s}{\sqrt{n}}
+$$
+
+::: callout-tip
+## Example
+
+A local government wishes to look at the impact of the COVID-19 pandemic on SMEs income across town. Before the pandemic it was able to capture information on incomes of SMEs, the annual average income was 600,000 with a standard deviation of 140,000. Setting a margin of error of 30,000 and a confidence level of 95%, how many individual entrepreneurs will be surveyed in order to get a representative sample of the town's SME population?
+:::
+
+## Sampling design
+
+::: callout-tip
+## Example in R
+
+A local government wishes to look at the impact of the COVID-19 pandemic on SMEs income across town. Before the pandemic it was able to capture information on incomes of SMEs, the annual average income was 600,000 with a standard deviation of 140,000. Setting a margin of error of 30,000 and a confidence level of 95%, how many individual entrepreneurs will be surveyed in order to get a representative sample of the town's SME population?
+:::
+
+```{{r}}
+# Define the parameters
+Z <- qnorm(1 - (1 - 0.95) / 2)
+s <- 140000
+E <- 30000
+
+# Calculate the sample size using the margin of error formula
+sample_size <- (Z * s / E)^2
+
+# Print the sample size
+cat("The sample size needed for the study is:", ceiling(sample_size), "\n")
+```
+
+```{r}
+# Define the parameters
+Z <- qnorm(1 - (1 - 0.95) / 2)
+s <- 140000
+E <- 30000
+
+# Calculate the sample size using the margin of error formula
+sample_size <- (Z * s / E)^2
+
+# Print the sample size
+cat("The sample size needed for the study is:", ceiling(sample_size), "\n")
+
+```

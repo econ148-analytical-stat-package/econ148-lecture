@@ -1,0 +1,1017 @@
+---
+title: "."
+title-slide-attributes: 
+  data-background-image: "img/module-intro-r-title-page.png"
+  data-background-size: "cover"
+format: 
+  revealjs:
+    theme: [simple, custom.scss]
+    preview-links: true
+    code-fold: false
+    code-summary: "code"
+    chalkboard: true
+    slide-number: true
+    footer: "Econ 148: Analytical and statistical packages for economists 1"
+engine: knitr
+from: markdown+emoji
+editor: visual
+---
+
+```{r}
+#| echo: false
+#| include: false
+
+knitr::opts_chunk$set(comment = "", collapse = TRUE)
+
+## working directory
+setwd("D:/GoogleDrive/VSU/lectures/econ148-analytical-stat-package/github-repository/econ148-lecture/module-intro-r")
+
+## libraries
+library(tidyverse)
+
+## theme
+
+```
+
+## Overview
+
+::: incremental
+-   R objects
+
+-   R packages
+
+-   Reading data in R
+
+-   Basic data wrangling
+:::
+
+# 
+
+::: {style="font-size: 80%; text-align: center;"}
+![](img/r_first_then_new.png){width="90%" fig-align="center"}
+
+Illustration adopted from [Allison Horst](https://twitter.com/allison_horst)
+:::
+
+## R Objects
+
+::: columns
+::: {.column width="60%"}
+-   You can consider R objects as **saving information**
+
+-   e.g., text, number, matrix, vectro, dataframe
+
+-   In another words everything in R is an object
+:::
+
+::: {.column width="40%"}
+![](img/r_objects.gif){width="60%" fig-align="center"}
+:::
+:::
+
+## R objects
+
+-   Objects in R are assigned a value using &rarr;
+
+::: columns
+::: column
+::: fragment
+
+```{r}
+#| echo: true
+#| eval: false
+
+a1 <- 10
+a1
+```
+
+```{r}
+a1 <- 10
+a1
+```
+:::
+
+<br>
+
+::: fragment
+
+```{r}
+#| echo: true
+#| eval: false
+
+a2 <- 20
+a2
+```
+
+```{r}
+a2 <- 20
+a2
+```
+:::
+
+<br>
+
+::: fragment
+
+```{r}
+#| echo: true
+#| eval: false
+
+a3 <- c(10, 20, 30)
+a3
+```
+
+
+```{r}
+a3 <- c(10, 20, 30)
+a3
+```
+:::
+:::
+
+::: column
+::: fragment
+```{r}
+#| echo: true
+#| eval: false
+
+a1 + a2
+```
+
+```{r}
+a1 + a2
+```
+:::
+
+<br>
+
+::: fragment
+
+```{r}
+#| echo: true
+#| eval: false
+
+st_name <- "christopher"
+st_age <- 23
+st_sex <- "male"
+student <- c(st_name, st_age, st_sex)
+
+student
+```
+
+```{r}
+st_name <- "christopher"
+st_age <- 23
+st_sex <- "male"
+student <- c(st_name, st_age, st_sex)
+
+student
+```
+:::
+:::
+:::
+
+## R packages
+
+::: columns
+::: column
+-   Collection of functions that load into your working environment.
+
+-   A package contains code that other R users have prepared for the community.
+
+-   Installing a package
+
+```{r}
+#| eval: false
+#| echo: true
+
+install.packages("tidyverse")
+```
+
+-   Loading a package
+
+```{r}
+#| eval: false
+#| echo: true
+
+library(tidyverse)
+```
+:::
+
+::: column
+![](img/package.gif){width="80%" fig-align="center"}
+:::
+:::
+
+## Importing data
+
+-   SPSS, Stata, SAS files: [haven package](https://haven.tidyverse.org/)
+
+-   Excel files: [readxl package](https://readxl.tidyverse.org/)
+
+-   CSV files: [readr package](https://readr.tidyverse.org/)
+
+## Importing data into R
+
+#### SPSS, Stata & SAS using [haven package](https://haven.tidyverse.org/)
+
+::: columns
+::: column
+```{r}
+#| echo: true
+#| eval: false
+
+# loading haven package
+library(haven)
+```
+
+<br>
+
+```{r}
+#| echo: true
+#| eval: false
+
+# SPSS
+read_sav("path/data.sav")
+```
+
+<br>
+
+```{r}
+#| echo: true
+#| eval: false
+
+# Stata
+read_dta("path/data.dta")
+```
+
+<br>
+
+```{r}
+#| echo: true
+#| eval: false
+
+# SAS
+read_sas("path/data.sas7bdat")
+```
+:::
+
+::: column
+```{r}
+#| echo: false
+#| fig-align: center
+#| out-width: "40%"
+
+knitr::include_graphics("img/haven.png")
+```
+:::
+:::
+
+## Importing data into R
+
+#### Excel files using [readxl package](https://readxl.tidyverse.org/)
+
+<br>
+
+::: columns
+::: {.column width="60%"}
+```{r}
+#| echo: true
+#| eval: false
+library(readxl)
+read_excel("path/dataset.xls")
+```
+
+```{r echo=FALSE}
+#| echo: false
+#| results: hold 
+
+dataset_xl_sample <- readxl::readxl_example("datasets.xlsx")
+readxl::read_excel(dataset_xl_sample)
+```
+:::
+
+::: {.column width="40%"}
+```{r}
+#| echo: false
+#| fig-align: center
+#| out-width: "40%"
+
+knitr::include_graphics("img/readxl.png")
+```
+:::
+:::
+
+## Importing data into R
+
+#### CSV files using [readr package](https://readr.tidyverse.org/)
+
+<br>
+
+::: columns
+::: {.column width="60%"}
+```{r}
+#| echo: true
+#| eval: false
+
+install.packages("readr")
+library(readr)
+```
+
+<br>
+
+```{r}
+#| echo: true
+#| eval: false
+
+# comma separated (CSV) files
+read_csv("path/data.csv")
+```
+
+<br>
+
+```{r eval=FALSE}
+#| echo: true
+#| eval: false
+
+# tab separated files
+read_tsv("path/data.tsv")
+```
+
+<br>
+
+```{r eval=FALSE}
+#| echo: true
+#| eval: false
+
+# general delimited files
+read_delim("path/data.delim")
+```
+:::
+
+::: {.column width="40%"}
+```{r}
+#| echo: false
+#| fig-align: center
+#| out-width: "40%"
+
+knitr::include_graphics("img/readr.png")
+```
+:::
+:::
+
+## Basic data wrangling with Tidyverse {.center-text}
+
+![](img/tidyverse.png){height="60%" width="50%" fig-align="center"}
+
+## What is tidyverse?
+
+A collection of R packages designed for data science.
+
+All packages share an underlying philosophy, grammar, and data structure.
+
+<center><img src="https://rstudio-education.github.io/tidyverse-cookbook/images/data-science-workflow.png" style="width:60%"/></center>
+
+## 
+
+<center><img src="https://www.openscapes.org/img/blog/tidydata/tidydata_1.jpg" style="width:80%"/></center>
+
+::: {style="font-size:70%; text-align:center;"}
+Illustration adopted from [Allison Horst](https://github.com/allisonhorst)
+:::
+
+## 
+
+<center><img src="https://www.openscapes.org/img/blog/tidydata/tidydata_2.jpg" style="width: 80%"/></center>
+
+::: {style="font-size:70%; text-align:center;"}
+Illustration adopted from [Allison Horst](https://github.com/allisonhorst)
+:::
+
+## 
+
+::: center-text
+**Tidy data makes it easier for reproducibility and reuse**
+:::
+
+<center><img src="https://www.openscapes.org/img/blog/tidydata/tidydata_5.jpg" style="width: 80%"/></center>
+
+::: {style="font-size:70%; text-align:center;"}
+Illustration adopted from [Allison Horst](https://github.com/allisonhorst)
+:::
+
+## 
+
+::: center-text
+**Yehey! Tidy Data for the win!**
+:::
+
+<center><img src="https://www.openscapes.org/img/blog/tidydata/tidydata_6.jpg" style="width: 70%"/></center>
+
+::: {style="font-size:70%; text-align:center;"}
+Illustration adopted from [Allison Horst](https://github.com/allisonhorst)
+:::
+
+## Data wrangling using `dplyr` {.center-text}
+
+<center><img src="https://github.com/allisonhorst/stats-illustrations/blob/23bb6fe3d5bd6792d85744f8ff18dc7ec22585cd/rstats-artwork/dplyr_wrangling.png?raw=true" style="width:55%"/></center>
+
+::: {style="font-size:70%; text-align:center;"}
+Illustration adopted from [Allison Horst](https://github.com/allisonhorst)
+:::
+
+## `dplyr`
+
+::: columns
+::: column
+**Overview**
+
+-   `select()` picks variables based on their names
+
+-   `mutate()` adds new variables
+
+-   `filter()` picks cases based on their values
+
+-   `summarise()` reduces multiple values down to a single summary
+
+-   `arrange()` change the ordering of the rows
+
+::: aside
+see `dplyr` [cheatsheets](https://github.com/rstudio/cheatsheets/blob/cd775237fd6de08df51e69941fe01967ecd9bdc2/data-transformation.pdf)
+:::
+:::
+
+::: column
+![](img/dplyr.png){fig-align="center"}
+:::
+:::
+
+## `select()`
+
+::: columns
+::: {.column width="50%"}
+```{r echo=FALSE}
+data <- gapminder::gapminder
+```
+
+```{r}
+#| eval: false
+#| echo: true
+
+data
+```
+
+<br>
+
+```{r}
+#| echo: true
+#| class-output: "remark-code"
+
+data
+```
+:::
+
+::: {.column width="50%"}
+```{r}
+#| eval: false
+#| echo: true
+select(data, continent, country, pop)
+```
+
+<br>
+
+```{r}
+#| echo: true
+#| class-output: "remark-code"
+
+select(data, continent, country, pop)
+```
+:::
+:::
+
+## `select()`
+
+We can also **remove** variables with a **`-`** (minus)
+
+::: columns
+::: column
+```{r echo=FALSE}
+data <- gapminder::gapminder
+```
+
+```{r}
+#| echo: true
+#| eval: false
+
+data
+```
+
+<br>
+
+```{r}
+#| echo: true
+#| class-output: "remark-code"
+
+data
+```
+:::
+
+::: column
+```{r}
+#| echo: true
+#| eval: false
+
+select(data, -year, -pop)
+```
+
+<br>
+
+```{r}
+#| echo: true
+#| class-output: "remark-code"
+
+select(data, -year, -pop)
+```
+:::
+:::
+
+## `select()`
+
+**Selection helpers**
+
+These *selection helpers* match variables according to a given pattern.
+
+-   `starts_with()` starts with a prefix
+
+-   `ends_with()` ends with a suffix
+
+-   `contains()` contains a literal string
+
+-   `matches()` matches regular expression
+
+## `filter()`
+
+::: columns
+::: {.column width="50%"}
+```{r}
+#| echo: true
+#| eval: false
+data
+```
+
+<br>
+
+```{r}
+#| echo: true
+#| class-output: "remark-code"
+
+data
+```
+:::
+
+::: {.column width="50%"}
+```{r}
+#| echo: true
+#| eval: false
+
+filter(data, country == "Philippines")
+```
+
+<br>
+
+```{r}
+#| echo: true
+#| class-output: "remark-code"
+
+filter(data, country == "Philippines")
+```
+:::
+:::
+
+## `mutate()`
+
+The `mutate` function will take a statement similar to this:
+
+-   `variable_name` = `do_some_calculation`
+
+-   `variable_name` will be attached at the end of the dataset.
+
+## `mutate()`
+
+Let's calculate the `gdp`
+
+::: columns
+::: column
+```{r}
+#| echo: true
+#| eval: false
+
+data
+```
+
+<br>
+
+```{r}
+#| echo: true
+#| class-output: "remark-code"
+
+data
+```
+:::
+
+::: column
+```{r}
+#| echo: true
+#| eval: false
+
+mutate(data, GDP = gdpPercap * pop)
+```
+
+<br>
+
+```{r}
+#| echo: true
+#| class-output: "remark-code"
+
+mutate(data, GDP = gdpPercap * pop)
+```
+:::
+:::
+
+## `rename()`
+
+Changes the variable name while keeping all else intact.
+
+-   `new_variable_name` = `old_variable_name`
+
+::: columns
+::: column
+```{r}
+#| echo: true
+#| eval: false
+
+data
+```
+
+<br>
+
+```{r}
+#| echo: true
+#| class-output: "remark-code"
+
+data
+```
+:::
+
+::: column
+```{r}
+#| echo: true
+#| eval: false
+
+rename(data, population = pop)
+```
+
+<br>
+
+```{r}
+#| echo: true
+#| class-output: "remark-code"
+
+rename(data, population = pop)
+```
+:::
+:::
+
+## `arrange()`
+
+You can order data by variable to show the highest or lowest values first.
+
+::: columns
+::: column
+consider `lifeExp` default is lowest first
+
+```{r}
+#| echo: true
+#| eval: false
+
+data
+```
+
+<br>
+
+```{r}
+#| echo: true
+#| class-output: "remark-code"
+
+data
+```
+:::
+
+::: column
+`desc()` sort `lifeExp` from highest to lowest
+
+```{r}
+#| echo: true
+#| eval: false
+
+arrange(data, desc(lifeExp))
+```
+
+<br>
+
+```{r}
+#| echo: true
+#| class-output: "remark-code"
+
+arrange(data, desc(lifeExp))
+```
+:::
+:::
+
+## `group_by` and `summarise()`
+
+-   Use when you want to aggregate your data (by groups).
+
+-   Sometimes we want to calculate group statistics.
+
+<br>
+
+::: {style="fig.align="center";"}
+<img src="https://learn.r-journalism.com/wrangling/dplyr/images/groupby.png" style="width: 60%"/>
+:::
+
+## `group_by` and `summarise()`
+
+Suppose we want to know the average population by continent.
+
+::: columns
+::: column
+```{r}
+#| echo: true
+#| eval: false
+
+data
+```
+
+<br>
+
+```{r}
+#| echo: true
+#| class-output: "remark-code"
+
+data
+```
+:::
+
+::: column
+```{r}
+#| echo: true
+#| eval: false
+
+grouped_by_continent <- group_by(data, continent)
+summarise(grouped_by_continent, avg_pop = mean(pop))
+```
+
+<br>
+
+```{r}
+#| echo: true
+#| class-output: "remark-code"
+
+grouped_by_continent <- group_by(data, continent)
+summarise(grouped_by_continent, avg_pop = mean(pop))
+```
+:::
+:::
+
+## `group_by` and `summarise()`
+
+Suppose we want to know the average population by continent.
+
+::: columns
+::: column
+```{r}
+#| echo: true
+#| eval: false
+
+data
+```
+
+<br>
+
+```{r}
+#| echo: true
+#| class-output: "remark-code"
+
+data
+```
+:::
+
+::: column
+```{r}
+#| echo: true
+#| eval: false
+
+grouped_by_continent <- group_by(data, continent)
+summarised_data <- summarise(grouped_by_continent, avg_pop = mean(pop))
+arrange(summarised_data, desc(avg_pop))
+```
+
+<br>
+
+```{r}
+#| echo: true
+#| class-output: "remark-code"
+
+grouped_by_continent <- group_by(data, continent)
+summarised_data <- summarise(grouped_by_continent, avg_pop = mean(pop))
+arrange(summarised_data, desc(avg_pop))
+```
+:::
+:::
+
+##  {transition="fade" auto-animate="true"}
+
+::: columns
+::: column
+### Too many codes!
+
+### It's hard to follow!
+
+### It's hard to keep track of the codes!
+:::
+
+::: column
+![](img/teary.gif)
+:::
+:::
+
+##  {transition="fade" auto-animate="true"}
+
+<center><img src="https://rpodcast.github.io/officer-advrmarkdown/img/magrittr.png" style="width: 50%"/></center>
+
+### `%>%` pipe operator {.center-text}
+
+## The`%>%`operator
+
+The **`%>%`** helps your write code in a way that is easier to read and understand.
+
+::: columns
+::: column
+```{r}
+#| echo: true
+#| eval: false
+
+grouped_by_continent <- group_by(data, continent)
+summarised_data <- summarise(grouped_by_continent, avg_pop = mean(pop))
+arrange(summarised_data, desc(avg_pop))
+```
+
+<br>
+
+```{r}
+#| echo: true
+#| class-output: "remark-code"
+
+grouped_by_continent <- group_by(data, continent)
+summarised_data <- summarise(grouped_by_continent, avg_pop = mean(pop))
+arrange(summarised_data, desc(avg_pop))
+```
+:::
+
+::: column
+```{r}
+#| echo: true
+#| eval: false
+
+data %>% 
+  group_by(continent) %>% 
+  summarise(avg_pop = mean(pop)) %>% 
+  arrange(desc(avg_pop))
+```
+
+<br>
+
+```{r}
+#| echo: true
+#| class-output: "remark-code"
+
+data %>% 
+  group_by(continent) %>% 
+  summarise(avg_pop = mean(pop)) %>% 
+  arrange(desc(avg_pop))
+```
+:::
+:::
+
+## The`%>%`operator
+
+What is the average life expectancy of Asian countries per year?
+
+::: columns
+::: column
+```{r}
+#| echo: true
+#| eval: false
+
+filtered_by_asia <- filter(data, continent == "Asia")
+grouped_by_country_year <- group_by(filtered_by_asia, country, year)
+summarise(grouped_by_country_year, avg_lifeExp = mean(lifeExp))
+```
+
+<br>
+
+```{r}
+#| echo: true
+#| class-output: "remark-code"
+
+filtered_by_asia <- filter(data, continent == "Asia")
+grouped_by_country_year <- group_by(filtered_by_asia, country, year)
+summarise(grouped_by_country_year, avg_lifeExp = mean(lifeExp))
+```
+:::
+
+::: column
+```{r}
+#| echo: true
+#| eval: false
+
+data %>% 
+  filter(continent == "Asia") %>% 
+  group_by(country, year) %>% 
+  summarise(avg_lifeExp = mean(lifeExp))
+```
+
+<br>
+
+```{r}
+#| echo: true
+#| class-output: "remark-code"
+
+data %>% 
+  filter(continent == "Asia") %>% 
+  group_by(country, year) %>% 
+  summarise(avg_lifeExp = mean(lifeExp))
+```
+:::
+:::
+
+## The `%>%` operator
+
+::: columns
+::: column
+```{r}
+#| echo: true
+#| eval: false
+
+filtered_by_asia <- filter(data, continent == "Asia")
+grouped_by_country <- group_by(filtered_by_asia, country)
+summarised_by_country <- summarise(grouped_by_country, avg_lifeExp = mean(lifeExp))
+arrange(summarised_by_country, desc(avg_lifeExp))
+```
+
+<br>
+
+```{r}
+#| echo: true
+#| class-output: "remark-code"
+
+filtered_by_asia <- filter(data, continent == "Asia")
+grouped_by_country <- group_by(filtered_by_asia, country)
+summarised_by_country <- summarise(grouped_by_country, avg_lifeExp = mean(lifeExp))
+arrange(summarised_by_country, desc(avg_lifeExp))
+```
+:::
+
+::: column
+```{r}
+#| echo: true
+#| eval: false
+
+data %>% 
+  filter(continent == "Asia") %>% 
+  group_by(country) %>% 
+  summarise(avg_lifeExp = mean(lifeExp)) %>% 
+  arrange(desc(avg_lifeExp))
+```
+
+<br>
+
+```{r}
+#| echo: true
+#| class-output: "remark-code"
+
+data %>% 
+  filter(continent == "Asia") %>% 
+  group_by(country) %>% 
+  summarise(avg_lifeExp = mean(lifeExp)) %>% 
+  arrange(desc(avg_lifeExp))
+```
+:::
+:::
+
+# Let's practice
+
+# 
+
+![](img/econ148-hex-logo.png){fig-align="center" height="40%" width="40%"}
