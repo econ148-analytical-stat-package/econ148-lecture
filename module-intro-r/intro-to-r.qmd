@@ -24,7 +24,7 @@ editor: visual
 knitr::opts_chunk$set(comment = "", collapse = TRUE)
 
 ## working directory
-setwd("D:/GoogleDrive/VSU/lectures/econ148-analytical-stat-package/github-repository/econ148-lecture/module-intro-r")
+setwd("D:/Githu-repository/econ148-analytical-stat-packages/econ148-lecture/module-intro-r")
 
 ## libraries
 library(tidyverse)
@@ -71,12 +71,11 @@ Illustration adopted from [Allison Horst](https://twitter.com/allison_horst)
 
 ## R objects
 
--   Objects in R are assigned a value using &rarr;
+-   Objects in R are assigned a value using →
 
 ::: columns
 ::: column
 ::: fragment
-
 ```{r}
 #| echo: true
 #| eval: false
@@ -94,7 +93,6 @@ a1
 <br>
 
 ::: fragment
-
 ```{r}
 #| echo: true
 #| eval: false
@@ -112,7 +110,6 @@ a2
 <br>
 
 ::: fragment
-
 ```{r}
 #| echo: true
 #| eval: false
@@ -120,7 +117,6 @@ a2
 a3 <- c(10, 20, 30)
 a3
 ```
-
 
 ```{r}
 a3 <- c(10, 20, 30)
@@ -146,7 +142,6 @@ a1 + a2
 <br>
 
 ::: fragment
-
 ```{r}
 #| echo: true
 #| eval: false
