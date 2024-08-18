@@ -1,0 +1,333 @@
+### Code pasted here to help other chunks run faster
+
+
+## The idea of grammar of graphics
+
+:::: {.columns}
+
+::: {.column width="50%"}
+:::
+
+::: {.column width="50%"}
+<br>
+```{r}
+#| echo: FALSE
+#| out-width: 95%
+knitr::include_graphics("image/gg0.png")
+```
+:::
+::::
+
+## The idea of grammar of graphics
+
+:::: {.columns}
+
+::: {.column width="50%"}
+```{r}
+#| include: FALSE
+
+data1 <- sample_n(diamonds, 15000)
+```
+
+```{r}
+#| echo: FALSE
+#| fig-height: 8
+
+ggplot(data = data1) +
+  theme_gray()
+```
+:::
+
+::: {.column width="50%"}
+```{r}
+#| echo: FALSE
+#| out-width: 80%
+#| fig-align: center
+
+knitr::include_graphics("image/gg_data.png")
+```
+
+```{.r code-line-numbers="1"}
+ggplot(data = data1)
+```
+:::
+
+::::
+
+
+## The idea of grammar of graphics
+
+:::: {.columns}
+
+::: {.column width="50%"}
+```{r}
+#| echo: FALSE
+#| fig-height: 9
+
+ggplot(data = data1, 
+       mapping = aes(x = price, y = carat, color = clarity)) +
+  theme(axis.title = element_text(size = 20),
+        axis.text = element_text(size = 16))
+```
+:::
+
+::: {.column width="50%"}
+```{r}
+#| echo: false
+#| out-width: 80%
+#| fig-align: center
+
+knitr::include_graphics("image/gg_map.png")
+```
+
+```{.r code-line-numbers="2"}
+ggplot(data = data1, 
+       mapping = aes(x = price, y = carat))
+```
+:::
+
+::::
+
+
+## The idea of grammar of graphics
+
+:::: {.columns}
+
+::: {.column width="50%"}
+```{r}
+#| echo: FALSE
+#| fig-height: 9
+
+ggplot(data = data1, 
+       mapping = aes(x = price, y = carat, color = clarity)) +
+  geom_point() +
+  theme(axis.title = element_text(size = 20),
+        axis.text = element_text(size = 16))
+```
+:::
+
+::: {.column width="50%"}
+```{r}
+#| echo: false
+#| out-width: 80%
+#| fig-align: center
+
+knitr::include_graphics("image/gg_geom.png")
+```
+
+```{.r code-line-numbers="3"}
+ggplot(data = data1, 
+       mapping = aes(x = price, y = carat, color = clarity)) +
+       geom_point()
+```
+:::
+
+::::
+
+
+## The idea of grammar of graphics
+
+:::: {.columns}
+
+::: {.column width="50%"}
+```{r}
+#| echo: FALSE
+#| fig-height: 9
+
+ggplot(data = data1, 
+       mapping = aes(x = price, y = carat, color = clarity)) +
+  geom_point() +
+  stat_smooth() +
+  theme(axis.title = element_text(size = 20),
+        axis.text = element_text(size = 16))
+```
+:::
+
+::: {.column width="50%"}
+```{r}
+#| echo: false
+#| out-width: 80%
+#| fig-align: center
+
+knitr::include_graphics("image/gg_stat.png")
+```
+
+```{.r code-line-numbers="4"}
+ggplot(data = data1, 
+       mapping = aes(x = price, y = carat, color = clarity)) +
+       geom_point() +
+       stat_smooth()
+```
+:::
+
+::::
+
+
+## The idea of grammar of graphics
+
+:::: {.columns}
+
+::: {.column width="50%"}
+```{r}
+#| echo: FALSE
+#| fig-height: 9
+
+ggplot(data = data1, 
+       mapping = aes(x = price, y = carat, color = clarity)) +
+  geom_point() +
+  stat_smooth() +
+  scale_x_log10() +
+  theme(axis.title = element_text(size = 20),
+       axis.text = element_text(size = 16))
+```
+:::
+
+::: {.column width="50%"}
+```{r}
+#| echo: false
+#| out-width: 80%
+#| fig-align: center
+
+knitr::include_graphics("image/gg_scale.png")
+```
+
+```{.r code-line-numbers="5"}
+ggplot(data = data1, 
+       mapping = aes(x = price, y = carat, color = clarity)) +
+       geom_point() +
+       stat_smooth() +
+       scale_x_log10()
+```
+:::
+
+::::
+
+
+## The idea idea of grammar of graphics
+
+:::: {.columns}
+
+::: {.column width="50%"}
+```{r fig.height=7, echo=FALSE}
+#| echo: false
+#| fig-height: 9
+
+ggplot(data = data1, 
+       mapping = aes(x = price, y = carat, color = clarity)) +
+  geom_point() +
+  stat_smooth() +
+  scale_x_log10() +
+  coord_flip()
+```
+:::
+
+::: {.column width="50%"}
+```{r echo=FALSE, out.width="50%", fig.align='center'}
+#| echo: false
+#| out-width: 80%
+#| fig-align: center
+
+knitr::include_graphics("image/gg_coord.png")
+```
+
+```{.r code-line-numbers="6"}
+ggplot(data = data1, 
+       mapping = aes(x = price, y = carat, color = clarity)) +
+       geom_point() +
+       stat_smooth() +
+       scale_x_log10() +
+       coord_flip()
+```
+:::
+
+::::
+
+
+## The idea of grammar of graphics
+
+:::: {.columns}
+
+::: {.column width="50%"}
+```{r fig.height=7, echo=FALSE}
+#| echo: false
+#| fig-height: 9
+
+ggplot(data = data1, 
+       mapping = aes(x = price, y = carat, color = clarity)) +
+  geom_point() +
+  stat_smooth() +
+  scale_x_log10() +
+  coord_flip() +
+  facet_wrap(~ cut) +
+  theme(axis.title = element_text(size = 20),
+        axis.text = element_text(size = 16))
+```
+:::
+
+::: {.column width="50%"}
+```{r echo=FALSE, out.width="50%", fig.align='center'}
+#| echo: false
+#| out-width: 80%
+#| fig-align: center
+
+knitr::include_graphics("image/gg_facet.png")
+```
+
+```{.r code-line-numbers="7"}
+ggplot(data = data1, 
+       mapping = aes(x = price, y = carat, color = clarity)) +
+       geom_point() +
+       stat_smooth() +
+       scale_x_log10() +
+       coord_flip() +
+       facet_wrap(~ cut)
+```
+:::
+
+::::
+
+
+## The idea of grammar of graphics
+
+:::: {.columns}
+
+::: {.column width="50%"}
+```{r fig.height=7, echo=FALSE}
+#| echo: false
+#| fig-height: 9
+
+ggplot(data = data1, 
+       mapping = aes(x = price, y = carat, color = clarity)) +
+  geom_point() +
+  stat_smooth() +
+  scale_x_log10() +
+  coord_flip() +
+  facet_wrap(~ cut) +
+  theme_light() + 
+  theme(axis.title = element_text(size = 20),
+        axis.text = element_text(size = 16))
+```
+:::
+
+::: {.column width="50%"}
+```{r echo=FALSE, out.width="50%", fig.align='center'}
+#| echo: false
+#| out-width: 80%
+#| fig-align: center
+
+knitr::include_graphics("image/gg_theme.png")
+```
+
+```{.r code-line-numbers="8"}
+ggplot(data = data1, 
+       mapping = aes(x = price, y = carat, color = clarity)) +
+       geom_point() +
+       stat_smooth() +
+       scale_x_log10() +
+       coord_flip() +
+       facet_wrap(~ cut) +
+       theme_light()
+```
+:::
+
+::::

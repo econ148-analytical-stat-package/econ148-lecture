@@ -1,0 +1,312 @@
+---
+title: "."
+title-slide-attributes: 
+  data-background-image: "img/module-intro-ggplot.png"
+  data-background-size: "cover"
+format: 
+  revealjs:
+    theme: [simple, custom.scss]
+    preview-links: true
+    code-fold: false
+    code-summary: "code"
+    chalkboard: true
+    slide-number: true
+    footer: "Econ 148: Analytical and statistical packages for economists 1"
+engine: knitr
+from: markdown+emoji
+editor: visual
+---
+
+```{r}
+#| echo: false
+#| include: false
+
+knitr::opts_chunk$set(comment = "", collapse = TRUE)
+
+## working directory
+setwd("D:/Githu-repository/econ148-analytical-stat-packages/econ148-lecture/module-intro-ggplot")
+
+## libraries
+pacman::p_load(knitr, tidyverse, metathis)
+
+## theme
+theme_set(theme_minimal()) +
+  theme(axis.title = element_text(size = 14))
+
+```
+
+
+## Outline
+
+- The grammar of graphics
+
+- Datasets and mapping
+
+- Geometries
+
+- Statistical transformation and plotting distribution
+
+- Position adjustment and scales
+
+- Coordinates and themes
+
+- Facets and custom plots
+
+
+# The grammar of graphics
+
+
+## Why ggplot2?
+
+:::: {.columns}
+::: {.column}
+- Most requested programming languages for data scientists are R and Python.
+
+- ggplot2 as a visualization package for R, is becoming an industry standard for visualization.
+:::
+
+::: {.column}
+```{r}
+#| echo: FALSE
+#| out-width: 40%
+#| fig-align: center
+
+knitr::include_graphics("image/ggplot2_logo.png")
+```
+:::
+::::
+
+
+## Why grammar?
+
+:::: {.columns}
+::: {.column width="50%"}
+- You can create new sentences if you know about the grammar.
+
+- In ggplot2 context, you can create new graphics or tailored plot that suits your needs or preferences.
+:::
+
+::: {.column width="50%"}
+```{r}
+#| echo: FALSE
+#| out-width: 50%
+#| fig-align: center
+
+knitr::include_graphics("image/gg_book_cover.jfif")
+```
+
+::: aside
+Source: [The grammar of graphics](https://link.springer.com/book/10.1007/0-387-28695-0)]
+:::
+
+:::
+::::
+
+
+# Data and mapping
+
+## Data
+
+:::: {.columns}
+
+::: {.column width="60%"}
+- syntax
+
+```{.r code-line-numbers="1"}
+ggplot(data = <dataset>)
+```
+
+- For ggplot graphs, data are usually wrangled.
+
+- Tidy data
+
+  + Each variable is a column
+  
+  + Each observation is a row
+  
+  + Each value is a cell
+:::
+
+::: {.column width="40%"}
+```{r}
+#| echo: FALSE
+#| out-width: 95%
+#| fig-align: center
+
+knitr::include_graphics("image/gg_data.png")
+```
+:::
+
+::::
+
+
+## Mapping
+
+:::: {.columns}
+
+::: {.column width="60%"}
+- syntax
+```{.r code-line-numbers="2"}
+ggplot(data = <dataset>,
+       mapping = aes(x = <var1>, y = <var2>, ...))
+```
+
+- Variables are mapped to graphic's visual properties with **aesthetics mapping**
+
+- Usually we map:
+
+  + one variable on x axis
+  
+  + one variable on y axis
+  
+  + mapped to color, shape, fill, group, etc.
+:::
+
+::: {.column width="40%"}
+```{r out.width="70%", fig.align='center', echo=FALSE}
+#| echo: FALSE
+#| out-width: 95%
+#| fig-align: center
+
+knitr::include_graphics("image/gg_map.png")
+```
+:::
+
+::::
+
+
+## Data and mapping
+
+:::: {.columns}
+
+::: {.column width="60%"}
+- Can specify data and mappings in the plot category
+
+```{.r}
+ggplot(data = mydata, mapping = aes(x = varX, y = varY))
+```
+
+- Or specify for each layer
+
+```{.r code-line-numbers="2"}
+ggplot() +
+  geom_point(data = mydata, mapping = aes(x = varX, y =varY))
+```
+:::
+
+::: {.column width="40%"}
+```{r}
+#| echo: FALSE
+#| out-width: 95%
+#| fig-align: center
+
+knitr::include_graphics("image/gg_data_map.png")
+```
+:::
+
+::::
+
+
+## Data and mapping
+
+:::: {.columns}
+
+::: {.column width="50%"}
+```{.r code-line-numbers="2"}
+ggplot(data = mpg, 
+       mapping = aes(x = displ, y = hwy, color = class)) +
+       geom_point() +
+       geom_smooth(se = FALSE)
+
+```
+
+```{r}
+#| echo: FALSE
+#| fig-height: 7
+ggplot(data = mpg, 
+       mapping = aes(x = displ, y = hwy, color = class)) + 
+  geom_point(size = 4) +
+  geom_smooth(se = FALSE, size = 1.5) +
+  theme(axis.title = element_text(size = 24),
+        axis.text = element_text(size = 16))
+
+```
+:::
+
+::: {.column width="50%"}
+```{.r code-line-numbers="3"}
+ggplot(data = mpg, 
+       mapping = aes(x = displ, y = hwy)) +
+       geom_point(aes(color = class)) +
+       geom_smooth(se = FALSE)
+
+```
+
+```{r}
+#| echo: FALSE
+#| fig-height: 7
+
+ggplot(data = mpg, 
+       mapping = aes(x = displ, y = hwy)) +
+  geom_point(aes(color = class), size = 4) +
+  geom_smooth(se = FALSE, size = 1.5) +
+  theme(axis.title = element_text(size = 24),
+        axis.text = element_text(size = 16))
+
+```
+:::
+
+::::
+
+
+## Aesthetic mapping
+
+:::: {.columns}
+
+::: {.column width="50%"}
+**mapping**
+
+```{.r code-line-numbers="2"}
+ggplot(data = mpg, 
+       mapping = aes(x = displ, y = hwy, color = class)) +
+       geom_point()
+```
+
+```{r}
+#| echo: FALSE
+#| fig-height: 7
+
+ggplot(data = mpg, 
+       mapping = aes(x = displ, y = hwy, color = class)) +
+       geom_point(size = 4) +
+       theme(axis.title = element_text(size = 24),
+        axis.text = element_text(size = 16))
+```
+:::
+
+::: {.column width="50%"}
+**setting**
+
+```{.r code-line-numbers="3"}
+ggplot(data = mpg, 
+       mapping = aes(x = displ, y = hwy, color = class)) +
+       geom_point(color  = "red")
+```
+
+```{r}
+#| echo: FALSE
+#| fig-height: 7
+ggplot(data = mpg, 
+       mapping = aes(x = displ, y = hwy, color = class)) +
+       geom_point(color = "red", size = 4) +
+       theme(axis.title = element_text(size = 24),
+       axis.text = element_text(size = 16))
+```
+:::
+
+::::
+
+
+
+
+
