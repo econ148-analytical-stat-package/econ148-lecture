@@ -402,7 +402,7 @@
 <h2>Outline</h2>
 <ul>
 <li><p>The grammar of graphics</p></li>
-<li><p>Datasets and mapping</p></li>
+<li><p>Dataset and mapping</p></li>
 <li><p>Geometries</p></li>
 <li><p>Statistical transformation and plotting distribution</p></li>
 <li><p>Position adjustment and scales</p></li>
@@ -418,12 +418,12 @@
 <section id="why-ggplot2" class="slide level2">
 <h2>Why ggplot2?</h2>
 <div class="columns">
-<div class="column">
+<div class="column" style="width:50%;">
 <ul>
 <li><p>Most requested programming languages for data scientists are R and Python.</p></li>
 <li><p>ggplot2 as a visualization package for R, is becoming an industry standard for visualization.</p></li>
 </ul>
-</div><div class="column">
+</div><div class="column" style="width:50%;">
 <div class="cell" data-layout-align="center">
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
@@ -895,7 +895,7 @@
 <ul>
 <li>syntax</li>
 </ul>
-<div class="sourceCode" id="cb17" data-codeline-numbers="3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href=""></a><span class="fu">ggplot</span>(<span class="at">data =</span> <span class="sc">&lt;</span>dataset<span class="sc">&gt;</span>,</span>
+<div class="sourceCode" id="cb17" data-code-line-numbers="3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href=""></a><span class="fu">ggplot</span>(<span class="at">data =</span> <span class="sc">&lt;</span>dataset<span class="sc">&gt;</span>,</span>
 <span id="cb17-2"><a href=""></a>       <span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> <span class="sc">&lt;</span>varX<span class="sc">&gt;</span>, <span class="at">y =</span> <span class="sc">&lt;</span>varY<span class="sc">&gt;</span>, ...)) <span class="sc">+</span></span>
 <span id="cb17-3"><a href=""></a>  geom_<span class="sc">&lt;</span><span class="cf">function</span><span class="sc">&gt;</span>(...)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <ul>
@@ -1185,7 +1185,7 @@ $ prop &lt;dbl&gt; 0.07238359, 0.02667896, 0.02052149, 0.01986579, 0.01788843, 0
 <section id="statistics-3" class="slide level2">
 <h2>Statistics</h2>
 <div class="columns">
-<div class="column" style="width:60%;">
+<div class="column" style="font-size: 0.8em;">
 <p><strong>Computed aesthetics</strong></p>
 <p>When a stat perform a transformation, new variables are created.</p>
 <p>e.g., in <code>geom_histogram</code> computed variables are:</p>
@@ -1199,13 +1199,22 @@ $ prop &lt;dbl&gt; 0.07238359, 0.02667896, 0.02052149, 0.01986579, 0.01788843, 0
 </div><div class="column" style="width:40%;">
 <div class="sourceCode" id="cb23" data-code-line-numbers="2"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href=""></a><span class="fu">ggplot</span>(<span class="at">data =</span> mpg, <span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> displ)) <span class="sc">+</span></span>
 <span id="cb23-2"><a href=""></a>      <span class="fu">geom_histogram</span>(<span class="fu">aes</span>(<span class="at">y =</span> ..count..))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<figure>
+<p><img data-src="index_files/figure-revealjs/unnamed-chunk-38-1.png" width="576"></p>
+</figure>
+</div>
+</div>
+</div>
 </div>
 </div>
 </section>
 <section id="statistics-4" class="slide level2">
 <h2>Statistics</h2>
 <div class="columns">
-<div class="column" style="width:40%;">
+<div class="column" style="font-size: 0.8em;">
 <p><strong>Computed aesthetics</strong></p>
 <p>When a stat perform a transformation, new variables are created.</p>
 <p>e.g., in <code>geom_histogram</code> computed variables are:</p>
@@ -1219,6 +1228,15 @@ $ prop &lt;dbl&gt; 0.07238359, 0.02667896, 0.02052149, 0.01986579, 0.01788843, 0
 </div><div class="column" style="width:60%;">
 <div class="sourceCode" id="cb24" data-code-line-numbers="2"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a href=""></a><span class="fu">ggplot</span>(<span class="at">data =</span> mpg, <span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> displ)) <span class="sc">+</span></span>
 <span id="cb24-2"><a href=""></a>  <span class="fu">geom_histogram</span>(<span class="fu">aes</span>(<span class="at">y =</span> <span class="fu">stat</span>(density)))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<figure>
+<p><img data-src="index_files/figure-revealjs/unnamed-chunk-39-1.png" width="960"></p>
+</figure>
+</div>
+</div>
+</div>
 </div>
 </div>
 </section>
@@ -1239,7 +1257,7 @@ $ prop &lt;dbl&gt; 0.07238359, 0.02667896, 0.02052149, 0.01986579, 0.01788843, 0
 <div class="cell-output-display">
 <div>
 <figure>
-<p><img data-src="index_files/figure-revealjs/unnamed-chunk-39-1.png" width="960"></p>
+<p><img data-src="index_files/figure-revealjs/unnamed-chunk-41-1.png" width="960"></p>
 </figure>
 </div>
 </div>
@@ -1252,10 +1270,23 @@ $ prop &lt;dbl&gt; 0.07238359, 0.02667896, 0.02052149, 0.01986579, 0.01788843, 0
 <div class="columns">
 <div class="column" style="width:60%;">
 <p><strong>Histogram and freq polygon</strong></p>
-<p><strong><code>geom_histogram</code></strong> - display counts with bars - require continuous data</p>
+<p><strong><code>geom_histogram</code></strong></p>
+<ul>
+<li><p>display counts with bars</p></li>
+<li><p>require continuous data</p></li>
+</ul>
 </div><div class="column" style="width:40%;">
 <div class="sourceCode" id="cb25" data-code-line-numbers="2"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a href=""></a><span class="fu">ggplot</span>(<span class="at">data =</span> data1, <span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> price)) <span class="sc">+</span> </span>
 <span id="cb25-2"><a href=""></a>  <span class="fu">geom_histogram</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<figure>
+<p><img data-src="index_files/figure-revealjs/unnamed-chunk-42-1.png" width="960"></p>
+</figure>
+</div>
+</div>
+</div>
 </div>
 </div>
 </section>
@@ -1281,6 +1312,15 @@ $ prop &lt;dbl&gt; 0.07238359, 0.02667896, 0.02052149, 0.01986579, 0.01788843, 0
 </div><div class="column" style="width:60%;">
 <div class="sourceCode" id="cb26" data-code-line-numbers="2"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb26-1"><a href=""></a><span class="fu">ggplot</span>(<span class="at">data =</span> data1, <span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> price)) <span class="sc">+</span> </span>
 <span id="cb26-2"><a href=""></a>  <span class="fu">geom_freqpoly</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<figure>
+<p><img data-src="index_files/figure-revealjs/unnamed-chunk-43-1.png" width="960"></p>
+</figure>
+</div>
+</div>
+</div>
 </div>
 </div>
 </section>
@@ -1307,6 +1347,15 @@ $ prop &lt;dbl&gt; 0.07238359, 0.02667896, 0.02052149, 0.01986579, 0.01788843, 0
 <div class="sourceCode" id="cb27" data-code-line-numbers="2-3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb27-1"><a href=""></a><span class="fu">ggplot</span>(<span class="at">data =</span> data1, <span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> price)) <span class="sc">+</span> </span>
 <span id="cb27-2"><a href=""></a>  <span class="fu">geom_freqpoly</span>() <span class="sc">+</span></span>
 <span id="cb27-3"><a href=""></a>  <span class="fu">geom_histogram</span>(<span class="at">alpha =</span> <span class="fl">0.4</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<figure>
+<p><img data-src="index_files/figure-revealjs/unnamed-chunk-44-1.png" width="960"></p>
+</figure>
+</div>
+</div>
+</div>
 </div>
 </div>
 </section>
@@ -1323,6 +1372,15 @@ $ prop &lt;dbl&gt; 0.07238359, 0.02667896, 0.02052149, 0.01986579, 0.01788843, 0
 </div><div class="column" style="width:50%;">
 <div class="sourceCode" id="cb28" data-code-line-numbers="2"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb28-1"><a href=""></a><span class="fu">ggplot</span>(<span class="at">data =</span> data1, <span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> depth)) <span class="sc">+</span></span>
 <span id="cb28-2"><a href=""></a>  <span class="fu">geom_density</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<figure>
+<p><img data-src="index_files/figure-revealjs/unnamed-chunk-45-1.png" width="960"></p>
+</figure>
+</div>
+</div>
+</div>
 </div>
 </div>
 </section>
@@ -1339,6 +1397,15 @@ $ prop &lt;dbl&gt; 0.07238359, 0.02667896, 0.02052149, 0.01986579, 0.01788843, 0
 </div><div class="column" style="width:50%;">
 <div class="sourceCode" id="cb29" data-code-line-numbers="2"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb29-1"><a href=""></a><span class="fu">ggplot</span>(<span class="at">data =</span> data1, <span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> depth, <span class="at">color =</span> cut, <span class="at">fill =</span> cut)) <span class="sc">+</span></span>
 <span id="cb29-2"><a href=""></a>      <span class="fu">geom_density</span>(<span class="at">alpha =</span> <span class="fl">0.4</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<figure>
+<p><img data-src="index_files/figure-revealjs/unnamed-chunk-46-1.png" width="960"></p>
+</figure>
+</div>
+</div>
+</div>
 </div>
 </div>
 </section>
@@ -1367,7 +1434,7 @@ $ prop &lt;dbl&gt; 0.07238359, 0.02667896, 0.02052149, 0.01986579, 0.01788843, 0
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure>
-<p><img data-src="index_files/figure-revealjs/unnamed-chunk-40-1.png" class="quarto-figure quarto-figure-center" width="960"></p>
+<p><img data-src="index_files/figure-revealjs/unnamed-chunk-47-1.png" class="quarto-figure quarto-figure-center" width="960"></p>
 </figure>
 </div>
 </div>
@@ -1386,7 +1453,7 @@ $ prop &lt;dbl&gt; 0.07238359, 0.02667896, 0.02052149, 0.01986579, 0.01788843, 0
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure>
-<p><img data-src="index_files/figure-revealjs/unnamed-chunk-41-1.png" class="quarto-figure quarto-figure-center" width="960"></p>
+<p><img data-src="index_files/figure-revealjs/unnamed-chunk-48-1.png" class="quarto-figure quarto-figure-center" width="960"></p>
 </figure>
 </div>
 </div>
@@ -1448,7 +1515,520 @@ $ prop &lt;dbl&gt; 0.07238359, 0.02667896, 0.02052149, 0.01986579, 0.01788843, 0
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure>
-<p><img data-src="index_files/figure-revealjs/unnamed-chunk-42-1.png" class="quarto-figure quarto-figure-center" width="960"></p>
+<p><img data-src="index_files/figure-revealjs/unnamed-chunk-49-1.png" class="quarto-figure quarto-figure-center" width="960"></p>
+</figure>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section></section>
+<section>
+<section id="scale-and-position-adjustments" class="title-slide slide level1 center">
+<h1>Scale and position adjustments</h1>
+
+</section>
+<section id="scales-and-position-adjustments" class="slide level2">
+<h2>Scales and position adjustments</h2>
+<div class="columns">
+<div class="column" style="width:60%;">
+<ul>
+<li>syntax</li>
+</ul>
+<div class="sourceCode" id="cb33" data-codeline-numners="5"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb33-1"><a href=""></a><span class="fu">ggplot</span>(<span class="at">data =</span> <span class="sc">&lt;</span>dataset<span class="sc">&gt;</span>,</span>
+<span id="cb33-2"><a href=""></a>       <span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> <span class="sc">&lt;</span>varX<span class="sc">&gt;</span>, <span class="at">y =</span> <span class="sc">&lt;</span>varY<span class="sc">&gt;</span>, ...)) <span class="sc">+</span></span>
+<span id="cb33-3"><a href=""></a>  geom_<span class="sc">&lt;</span><span class="cf">function</span><span class="sc">&gt;</span>(..., <span class="at">stat =</span> <span class="sc">&lt;</span>stat<span class="sc">&gt;</span>, <span class="at">position =</span> <span class="sc">&lt;</span>position<span class="sc">&gt;</span>) <span class="sc">+</span><span class="dv">0</span></span>
+<span id="cb33-4"><a href=""></a>  geom_<span class="sc">&lt;</span>stat<span class="sc">&gt;</span>(...) <span class="sc">+</span> </span>
+<span id="cb33-5"><a href=""></a>  scale_<span class="sc">&lt;</span>aesthetic<span class="sc">&gt;</span>_<span class="sc">&lt;</span>type<span class="sc">&gt;</span> <span class="co">#&lt;&lt;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<ul>
+<li><p><strong>Scales</strong> control how data values are translated to visual properties</p></li>
+<li><p>Can overide default scales like axis,legend, and transformation of data to aesthetics.</p></li>
+</ul>
+</div><div class="column" style="width:40%;">
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="image/gg_scale.png" class="quarto-figure quarto-figure-center" style="width:70.0%"></p>
+</figure>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="scale" class="slide level2">
+<h2>Scale</h2>
+<div class="columns">
+<div class="column" style="width:40%;">
+<p>Scales belong to one these types:</p>
+<ul>
+<li>continuous scale</li>
+<li>discrete scale</li>
+<li>binned scale</li>
+</ul>
+<p>Naming scheme:</p>
+<ul>
+<li><p><em>scale + aesthetic + name of scale</em></p>
+<ul>
+<li><code>scale_*_continuous()</code></li>
+<li><code>scale_*_discrete()</code></li>
+<li><code>scale_*_manual()</code></li>
+</ul></li>
+</ul>
+</div><div class="column" style="width:60%;">
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<figure>
+<p><img data-src="image/scale_collection.jpg" width="762"></p>
+</figure>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="scale-1" class="slide level2">
+<h2>Scale</h2>
+<div class="columns">
+<div class="column" style="width:40%;">
+
+</div><div class="column" style="width:60%;">
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<figure>
+<p><img data-src="image/scale_params.jpg" width="1231"></p>
+</figure>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="scale-2" class="slide level2">
+<h2>Scale</h2>
+<div class="columns">
+<div class="column" style="width:50%;">
+<div class="cell" data-layout-align="center">
+<div class="sourceCode cell-code" id="cb34"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb34-1"><a href=""></a>p <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(iris_data, <span class="fu">aes</span>(<span class="at">x =</span> sepal_length, <span class="at">y =</span> sepal_width, <span class="at">color =</span> species)) <span class="sc">+</span> <span class="fu">geom_point</span>(<span class="at">size =</span> <span class="dv">2</span>)</span>
+<span id="cb34-2"><a href=""></a>p</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="index_files/figure-revealjs/unnamed-chunk-54-1.png" class="quarto-figure quarto-figure-center" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+</div><div class="column" style="width:50%;">
+<div class="cell" data-layout-align="center">
+<div class="sourceCode cell-code" id="cb35"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb35-1"><a href=""></a>p <span class="sc">+</span> <span class="fu">scale_color_manual</span>(<span class="at">name =</span> <span class="st">"Manual"</span>,</span>
+<span id="cb35-2"><a href=""></a>                       <span class="at">values =</span> <span class="fu">c</span>(<span class="st">"#5BC0EB"</span>,<span class="st">"#FDE74C"</span>,<span class="st">"#9BC53D"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="index_files/figure-revealjs/unnamed-chunk-55-1.png" class="quarto-figure quarto-figure-center" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="scale-3" class="slide level2">
+<h2>Scale</h2>
+<p><strong>Position scales</strong></p>
+<div class="columns">
+<div class="column" style="width:50%;">
+<h4 id="continuous">Continuous</h4>
+<ul>
+<li>scale_x_continuous | scale_y_continuous</li>
+<li>scale_x_log10 | scale_y_log10</li>
+<li>scale_x_reverse | scale_y_reverse</li>
+<li>scale_x_sqrt | scale_x_sqrt</li>
+</ul>
+</div><div class="column" style="width:50%;">
+<div class="sourceCode" id="cb36"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb36-1"><a href=""></a><span class="fu">scale_x_continuous</span>(</span>
+<span id="cb36-2"><a href=""></a>  <span class="at">name =</span> <span class="fu">waiver</span>(),</span>
+<span id="cb36-3"><a href=""></a>  <span class="at">breaks =</span> <span class="fu">waiver</span>(),</span>
+<span id="cb36-4"><a href=""></a>  <span class="at">minor_breaks =</span> <span class="fu">waiver</span>(),</span>
+<span id="cb36-5"><a href=""></a>  <span class="at">n.breaks =</span> <span class="cn">NULL</span>,</span>
+<span id="cb36-6"><a href=""></a>  <span class="at">labels =</span> <span class="fu">waiver</span>(),</span>
+<span id="cb36-7"><a href=""></a>  <span class="at">limits =</span> <span class="cn">NULL</span>,</span>
+<span id="cb36-8"><a href=""></a>  <span class="at">expand =</span> <span class="fu">waiver</span>()</span>
+<span id="cb36-9"><a href=""></a>  <span class="at">oob =</span> censor,</span>
+<span id="cb36-10"><a href=""></a>  <span class="at">na.value =</span> <span class="cn">NA_real_</span>,</span>
+<span id="cb36-11"><a href=""></a>  <span class="at">trans =</span> <span class="st">"identity"</span>,</span>
+<span id="cb36-12"><a href=""></a>  <span class="at">position =</span> <span class="st">"bottom"</span>,</span>
+<span id="cb36-13"><a href=""></a>  <span class="at">guide =</span> waiver,</span>
+<span id="cb36-14"><a href=""></a>  )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div>
+</section>
+<section id="scale-4" class="slide level2">
+<h2>Scale</h2>
+<p><strong>Position scales</strong></p>
+<div class="columns">
+<div class="column" style="width:50%;">
+<h4 id="binned">Binned</h4>
+<ul>
+<li>scale_x_binned | scale_y_binned</li>
+</ul>
+</div><div class="column" style="width:50%;">
+<div class="sourceCode" id="cb37"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb37-1"><a href=""></a><span class="fu">scale_x_binned</span>(</span>
+<span id="cb37-2"><a href=""></a>  <span class="at">name =</span> <span class="fu">waiver</span>(),</span>
+<span id="cb37-3"><a href=""></a>  <span class="at">breaks =</span> <span class="fu">waiver</span>(),</span>
+<span id="cb37-4"><a href=""></a>  <span class="at">labels =</span> <span class="fu">waiver</span>(),</span>
+<span id="cb37-5"><a href=""></a>  <span class="at">limits =</span> <span class="cn">NULL</span>,</span>
+<span id="cb37-6"><a href=""></a>  <span class="at">exapand =</span> <span class="fu">waiver</span>()</span>
+<span id="cb37-7"><a href=""></a>  <span class="at">oob =</span> censor,</span>
+<span id="cb37-8"><a href=""></a>  <span class="at">na.value =</span> <span class="cn">NA_real_</span>,</span>
+<span id="cb37-9"><a href=""></a>  <span class="at">trans =</span> <span class="st">"identity"</span>,</span>
+<span id="cb37-10"><a href=""></a>  <span class="at">position =</span> <span class="st">"bottom"</span>,</span>
+<span id="cb37-11"><a href=""></a>  )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div>
+</section>
+<section id="scale-5" class="slide level2">
+<h2>Scale</h2>
+<p><strong>Position scales</strong></p>
+<div class="columns">
+<div class="column" style="width:50%;">
+<h4 id="discrete">Discrete</h4>
+<ul>
+<li>scale_x_discrete | scale_y_discrete</li>
+</ul>
+</div><div class="column" style="width:50%;">
+<div class="sourceCode" id="cb38"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb38-1"><a href=""></a><span class="fu">scale_x_discrete</span>(</span>
+<span id="cb38-2"><a href=""></a>  <span class="at">name =</span> <span class="fu">waiver</span>(),</span>
+<span id="cb38-3"><a href=""></a>  <span class="at">breaks =</span> <span class="fu">waiver</span>(),</span>
+<span id="cb38-4"><a href=""></a>  <span class="at">labels =</span> <span class="fu">waiver</span>(),</span>
+<span id="cb38-5"><a href=""></a>  <span class="at">limits =</span> <span class="cn">NULL</span>,</span>
+<span id="cb38-6"><a href=""></a>  <span class="at">exapand =</span> <span class="fu">waiver</span>()</span>
+<span id="cb38-7"><a href=""></a>  <span class="at">oob =</span> censor,</span>
+<span id="cb38-8"><a href=""></a>  <span class="at">na.value =</span> <span class="cn">NA_real_</span>,</span>
+<span id="cb38-9"><a href=""></a>  <span class="at">trans =</span> <span class="st">"identity"</span>,</span>
+<span id="cb38-10"><a href=""></a>  <span class="at">position =</span> <span class="st">"bottom"</span>,</span>
+<span id="cb38-11"><a href=""></a>  )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div>
+</section>
+<section id="scale-6" class="slide level2">
+<h2>Scale</h2>
+<p><strong>Color scales</strong></p>
+<div class="columns" style="font-size: 80%;">
+<div class="column" style="width:50%;">
+<p>Continuous</p>
+<ul>
+<li>scale_color_continuous | scale_fill_continuous</li>
+<li>scale_color_gradient | scale_fill_gradient</li>
+</ul>
+<p>Binned</p>
+<ul>
+<li>scale_color_binned | scale_fill_binned</li>
+<li>scale_color_steps | scale_fill_steps</li>
+</ul>
+<p>Discrete</p>
+<ul>
+<li>scale_color_discrete | scale_fill_discrete</li>
+<li>scale_color_hue | scale_fill_hue</li>
+<li>scale_color_grey | scale_color_grey</li>
+</ul>
+</div><div class="column" style="width:50%;">
+<div class="cell" data-layout-align="center">
+<div class="sourceCode cell-code" id="cb39"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb39-1"><a href=""></a><span class="fu">ggplot</span>(mtcars, <span class="fu">aes</span>(mpg, wt, <span class="at">color =</span> cyl)) <span class="sc">+</span></span>
+<span id="cb39-2"><a href=""></a>  <span class="fu">geom_point</span>(<span class="at">size =</span> <span class="dv">5</span>) <span class="sc">+</span></span>
+<span id="cb39-3"><a href=""></a>  <span class="fu">scale_color_viridis_c</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="index_files/figure-revealjs/unnamed-chunk-56-1.png" class="quarto-figure quarto-figure-center" width="576"></p>
+</figure>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="scale-7" class="slide level2">
+<h2>Scale</h2>
+<p><strong>Viridis family</strong></p>
+<div class="columns" style="font-size: 80%;">
+<div class="column" style="width:50%;">
+<p>Continuous</p>
+<ul>
+<li>scale_color_viridis_c</li>
+<li>scale_fill_viridis_c</li>
+</ul>
+<p>Binned</p>
+<ul>
+<li>scale_color_viridis_b</li>
+<li>scale_fill_viridis_b</li>
+</ul>
+<p>Discrete</p>
+<ul>
+<li>scale_color_viridis_d</li>
+<li>scale_fill_viridis_d</li>
+</ul>
+</div><div class="column" style="width:50%;">
+<div class="cell" data-layout-align="center">
+<div class="sourceCode cell-code" id="cb40"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb40-1"><a href=""></a><span class="fu">ggplot</span>(mtcars, <span class="fu">aes</span>(mpg, wt, <span class="at">color =</span> cyl)) <span class="sc">+</span></span>
+<span id="cb40-2"><a href=""></a>  <span class="fu">geom_point</span>(<span class="at">size =</span> <span class="dv">5</span>) <span class="sc">+</span></span>
+<span id="cb40-3"><a href=""></a>  <span class="fu">scale_color_viridis_c</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="index_files/figure-revealjs/unnamed-chunk-57-1.png" class="quarto-figure quarto-figure-center" width="576"></p>
+</figure>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="scale-8" class="slide level2">
+<h2>Scale</h2>
+<p><strong>Colorbrewer family</strong></p>
+<div class="columns" style="font-size: 80%;">
+<div class="column" style="width:50%;">
+<p>Continuous</p>
+<ul>
+<li>scale_color_distiller | scale_fill_distiller</li>
+</ul>
+<p>Binned</p>
+<ul>
+<li>scale_color_fermenter | scale_fill_fermenter</li>
+</ul>
+<p>Discrete</p>
+<ul>
+<li>scale_color_brewer | scale_fill_brewer</li>
+</ul>
+<div class="sourceCode" id="cb41"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb41-1"><a href=""></a><span class="co"># useful parameters</span></span>
+<span id="cb41-2"><a href=""></a>type <span class="ot">=</span> <span class="st">"seq"</span>(sequential, the default), <span class="st">"div"</span>(diverging), <span class="st">"qual"</span>(qualitative)</span>
+<span id="cb41-3"><a href=""></a>direction <span class="ot">=</span> <span class="dv">1</span> (default), <span class="sc">-</span><span class="dv">1</span> (reverse order)</span>
+<span id="cb41-4"><a href=""></a>palette <span class="ot">=</span> name of pallete or index</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div><div class="column" style="width:50%;">
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="index_files/figure-revealjs/unnamed-chunk-58-1.png" class="quarto-figure quarto-figure-center" style="width:55.0%"></p>
+</figure>
+</div>
+</div>
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="index_files/figure-revealjs/unnamed-chunk-58-2.png" class="quarto-figure quarto-figure-center" style="width:55.0%"></p>
+</figure>
+</div>
+</div>
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="index_files/figure-revealjs/unnamed-chunk-58-3.png" class="quarto-figure quarto-figure-center" style="width:55.0%"></p>
+</figure>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="scale-9" class="slide level2">
+<h2>Scale</h2>
+<p><strong><code>scale_*_manual</code></strong></p>
+<div class="columns">
+<div class="column" style="font-size: 80%;">
+<ul>
+<li>available only for discrete scales</li>
+<li>useful if you want to specify your own set of mappings from levels in the data to aesthetic values.</li>
+</ul>
+<p>For example</p>
+<ul>
+<li>choosing set of colors in discrete color scale</li>
+<li>specifying your own set of alpha</li>
+<li>specifying your own set of shapes</li>
+<li>specifying your own set of linetypes</li>
+<li>…</li>
+</ul>
+</div><div class="column" style="width:50%;">
+<div class="sourceCode" id="cb42" data-code-line-numbers="3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb42-1"><a href=""></a><span class="fu">ggplot</span>(mtcars, <span class="fu">aes</span>(<span class="at">x =</span> mpg, <span class="at">y =</span> wt, <span class="at">color =</span> <span class="fu">factor</span>(cyl))) <span class="sc">+</span></span>
+<span id="cb42-2"><a href=""></a>  <span class="fu">geom_point</span>(<span class="at">size =</span> <span class="dv">4</span>) <span class="sc">+</span></span>
+<span id="cb42-3"><a href=""></a>  <span class="fu">scale_color_manual</span>(<span class="at">values =</span> <span class="fu">c</span>(<span class="st">"blue"</span>, <span class="st">"black"</span>, <span class="st">"orange"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="index_files/figure-revealjs/unnamed-chunk-59-1.png" class="quarto-figure quarto-figure-center" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="scale-10" class="slide level2">
+<h2>Scale</h2>
+<p><strong><code>scale_*_manual</code></strong></p>
+<div class="columns">
+<div class="column" style="font-size: 80%;">
+<ul>
+<li>available only for discrete scales</li>
+<li>useful if you want to specify your own set of mappings from levels in the data to aesthetic values.</li>
+</ul>
+<p>For example</p>
+<ul>
+<li>choosing set of colors in discrete color scale</li>
+<li>specifying your own set of alpha</li>
+<li>specifying your own set of shapes</li>
+<li>specifying your own set of linetypes</li>
+<li>…</li>
+</ul>
+</div><div class="column" style="width:50%;">
+<div class="sourceCode" id="cb43" data-code-line-numbers="3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb43-1"><a href=""></a><span class="fu">ggplot</span>(mtcars, <span class="fu">aes</span>(<span class="at">x =</span> mpg, <span class="at">y =</span> wt, <span class="at">color =</span> <span class="fu">factor</span>(cyl))) <span class="sc">+</span></span>
+<span id="cb43-2"><a href=""></a>  <span class="fu">geom_point</span>(<span class="at">size =</span> <span class="dv">4</span>) <span class="sc">+</span></span>
+<span id="cb43-3"><a href=""></a>  <span class="fu">scale_alpha_manual</span>(<span class="at">values =</span> <span class="fu">c</span>(<span class="fl">0.3</span>, <span class="fl">0.6</span>, <span class="dv">1</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="index_files/figure-revealjs/unnamed-chunk-60-1.png" class="quarto-figure quarto-figure-center" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="scale-11" class="slide level2">
+<h2>Scale</h2>
+<p><strong><code>scale_*_manual</code></strong></p>
+<div class="columns">
+<div class="column" style="font-size: 80%;">
+<ul>
+<li>available only for discrete scales</li>
+<li>useful if you want to specify your own set of mappings from levels in the data to aesthetic values.</li>
+</ul>
+<p>For example</p>
+<ul>
+<li>choosing set of colors in discrete color scale</li>
+<li>specifying your own set of alpha</li>
+<li>specifying your own set of shapes</li>
+<li>specifying your own set of linetypes</li>
+<li>…</li>
+</ul>
+</div><div class="column" style="width:50%;">
+<div class="sourceCode" id="cb44" data-code-line-numbers="3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb44-1"><a href=""></a><span class="fu">ggplot</span>(mtcars, <span class="fu">aes</span>(<span class="at">x =</span> mpg, <span class="at">y =</span> wt, <span class="at">shape =</span> <span class="fu">factor</span>(cyl))) <span class="sc">+</span></span>
+<span id="cb44-2"><a href=""></a>  <span class="fu">geom_point</span>(<span class="at">size =</span> <span class="dv">4</span>) <span class="sc">+</span></span>
+<span id="cb44-3"><a href=""></a>  <span class="fu">scale_shape_manual</span>(<span class="at">values =</span> <span class="fu">c</span>(<span class="fl">0.3</span>, <span class="fl">0.6</span>, <span class="dv">1</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="index_files/figure-revealjs/unnamed-chunk-61-1.png" class="quarto-figure quarto-figure-center" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="scales" class="slide level2">
+<h2>Scales</h2>
+<p><strong>Shortcuts</strong></p>
+<div class="columns">
+<div class="column" style="width:50%;">
+<h4 id="labs">Labs</h4>
+<ul>
+<li>modify axis, legend, and plot labels</li>
+<li><code>xlabs</code>, <code>ylabs</code>: modify <code>x</code> and <code>y</code> axis label names</li>
+<li>use <code>labs</code> with arguments:
+<ul>
+<li>title</li>
+<li>x</li>
+<li>subtitle</li>
+<li>caption</li>
+</ul></li>
+</ul>
+</div><div class="column" style="width:50%;">
+<div class="sourceCode" id="cb45" data-code-line-numbers="2-6"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb45-1"><a href=""></a>p <span class="sc">+</span> </span>
+<span id="cb45-2"><a href=""></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Title of my plot"</span>,</span>
+<span id="cb45-3"><a href=""></a>       <span class="at">x =</span> <span class="st">"Miles per gallon"</span>,</span>
+<span id="cb45-4"><a href=""></a>       <span class="at">y =</span> <span class="st">"Weight"</span>, <span class="co">#&lt;&lt;</span></span>
+<span id="cb45-5"><a href=""></a>       <span class="at">subtitle =</span> <span class="st">"This would be a subtitle"</span>,</span>
+<span id="cb45-6"><a href=""></a>       <span class="at">caption =</span> <span class="st">"This is my caption"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="index_files/figure-revealjs/unnamed-chunk-62-1.png" class="quarto-figure quarto-figure-center" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="scales-1" class="slide level2">
+<h2>Scales</h2>
+<p><strong>Shortcuts</strong></p>
+<div class="columns">
+<div class="column" style="width:50%;">
+<h4 id="lims">Lims</h4>
+<ul>
+<li>modify limits of the plot</li>
+<li>use <code>xlim</code> and <code>ylim</code></li>
+</ul>
+<div class="sourceCode" id="cb46"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb46-1"><a href=""></a><span class="fu">xlim</span>(<span class="dv">0</span>,<span class="dv">50</span>)</span>
+<span id="cb46-2"><a href=""></a><span class="fu">ylim</span>(<span class="cn">NA</span>, <span class="dv">40</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<ul>
+<li>or <code>lims</code> specifying vectors</li>
+</ul>
+<div class="sourceCode" id="cb47"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb47-1"><a href=""></a><span class="fu">lims</span>(<span class="at">x =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">50</span>))</span>
+<span id="cb47-2"><a href=""></a><span class="fu">lims</span>(<span class="at">y =</span> <span class="fu">y</span>(<span class="cn">NA</span>, <span class="dv">40</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div><div class="column" style="width:50%;">
+<div class="sourceCode" id="cb48" data-code-line-numbers="2"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb48-1"><a href=""></a>p <span class="sc">+</span></span>
+<span id="cb48-2"><a href=""></a>  <span class="fu">xlim</span>(<span class="dv">10</span>, <span class="dv">25</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="index_files/figure-revealjs/unnamed-chunk-63-1.png" class="quarto-figure quarto-figure-center" width="576"></p>
+</figure>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="scale-12" class="slide level2">
+<h2>Scale</h2>
+<p><strong>Shortcuts</strong></p>
+<div class="columns">
+<div class="column" style="width:50%;">
+<h4 id="lims-1">Lims</h4>
+<ul>
+<li>modify limits of the plot</li>
+<li>use <code>xlim</code> and <code>ylim</code></li>
+</ul>
+<div class="sourceCode" id="cb49"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb49-1"><a href=""></a><span class="fu">xlim</span>(<span class="dv">0</span>,<span class="dv">50</span>)</span>
+<span id="cb49-2"><a href=""></a><span class="fu">ylim</span>(<span class="cn">NA</span>, <span class="dv">40</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<ul>
+<li>or <code>lims</code> specifying vectors</li>
+</ul>
+<div class="sourceCode" id="cb50"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb50-1"><a href=""></a><span class="fu">lims</span>(<span class="at">x =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">50</span>))</span>
+<span id="cb50-2"><a href=""></a><span class="fu">lims</span>(<span class="at">y =</span> <span class="fu">y</span>(<span class="cn">NA</span>, <span class="dv">40</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div><div class="column" style="width:50%;">
+<div class="sourceCode" id="cb51" data-code-line-numbers="2, 3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb51-1"><a href=""></a>p <span class="sc">+</span> </span>
+<span id="cb51-2"><a href=""></a>  <span class="fu">lims</span>(<span class="at">x =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">20</span>),</span>
+<span id="cb51-3"><a href=""></a>       <span class="at">y =</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">4</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="index_files/figure-revealjs/unnamed-chunk-64-1.png" class="quarto-figure quarto-figure-center" width="576"></p>
 </figure>
 </div>
 </div>
