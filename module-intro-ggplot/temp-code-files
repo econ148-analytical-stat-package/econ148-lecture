@@ -2,14 +2,14 @@
 
 ## Why ggplot2?
 
-::: columns
-::: column
+:::: {.columns}
+::: {.column width="50%"}
 -   Most requested programming languages for data scientists are R and Python.
 
 -   ggplot2 as a visualization package for R, is becoming an industry standard for visualization.
 :::
 
-::: column
+::: {.column width="50%"}
 ```{r}
 #| echo: FALSE
 #| out-width: 40%
@@ -18,11 +18,11 @@
 knitr::include_graphics("image/ggplot2_logo.png")
 ```
 :::
-:::
+::::
 
 ## Why grammar?
 
-::: columns
+:::: {.columns}
 ::: {.column width="50%"}
 -   You can create new sentences if you know about the grammar.
 
@@ -42,13 +42,13 @@ knitr::include_graphics("image/gg_book_cover.jfif")
 Source: [The grammar of graphics](https://link.springer.com/book/10.1007/0-387-28695-0)\]
 :::
 :::
-:::
+::::
 
 # Data and mapping
 
 ## Data
 
-::: columns
+:::: {.columns}
 ::: {.column width="60%"}
 -   syntax
 
@@ -76,11 +76,12 @@ ggplot(data = <dataset>)
 knitr::include_graphics("image/gg_data.png")
 ```
 :::
-:::
+::::
+
 
 ## The idea of grammar of graphics
 
-::: columns
+::: {.columns}
 ::: {.column width="50%"}
 :::
 
@@ -97,7 +98,7 @@ knitr::include_graphics("image/gg0.png")
 
 ## The idea of grammar of graphics
 
-::: columns
+:::: {.columns}
 ::: {.column width="50%"}
 ```{r}
 #| include: FALSE
@@ -127,11 +128,11 @@ knitr::include_graphics("image/gg_data.png")
 ggplot(data = data1)
 ```
 :::
-:::
+::::
 
 ## The idea of grammar of graphics
 
-::: columns
+:::: {.columns}
 ::: {.column width="50%"}
 ```{r}
 #| echo: FALSE
@@ -158,11 +159,11 @@ ggplot(data = data1,
        mapping = aes(x = price, y = carat))
 ```
 :::
-:::
+::::
 
 ## The idea of grammar of graphics
 
-::: columns
+:::: {.columns}
 ::: {.column width="50%"}
 ```{r}
 #| echo: FALSE
@@ -191,11 +192,11 @@ ggplot(data = data1,
        geom_point()
 ```
 :::
-:::
+::::
 
 ## The idea of grammar of graphics
 
-::: columns
+:::: {.columns}
 ::: {.column width="50%"}
 ```{r}
 #| echo: FALSE
@@ -226,11 +227,11 @@ ggplot(data = data1,
        stat_smooth()
 ```
 :::
-:::
+::::
 
 ## The idea of grammar of graphics
 
-::: columns
+:::: {.columns}
 ::: {.column width="50%"}
 ```{r}
 #| echo: FALSE
@@ -263,11 +264,11 @@ ggplot(data = data1,
        scale_x_log10()
 ```
 :::
-:::
+::::
 
 ## The idea idea of grammar of graphics
 
-::: columns
+:::: {.columns}
 ::: {.column width="50%"}
 ```{r fig.height=7, echo=FALSE}
 #| echo: false
@@ -300,11 +301,11 @@ ggplot(data = data1,
        coord_flip()
 ```
 :::
-:::
+::::
 
 ## The idea of grammar of graphics
 
-::: columns
+:::: {.columns}
 ::: {.column width="50%"}
 ```{r fig.height=7, echo=FALSE}
 #| echo: false
@@ -341,11 +342,11 @@ ggplot(data = data1,
        facet_wrap(~ cut)
 ```
 :::
-:::
+::::
 
 ## The idea of grammar of graphics
 
-::: columns
+:::: {.columns:
 ::: {.column width="50%"}
 ```{r fig.height=7, echo=FALSE}
 #| echo: false
@@ -384,11 +385,11 @@ ggplot(data = data1,
        theme_light()
 ```
 :::
-:::
+::::
 
 ## Mapping
 
-::: columns
+:::: {.columns}
 ::: {.column width="60%"}
 -   syntax
 
@@ -417,11 +418,11 @@ ggplot(data = <dataset>,
 knitr::include_graphics("image/gg_map.png")
 ```
 :::
-:::
+::::
 
 ## Data and mapping
 
-::: columns
+:::: {.columns}
 ::: {.column width="60%"}
 -   Can specify data and mappings in the plot category
 
@@ -446,11 +447,11 @@ ggplot() +
 knitr::include_graphics("image/gg_data_map.png")
 ```
 :::
-:::
+::::
 
 ## Data and mapping
 
-::: columns
+:::: {.columns}
 ::: {.column width="50%"}
 ``` {.r code-line-numbers="2"}
 ggplot(data = mpg, 
@@ -493,11 +494,11 @@ ggplot(data = mpg,
 
 ```
 :::
-:::
+::::
 
 ## Aesthetic mapping
 
-::: columns
+:::: {.columns}
 ::: {.column width="50%"}
 **mapping**
 
@@ -538,13 +539,13 @@ ggplot(data = mpg,
        axis.text = element_text(size = 16))
 ```
 :::
-:::
+::::
 
 # Geometries
 
 ## Geometries
 
-::: columns
+:::: {.columns}
 ::: {.column width="50%"}
 -   syntax
 
@@ -567,7 +568,7 @@ ggplot(data = <dataset>,
 knitr::include_graphics("image/gg_geom.png")
 ```
 :::
-:::
+::::
 
 ## Geometries
 
@@ -601,7 +602,7 @@ knitr::include_graphics("image/geom_aes_summary.jpg")
 
 ## Geometries
 
-::: columns
+:::: {.columns}
 **Line plots**
 
 Aesthetics of `geom_path`, `geom_line`, `geom_step`:
@@ -633,11 +634,11 @@ library(babynames)
 glimpse(babynames)
 ```
 :::
-:::
+::::
 
 ## Geometries
 
-::: columns
+:::: {.columns}
 ::: {.column width="40%"}
 **Line plots: practice exercise**
 
@@ -669,11 +670,11 @@ ggplot(data = friends,
 
 ```
 :::
-:::
+::::
 
 ## Geometries
 
-::: columns
+:::: {.columns}
 ::: {.column width="60%"}
 **Scatterplots**
 
@@ -702,7 +703,7 @@ geom_point(
 )
 ```
 :::
-:::
+::::
 
 ## Geometries
 
@@ -741,7 +742,7 @@ geom_point(
 
 ## Geometries
 
-::: columns
+:::: columns
 ::: {.column width="50%"}
 **Scatter plot: practice exercise**
 
@@ -777,13 +778,13 @@ ggplot(data = mpg,
 
 ```
 :::
-:::
+::::
 
 # Statistical transformation and plotting distribution
 
 ## Statistics
 
-::: columns
+:::: columns
 ::: {.column width="60%"}
 -   syntax
 
@@ -810,13 +811,13 @@ ggplot(data = <dataset>,
 knitr::include_graphics("image/gg_stat.png")
 ```
 :::
-:::
+::::
 
 ## Statistics
 
 **Geoms and stats**
 
-::: columns
+:::: columns
 ::: {.column width="60%"}
 Every geometry has a default stat.
 
@@ -840,11 +841,11 @@ Each stat has a default geom
 knitr::include_graphics("image/gg_stat.png")
 ```
 :::
-:::
+::::
 
 ## Statistics
 
-::: columns
+:::: columns
 ::: {.column width="50%"}
 **Interesting stats**
 
@@ -867,12 +868,12 @@ knitr::include_graphics("image/gg_stat.png")
 knitr::include_graphics("image/gg_stat.png")
 ```
 :::
-:::
+::::
 
 ## Statistics
 
-::: columns
-::: {.column width="60%"}
+:::: columns
+::: {.column width="60%" style="font-size: 0.8em;"}
 **Computed aesthetics**
 
 When a stat perform a transformation, new variables are created.
@@ -892,13 +893,21 @@ To access: + old way: **`..<stat name>..`** + new way: **`stat(name)`**
 ggplot(data = mpg, mapping = aes(x = displ)) +
       geom_histogram(aes(y = ..count..))
 ```
+
+``` {r}
+#| fig-height: 7
+#| fig-width: 6
+ggplot(data = mpg, mapping = aes(x = displ)) +
+      geom_histogram(aes(y = ..count..))
+```
 :::
-:::
+::::
+
 
 ## Statistics
 
-::: columns
-::: {.column width="40%"}
+:::: columns
+::: {.column width="40%" style="font-size: 0.8em;"}
 **Computed aesthetics**
 
 When a stat perform a transformation, new variables are created.
@@ -913,17 +922,26 @@ e.g., in `geom_histogram` computed variables are:
 To access: + old way: **`..<stat name>..`** + new way: **`stat(name)`**
 :::
 
+
 ::: {.column width="60%"}
+
 ``` {.r code-line-numbers="2"}
 ggplot(data = mpg, mapping = aes(x = displ)) +
   geom_histogram(aes(y = stat(density)))
 ```
+
+``` {r}
+ggplot(data = mpg, mapping = aes(x = displ)) +
+  geom_histogram(aes(y = stat(density)))
+```
+
 :::
-:::
+::::
+
 
 ## Displaying distribution
 
-::: columns
+:::: columns
 ::: {.column width="40%"}
 Ways to look at distributions:
 
@@ -958,15 +976,19 @@ ggplot(data = data1, aes(depth, color = cut, fill = cut)) +
         )
 ```
 :::
-:::
+::::
 
 ## Displaying distribution
 
-::: columns
+:::: columns
 ::: {.column width="60%"}
 **Histogram and freq polygon**
 
-**`geom_histogram`** - display counts with bars - require continuous data
+**`geom_histogram`** 
+
+- display counts with bars 
+
+- require continuous data
 :::
 
 ::: {.column width="40%"}
@@ -974,8 +996,14 @@ ggplot(data = data1, aes(depth, color = cut, fill = cut)) +
 ggplot(data = data1, mapping = aes(x = price)) + 
   geom_histogram()
 ```
+
+``` {r}
+ggplot(data = data1, mapping = aes(x = price)) + 
+  geom_histogram()
+```
 :::
-:::
+::::
+
 
 ## Displaying distribution
 
@@ -998,6 +1026,11 @@ ggplot(data = data1, mapping = aes(x = price)) +
 
 ::: {.column width="60%"}
 ``` {.r code-line-numbers="2"}
+ggplot(data = data1, mapping = aes(x = price)) + 
+  geom_freqpoly()
+```
+
+``` {r}
 ggplot(data = data1, mapping = aes(x = price)) + 
   geom_freqpoly()
 ```
@@ -1033,6 +1066,12 @@ ggplot(data = data1, mapping = aes(x = price)) +
   geom_freqpoly() +
   geom_histogram(alpha = 0.4)
 ```
+
+``` {r}
+ggplot(data = data1, mapping = aes(x = price)) + 
+  geom_freqpoly() +
+  geom_histogram(alpha = 0.4)
+```
 :::
 :::
 
@@ -1054,6 +1093,11 @@ ggplot(data = data1, mapping = aes(x = price)) +
 ggplot(data = data1, mapping = aes(x = depth)) +
   geom_density()
 ```
+
+``` {r}
+ggplot(data = data1, mapping = aes(x = depth)) +
+  geom_density()
+```
 :::
 :::
 
@@ -1072,6 +1116,11 @@ ggplot(data = data1, mapping = aes(x = depth)) +
 
 ::: {.column width="50%"}
 ``` {.r code-line-numbers="2"}
+ggplot(data = data1, mapping = aes(x = depth, color = cut, fill = cut)) +
+      geom_density(alpha = 0.4)
+```
+
+``` {r}
 ggplot(data = data1, mapping = aes(x = depth, color = cut, fill = cut)) +
       geom_density(alpha = 0.4)
 ```

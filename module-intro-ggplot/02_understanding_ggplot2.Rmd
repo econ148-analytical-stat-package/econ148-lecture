@@ -1579,6 +1579,7 @@ palette = name of pallete or index
 .rightcol[
 ```{r echo=FALSE, out.width="80%"}
 library(RColorBrewer)
+
 par(mar=c(3,4,2,2))
 display.brewer.all(type = "seq" )
 display.brewer.all(type = "div" )

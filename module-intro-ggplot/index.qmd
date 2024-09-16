@@ -98,40 +98,6 @@ Source: [The grammar of graphics](https://link.springer.com/book/10.1007/0-387-2
 :::
 ::::
 
-# Data and mapping
-
-## Data
-
-:::: {.columns}
-::: {.column width="60%"}
--   syntax
-
-``` {.r code-line-numbers="1"}
-ggplot(data = <dataset>)
-```
-
--   For ggplot graphs, data are usually wrangled.
-
--   Tidy data
-
-    -   Each variable is a column
-
-    -   Each observation is a row
-
-    -   Each value is a cell
-:::
-
-::: {.column width="40%"}
-```{r}
-#| echo: FALSE
-#| out-width: 95%
-#| fig-align: center
-
-knitr::include_graphics("image/gg_data.png")
-```
-:::
-::::
-
 
 ## The idea of grammar of graphics
 
@@ -440,6 +406,42 @@ ggplot(data = data1,
 ```
 :::
 :::
+
+
+# Data and mapping
+
+## Data
+
+:::: {.columns}
+::: {.column width="60%"}
+-   syntax
+
+``` {.r code-line-numbers="1"}
+ggplot(data = <dataset>)
+```
+
+-   For ggplot graphs, data are usually wrangled.
+
+-   Tidy data
+
+    -   Each variable is a column
+
+    -   Each observation is a row
+
+    -   Each value is a cell
+:::
+
+::: {.column width="40%"}
+```{r}
+#| echo: FALSE
+#| out-width: 95%
+#| fig-align: center
+
+knitr::include_graphics("image/gg_data.png")
+```
+:::
+::::
+
 
 ## Mapping
 
@@ -926,8 +928,9 @@ knitr::include_graphics("image/gg_stat.png")
 
 ## Statistics
 
-:::: columns
+:::: {.columns}
 ::: {.column width="60%" style="font-size: 0.8em;"}
+
 **Computed aesthetics**
 
 When a stat perform a transformation, new variables are created.
@@ -960,8 +963,9 @@ ggplot(data = mpg, mapping = aes(x = displ)) +
 
 ## Statistics
 
-:::: columns
-::: {.column width="40%" style="font-size: 0.8em;"}
+:::: {.columns}
+
+::: {.column width="50%" style="font-size: 0.8em;"}
 **Computed aesthetics**
 
 When a stat perform a transformation, new variables are created.
@@ -976,26 +980,28 @@ e.g., in `geom_histogram` computed variables are:
 To access: + old way: **`..<stat name>..`** + new way: **`stat(name)`**
 :::
 
-
-::: {.column width="60%"}
-
+::: {.column width="50%"}
 ``` {.r code-line-numbers="2"}
 ggplot(data = mpg, mapping = aes(x = displ)) +
   geom_histogram(aes(y = stat(density)))
 ```
 
 ``` {r}
+#| echo: false
+#| fig-height: 7
+#| fig-width: 6
+#| 
 ggplot(data = mpg, mapping = aes(x = displ)) +
   geom_histogram(aes(y = stat(density)))
 ```
-
 :::
+
 ::::
 
 
 ## Displaying distribution
 
-:::: columns
+:::: {.columns}
 ::: {.column width="40%"}
 Ways to look at distributions:
 
@@ -1234,7 +1240,13 @@ ggplot(data = data1, mapping = aes(x = depth, color = cut, fill = cut)) +
 ::: {.column width="40%"}
 **Practice exercise**
 
-Use the `mpg` data to recreate the plot shown on the right.
+Use the `mpg` data to recreate the plot shown on the right. You may use the following parameters:
+
+- `bins = 10`
+
+- `fill = "cadetblue3"`
+
+- `alpha = 0.5`
 :::
 
 ::: {.column width="60%"}
@@ -1284,6 +1296,17 @@ ggplot(data = mpg, mapping = aes(x = class, y = hwy)) +
   geom_boxplot()
   
 ```
+
+```{r}
+#| echo: false
+#| fig-width: 5
+#| fig-height: 4
+#| fig-align: center
+
+ggplot(data = mpg, mapping = aes(x = class, y = hwy)) +
+  geom_boxplot()
+```
+
 :::
 :::
 
@@ -1306,6 +1329,17 @@ ggplot(data = mpg, mapping = aes(x = class, y = hwy)) +
 
 ::: {.column width="60%"}
 ``` {.r code-line-numbers="2"}
+ggplot(data = mpg, mapping = aes(x = class, y = hwy)) +
+  geom_violin()
+  
+```
+
+``` {r}
+#| echo: false
+#| fig-width: 5
+#| fig-height: 5
+#| fig-align: center
+
 ggplot(data = mpg, mapping = aes(x = class, y = hwy)) +
   geom_violin()
   
@@ -1915,8 +1949,8 @@ p +
 ```
 
 ```{r fig.height=3.2, fig.width=6, fig.align='center'}
-#| fig.height: 3
-#| fig-width: 6
+#| fig-height: 5
+#| fig-width: 7
 #| fig-align: center
 
 ggplot(mtcars, aes(mpg, wt)) + geom_point(size = 3) + 
@@ -1965,8 +1999,8 @@ p +
 ```
 
 ```{r}
-#| fig-height: 3
-#| fig-width: 6
+#| fig-height: 5
+#| fig-width: 7
 #| fig-align: center
 
 ggplot(mtcars, aes(mpg, wt)) + geom_point(size = 3) + 
@@ -1982,41 +2016,364 @@ ggplot(mtcars, aes(mpg, wt)) + geom_point(size = 3) +
 
 ::::
 
+## Position adjustments
 
-# 
+- All layers have a position that resolves overlapping `geoms`
 
-![](img/econ148-hex-logo.png){fig-align="center" height="40%" width="40%"}
-
-
-
+- Overrides default using `position` argument to `geom_` or `stat_` function.
 
 
+## Position adjustments
+
+:::: {.columns}
+
+::: {.column width="50%"}
+
+**`position_jitter`**
+
+- `?position_jitter`
+
+- Adds random noise to the data points to avoid overlaps
+
+- Useful for scatterplots
+  - wrapper: `geom_jitter`
+
+**Parameters**
+
+```{.r}
+seeds = random seeds to make jitter reproducible
+width = amount of jitter horizontally
+height = amount of jitter vertically
+```
+:::
+
+::: {.column width="50%"}
+```{.r code-line-numbers="3,4"}
+ggplot(mpg, aes(x = class, y = hwy)) + 
+  geom_point(size = 3,
+             position = position_jitter(width = 0.2,
+                                        seed = 143 ))
+```
+
+```{r}
+#| fig-height: 4
+#| fig-width: 6
+#| fig-align: center
+
+ggplot(mpg, aes(x = class, y = hwy)) + 
+  geom_point(size = 3,
+             position = position_jitter(width = 0.2,
+                                        seed = 143 ))
+```
+
+:::
+
+::::
 
 
+## Position adjustments
+
+:::: {.columns}
+
+::: {.column width="50%"}
+**`position_stack()`**
+
+- `?position_stack`
+
+- Stacks geoms on top of each other.
+
+**`position_fill()`**
+
+- `?position_fill`
+
+- Stacks `geoms` on top of each other and standardizes the height.
+
+**Parameters**
+
+```{.r}
+reverse - default = FALSE, if TRUE will reverse the default stacking order.
+```
+:::
+
+::: {.column width="50%"}
+```{.r}
+ggplot(mtcars, aes(x = factor(cyl), fill = factor(vs))) + 
+  geom_bar(alpha = 0.5,
+           position = "identity")
+
+```
+
+```{r}
+#| fig-height: 4
+#| fig-width: 6
+#| fig-align: center
+
+ggplot(mtcars, aes(x = factor(cyl), fill = factor(vs))) + 
+  geom_bar(alpha = 0.5,
+           position = "identity")
+```
+
+:::
+
+::::
 
 
+## Position adjustments
+
+:::: {.columns}
+
+::: {.column width="50%"}
+**`position_stack()`**
+
+- `?position_stack`
+
+- Stacks geoms on top of each other.
+
+**`position_fill()`**
+
+- `?position_fill`
+
+- Stacks `geoms` on top of each other and standardizes the height.
+
+**Parameters**
+
+```{.r}
+reverse - default = FALSE, if TRUE will reverse the default stacking order.
+```
+
+:::
+
+::: {.column width="50%"}
+```{.r code-line-numbers="3"}
+ggplot(mtcars, aes(x = factor(cyl), fill = factor(vs))) + 
+  geom_bar(alpha = 0.5,
+           position = "stack")
+
+```
+
+```{r}
+#| fig-height: 4
+#| fig-width: 6
+#| fig-align: center
+
+ggplot(mtcars, aes(x = factor(cyl), fill = factor(vs))) + 
+  geom_bar(alpha = 0.5,
+           position = "stack")
+```
+
+:::
+
+::::
 
 
+## Position adjustments
+
+:::: {.columns}
+
+::: {.column width="50%"}
+**`position_stack()`**
+
+- `?position_stack`
+
+- Stacks geoms on top of each other.
+
+**`position_fill()`**
+
+- `?position_fill`
+
+- Stacks `geoms` on top of each other and standardizes the height.
+
+**Parameters**
+
+```{.r}
+reverse - default = FALSE, if TRUE will reverse the default stacking order.
+```
+:::
+
+::: {.column width="50%"}
+```{.r}
+ggplot(mtcars, aes(x = factor(cyl), fill = factor(vs))) + 
+  geom_bar(alpha = 0.5,
+           position = "fill")
+
+```
+
+```{r}
+#| fig-height: 4
+#| fig-width: 6
+#| fig-align: center
+
+ggplot(mtcars, aes(x = factor(cyl), fill = factor(vs))) + 
+  geom_bar(alpha = 0.5,
+           position = "fill")
+
+```
+
+:::
+
+::::
 
 
+## Position adjustment
+
+:::: {.columns}
+
+::: {.column width="50%"}
+
+**`position_dodge`**
+
+- `?position_dodge`
+
+- preserves the vertical position of a geom while adjusting the horizontal position.
+
+:::
+
+::: {.column width="50%"}
+```{.r code-line-numbers="3"}
+ggplot(mtcars, aes(x = factor(cyl), fill = factor(vs))) + 
+  geom_bar(alpha = 0.5,
+           position = "dodge") #<<
+
+```
+
+```{r}
+#| fig-height: 4
+#| fig-width: 6
+#| fig-align: center
+
+ggplot(mtcars, aes(x = factor(cyl), fill = factor(vs))) + 
+  geom_bar(alpha = 0.5,
+           position = "dodge")
+```
+:::
+
+::::
 
 
+## Position adjustment
+
+:::: {.columns}
+
+::: {.column width="50%"}
+
+**`position_dodge`**
+
+- `?position_dodge`
+
+- preserves the vertical position of a geom while adjusting the horizontal position.
 
 
+**Parameters**
+
+```{.r}
+width(default = 0.9) refers to dodging width
+preserve = "single" / "total" (defaul = "total")
+```
+:::
+
+::: {.column width="50%"}
+```{.r}
+ggplot(mtcars, aes(x = factor(cyl), fill = factor(vs))) + 
+  geom_bar(alpha = 0.5,
+           position = position_dodge(width = 1)) #<<
+
+```
+
+```{r}
+#| fig-height: 4
+#| fig-width: 6
+#| fig-align: center
+
+ggplot(mtcars, aes(x = factor(cyl), fill = factor(vs))) + 
+  geom_bar(alpha = 0.5,
+           position = position_dodge(width = 1))
+
+```
+
+:::
+
+::::
 
 
+## Position adjustment
+
+:::: {.columns}
+
+::: {.column width="50%"}
+
+**`position_dodge`**
+
+- `?position_dodge`
+
+- preserves the vertical position of a geom while adjusting the horizontal position.
 
 
+**Parameters**
 
+```{.r}
+width(default = 0.9) refers to dodging width
+preserve = "single" / "total" (defaul = "total")
+```
+:::
 
+::: {.column width="50%"}
+```{.r code-line-numbers="4"}
+ggplot(mtcars, aes(x = factor(cyl), fill = factor(vs))) + 
+  geom_bar(alpha = 0.5,
+           position = position_dodge(width = 1,
+                                     preserve = "single")) #<<
 
+```
 
+```{r}
+#| fig-height: 4
+#| fig-width: 6
+#| fig-align: center
 
+ggplot(mtcars, aes(x = factor(cyl), fill = factor(vs))) + 
+  geom_bar(alpha = 0.5,
+           position = position_dodge(width = 1,
+                                     preserve = "single"))
+```
 
+:::
 
+::::
 
+## Scales and position adjustments
 
+**Practice exercise**
 
+:::: {.columns}
+
+::: {.column width="50%"}
+
+Use the code below to generate a hypothetical dataset and recreate the barplot on the right.
+
+```{r}
+#| echo: true
+# Create some data
+df <- data.frame(supp=rep(c("VC", "OJ"), each=3),
+                dose=rep(c("0.5", "1", "2"),2),
+                len=c(6.8, 15, 33, 4.2, 10, 29.5))
+```
+:::
+
+::: {.column width="50%"}
+```{r}
+#| echo: false
+#| fig-height: 8
+#| fig-align: center
+
+ggplot(df, aes(x = dose, y = len, fill = supp)) + 
+  geom_bar(stat = "identity",
+           position = "dodge",
+           width = 0.5) +
+  scale_fill_brewer(palette = "Paired")
+```
+:::
+
+::::
 
 
 
