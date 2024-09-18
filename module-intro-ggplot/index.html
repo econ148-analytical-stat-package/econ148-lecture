@@ -402,7 +402,7 @@
 <h2>Outline</h2>
 <ul>
 <li><p>The grammar of graphics</p></li>
-<li><p>Dataset and mapping</p></li>
+<li><p>Datasets and mapping</p></li>
 <li><p>Geometries</p></li>
 <li><p>Statistical transformation and plotting distribution</p></li>
 <li><p>Position adjustment and scales</p></li>
@@ -2302,7 +2302,807 @@ $ prop &lt;dbl&gt; 0.07238359, 0.02667896, 0.02052149, 0.01986579, 0.01788843, 0
 </div>
 </div>
 </div>
-<div class="quarto-auto-generated-content">
+</section>
+<section id="coordinates" class="slide level2">
+<h2>Coordinates</h2>
+<div class="columns">
+<div class="column" style="width:50%;">
+<p>syntax</p>
+<ul>
+<li><p>Coordinate are sets that locate points in space</p></li>
+<li><p><code>coord_cartesian()</code></p></li>
+<li><p><code>coord_flip()</code></p></li>
+<li><p><code>coord_polar()</code></p></li>
+</ul>
+</div><div class="column" style="width:50%;">
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<figure>
+<p><img data-src="image/gg_coord.png" style="width:70.0%"></p>
+</figure>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="coordinates-1" class="slide level2">
+<h2>Coordinates</h2>
+<div class="columns">
+<div class="column" style="font-size: 0.8em;">
+<p><strong><code>coord_cartesian()</code></strong></p>
+<ul>
+<li>default coordinate system</li>
+</ul>
+<p><strong>Zooming into plots</strong></p>
+<ul>
+<li><p>setting limits using scale</p>
+<ul>
+<li>eliminates data outside the specified range</li>
+</ul></li>
+<li><p>setting limits using coordinate system</p>
+<ul>
+<li><p>proper way to zoom</p></li>
+<li><p>does not eliminate data outside the plot</p></li>
+</ul></li>
+</ul>
+<p><strong>Parameters</strong></p>
+<div class="sourceCode" id="cb66"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb66-1"><a href=""></a>xlim, ylim, expand, clip</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div><div class="column" style="width:50%;">
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="index_files/figure-revealjs/unnamed-chunk-78-1.png" class="quarto-figure quarto-figure-center" width="576"></p>
+</figure>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="coordinates-2" class="slide level2">
+<h2>Coordinates</h2>
+<div class="columns">
+<div class="column" style="font-size: 0.8em;">
+<p><strong><code>coord_cartesian()</code></strong></p>
+<ul>
+<li>default coordinate system</li>
+</ul>
+<p><strong>Zooming into plots</strong></p>
+<ul>
+<li><p>setting limits using scale</p>
+<ul>
+<li>eliminates data outside the specified range</li>
+</ul></li>
+<li><p>setting limits using coordinate system</p>
+<ul>
+<li><p>proper way to zoom</p></li>
+<li><p>does not eliminate data outside the plot</p></li>
+</ul></li>
+</ul>
+<p><strong>Parameters</strong></p>
+<div class="sourceCode" id="cb67"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb67-1"><a href=""></a>xlim, ylim, expand, clip</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div><div class="column" style="width:50%;">
+<div class="sourceCode" id="cb68" data-code-line-numbers="2"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb68-1"><a href=""></a>p <span class="sc">+</span> </span>
+<span id="cb68-2"><a href=""></a>  <span class="fu">scale_x_continuous</span>(<span class="at">limits =</span> <span class="fu">c</span>(<span class="dv">15</span>, <span class="dv">20</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="index_files/figure-revealjs/unnamed-chunk-79-1.png" class="quarto-figure quarto-figure-center" width="576"></p>
+</figure>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="coordinates-3" class="slide level2">
+<h2>Coordinates</h2>
+<div class="columns">
+<div class="column" style="font-size: 0.8em;">
+<p><strong><code>coord_cartesian()</code></strong></p>
+<ul>
+<li>default coordinate system</li>
+</ul>
+<p><strong>Zooming into plots</strong></p>
+<ul>
+<li><p>setting limits using scale</p>
+<ul>
+<li>eliminates data outside the specified range</li>
+</ul></li>
+<li><p>setting limits using coordinate system</p>
+<ul>
+<li><p>proper way to zoom</p></li>
+<li><p>does not eliminate data outside the plot</p></li>
+</ul></li>
+</ul>
+<p><strong>Parameters</strong></p>
+<div class="sourceCode" id="cb69"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb69-1"><a href=""></a>xlim, ylim, expand, clip</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div><div class="column" style="width:50%;">
+<div class="sourceCode" id="cb70" data-code-line-numbers="2"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb70-1"><a href=""></a>p <span class="sc">+</span> </span>
+<span id="cb70-2"><a href=""></a>  <span class="fu">coord_cartesian</span>(<span class="at">xlim =</span> <span class="fu">c</span>(<span class="dv">15</span>, <span class="dv">20</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="index_files/figure-revealjs/unnamed-chunk-80-1.png" class="quarto-figure quarto-figure-center" width="576"></p>
+</figure>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="coordinates-4" class="slide level2">
+<h2>Coordinates</h2>
+<div class="columns">
+<div class="column" style="font-size: 0.8em;">
+<p><strong><code>coord_cartesian()</code></strong></p>
+<ul>
+<li>default coordinate system</li>
+</ul>
+<p><strong>Zooming into plots</strong></p>
+<ul>
+<li><p>setting limits using scale</p>
+<ul>
+<li>eliminates data outside the specified range</li>
+</ul></li>
+<li><p>setting limits using coordinate system</p>
+<ul>
+<li><p>proper way to zoom</p></li>
+<li><p>does not eliminate data outside the plot</p></li>
+</ul></li>
+</ul>
+<p><strong>Parameters</strong></p>
+<div class="sourceCode" id="cb71"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb71-1"><a href=""></a>xlim, ylim, expand, clip</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div><div class="column" style="width:50%;">
+<div class="sourceCode" id="cb72" data-codeline-numbers="2"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb72-1"><a href=""></a>p <span class="sc">+</span> </span>
+<span id="cb72-2"><a href=""></a>  <span class="fu">coord_cartesian</span>(<span class="at">expand =</span> <span class="cn">FALSE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="index_files/figure-revealjs/unnamed-chunk-81-1.png" class="quarto-figure quarto-figure-center" width="576"></p>
+</figure>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="coordinates-5" class="slide level2">
+<h2>Coordinates</h2>
+<div class="columns">
+<div class="column" style="font-size: 0.8em;">
+<p><strong><code>coord_cartesian()</code></strong></p>
+<ul>
+<li>default coordinate system</li>
+</ul>
+<p><strong>Zooming into plots</strong></p>
+<ul>
+<li><p>setting limits using scale</p>
+<ul>
+<li>eliminates data outside the specified range</li>
+</ul></li>
+<li><p>setting limits using coordinate system</p>
+<ul>
+<li><p>proper way to zoom</p></li>
+<li><p>does not eliminate data outside the plot</p></li>
+</ul></li>
+</ul>
+<p><strong>Parameters</strong></p>
+<div class="sourceCode" id="cb73"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb73-1"><a href=""></a>xlim, ylim, expand, clip</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div><div class="column" style="width:50%;">
+<div class="sourceCode" id="cb74" data-code-line-numbers="2"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb74-1"><a href=""></a>p <span class="sc">+</span> </span>
+<span id="cb74-2"><a href=""></a>  <span class="fu">coord_cartesian</span>(<span class="at">expand =</span> <span class="cn">FALSE</span>,</span>
+<span id="cb74-3"><a href=""></a>                  <span class="at">clip =</span> <span class="st">"off"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="index_files/figure-revealjs/unnamed-chunk-82-1.png" class="quarto-figure quarto-figure-center" width="576"></p>
+</figure>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="coordinates-6" class="slide level2">
+<h2>Coordinates</h2>
+<div class="columns">
+<div class="column" style="width:50%;">
+<p><strong><code>coord_flip()</code></strong></p>
+<ul>
+<li><p>Flips cartesian coordinates (i.e., horizontal axis becomes vertical axis).</p></li>
+<li><p>Useful to draw plots in horizontal mode without having to change the aesthetic mappings.</p></li>
+</ul>
+</div><div class="column" style="width:50%;">
+<div class="sourceCode" id="cb75" data-code-line-numbers="2"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb75-1"><a href=""></a>p <span class="sc">+</span> </span>
+<span id="cb75-2"><a href=""></a>  <span class="fu">coord_flip</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<figure>
+<p><img data-src="index_files/figure-revealjs/unnamed-chunk-83-1.png" width="960"></p>
+</figure>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="coordinates-7" class="slide level2">
+<h2>Coordinates</h2>
+<div class="columns">
+<div class="column" style="width:50%;">
+<p><strong><code>coord_polar()</code></strong></p>
+<ul>
+<li>Apply a polar coordinate system to the plot</li>
+</ul>
+<p><strong>Parameters</strong></p>
+<div class="sourceCode" id="cb76"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb76-1"><a href=""></a>theta <span class="sc">:</span> map angle to x or y</span>
+<span id="cb76-2"><a href=""></a>direction<span class="sc">:</span> <span class="dv">1</span> (clockwise) <span class="sc">-</span><span class="dv">1</span> (anticlockwise)</span>
+<span id="cb76-3"><a href=""></a>start<span class="sc">:</span> offset of starting point <span class="cf">in</span> radian</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div><div class="column" style="width:50%;">
+<div class="sourceCode" id="cb77" data-code-line-numbers="2"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb77-1"><a href=""></a><span class="fu">ggplot</span>(mpg, <span class="fu">aes</span>(<span class="at">x =</span> displ)) <span class="sc">+</span> </span>
+<span id="cb77-2"><a href=""></a>  <span class="fu">geom_bar</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="index_files/figure-revealjs/unnamed-chunk-84-1.png" class="quarto-figure quarto-figure-center" width="576"></p>
+</figure>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="coordinates-8" class="slide level2">
+<h2>Coordinates</h2>
+<div class="columns">
+<div class="column" style="width:50%;">
+<p><strong><code>coord_polar()</code></strong></p>
+<ul>
+<li>Apply a pola coordinate system to the plot</li>
+</ul>
+<p><strong>Parameters</strong></p>
+<div class="sourceCode" id="cb78"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb78-1"><a href=""></a>theta <span class="sc">:</span> map angle to x or y</span>
+<span id="cb78-2"><a href=""></a>direction<span class="sc">:</span> <span class="dv">1</span> (clockwise) <span class="sc">-</span><span class="dv">1</span> (anticlockwise)</span>
+<span id="cb78-3"><a href=""></a>start<span class="sc">:</span> offset of starting point <span class="cf">in</span> radian</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div><div class="column" style="width:50%;">
+<div class="sourceCode" id="cb79" data-code-line-numbers="2"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb79-1"><a href=""></a><span class="fu">ggplot</span>(mpg, <span class="fu">aes</span>(<span class="at">x =</span> displ)) <span class="sc">+</span> <span class="fu">geom_bar</span>() <span class="sc">+</span></span>
+<span id="cb79-2"><a href=""></a>  <span class="fu">coord_polar</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="index_files/figure-revealjs/unnamed-chunk-85-1.png" class="quarto-figure quarto-figure-center" width="576"></p>
+</figure>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="coordinates-9" class="slide level2">
+<h2>Coordinates</h2>
+<div class="columns">
+<div class="column" style="width:50%;">
+<p><strong><code>coord_polar()</code></strong></p>
+<ul>
+<li>Apply a pola coordinate system to the plot</li>
+</ul>
+<p><strong>Parameters</strong></p>
+<div class="sourceCode" id="cb80"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb80-1"><a href=""></a>theta <span class="sc">:</span> map angle to x or y</span>
+<span id="cb80-2"><a href=""></a>direction<span class="sc">:</span> <span class="dv">1</span> (clockwise) <span class="sc">-</span><span class="dv">1</span> (anticlockwise)</span>
+<span id="cb80-3"><a href=""></a>start<span class="sc">:</span> offset of starting point <span class="cf">in</span> radian</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div><div class="column" style="width:50%;">
+<div class="sourceCode" id="cb81" data-code-line-numbers="2"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb81-1"><a href=""></a><span class="fu">ggplot</span>(mpg, <span class="fu">aes</span>(<span class="at">x =</span> displ)) <span class="sc">+</span> <span class="fu">geom_bar</span>() <span class="sc">+</span></span>
+<span id="cb81-2"><a href=""></a>  <span class="fu">coord_polar</span>(<span class="at">theta =</span> <span class="st">"y"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="index_files/figure-revealjs/unnamed-chunk-86-1.png" class="quarto-figure quarto-figure-center" width="576"></p>
+</figure>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="coordinates-10" class="slide level2">
+<h2>Coordinates</h2>
+<div class="columns">
+<div class="column" style="width:50%;">
+<p><strong><code>coord_polar()</code></strong></p>
+<ul>
+<li>Apply a pola coordinate system to the plot</li>
+</ul>
+<p><strong>Parameters</strong></p>
+<div class="sourceCode" id="cb82"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb82-1"><a href=""></a>theta <span class="sc">:</span> map angle to x or y</span>
+<span id="cb82-2"><a href=""></a>direction<span class="sc">:</span> <span class="dv">1</span> (clockwise) <span class="sc">-</span><span class="dv">1</span> (anticlockwise)</span>
+<span id="cb82-3"><a href=""></a>start<span class="sc">:</span> offset of starting point <span class="cf">in</span> radian</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div><div class="column" style="width:50%;">
+<div class="sourceCode" id="cb83" data-code-line-numbers="3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb83-1"><a href=""></a><span class="fu">ggplot</span>(mpg, <span class="fu">aes</span>(<span class="at">x =</span> displ)) <span class="sc">+</span> <span class="fu">geom_bar</span>() <span class="sc">+</span></span>
+<span id="cb83-2"><a href=""></a>  <span class="fu">coord_polar</span>(<span class="at">theta =</span> <span class="st">"y"</span>,</span>
+<span id="cb83-3"><a href=""></a>              <span class="at">direction =</span> <span class="sc">-</span><span class="dv">1</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="index_files/figure-revealjs/unnamed-chunk-87-1.png" class="quarto-figure quarto-figure-center" width="576"></p>
+</figure>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="coordinates-11" class="slide level2">
+<h2>Coordinates</h2>
+<div class="columns">
+<div class="column" style="width:50%;">
+<p><strong><code>coord_polar()</code></strong></p>
+<ul>
+<li>Apply a pola coordinate system to the plot</li>
+</ul>
+<p><strong>Parameters</strong></p>
+<div class="sourceCode" id="cb84"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb84-1"><a href=""></a>theta <span class="sc">:</span> map angle to x or y</span>
+<span id="cb84-2"><a href=""></a>direction<span class="sc">:</span> <span class="dv">1</span> (clockwise) <span class="sc">-</span><span class="dv">1</span> (anticlockwise)</span>
+<span id="cb84-3"><a href=""></a>start<span class="sc">:</span> offset of starting point <span class="cf">in</span> radian</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div><div class="column" style="width:50%;">
+<div class="sourceCode" id="cb85" data-code-line-numbers="3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb85-1"><a href=""></a><span class="fu">ggplot</span>(mpg, <span class="fu">aes</span>(<span class="at">x =</span> displ)) <span class="sc">+</span> <span class="fu">geom_bar</span>() <span class="sc">+</span></span>
+<span id="cb85-2"><a href=""></a>  <span class="fu">coord_polar</span>(<span class="at">theta =</span> <span class="st">"y"</span>,</span>
+<span id="cb85-3"><a href=""></a>              <span class="at">start =</span> <span class="fl">0.5</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="index_files/figure-revealjs/unnamed-chunk-88-1.png" class="quarto-figure quarto-figure-center" width="576"></p>
+</figure>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section></section>
+<section>
+<section id="facets-and-themes" class="title-slide slide level1 center">
+<h1>Facets and Themes</h1>
+
+</section>
+<section id="facets" class="slide level2">
+<h2>Facets</h2>
+<div class="columns">
+<div class="column" style="width:50%;">
+<p>syntax</p>
+<ul>
+<li><p>Facets divide plot into subplots based on the values of one or more discrete variables.</p></li>
+<li><p><code>facet_wrap()</code></p></li>
+<li><p><code>facet_grid()</code></p></li>
+</ul>
+</div><div class="column" style="width:50%;">
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<figure>
+<p><img data-src="image/gg_facet.png" style="width:70.0%"></p>
+</figure>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="facets-1" class="slide level2">
+<h2>Facets</h2>
+<div class="columns">
+<div class="column" style="width:50%;">
+<p><strong><code>facet_wrap</code></strong></p>
+<ul>
+<li>“wraps” a 1d ribbon of panels into 2d</li>
+<li>useful if you have a variable with many levels</li>
+</ul>
+<p><strong>Parameters</strong></p>
+<div class="sourceCode" id="cb86"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb86-1"><a href=""></a>ncol</span>
+<span id="cb86-2"><a href=""></a>nrow</span>
+<span id="cb86-3"><a href=""></a>scales</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div><div class="column" style="width:50%;">
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="index_files/figure-revealjs/unnamed-chunk-92-1.png" class="quarto-figure quarto-figure-center" width="576"></p>
+</figure>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="facets-2" class="slide level2">
+<h2>Facets</h2>
+<div class="columns">
+<div class="column" style="width:50%;">
+<p><strong><code>facet_wrap</code></strong></p>
+<ul>
+<li>“wraps” a 1d ribbon of panels into 2d</li>
+<li>useful if you have a variable with many levels</li>
+</ul>
+<div class="sourceCode" id="cb87"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb87-1"><a href=""></a>ncol</span>
+<span id="cb87-2"><a href=""></a>nrow</span>
+<span id="cb87-3"><a href=""></a>scales</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div><div class="column" style="width:50%;">
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="index_files/figure-revealjs/unnamed-chunk-93-1.png" class="quarto-figure quarto-figure-center" width="576"></p>
+</figure>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="facets-3" class="slide level2">
+<h2>Facets</h2>
+<div class="columns">
+<div class="column" style="width:50%;">
+<p><strong><code>facet_grid</code></strong></p>
+<ul>
+<li><p>produces a 2d grid of panels defined by variables which form the rows and columns</p></li>
+<li><p><code>.~ a</code> spreads the values across columns</p></li>
+<li><p><code>b ~ .</code> spreads the values of <code>b</code> down the ro ws</p></li>
+<li><p><code>a ~ b</code> spreads <code>a</code> across columns and <code>b</code> down rows</p></li>
+</ul>
+</div><div class="column" style="width:50%;">
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="index_files/figure-revealjs/unnamed-chunk-94-1.png" class="quarto-figure quarto-figure-center" width="576"></p>
+</figure>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="facets-4" class="slide level2">
+<h2>Facets</h2>
+<div class="columns">
+<div class="column" style="width:50%;">
+<p><strong><code>facet_grid</code></strong></p>
+<ul>
+<li><p>produces a 2d grid of panels defined by variables which form the rows and columns</p></li>
+<li><p><code>.~ a</code> spreads the values across columns</p></li>
+<li><p><code>b ~ .</code> spreads the values of <code>b</code> down the rows</p></li>
+<li><p><code>a ~ b</code> spreads <code>a</code> across columns and <code>b</code> down rows</p></li>
+</ul>
+</div><div class="column" style="width:50%;">
+<div class="cell" data-figalign="center">
+<div class="cell-output-display">
+<div>
+<figure>
+<p><img data-src="index_files/figure-revealjs/unnamed-chunk-95-1.png" width="576"></p>
+</figure>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="facets-5" class="slide level2">
+<h2>Facets</h2>
+<div class="columns">
+<div class="column" style="width:50%;">
+<p><strong><code>facet_grid</code></strong></p>
+<ul>
+<li><p>produces a 2d grid of panels defined by variables which form the rows and columns</p></li>
+<li><p><code>.~ a</code> spreads the values across columns</p></li>
+<li><p><code>b ~ .</code> spreads the values of <code>b</code> down the rows</p></li>
+<li><p><code>a ~ b</code> spreads <code>a</code> across columns and <code>b</code> down rows</p></li>
+</ul>
+</div><div class="column" style="width:50%;">
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="index_files/figure-revealjs/unnamed-chunk-96-1.png" class="quarto-figure quarto-figure-center" width="576"></p>
+</figure>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="themes" class="slide level2">
+<h2>Themes</h2>
+<div class="columns">
+<div class="column" style="width:50%;">
+<ul>
+<li>Controlling all non-data elements</li>
+<li>title appearance</li>
+<li>axis labels</li>
+<li>axis ticks</li>
+<li>strips</li>
+<li>….</li>
+</ul>
+</div><div class="column" style="width:50%;">
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<figure>
+<p><img data-src="image/gg_theme.png" style="width:70.0%"></p>
+</figure>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="themes-1" class="slide level2">
+<h2>Themes</h2>
+<div class="columns">
+<div class="column" style="width:50%;">
+<p><strong>Options</strong></p>
+<ul>
+<li>Using the built-in-theme from <code>ggplot2</code> library
+<ul>
+<li><code>theme_gray()</code></li>
+<li><code>theme_bw()</code></li>
+<li><code>theme_light()</code></li>
+<li><code>theme_classic(</code>)</li>
+<li><code>...</code></li>
+</ul></li>
+<li>Using other package e.g., <code>ggthemes</code></li>
+</ul>
+</div><div class="column" style="width:50%;">
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="index_files/figure-revealjs/unnamed-chunk-99-1.png" class="quarto-figure quarto-figure-center" width="576"></p>
+</figure>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="themes-2" class="slide level2">
+<h2>Themes</h2>
+<div class="columns">
+<div class="column" style="width:50%;">
+<p><strong>Options</strong></p>
+<ul>
+<li>Using the built-in-theme from <code>ggplot2</code> library
+<ul>
+<li><code>theme_gray()</code></li>
+<li><code>theme_bw()</code></li>
+<li><code>theme_light()</code></li>
+<li><code>theme_classic(</code>)</li>
+<li><code>...</code></li>
+</ul></li>
+<li>Using other package e.g., <code>ggthemes</code></li>
+</ul>
+</div><div class="column" style="width:50%;">
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="index_files/figure-revealjs/unnamed-chunk-100-1.png" class="quarto-figure quarto-figure-center" width="576"></p>
+</figure>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="themes-3" class="slide level2">
+<h2>Themes</h2>
+<div class="columns">
+<div class="column" style="width:50%;">
+<p><strong>Options</strong></p>
+<ul>
+<li>Using the built-in-theme from <code>ggplot2</code> library
+<ul>
+<li><code>theme_gray()</code></li>
+<li><code>theme_bw()</code></li>
+<li><code>theme_light()</code></li>
+<li><code>theme_classic(</code>)</li>
+<li><code>...</code></li>
+</ul></li>
+<li>Using other package e.g., <code>ggthemes</code></li>
+</ul>
+</div><div class="column" style="width:50%;">
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="index_files/figure-revealjs/unnamed-chunk-101-1.png" class="quarto-figure quarto-figure-center" width="576"></p>
+</figure>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="themes-4" class="slide level2">
+<h2>Themes</h2>
+<div class="columns">
+<div class="column" style="width:50%;">
+<p><strong>Options</strong></p>
+<ul>
+<li>Using the built-in-theme from <code>ggplot2</code> library
+<ul>
+<li><code>theme_gray()</code></li>
+<li><code>theme_bw()</code></li>
+<li><code>theme_light()</code></li>
+<li><code>theme_classic(</code>)</li>
+<li><code>...</code></li>
+</ul></li>
+<li>Using other package e.g., <code>ggthemes</code></li>
+</ul>
+</div><div class="column" style="width:50%;">
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="index_files/figure-revealjs/unnamed-chunk-102-1.png" class="quarto-figure quarto-figure-center" width="576"></p>
+</figure>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="themes-5" class="slide level2">
+<h2>Themes</h2>
+<div class="columns">
+<div class="column" style="width:50%;">
+<p><strong>Options</strong></p>
+<ul>
+<li><p>Using the built-in-theme from <code>ggplot2</code> library</p></li>
+<li><p>Using other package e.g., <code>ggthemes</code></p>
+<ul>
+<li><code>theme_economist_white()</code></li>
+<li><code>theme_fivethirtyeight()</code></li>
+<li><code>theme_stata()</code></li>
+<li><code>theme_tufte()</code></li>
+</ul></li>
+</ul>
+</div><div class="column" style="width:50%;">
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="index_files/figure-revealjs/unnamed-chunk-103-1.png" class="quarto-figure quarto-figure-center" width="576"></p>
+</figure>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="themes-6" class="slide level2">
+<h2>Themes</h2>
+<div class="columns">
+<div class="column" style="width:50%;">
+<p><strong>Options</strong></p>
+<ul>
+<li><p>Using the built-in-theme from <code>ggplot2</code> library</p></li>
+<li><p>Using other package e.g., <code>ggthemes</code></p>
+<ul>
+<li><code>theme_economist_white()</code></li>
+<li><code>theme_fivethirtyeight()</code></li>
+<li><code>theme_stata()</code></li>
+<li><code>theme_tufte()</code></li>
+</ul></li>
+</ul>
+</div><div class="column" style="width:50%;">
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="index_files/figure-revealjs/unnamed-chunk-104-1.png" class="quarto-figure quarto-figure-center" width="576"></p>
+</figure>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="themes-7" class="slide level2">
+<h2>Themes</h2>
+<div class="columns">
+<div class="column" style="width:50%;">
+<p><strong>Options</strong></p>
+<ul>
+<li><p>Using the built-in-theme from <code>ggplot2</code> library</p></li>
+<li><p>Using other package e.g., <code>ggthemes</code></p>
+<ul>
+<li><code>theme_economist_white()</code></li>
+<li><code>theme_fivethirtyeight()</code></li>
+<li><code>theme_stata()</code></li>
+<li><code>theme_tufte()</code></li>
+</ul></li>
+</ul>
+</div><div class="column" style="width:50%;">
+<div class="cell" data-figalign="center">
+<div class="cell-output-display">
+<div>
+<figure>
+<p><img data-src="index_files/figure-revealjs/unnamed-chunk-105-1.png" width="576"></p>
+</figure>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="themes-8" class="slide level2">
+<h2>Themes</h2>
+<div class="columns">
+<div class="column" style="width:50%;">
+<p><strong>Options</strong></p>
+<ul>
+<li><p>Using the built-in-theme from <code>ggplot2</code> library</p></li>
+<li><p>Using other package e.g., <code>ggthemes</code></p>
+<ul>
+<li><code>theme_economist_white()</code></li>
+<li><code>theme_fivethirtyeight()</code></li>
+<li><code>theme_stata()</code></li>
+<li><code>theme_tufte()</code></li>
+</ul></li>
+</ul>
+</div><div class="column" style="width:50%;">
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="index_files/figure-revealjs/unnamed-chunk-106-1.png" class="quarto-figure quarto-figure-center" width="576"></p>
+</figure>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="practice-exercise" class="slide level2">
+<h2>Practice exercise</h2>
+<div class="columns">
+<div class="column" style="width:50%;">
+<p><strong>Let’s apply what we have covered!</strong></p>
+<ul>
+<li><p>Use the mpg dataset to recreate the plot.</p></li>
+<li><p>But first, we need to do some data wrangling!</p></li>
+<li><p>Use the updated mpg data to mimic the plot.</p></li>
+</ul>
+</div><div class="column" style="width:50%;">
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="index_files/figure-revealjs/unnamed-chunk-108-1.png" class="quarto-figure quarto-figure-center" width="576"></p>
+</figure>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="section" class="slide level2">
+<h2></h2>
+
+<img data-src="img/econ148-hex-logo.png" class="quarto-figure quarto-figure-center r-stretch" width="346"><div class="quarto-auto-generated-content">
 <div class="footer footer-default">
 <p>Econ 148: Analytical and statistical packages for economists 1</p>
 </div>
