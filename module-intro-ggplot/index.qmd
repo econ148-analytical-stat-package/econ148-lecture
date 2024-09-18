@@ -2947,6 +2947,7 @@ theme_set(theme_gray())
 ```
 
 ```{r}
+#| echo: true
 #| fig-height: 4
 #| fig-width: 6
 #| fig-align: center
@@ -2980,6 +2981,7 @@ scales
 
 ::: {.column width="50%"}
 ```{r}
+#| echo: true
 #| fig-height: 4
 #| fig-width: 6
 #| fig-align: center
@@ -3014,6 +3016,7 @@ ws
 
 ::: {.column width="50%"}
 ```{r}
+#| echo: true
 #| fig-height: 4
 #| fig-width: 6
 #| fig-align: center
@@ -3048,6 +3051,7 @@ ggplot(mpg, aes(x = displ, hwy)) +
 
 ::: {.column width="50%"}
 ```{r}
+#| echo: true
 #| fig-height: 4
 #| fig-width: 6
 #| figalign: center
@@ -3082,6 +3086,7 @@ ggplot(mpg, aes(x = displ, hwy)) +
 
 ::: {.column width="50%"}
 ```{r}
+#| echo: true
 #| fig-height: 4
 #| fig-width: 6
 #| fig-align: center

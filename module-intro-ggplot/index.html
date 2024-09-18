@@ -2715,6 +2715,9 @@ $ prop &lt;dbl&gt; 0.07238359, 0.02667896, 0.02052149, 0.01986579, 0.01788843, 0
 <span id="cb86-3"><a href=""></a>scales</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div><div class="column" style="width:50%;">
 <div class="cell" data-layout-align="center">
+<div class="sourceCode cell-code" id="cb87"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb87-1"><a href=""></a><span class="fu">ggplot</span>(mpg, <span class="fu">aes</span>(<span class="at">x =</span> displ, hwy)) <span class="sc">+</span> </span>
+<span id="cb87-2"><a href=""></a>  <span class="fu">geom_blank</span>() <span class="sc">+</span> </span>
+<span id="cb87-3"><a href=""></a>  <span class="fu">xlab</span>(<span class="cn">NULL</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure>
@@ -2735,11 +2738,15 @@ $ prop &lt;dbl&gt; 0.07238359, 0.02667896, 0.02052149, 0.01986579, 0.01788843, 0
 <li>“wraps” a 1d ribbon of panels into 2d</li>
 <li>useful if you have a variable with many levels</li>
 </ul>
-<div class="sourceCode" id="cb87"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb87-1"><a href=""></a>ncol</span>
-<span id="cb87-2"><a href=""></a>nrow</span>
-<span id="cb87-3"><a href=""></a>scales</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb88"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb88-1"><a href=""></a>ncol</span>
+<span id="cb88-2"><a href=""></a>nrow</span>
+<span id="cb88-3"><a href=""></a>scales</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div><div class="column" style="width:50%;">
 <div class="cell" data-layout-align="center">
+<div class="sourceCode cell-code" id="cb89"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb89-1"><a href=""></a><span class="fu">ggplot</span>(mpg, <span class="fu">aes</span>(<span class="at">x =</span> displ, hwy)) <span class="sc">+</span> </span>
+<span id="cb89-2"><a href=""></a>  <span class="fu">geom_blank</span>() <span class="sc">+</span> </span>
+<span id="cb89-3"><a href=""></a>  <span class="fu">xlab</span>(<span class="cn">NULL</span>) <span class="sc">+</span></span>
+<span id="cb89-4"><a href=""></a>  <span class="fu">facet_wrap</span>(<span class="sc">~</span> class) <span class="co">#&lt;&lt;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure>
@@ -2764,6 +2771,10 @@ $ prop &lt;dbl&gt; 0.07238359, 0.02667896, 0.02052149, 0.01986579, 0.01788843, 0
 </ul>
 </div><div class="column" style="width:50%;">
 <div class="cell" data-layout-align="center">
+<div class="sourceCode cell-code" id="cb90"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb90-1"><a href=""></a><span class="fu">ggplot</span>(mpg, <span class="fu">aes</span>(<span class="at">x =</span> displ, hwy)) <span class="sc">+</span> </span>
+<span id="cb90-2"><a href=""></a>  <span class="fu">geom_blank</span>() <span class="sc">+</span> </span>
+<span id="cb90-3"><a href=""></a>  <span class="fu">xlab</span>(<span class="cn">NULL</span>) <span class="sc">+</span></span>
+<span id="cb90-4"><a href=""></a>  <span class="fu">facet_grid</span>(. <span class="sc">~</span> cyl) <span class="co">#&lt;&lt;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure>
@@ -2788,6 +2799,10 @@ $ prop &lt;dbl&gt; 0.07238359, 0.02667896, 0.02052149, 0.01986579, 0.01788843, 0
 </ul>
 </div><div class="column" style="width:50%;">
 <div class="cell" data-figalign="center">
+<div class="sourceCode cell-code" id="cb91"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb91-1"><a href=""></a><span class="fu">ggplot</span>(mpg, <span class="fu">aes</span>(<span class="at">x =</span> displ, hwy)) <span class="sc">+</span> </span>
+<span id="cb91-2"><a href=""></a>  <span class="fu">geom_blank</span>() <span class="sc">+</span> </span>
+<span id="cb91-3"><a href=""></a>  <span class="fu">xlab</span>(<span class="cn">NULL</span>) <span class="sc">+</span></span>
+<span id="cb91-4"><a href=""></a>  <span class="fu">facet_grid</span>(drv <span class="sc">~</span> .) <span class="co">#&lt;&lt;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div>
 <figure>
@@ -2812,6 +2827,10 @@ $ prop &lt;dbl&gt; 0.07238359, 0.02667896, 0.02052149, 0.01986579, 0.01788843, 0
 </ul>
 </div><div class="column" style="width:50%;">
 <div class="cell" data-layout-align="center">
+<div class="sourceCode cell-code" id="cb92"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb92-1"><a href=""></a><span class="fu">ggplot</span>(mpg, <span class="fu">aes</span>(<span class="at">x =</span> displ, hwy)) <span class="sc">+</span> </span>
+<span id="cb92-2"><a href=""></a>  <span class="fu">geom_blank</span>() <span class="sc">+</span> </span>
+<span id="cb92-3"><a href=""></a>  <span class="fu">xlab</span>(<span class="cn">NULL</span>) <span class="sc">+</span></span>
+<span id="cb92-4"><a href=""></a>  <span class="fu">facet_grid</span>(drv <span class="sc">~</span> cyl) <span class="co">#&lt;&lt;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure>
