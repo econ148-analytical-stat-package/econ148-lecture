@@ -1799,7 +1799,7 @@ For example
 
 ::: {.column width="50%"}
 ```{.r code-line-numbers="3"}
-ggplot(mtcars, aes(x = mpg, y = wt, color = factor(cyl))) +
+ggplot(mtcars, aes(x = mpg, y = wt, alpha = factor(cyl))) +
   geom_point(size = 4) +
   scale_alpha_manual(values = c(0.3, 0.6, 1))
 ```
