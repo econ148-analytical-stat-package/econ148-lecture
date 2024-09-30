@@ -11,7 +11,7 @@ format:
     code-summary: "code"
     chalkboard: true
     slide-number: true
-    footer: "Econ 147: special topics in business economics"
+    footer: "Econ 148: analytical and statistical packages for economics 1"
 engine: knitr
 from: markdown+emoji
 editor: visual
