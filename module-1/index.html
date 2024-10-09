@@ -8,7 +8,7 @@
 <link href="index_files/libs/quarto-html/light-border.css" rel="stylesheet">
 <link href="index_files/libs/quarto-html/quarto-html.min.css" rel="stylesheet" data-mode="light">
 <link href="index_files/libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
-  <meta name="generator" content="quarto-1.4.555">
+  <meta name="generator" content="quarto-1.5.57">
 
   <title>.</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -41,7 +41,7 @@
     }
     @media print {
     pre > code.sourceCode { white-space: pre-wrap; }
-    pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+    pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
     }
     pre.numberSource code
       { counter-reset: source-line 0; }
@@ -69,7 +69,7 @@
     code span.at { color: #657422; } /* Attribute */
     code span.bn { color: #ad0000; } /* BaseN */
     code span.bu { } /* BuiltIn */
-    code span.cf { color: #003b4f; } /* ControlFlow */
+    code span.cf { color: #003b4f; font-weight: bold; } /* ControlFlow */
     code span.ch { color: #20794d; } /* Char */
     code span.cn { color: #8f5902; } /* Constant */
     code span.co { color: #5e5e5e; } /* Comment */
@@ -83,7 +83,7 @@
     code span.fu { color: #4758ab; } /* Function */
     code span.im { color: #00769e; } /* Import */
     code span.in { color: #5e5e5e; } /* Information */
-    code span.kw { color: #003b4f; } /* Keyword */
+    code span.kw { color: #003b4f; font-weight: bold; } /* Keyword */
     code span.op { color: #5e5e5e; } /* Operator */
     code span.ot { color: #003b4f; } /* Other */
     code span.pp { color: #ad0000; } /* Preprocessor */
@@ -606,7 +606,7 @@
 <h2>Sampling design</h2>
 <h3 id="representative-sample">Representative sample</h3>
 <blockquote>
-<p>contains the relevant characteristics of the population of the population is the same proportion as the population</p>
+<p>contains the relevant characteristics of the population is the same proportion as the population</p>
 </blockquote>
 </section>
 <section id="sampling-design-3" class="slide level2">
@@ -664,12 +664,11 @@
 <div class="cell">
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href=""></a><span class="do">## random sample with replacement</span></span>
 <span id="cb2-2"><a href=""></a><span class="fu">sample</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">6</span>, <span class="dv">4</span>, <span class="at">replace =</span> <span class="cn">TRUE</span>)</span>
-<span id="cb2-3"><a href=""></a>[<span class="dv">1</span>] <span class="dv">2</span> <span class="dv">2</span> <span class="dv">4</span> <span class="dv">3</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb2-3"><a href=""></a>[<span class="dv">1</span>] <span class="dv">3</span> <span class="dv">5</span> <span class="dv">3</span> <span class="dv">6</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </div><div class="column">
 
-</div>
-</div>
+</div></div>
 </div>
 </section>
 <section id="sampling-design-6" class="slide level2">
@@ -700,19 +699,18 @@
 <div class="cell">
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href=""></a><span class="do">## random sample without replacement</span></span>
 <span id="cb3-2"><a href=""></a><span class="fu">sample</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">20</span>, <span class="dv">5</span>)</span>
-<span id="cb3-3"><a href=""></a>[<span class="dv">1</span>] <span class="dv">16</span> <span class="dv">14</span> <span class="dv">18</span> <span class="dv">20</span>  <span class="dv">7</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb3-3"><a href=""></a>[<span class="dv">1</span>] <span class="dv">12</span>  <span class="dv">2</span>  <span class="dv">3</span>  <span class="dv">6</span>  <span class="dv">7</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p><br></p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href=""></a><span class="do">## random sample without replacement</span></span>
 <span id="cb4-2"><a href=""></a><span class="fu">sample</span>(LETTERS)</span>
-<span id="cb4-3"><a href=""></a> [<span class="dv">1</span>] <span class="st">"L"</span> <span class="st">"O"</span> <span class="st">"D"</span> <span class="st">"B"</span> <span class="st">"U"</span> <span class="st">"M"</span> <span class="st">"E"</span> <span class="st">"X"</span> <span class="st">"Z"</span> <span class="st">"F"</span> <span class="st">"A"</span> <span class="st">"N"</span> <span class="st">"P"</span> <span class="st">"T"</span> <span class="st">"Y"</span> <span class="st">"J"</span> <span class="st">"W"</span> <span class="st">"Q"</span> <span class="st">"H"</span></span>
-<span id="cb4-4"><a href=""></a>[<span class="dv">20</span>] <span class="st">"S"</span> <span class="st">"R"</span> <span class="st">"K"</span> <span class="st">"I"</span> <span class="st">"C"</span> <span class="st">"G"</span> <span class="st">"V"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb4-3"><a href=""></a> [<span class="dv">1</span>] <span class="st">"L"</span> <span class="st">"F"</span> <span class="st">"R"</span> <span class="st">"E"</span> <span class="st">"I"</span> <span class="st">"T"</span> <span class="st">"X"</span> <span class="st">"J"</span> <span class="st">"V"</span> <span class="st">"H"</span> <span class="st">"U"</span> <span class="st">"A"</span> <span class="st">"N"</span> <span class="st">"C"</span> <span class="st">"Z"</span> <span class="st">"Q"</span> <span class="st">"W"</span> <span class="st">"Y"</span> <span class="st">"S"</span></span>
+<span id="cb4-4"><a href=""></a>[<span class="dv">20</span>] <span class="st">"D"</span> <span class="st">"P"</span> <span class="st">"O"</span> <span class="st">"M"</span> <span class="st">"G"</span> <span class="st">"K"</span> <span class="st">"B"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </div><div class="column">
 
-</div>
-</div>
+</div></div>
 </section>
 <section id="sampling-design-8" class="slide level2">
 <h2>Sampling design</h2>
@@ -1070,7 +1068,8 @@ n = \frac{N}{1 + N(E^2)} = \frac{1000}{1 + 1000(0.05^2)} = 286
 <h3 id="margin-of-error-formula">Margin of error formula</h3>
 <p><span class="math display">\[
 \text{confidence interval} = \bar{X} \pm Z_{\alpha /2} \times \frac{s}{\sqrt{n}}
-\]</span> <span class="math display">\[
+\]</span></p>
+<p><span class="math display">\[
 \text{margin of error (E)} = Z_{\alpha /2} \times \frac{s}{\sqrt{n}}
 \]</span></p>
 <div class="callout callout-tip callout-titled callout-style-default">
@@ -1113,10 +1112,198 @@ n = \frac{N}{1 + N(E^2)} = \frac{1000}{1 + 1000(0.05^2)} = 286
 <span id="cb9-9"><a href=""></a></span>
 <span id="cb9-10"><a href=""></a><span class="in"># Print the sample size</span></span>
 <span id="cb9-11"><a href=""></a><span class="in">cat("The sample size needed for the study is:", ceiling(sample_size), "\n")</span></span>
-<span id="cb9-12"><a href=""></a><span class="in">```</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb9-12"><a href=""></a></span>
+<span id="cb9-13"><a href=""></a><span class="in">```</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell">
 <pre><code>The sample size needed for the study is: 84 </code></pre>
 </div>
+</section>
+<section id="sampling-design-25" class="slide level2">
+<h2>Sampling design</h2>
+<div class="callout callout-note callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>General comments in sample size determination</strong></p>
+</div>
+<div class="callout-content">
+<ul>
+<li><p>The higher the confidence level, the larger the sample size needed.</p></li>
+<li><p>The smaller the margin of errror, the larger the sample size needed.</p></li>
+<li><p>Sample can also depend on the budget, time, and resources available for the study.</p></li>
+<li><p>Modern research uses power analysis in determining sample size. It is a method of determining the number of observations needed to detect an effect of a given size with a given level of confidence.</p></li>
+</ul>
+</div>
+</div>
+</div>
+</section>
+<section id="measurement" class="slide level2">
+<h2>Measurement</h2>
+<ul>
+<li><p>Research begins with a problem or topic, thinking about the problems results in identifying concepts that capture the phenomenon being examined.</p></li>
+<li><p>Abstract concepts and attributes should be measured carefully to be of use in the empirical level.</p></li>
+<li><p>Measurement is the process of assigning numbers to represent quantities of attributes.</p></li>
+<li><p>Rules for assigning numbers need to be standardized and uniformly applicable.</p></li>
+</ul>
+</section>
+<section id="measurement-1" class="slide level2">
+<h2>Measurement</h2>
+<div class="callout callout-note callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Measurement issues in research</strong></p>
+</div>
+<div class="callout-content">
+<ul>
+<li><p>Whether underlying characteristics of the concept allows ordering (ordinal level or categorizing (nominal level)?</p></li>
+<li><p>Whether the features of the concepts are discrete or constinuos with fine gradation?</p></li>
+<li><p>Concepts can be measured by more than one indicator. How many indicators are appropriate to measure a concept?</p></li>
+<li><p>Are measure valid and reliable?</p></li>
+</ul>
+</div>
+</div>
+</div>
+</section>
+<section id="measurement-scales" class="slide level2">
+<h2>Measurement scales</h2>
+<p><br></p>
+<table class="caption-top" style="width:97%;">
+<colgroup>
+<col style="width: 13%">
+<col style="width: 21%">
+<col style="width: 21%">
+<col style="width: 21%">
+<col style="width: 21%">
+</colgroup>
+<thead>
+<tr class="header">
+<th></th>
+<th style="text-align: center;">Category</th>
+<th style="text-align: center;">Ranking</th>
+<th style="text-align: center;">Equal interval</th>
+<th style="text-align: center;">Zero point</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Nominal</td>
+<td style="text-align: center;"><span class="emoji" data-emoji="heavy_check_mark">✔️</span></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+</tr>
+<tr class="even">
+<td>Ordinal</td>
+<td style="text-align: center;"><span class="emoji" data-emoji="heavy_check_mark">✔️</span></td>
+<td style="text-align: center;"><span class="emoji" data-emoji="heavy_check_mark">✔️</span></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+</tr>
+<tr class="odd">
+<td>Interval</td>
+<td style="text-align: center;"><span class="emoji" data-emoji="heavy_check_mark">✔️</span></td>
+<td style="text-align: center;"><span class="emoji" data-emoji="heavy_check_mark">✔️</span></td>
+<td style="text-align: center;"><span class="emoji" data-emoji="heavy_check_mark">✔️</span></td>
+<td style="text-align: center;"></td>
+</tr>
+<tr class="even">
+<td>Ratio</td>
+<td style="text-align: center;"><span class="emoji" data-emoji="heavy_check_mark">✔️</span></td>
+<td style="text-align: center;"><span class="emoji" data-emoji="heavy_check_mark">✔️</span></td>
+<td style="text-align: center;"><span class="emoji" data-emoji="heavy_check_mark">✔️</span></td>
+<td style="text-align: center;"><span class="emoji" data-emoji="heavy_check_mark">✔️</span></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="measurement-scales-1" class="slide level2">
+<h2>Measurement scales</h2>
+<p><br></p>
+<table class="caption-top" style="width:100%;">
+<colgroup>
+<col style="width: 6%">
+<col style="width: 30%">
+<col style="width: 61%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Scale</th>
+<th style="text-align: left;">Example</th>
+<th style="text-align: left;">Statistics</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;"><ul>
+<li>Nominal</li>
+</ul></td>
+<td style="text-align: left;"><ul>
+<li>Gender; Yes / No response; Student roll number; Object/ groups</li>
+</ul></td>
+<td style="text-align: left;"><ul>
+<li>Frequency; percentage; proportion, coefficient of contingency; chi-square</li>
+</ul></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><ul>
+<li>Ordinal</li>
+</ul></td>
+<td style="text-align: left;"><ul>
+<li>Class rank; socioeconomic status; academic achievement</li>
+</ul></td>
+<td style="text-align: left;"><ul>
+<li>Median; percentile; rank; correlation, range</li>
+</ul></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><ul>
+<li>Interval</li>
+</ul></td>
+<td style="text-align: left;"><ul>
+<li>Student grade point; temperature; calender dates; rating scale</li>
+</ul></td>
+<td style="text-align: left;"><ul>
+<li>Mean, correlation; range; standard deviation; rank order variance; t-test; f-test; etc.</li>
+</ul></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><ul>
+<li>Ratio</li>
+</ul></td>
+<td style="text-align: left;"><ul>
+<li>Weight; height; salary; frequency of buying a product</li>
+</ul></td>
+<td style="text-align: left;"><ul>
+<li>Mean; median; mode; range; variance; standard deviation; coefficient of variation; rank order variance; correlation, t-test, f-test</li>
+</ul></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="criteria-for-good-measurement" class="slide level2">
+<h2>Criteria for good measurement</h2>
+<ul>
+<li><p><strong>Reliability</strong></p>
+<ul>
+<li><p>the extent to which a measure is consistent and stable over time.</p></li>
+<li><p>the extent to which a measure is free from random error.</p></li>
+<li><p>the extent to which a measure is free from systematic error.</p></li>
+</ul></li>
+</ul>
+</section>
+<section id="criteria-for-good-measurement-1" class="slide level2">
+<h2>Criteria for good measurement</h2>
+<ul>
+<li><p><strong>Validity</strong></p>
+<ul>
+<li>the extent to which a measure captures the concept it is intended to measure.</li>
+</ul></li>
+</ul>
 <div class="quarto-auto-generated-content">
 <div class="footer footer-default">
 <p>Econ 148: Analytical and statistical packages for economists 1</p>
@@ -1443,18 +1630,7 @@ n = \frac{N}{1 + N(E^2)} = \frac{1000}{1 + 1000(0.05^2)} = 286
         }
         return false;
       }
-      const clipboard = new window.ClipboardJS('.code-copy-button', {
-        text: function(trigger) {
-          const codeEl = trigger.previousElementSibling.cloneNode(true);
-          for (const childEl of codeEl.children) {
-            if (isCodeAnnotation(childEl)) {
-              childEl.remove();
-            }
-          }
-          return codeEl.innerText;
-        }
-      });
-      clipboard.on('success', function(e) {
+      const onCopySuccess = function(e) {
         // button target
         const button = e.trigger;
         // don't keep focus
@@ -1486,7 +1662,29 @@ n = \frac{N}{1 + N(E^2)} = \frac{1000}{1 + 1000(0.05^2)} = 286
         }, 1000);
         // clear code selection
         e.clearSelection();
+      }
+      const getTextToCopy = function(trigger) {
+          const codeEl = trigger.previousElementSibling.cloneNode(true);
+          for (const childEl of codeEl.children) {
+            if (isCodeAnnotation(childEl)) {
+              childEl.remove();
+            }
+          }
+          return codeEl.innerText;
+      }
+      const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+        text: getTextToCopy
       });
+      clipboard.on('success', onCopySuccess);
+      if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+        // For code content inside modals, clipBoardJS needs to be initialized with a container option
+        // TODO: Check when it could be a function (https://github.com/zenorocha/clipboard.js/issues/860)
+        const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+          text: getTextToCopy,
+          container: window.document.getElementById('quarto-embedded-source-code-modal')
+        });
+        clipboardModal.on('success', onCopySuccess);
+      }
         var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
         var mailtoRegex = new RegExp(/^mailto:/);
           var filterRegex = new RegExp('/' + window.location.host + '/');
@@ -1494,7 +1692,7 @@ n = \frac{N}{1 + N(E^2)} = \frac{1000}{1 + 1000(0.05^2)} = 286
             return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
         }
         // Inspect non-navigation links and adorn them if external
-     	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool)');
+     	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
         for (var i=0; i<links.length; i++) {
           const link = links[i];
           if (!isInternal(link.href)) {

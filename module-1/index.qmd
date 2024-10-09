@@ -58,8 +58,8 @@ Appropriate measurement of variables is needed in studying behavior.
 
 <br>
 
-::: fragment
-::: {.callout-note style="font-size: 1.0em;"}
+::::: fragment
+:::: {.callout-note style="font-size: 1.0em;"}
 ## Note
 
 ::: incremental
@@ -67,8 +67,8 @@ Appropriate measurement of variables is needed in studying behavior.
 -   Research processes call for objectivity, integrity, and analytical rigor.
 -   Data should be accurate as possible; free from error, bias, and subjectivity.
 :::
-:::
-:::
+::::
+:::::
 
 ## Methods of data collection
 
@@ -200,7 +200,7 @@ non-random samples do not provide representativeness, and is only useful for exp
 
 ### Representative sample
 
-> contains the relevant characteristics of the population of the population is the same proportion as the population
+> contains the relevant characteristics of the population is the same proportion as the population
 
 ## Sampling design
 
@@ -242,7 +242,7 @@ Using four six-sided dice, let's randomly select four numbers between 1 and 6 wi
 
 . . .
 
-::: columns
+::::: columns
 ::: column
 ``` r
 sample(x, size, replace = FALSE, prob = NULL)
@@ -263,7 +263,7 @@ sample(1:6, 4, replace = TRUE)
 
 ::: column
 :::
-:::
+:::::
 
 ## Sampling design
 
@@ -279,7 +279,7 @@ sample(1:6, 4, replace = TRUE)
 
 <br>
 
-::: columns
+::::: columns
 ::: column
 ```{r}
 #| echo: true
@@ -300,7 +300,7 @@ sample(LETTERS)
 
 ::: column
 :::
-:::
+:::::
 
 ## Sampling design
 
@@ -414,7 +414,7 @@ sample(LETTERS)
 
 ## Sampling design
 
-::: callout-note
+:::: callout-note
 ## Take note
 
 ::: incremental
@@ -426,7 +426,7 @@ sample(LETTERS)
 
 -   In estimating means, the margin of error will not be a percentage but in the units of the variable which mean is to be predicted; the smaller the margin of error, the more precise will be the interval estimate.
 :::
-:::
+::::
 
 ## Sampling design
 
@@ -564,7 +564,9 @@ cat("The sample size needed for the study is:", ceiling(sample_size), "\n")
 
 $$
 \text{confidence interval} = \bar{X} \pm Z_{\alpha /2} \times \frac{s}{\sqrt{n}}
-$$ $$
+$$
+
+$$
 \text{margin of error (E)} = Z_{\alpha /2} \times \frac{s}{\sqrt{n}}
 $$
 
@@ -593,6 +595,7 @@ sample_size <- (Z * s / E)^2
 
 # Print the sample size
 cat("The sample size needed for the study is:", ceiling(sample_size), "\n")
+
 ```
 
 ```{r}
@@ -608,3 +611,101 @@ sample_size <- (Z * s / E)^2
 cat("The sample size needed for the study is:", ceiling(sample_size), "\n")
 
 ```
+
+## Sampling design
+
+::: callout-note
+## General comments in sample size determination
+
+-   The higher the confidence level, the larger the sample size needed.
+
+-   The smaller the margin of errror, the larger the sample size needed.
+
+-   Sample can also depend on the budget, time, and resources available for the study.
+
+-   Modern research uses power analysis in determining sample size. It is a method of determining the number of observations needed to detect an effect of a given size with a given level of confidence.
+:::
+
+## Measurement
+
+-   Research begins with a problem or topic, thinking about the problems results in identifying concepts that capture the phenomenon being examined.
+
+-   Abstract concepts and attributes should be measured carefully to be of use in the empirical level.
+
+-   Measurement is the process of assigning numbers to represent quantities of attributes.
+
+-   Rules for assigning numbers need to be standardized and uniformly applicable.
+
+## Measurement
+
+::: callout-note
+## Measurement issues in research
+
+-   Whether underlying characteristics of the concept allows ordering (ordinal level or categorizing (nominal level)?
+
+-   Whether the features of the concepts are discrete or constinuos with fine gradation?
+
+-   Concepts can be measured by more than one indicator. How many indicators are appropriate to measure a concept?
+
+-   Are measure valid and reliable?
+:::
+
+## Measurement scales
+
+<br>
+
++------------+--------------------+--------------------+--------------------+--------------------+
+|            | Category           | Ranking            | Equal interval     | Zero point         |
++============+:==================:+:==================:+:==================:+:==================:+
+| Nominal    | :heavy_check_mark: |                    |                    |                    |
++------------+--------------------+--------------------+--------------------+--------------------+
+| Ordinal    | :heavy_check_mark: | :heavy_check_mark: |                    |                    |
++------------+--------------------+--------------------+--------------------+--------------------+
+| Interval   | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |                    |
++------------+--------------------+--------------------+--------------------+--------------------+
+| Ratio      | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
++------------+--------------------+--------------------+--------------------+--------------------+
+
+## Measurement scales
+
+<br>
+
++--------------+--------------------------------------------------------------------+-----------------------------------------------------------------------------------------------------------------------------------------+
+| Scale        | Example                                                            | Statistics                                                                                                                              |
++:=============+:===================================================================+:========================================================================================================================================+
+| -   Nominal  | -   Gender; Yes / No response; Student roll number; Object/ groups | -   Frequency; percentage; proportion, coefficient of contingency; chi-square                                                           |
++--------------+--------------------------------------------------------------------+-----------------------------------------------------------------------------------------------------------------------------------------+
+| -   Ordinal  | -   Class rank; socioeconomic status; academic achievement         | -   Median; percentile; rank; correlation, range                                                                                        |
++--------------+--------------------------------------------------------------------+-----------------------------------------------------------------------------------------------------------------------------------------+
+| -   Interval | -   Student grade point; temperature; calender dates; rating scale | -   Mean, correlation; range; standard deviation; rank order variance; t-test; f-test; etc.                                             |
++--------------+--------------------------------------------------------------------+-----------------------------------------------------------------------------------------------------------------------------------------+
+| -   Ratio    | -   Weight; height; salary; frequency of buying a product          | -   Mean; median; mode; range; variance; standard deviation; coefficient of variation; rank order variance; correlation, t-test, f-test |
++--------------+--------------------------------------------------------------------+-----------------------------------------------------------------------------------------------------------------------------------------+
+
+
+## Criteria for good measurement
+
+-   **Reliability**
+
+    -   the extent to which a measure is consistent and stable over time.
+
+    -   the extent to which a measure is free from random error.
+
+    -   the extent to which a measure is free from systematic error.
+    
+
+## Criteria for good measurement
+
+-   **Validity**
+
+    -   the extent to which a measure captures the concept it is intended to measure.
+
+
+
+
+
+
+
+
+
+
