@@ -508,16 +508,6 @@
 </section>
 <section id="tools-of-data-collection-1" class="slide level2">
 <h2>Tools of data collection</h2>
-<h3 id="schedule-approach">Schedule approach</h3>
-<blockquote>
-<p>questions are detailed and is asked by hte investigator/enumerator. Investigator must be ingenious in explaining concepts to obtain reliable information. At times, training is necessary.</p>
-</blockquote>
-<ul>
-<li>data may be collected by personal, face-to-face suveys, or conducted through the phone or be done through e-mails or chatting over the internet.</li>
-</ul>
-</section>
-<section id="tools-of-data-collection-2" class="slide level2">
-<h2>Tools of data collection</h2>
 <h3 id="data-types">Data types</h3>
 <ul>
 <li><p><strong>Primary data</strong></p>
@@ -531,7 +521,7 @@
 </ul></li>
 </ul>
 </section>
-<section id="tools-of-data-collection-3" class="slide level2">
+<section id="tools-of-data-collection-2" class="slide level2">
 <h2>Tools of data collection</h2>
 <h3 id="errors-in-data">Errors in data</h3>
 <div>
@@ -709,7 +699,7 @@
 <div class="cell">
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href=""></a><span class="do">## random sample with replacement</span></span>
 <span id="cb2-2"><a href=""></a><span class="fu">sample</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">6</span>, <span class="dv">4</span>, <span class="at">replace =</span> <span class="cn">TRUE</span>)</span>
-<span id="cb2-3"><a href=""></a>[<span class="dv">1</span>] <span class="dv">2</span> <span class="dv">3</span> <span class="dv">1</span> <span class="dv">5</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb2-3"><a href=""></a>[<span class="dv">1</span>] <span class="dv">5</span> <span class="dv">1</span> <span class="dv">4</span> <span class="dv">4</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </div><div class="column">
 
@@ -744,14 +734,14 @@
 <div class="cell">
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href=""></a><span class="do">## random sample without replacement</span></span>
 <span id="cb3-2"><a href=""></a><span class="fu">sample</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">20</span>, <span class="dv">5</span>)</span>
-<span id="cb3-3"><a href=""></a>[<span class="dv">1</span>]  <span class="dv">3</span> <span class="dv">18</span>  <span class="dv">2</span>  <span class="dv">5</span> <span class="dv">16</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb3-3"><a href=""></a>[<span class="dv">1</span>]  <span class="dv">5</span>  <span class="dv">2</span> <span class="dv">19</span>  <span class="dv">1</span> <span class="dv">16</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p><br></p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href=""></a><span class="do">## random sample without replacement</span></span>
 <span id="cb4-2"><a href=""></a><span class="fu">sample</span>(LETTERS)</span>
-<span id="cb4-3"><a href=""></a> [<span class="dv">1</span>] <span class="st">"A"</span> <span class="st">"V"</span> <span class="st">"K"</span> <span class="st">"Q"</span> <span class="st">"Z"</span> <span class="st">"N"</span> <span class="st">"J"</span> <span class="st">"W"</span> <span class="st">"P"</span> <span class="st">"M"</span> <span class="st">"X"</span> <span class="st">"H"</span> <span class="st">"S"</span> <span class="st">"G"</span> <span class="st">"Y"</span> <span class="st">"F"</span> <span class="st">"O"</span> <span class="st">"T"</span> <span class="st">"B"</span></span>
-<span id="cb4-4"><a href=""></a>[<span class="dv">20</span>] <span class="st">"E"</span> <span class="st">"R"</span> <span class="st">"C"</span> <span class="st">"I"</span> <span class="st">"U"</span> <span class="st">"L"</span> <span class="st">"D"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb4-3"><a href=""></a> [<span class="dv">1</span>] <span class="st">"E"</span> <span class="st">"Q"</span> <span class="st">"W"</span> <span class="st">"S"</span> <span class="st">"J"</span> <span class="st">"M"</span> <span class="st">"X"</span> <span class="st">"P"</span> <span class="st">"U"</span> <span class="st">"L"</span> <span class="st">"N"</span> <span class="st">"A"</span> <span class="st">"C"</span> <span class="st">"I"</span> <span class="st">"H"</span> <span class="st">"B"</span> <span class="st">"T"</span> <span class="st">"D"</span> <span class="st">"Y"</span></span>
+<span id="cb4-4"><a href=""></a>[<span class="dv">20</span>] <span class="st">"K"</span> <span class="st">"F"</span> <span class="st">"V"</span> <span class="st">"O"</span> <span class="st">"G"</span> <span class="st">"R"</span> <span class="st">"Z"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </div><div class="column">
 

@@ -122,13 +122,6 @@ Appropriate measurement of variables is needed in studying behavior.
 
 -   respondent-bias is minimized by keeping questions simple and direct, i.e., yes/no/can't say, good/satisfactory/unsatisfactory
 
-## Tools of data collection
-
-### Schedule approach
-
-> questions are detailed and is asked by hte investigator/enumerator. Investigator must be ingenious in explaining concepts to obtain reliable information. At times, training is necessary.
-
--   data may be collected by personal, face-to-face suveys, or conducted through the phone or be done through e-mails or chatting over the internet.
 
 ## Tools of data collection
 
