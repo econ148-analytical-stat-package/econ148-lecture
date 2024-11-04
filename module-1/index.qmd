@@ -235,7 +235,7 @@ non-random samples do not provide representativeness, and is only useful for exp
 > provides samples that are representative of the population. It is a method of sampling in which each unit in the population has a determined chance of being included in the sample.
 
 ::: incremental
--   with a random sample, we can infer the results to the population and indicate the extent of error to which the estimates are the subject (i.e., presion estimate).
+-   with a random sample, we can infer the results to the population and indicate the extent of error to which the estimates are the subject (i.e., precision estimate).
 
 -   with a random sample, the sample statistics derived from the sample are random variables themeselves, given that the composition of observation can vary.
 :::
@@ -351,7 +351,7 @@ sample(LETTERS)
 
 -   select a starting point $\text{r}$ which is between $\text{1}$ and $\text{k}$, with will be called the $\text{r}^{th}$ unit or $U_r$
 
--   sample will then be a set of composef of $U_r, U_{r+k}, U_{r+2k}, \ldots, U_{r+(n-1)k}$
+-   sample will then be a set of compose of $U_r, U_{r+k}, U_{r+2k}, \ldots, U_{r+(n-1)k}$
 
 
 ## Sampling design
@@ -377,7 +377,7 @@ sample(LETTERS)
 ::: callout-tip
 ## Example in R
 
-Supposed you have a population of 100 students adn want to select a sample of 20.
+Supposed you have a population of 100 students and want to select a sample of 20.
 
 1. Population size $\text{N} = 100$ and Sample size $\text{n} = 20$
 
