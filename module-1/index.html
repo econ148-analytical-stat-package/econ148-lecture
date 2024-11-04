@@ -709,7 +709,7 @@
 <div class="cell">
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href=""></a><span class="do">## random sample with replacement</span></span>
 <span id="cb2-2"><a href=""></a><span class="fu">sample</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">6</span>, <span class="dv">4</span>, <span class="at">replace =</span> <span class="cn">TRUE</span>)</span>
-<span id="cb2-3"><a href=""></a>[<span class="dv">1</span>] <span class="dv">6</span> <span class="dv">2</span> <span class="dv">2</span> <span class="dv">3</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb2-3"><a href=""></a>[<span class="dv">1</span>] <span class="dv">2</span> <span class="dv">3</span> <span class="dv">1</span> <span class="dv">5</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </div><div class="column">
 
@@ -744,14 +744,14 @@
 <div class="cell">
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href=""></a><span class="do">## random sample without replacement</span></span>
 <span id="cb3-2"><a href=""></a><span class="fu">sample</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">20</span>, <span class="dv">5</span>)</span>
-<span id="cb3-3"><a href=""></a>[<span class="dv">1</span>]  <span class="dv">7</span> <span class="dv">18</span>  <span class="dv">4</span> <span class="dv">20</span> <span class="dv">10</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb3-3"><a href=""></a>[<span class="dv">1</span>]  <span class="dv">3</span> <span class="dv">18</span>  <span class="dv">2</span>  <span class="dv">5</span> <span class="dv">16</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p><br></p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href=""></a><span class="do">## random sample without replacement</span></span>
 <span id="cb4-2"><a href=""></a><span class="fu">sample</span>(LETTERS)</span>
-<span id="cb4-3"><a href=""></a> [<span class="dv">1</span>] <span class="st">"X"</span> <span class="st">"J"</span> <span class="st">"C"</span> <span class="st">"Q"</span> <span class="st">"B"</span> <span class="st">"P"</span> <span class="st">"M"</span> <span class="st">"E"</span> <span class="st">"U"</span> <span class="st">"A"</span> <span class="st">"S"</span> <span class="st">"K"</span> <span class="st">"T"</span> <span class="st">"H"</span> <span class="st">"R"</span> <span class="st">"N"</span> <span class="st">"D"</span> <span class="st">"V"</span> <span class="st">"W"</span></span>
-<span id="cb4-4"><a href=""></a>[<span class="dv">20</span>] <span class="st">"F"</span> <span class="st">"O"</span> <span class="st">"G"</span> <span class="st">"Y"</span> <span class="st">"Z"</span> <span class="st">"L"</span> <span class="st">"I"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb4-3"><a href=""></a> [<span class="dv">1</span>] <span class="st">"A"</span> <span class="st">"V"</span> <span class="st">"K"</span> <span class="st">"Q"</span> <span class="st">"Z"</span> <span class="st">"N"</span> <span class="st">"J"</span> <span class="st">"W"</span> <span class="st">"P"</span> <span class="st">"M"</span> <span class="st">"X"</span> <span class="st">"H"</span> <span class="st">"S"</span> <span class="st">"G"</span> <span class="st">"Y"</span> <span class="st">"F"</span> <span class="st">"O"</span> <span class="st">"T"</span> <span class="st">"B"</span></span>
+<span id="cb4-4"><a href=""></a>[<span class="dv">20</span>] <span class="st">"E"</span> <span class="st">"R"</span> <span class="st">"C"</span> <span class="st">"I"</span> <span class="st">"U"</span> <span class="st">"L"</span> <span class="st">"D"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </div><div class="column">
 
@@ -1090,20 +1090,48 @@
 </div>
 </div>
 <div class="cell">
-<pre><code># A tibble: 300 × 4
-   barangay      id   age income
-   &lt;chr&gt;      &lt;int&gt; &lt;int&gt;  &lt;int&gt;
- 1 Barangay_2   101    69  35188
- 2 Barangay_2   102    39  29076
- 3 Barangay_2   103    42  45150
- 4 Barangay_2   104    49  11631
- 5 Barangay_2   105    63  18610
- 6 Barangay_2   106    42  16037
- 7 Barangay_2   107    40  22888
- 8 Barangay_2   108    52  25994
- 9 Barangay_2   109    57  25302
-10 Barangay_2   110    65  20447
-# ℹ 290 more rows</code></pre>
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href=""></a><span class="co"># Load necessary libraries</span></span>
+<span id="cb8-2"><a href=""></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb8-3"><a href=""></a></span>
+<span id="cb8-4"><a href=""></a><span class="co"># simulated dataset representing the population with barangays as clusters</span></span>
+<span id="cb8-5"><a href=""></a><span class="fu">set.seed</span>(<span class="dv">123</span>)</span>
+<span id="cb8-6"><a href=""></a></span>
+<span id="cb8-7"><a href=""></a>population <span class="ot">&lt;-</span> <span class="fu">tibble</span>(</span>
+<span id="cb8-8"><a href=""></a>  <span class="at">barangay =</span> <span class="fu">rep</span>(<span class="fu">paste0</span>(<span class="st">"Barangay_"</span>, <span class="dv">1</span><span class="sc">:</span><span class="dv">10</span>), <span class="at">each =</span> <span class="dv">100</span>),</span>
+<span id="cb8-9"><a href=""></a>  <span class="at">id =</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">1000</span>,</span>
+<span id="cb8-10"><a href=""></a>  <span class="at">age =</span> <span class="fu">sample</span>(<span class="dv">18</span><span class="sc">:</span><span class="dv">80</span>, <span class="dv">1000</span>, <span class="at">replace =</span> <span class="cn">TRUE</span>), </span>
+<span id="cb8-11"><a href=""></a>  <span class="at">income =</span> <span class="fu">sample</span>(<span class="dv">10000</span><span class="sc">:</span><span class="dv">50000</span>, <span class="dv">1000</span>, <span class="at">replace =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb8-12"><a href=""></a>)</span>
+<span id="cb8-13"><a href=""></a></span>
+<span id="cb8-14"><a href=""></a><span class="co"># Define the number of clusters to sample</span></span>
+<span id="cb8-15"><a href=""></a>n_clusters <span class="ot">&lt;-</span> <span class="dv">3</span></span>
+<span id="cb8-16"><a href=""></a></span>
+<span id="cb8-17"><a href=""></a><span class="co"># Randomly select a subset of barangays</span></span>
+<span id="cb8-18"><a href=""></a>selected_barangays <span class="ot">&lt;-</span> population <span class="sc">|&gt;</span> </span>
+<span id="cb8-19"><a href=""></a>  <span class="fu">distinct</span>(barangay) <span class="sc">|&gt;</span> </span>
+<span id="cb8-20"><a href=""></a>  <span class="fu">sample_n</span>(n_clusters) <span class="sc">|&gt;</span> </span>
+<span id="cb8-21"><a href=""></a>  <span class="fu">pull</span>(barangay)</span>
+<span id="cb8-22"><a href=""></a></span>
+<span id="cb8-23"><a href=""></a><span class="co"># Filter the population to include only individuals from the selected barangays</span></span>
+<span id="cb8-24"><a href=""></a>sample_data <span class="ot">&lt;-</span> population <span class="sc">|&gt;</span> </span>
+<span id="cb8-25"><a href=""></a>  <span class="fu">filter</span>(barangay <span class="sc">%in%</span> selected_barangays)</span>
+<span id="cb8-26"><a href=""></a></span>
+<span id="cb8-27"><a href=""></a><span class="co"># Print the sampled data</span></span>
+<span id="cb8-28"><a href=""></a><span class="fu">print</span>(sample_data)</span>
+<span id="cb8-29"><a href=""></a><span class="co"># A tibble: 300 × 4</span></span>
+<span id="cb8-30"><a href=""></a>   barangay      id   age income</span>
+<span id="cb8-31"><a href=""></a>   <span class="sc">&lt;</span>chr<span class="sc">&gt;</span>      <span class="er">&lt;</span>int<span class="sc">&gt;</span> <span class="er">&lt;</span>int<span class="sc">&gt;</span>  <span class="er">&lt;</span>int<span class="sc">&gt;</span></span>
+<span id="cb8-32"><a href=""></a> <span class="dv">1</span> Barangay_2   <span class="dv">101</span>    <span class="dv">69</span>  <span class="dv">35188</span></span>
+<span id="cb8-33"><a href=""></a> <span class="dv">2</span> Barangay_2   <span class="dv">102</span>    <span class="dv">39</span>  <span class="dv">29076</span></span>
+<span id="cb8-34"><a href=""></a> <span class="dv">3</span> Barangay_2   <span class="dv">103</span>    <span class="dv">42</span>  <span class="dv">45150</span></span>
+<span id="cb8-35"><a href=""></a> <span class="dv">4</span> Barangay_2   <span class="dv">104</span>    <span class="dv">49</span>  <span class="dv">11631</span></span>
+<span id="cb8-36"><a href=""></a> <span class="dv">5</span> Barangay_2   <span class="dv">105</span>    <span class="dv">63</span>  <span class="dv">18610</span></span>
+<span id="cb8-37"><a href=""></a> <span class="dv">6</span> Barangay_2   <span class="dv">106</span>    <span class="dv">42</span>  <span class="dv">16037</span></span>
+<span id="cb8-38"><a href=""></a> <span class="dv">7</span> Barangay_2   <span class="dv">107</span>    <span class="dv">40</span>  <span class="dv">22888</span></span>
+<span id="cb8-39"><a href=""></a> <span class="dv">8</span> Barangay_2   <span class="dv">108</span>    <span class="dv">52</span>  <span class="dv">25994</span></span>
+<span id="cb8-40"><a href=""></a> <span class="dv">9</span> Barangay_2   <span class="dv">109</span>    <span class="dv">57</span>  <span class="dv">25302</span></span>
+<span id="cb8-41"><a href=""></a><span class="dv">10</span> Barangay_2   <span class="dv">110</span>    <span class="dv">65</span>  <span class="dv">20447</span></span>
+<span id="cb8-42"><a href=""></a><span class="co"># ℹ 290 more rows</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 <section id="section" class="slide level2">

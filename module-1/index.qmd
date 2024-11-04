@@ -577,17 +577,19 @@ print(sample_data)
 :::
 
 ```{r}
+#| echo: true
+
 # Load necessary libraries
 library(tidyverse)
 
-# Create a simulated dataset representing the population with barangays as clusters
-set.seed(123)  # For reproducibility
+# simulated dataset representing the population with barangays as clusters
+set.seed(123)
 
 population <- tibble(
-  barangay = rep(paste0("Barangay_", 1:10), each = 100),  # 10 barangays, 100 individuals each
-  id = 1:1000,  # Unique ID for each individual
-  age = sample(18:80, 1000, replace = TRUE),  # Random age for each individual
-  income = sample(10000:50000, 1000, replace = TRUE)  # Random income for each individual
+  barangay = rep(paste0("Barangay_", 1:10), each = 100),
+  id = 1:1000,
+  age = sample(18:80, 1000, replace = TRUE), 
+  income = sample(10000:50000, 1000, replace = TRUE)
 )
 
 # Define the number of clusters to sample
@@ -595,9 +597,9 @@ n_clusters <- 3
 
 # Randomly select a subset of barangays
 selected_barangays <- population |> 
-  distinct(barangay) |>  # Get unique barangays
-  sample_n(n_clusters) |>  # Randomly select 3 barangays
-  pull(barangay)  # Get the names of the selected barangays
+  distinct(barangay) |> 
+  sample_n(n_clusters) |> 
+  pull(barangay)
 
 # Filter the population to include only individuals from the selected barangays
 sample_data <- population |> 
