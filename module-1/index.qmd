@@ -196,11 +196,44 @@ non-random samples do not provide representativeness, and is only useful for exp
     -   relies on referrals from initial respondents to generate additional respondents
 :::
 
+
 ## Sampling design
 
-### Representative sample
+::: callout-note
+## Purposive sampling
 
-> contains the relevant characteristics of the population is the same proportion as the population
+**Example**: A researcher wants to study the impact of COVID-19 on the mental health of frontliners. The researcher selects frontliners who have been working in the hospital for more than 6 months and have been exposed to COVID-19 patients.
+
+**Example**: A researcher studying the experiences of undocumented immigrants might purposefully select participants who have been in the country for varying lengths of time, have different levels of education, and come from various regions. This allows for a diverse range of experiences to be explored.
+
+:::
+
+
+## Sampling design
+
+::: callout-note
+## Convenience sampling
+
+**Example**: A psychology student conducting a study on college student stress might survey students in their own classes or residence hall. This is convenient because it requires minimal effort to recruit participants.
+
+**Example**: A market researcher wants to quickly gather feedback on a new product. They set up a booth at a local mall and ask people passing by to fill out a short survey. This is a convenient way to collect data quickly, as the researcher can easily access a large number of people in a short amount of time.
+
+**Note**: method may not be representative of the entire population, as the people who happen to be at the mall at that time may not be a typical cross-section of the population.
+
+:::
+
+
+## Sampling design
+
+::: callout-note
+## Snowball sampling
+
+**Example**: A sociologist studying a marginalized community might start with a few initial participants and ask them to refer other people who might be willing to participate in the study. This can be effective for reaching hard-to-reach populations.
+
+**Example**: A researcher studying the experiences of LGBTQ+ individuals in a conservative community might start by interviewing one person who is open about their identity. This person might then refer the researcher to other LGBTQ+ individuals in the community, who can refer the researcher to others, and so on.
+
+:::
+
 
 ## Sampling design
 
@@ -302,6 +335,19 @@ sample(LETTERS)
 :::
 :::::
 
+
+## Sampling design
+
+::: callout-important
+## Short practice exercise
+
+1. Write R code to create a population of 100 numbers and sample 10 numbers without replacement.
+
+2. Write R code to sample 5 numbers from the population {1, 2, 3, 4, 5} with replacement.
+
+:::
+
+
 ## Sampling design
 
 ### Systematic sampling
@@ -353,7 +399,7 @@ Supposed you have a population of 100 students adn want to select a sample of 20
 ::: callout-tip
 ## Example in R
 
-Supposed you have a population of 100 students adn want to select a sample of 20.
+Supposed you have a population of 100 students and want to select a sample of 20.
 
 :::
 
@@ -381,6 +427,18 @@ print(sample_values)
 ```
 
 
+## Sampling design
+
+::: callout-important
+## Short practice exercise
+
+1. A population of 1000 individuals is to be sampled using systematic sampling. The sample size is 50. Calculate the sampling interval.
+
+2. Write an R code to randomly select a starting point (r) between 1 and the calculated sampling interval (k).
+
+3. Using the calculated sampling interval (k) and the randomly selected starting point (r), generate the sample indices.
+
+:::
 
 
 ## Sampling design
@@ -399,13 +457,108 @@ print(sample_values)
     -   takes into account the variability of each subgroup, adding more observations to subgroups that are more variable.
 :::
 
+
 ## Sampling design
 
 ::: callout-tip
 ## Example in R
 
--   insert examples
+**Proportional sampling**
+
+Scenario:
+
+Let's assume we have a population of 100 students divided into three strata:
+
+- Stratum 1: Freshmen (30 students)
+
+- Stratum 2: Sophomores (40 students)
+
+- Stratum 3: Juniors and Seniors (30 students)
+
+We want to draw a sample of 20 students proportionally from each stratum.
 :::
+
+
+## Sampling design
+
+::: callout-tip
+## Example in R
+
+**Proportional sampling**
+
+:::
+
+
+```{r}
+#| echo: true
+
+# Create a data frame to represent the population
+library(tidyverse)
+
+population <- tibble(
+  stratum = rep(c("Freshman", "Sophomore", "JuniorSenior"), times = c(30, 40, 30)),
+  id = 1:100
+)
+
+# Set the total sample size
+total_sample_size <- 20
+
+# Calculate the sample size for each stratum proportionally
+strata_sample_sizes <- population |>  
+  count(stratum) |>  
+  mutate(prop = n / sum(n),
+         sample_size = round(prop * total_sample_size))
+
+# Sample from each stratum
+sample_data <- population |> 
+  left_join(strata_sample_sizes, by = "stratum") |> 
+  group_by(stratum) |> 
+  group_map(~ slice_sample(.x, n = .x$sample_size[1])) |> 
+  bind_rows()
+
+# Print the sample
+print(sample_data)
+```
+
+
+## Sampling design
+
+::: callout-tip
+## Example in R
+**Disproportional sampling**
+
+:::
+
+```{r}
+#| echo: true
+
+# ... (same population data frame as before)
+
+# Set the total sample size
+total_sample_size <- 20
+
+# Define the sampling ratios
+sampling_ratios <- c(0.5, 0.3, 0.2)
+
+# Calculate sample sizes for each stratum based on the specified ratios
+disproportional_sample_sizes <- tibble(
+  stratum = c("Freshman", "Sophomore", "JuniorSenior"),
+  sample_size = round(sampling_ratios * total_sample_size)
+)
+
+# Perform the disproportional sampling
+sample_data <- population |> 
+  left_join(disproportional_sample_sizes, by = "stratum") |> 
+  group_by(stratum) |> 
+  group_map(~ slice_sample(.x, n = .x$sample_size[1])) |> 
+  bind_rows()
+
+# Print the sample
+print(sample_data)
+```
+
+
+
 
 ## Sampling design
 
@@ -422,6 +575,39 @@ print(sample_values)
 
 -   insert examples
 :::
+
+```{r}
+# Load necessary libraries
+library(tidyverse)
+
+# Create a simulated dataset representing the population with barangays as clusters
+set.seed(123)  # For reproducibility
+
+population <- tibble(
+  barangay = rep(paste0("Barangay_", 1:10), each = 100),  # 10 barangays, 100 individuals each
+  id = 1:1000,  # Unique ID for each individual
+  age = sample(18:80, 1000, replace = TRUE),  # Random age for each individual
+  income = sample(10000:50000, 1000, replace = TRUE)  # Random income for each individual
+)
+
+# Define the number of clusters to sample
+n_clusters <- 3
+
+# Randomly select a subset of barangays
+selected_barangays <- population |> 
+  distinct(barangay) |>  # Get unique barangays
+  sample_n(n_clusters) |>  # Randomly select 3 barangays
+  pull(barangay)  # Get the names of the selected barangays
+
+# Filter the population to include only individuals from the selected barangays
+sample_data <- population |> 
+  filter(barangay %in% selected_barangays)
+
+# Print the sampled data
+print(sample_data)
+
+```
+
 
 ## 
 

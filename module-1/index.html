@@ -604,12 +604,57 @@
 </section>
 <section id="sampling-design-2" class="slide level2">
 <h2>Sampling design</h2>
-<h3 id="representative-sample">Representative sample</h3>
-<blockquote>
-<p>contains the relevant characteristics of the population is the same proportion as the population</p>
-</blockquote>
+<div class="callout callout-note callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Purposive sampling</strong></p>
+</div>
+<div class="callout-content">
+<p><strong>Example</strong>: A researcher wants to study the impact of COVID-19 on the mental health of frontliners. The researcher selects frontliners who have been working in the hospital for more than 6 months and have been exposed to COVID-19 patients.</p>
+<p><strong>Example</strong>: A researcher studying the experiences of undocumented immigrants might purposefully select participants who have been in the country for varying lengths of time, have different levels of education, and come from various regions. This allows for a diverse range of experiences to be explored.</p>
+</div>
+</div>
+</div>
 </section>
 <section id="sampling-design-3" class="slide level2">
+<h2>Sampling design</h2>
+<div class="callout callout-note callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Convenience sampling</strong></p>
+</div>
+<div class="callout-content">
+<p><strong>Example</strong>: A psychology student conducting a study on college student stress might survey students in their own classes or residence hall. This is convenient because it requires minimal effort to recruit participants.</p>
+<p><strong>Example</strong>: A market researcher wants to quickly gather feedback on a new product. They set up a booth at a local mall and ask people passing by to fill out a short survey. This is a convenient way to collect data quickly, as the researcher can easily access a large number of people in a short amount of time.</p>
+<p><strong>Note</strong>: method may not be representative of the entire population, as the people who happen to be at the mall at that time may not be a typical cross-section of the population.</p>
+</div>
+</div>
+</div>
+</section>
+<section id="sampling-design-4" class="slide level2">
+<h2>Sampling design</h2>
+<div class="callout callout-note callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Snowball sampling</strong></p>
+</div>
+<div class="callout-content">
+<p><strong>Example</strong>: A sociologist studying a marginalized community might start with a few initial participants and ask them to refer other people who might be willing to participate in the study. This can be effective for reaching hard-to-reach populations.</p>
+<p><strong>Example</strong>: A researcher studying the experiences of LGBTQ+ individuals in a conservative community might start by interviewing one person who is open about their identity. This person might then refer the researcher to other LGBTQ+ individuals in the community, who can refer the researcher to others, and so on.</p>
+</div>
+</div>
+</div>
+</section>
+<section id="sampling-design-5" class="slide level2">
 <h2>Sampling design</h2>
 <h3 id="random-sampling">Random sampling</h3>
 <blockquote>
@@ -622,7 +667,7 @@
 </ul>
 </div>
 </section>
-<section id="sampling-design-4" class="slide level2">
+<section id="sampling-design-6" class="slide level2">
 <h2>Sampling design</h2>
 <h3 id="simple-random-sampling-with-replacement">Simple random sampling with replacement</h3>
 <blockquote>
@@ -637,7 +682,7 @@
 </ul>
 </div>
 </section>
-<section id="sampling-design-5" class="slide level2">
+<section id="sampling-design-7" class="slide level2">
 <h2>Sampling design</h2>
 <div class="callout callout-tip callout-titled callout-style-default">
 <div class="callout-body">
@@ -664,21 +709,21 @@
 <div class="cell">
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href=""></a><span class="do">## random sample with replacement</span></span>
 <span id="cb2-2"><a href=""></a><span class="fu">sample</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">6</span>, <span class="dv">4</span>, <span class="at">replace =</span> <span class="cn">TRUE</span>)</span>
-<span id="cb2-3"><a href=""></a>[<span class="dv">1</span>] <span class="dv">6</span> <span class="dv">4</span> <span class="dv">6</span> <span class="dv">2</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb2-3"><a href=""></a>[<span class="dv">1</span>] <span class="dv">6</span> <span class="dv">2</span> <span class="dv">2</span> <span class="dv">3</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </div><div class="column">
 
 </div></div>
 </div>
 </section>
-<section id="sampling-design-6" class="slide level2">
+<section id="sampling-design-8" class="slide level2">
 <h2>Sampling design</h2>
 <h3 id="simple-random-sampling-without-replacement">Simple random sampling without replacement</h3>
 <blockquote>
 <p>similar with random sampling with replacement, but the selected unit is not replaced back in the population, i.e., no unit gets repeated in the sample.</p>
 </blockquote>
 </section>
-<section id="sampling-design-7" class="slide level2">
+<section id="sampling-design-9" class="slide level2">
 <h2>Sampling design</h2>
 <div class="callout callout-tip callout-titled callout-style-default">
 <div class="callout-body">
@@ -699,20 +744,39 @@
 <div class="cell">
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href=""></a><span class="do">## random sample without replacement</span></span>
 <span id="cb3-2"><a href=""></a><span class="fu">sample</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">20</span>, <span class="dv">5</span>)</span>
-<span id="cb3-3"><a href=""></a>[<span class="dv">1</span>] <span class="dv">10</span> <span class="dv">17</span> <span class="dv">13</span>  <span class="dv">7</span>  <span class="dv">3</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb3-3"><a href=""></a>[<span class="dv">1</span>]  <span class="dv">7</span> <span class="dv">18</span>  <span class="dv">4</span> <span class="dv">20</span> <span class="dv">10</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p><br></p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href=""></a><span class="do">## random sample without replacement</span></span>
 <span id="cb4-2"><a href=""></a><span class="fu">sample</span>(LETTERS)</span>
-<span id="cb4-3"><a href=""></a> [<span class="dv">1</span>] <span class="st">"Q"</span> <span class="st">"X"</span> <span class="st">"U"</span> <span class="st">"M"</span> <span class="st">"S"</span> <span class="st">"H"</span> <span class="st">"F"</span> <span class="st">"G"</span> <span class="st">"Z"</span> <span class="st">"R"</span> <span class="st">"A"</span> <span class="st">"P"</span> <span class="st">"I"</span> <span class="st">"C"</span> <span class="st">"D"</span> <span class="st">"L"</span> <span class="st">"E"</span> <span class="st">"Y"</span> <span class="st">"V"</span></span>
-<span id="cb4-4"><a href=""></a>[<span class="dv">20</span>] <span class="st">"J"</span> <span class="st">"T"</span> <span class="st">"K"</span> <span class="st">"N"</span> <span class="st">"W"</span> <span class="st">"B"</span> <span class="st">"O"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb4-3"><a href=""></a> [<span class="dv">1</span>] <span class="st">"X"</span> <span class="st">"J"</span> <span class="st">"C"</span> <span class="st">"Q"</span> <span class="st">"B"</span> <span class="st">"P"</span> <span class="st">"M"</span> <span class="st">"E"</span> <span class="st">"U"</span> <span class="st">"A"</span> <span class="st">"S"</span> <span class="st">"K"</span> <span class="st">"T"</span> <span class="st">"H"</span> <span class="st">"R"</span> <span class="st">"N"</span> <span class="st">"D"</span> <span class="st">"V"</span> <span class="st">"W"</span></span>
+<span id="cb4-4"><a href=""></a>[<span class="dv">20</span>] <span class="st">"F"</span> <span class="st">"O"</span> <span class="st">"G"</span> <span class="st">"Y"</span> <span class="st">"Z"</span> <span class="st">"L"</span> <span class="st">"I"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </div><div class="column">
 
 </div></div>
 </section>
-<section id="sampling-design-8" class="slide level2">
+<section id="sampling-design-10" class="slide level2">
+<h2>Sampling design</h2>
+<div class="callout callout-important callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Short practice exercise</strong></p>
+</div>
+<div class="callout-content">
+<ol type="1">
+<li><p>Write R code to create a population of 100 numbers and sample 10 numbers without replacement.</p></li>
+<li><p>Write R code to sample 5 numbers from the population {1, 2, 3, 4, 5} with replacement.</p></li>
+</ol>
+</div>
+</div>
+</div>
+</section>
+<section id="sampling-design-11" class="slide level2">
 <h2>Sampling design</h2>
 <h3 id="systematic-sampling">Systematic sampling</h3>
 <blockquote>
@@ -724,7 +788,7 @@
 <li><p>sample will then be a set of composef of <span class="math inline">\(U_r, U_{r+k}, U_{r+2k}, \ldots, U_{r+(n-1)k}\)</span></p></li>
 </ul>
 </section>
-<section id="sampling-design-9" class="slide level2">
+<section id="sampling-design-12" class="slide level2">
 <h2>Sampling design</h2>
 <div class="callout callout-tip callout-titled callout-style-default">
 <div class="callout-body">
@@ -746,7 +810,7 @@
 </div>
 </div>
 </section>
-<section id="sampling-design-10" class="slide level2">
+<section id="sampling-design-13" class="slide level2">
 <h2>Sampling design</h2>
 <div class="callout callout-tip callout-titled callout-style-default">
 <div class="callout-body">
@@ -767,7 +831,7 @@
 </div>
 </div>
 </section>
-<section id="sampling-design-11" class="slide level2">
+<section id="sampling-design-14" class="slide level2">
 <h2>Sampling design</h2>
 <div class="callout callout-tip callout-titled callout-style-default">
 <div class="callout-body">
@@ -778,7 +842,7 @@
 <p><strong>Example in R</strong></p>
 </div>
 <div class="callout-content">
-<p>Supposed you have a population of 100 students adn want to select a sample of 20.</p>
+<p>Supposed you have a population of 100 students and want to select a sample of 20.</p>
 </div>
 </div>
 </div>
@@ -804,7 +868,27 @@
 <span id="cb5-19"><a href=""></a> [<span class="dv">1</span>]  <span class="dv">3</span>  <span class="dv">8</span> <span class="dv">13</span> <span class="dv">18</span> <span class="dv">23</span> <span class="dv">28</span> <span class="dv">33</span> <span class="dv">38</span> <span class="dv">43</span> <span class="dv">48</span> <span class="dv">53</span> <span class="dv">58</span> <span class="dv">63</span> <span class="dv">68</span> <span class="dv">73</span> <span class="dv">78</span> <span class="dv">83</span> <span class="dv">88</span> <span class="dv">93</span> <span class="dv">98</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
-<section id="sampling-design-12" class="slide level2">
+<section id="sampling-design-15" class="slide level2">
+<h2>Sampling design</h2>
+<div class="callout callout-important callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Short practice exercise</strong></p>
+</div>
+<div class="callout-content">
+<ol type="1">
+<li><p>A population of 1000 individuals is to be sampled using systematic sampling. The sample size is 50. Calculate the sampling interval.</p></li>
+<li><p>Write an R code to randomly select a starting point (r) between 1 and the calculated sampling interval (k).</p></li>
+<li><p>Using the calculated sampling interval (k) and the randomly selected starting point (r), generate the sample indices.</p></li>
+</ol>
+</div>
+</div>
+</div>
+</section>
+<section id="sampling-design-16" class="slide level2">
 <h2>Sampling design</h2>
 <h3 id="stratified-sampling">Stratified sampling</h3>
 <blockquote>
@@ -823,7 +907,7 @@
 </ul>
 </div>
 </section>
-<section id="sampling-design-13" class="slide level2">
+<section id="sampling-design-17" class="slide level2">
 <h2>Sampling design</h2>
 <div class="callout callout-tip callout-titled callout-style-default">
 <div class="callout-body">
@@ -834,14 +918,151 @@
 <p><strong>Example in R</strong></p>
 </div>
 <div class="callout-content">
+<p><strong>Proportional sampling</strong></p>
+<p>Scenario:</p>
+<p>Let’s assume we have a population of 100 students divided into three strata:</p>
 <ul>
-<li>insert examples</li>
+<li><p>Stratum 1: Freshmen (30 students)</p></li>
+<li><p>Stratum 2: Sophomores (40 students)</p></li>
+<li><p>Stratum 3: Juniors and Seniors (30 students)</p></li>
 </ul>
+<p>We want to draw a sample of 20 students proportionally from each stratum.</p>
 </div>
 </div>
 </div>
 </section>
-<section id="sampling-design-14" class="slide level2">
+<section id="sampling-design-18" class="slide level2">
+<h2>Sampling design</h2>
+<div class="callout callout-tip callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Example in R</strong></p>
+</div>
+<div class="callout-content">
+<p><strong>Proportional sampling</strong></p>
+</div>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href=""></a><span class="co"># Create a data frame to represent the population</span></span>
+<span id="cb6-2"><a href=""></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb6-3"><a href=""></a></span>
+<span id="cb6-4"><a href=""></a>population <span class="ot">&lt;-</span> <span class="fu">tibble</span>(</span>
+<span id="cb6-5"><a href=""></a>  <span class="at">stratum =</span> <span class="fu">rep</span>(<span class="fu">c</span>(<span class="st">"Freshman"</span>, <span class="st">"Sophomore"</span>, <span class="st">"JuniorSenior"</span>), <span class="at">times =</span> <span class="fu">c</span>(<span class="dv">30</span>, <span class="dv">40</span>, <span class="dv">30</span>)),</span>
+<span id="cb6-6"><a href=""></a>  <span class="at">id =</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">100</span></span>
+<span id="cb6-7"><a href=""></a>)</span>
+<span id="cb6-8"><a href=""></a></span>
+<span id="cb6-9"><a href=""></a><span class="co"># Set the total sample size</span></span>
+<span id="cb6-10"><a href=""></a>total_sample_size <span class="ot">&lt;-</span> <span class="dv">20</span></span>
+<span id="cb6-11"><a href=""></a></span>
+<span id="cb6-12"><a href=""></a><span class="co"># Calculate the sample size for each stratum proportionally</span></span>
+<span id="cb6-13"><a href=""></a>strata_sample_sizes <span class="ot">&lt;-</span> population <span class="sc">|&gt;</span>  </span>
+<span id="cb6-14"><a href=""></a>  <span class="fu">count</span>(stratum) <span class="sc">|&gt;</span>  </span>
+<span id="cb6-15"><a href=""></a>  <span class="fu">mutate</span>(<span class="at">prop =</span> n <span class="sc">/</span> <span class="fu">sum</span>(n),</span>
+<span id="cb6-16"><a href=""></a>         <span class="at">sample_size =</span> <span class="fu">round</span>(prop <span class="sc">*</span> total_sample_size))</span>
+<span id="cb6-17"><a href=""></a></span>
+<span id="cb6-18"><a href=""></a><span class="co"># Sample from each stratum</span></span>
+<span id="cb6-19"><a href=""></a>sample_data <span class="ot">&lt;-</span> population <span class="sc">|&gt;</span> </span>
+<span id="cb6-20"><a href=""></a>  <span class="fu">left_join</span>(strata_sample_sizes, <span class="at">by =</span> <span class="st">"stratum"</span>) <span class="sc">|&gt;</span> </span>
+<span id="cb6-21"><a href=""></a>  <span class="fu">group_by</span>(stratum) <span class="sc">|&gt;</span> </span>
+<span id="cb6-22"><a href=""></a>  <span class="fu">group_map</span>(<span class="sc">~</span> <span class="fu">slice_sample</span>(.x, <span class="at">n =</span> .x<span class="sc">$</span>sample_size[<span class="dv">1</span>])) <span class="sc">|&gt;</span> </span>
+<span id="cb6-23"><a href=""></a>  <span class="fu">bind_rows</span>()</span>
+<span id="cb6-24"><a href=""></a></span>
+<span id="cb6-25"><a href=""></a><span class="co"># Print the sample</span></span>
+<span id="cb6-26"><a href=""></a><span class="fu">print</span>(sample_data)</span>
+<span id="cb6-27"><a href=""></a><span class="co"># A tibble: 20 × 4</span></span>
+<span id="cb6-28"><a href=""></a>      id     n  prop sample_size</span>
+<span id="cb6-29"><a href=""></a>   <span class="sc">&lt;</span>int<span class="sc">&gt;</span> <span class="er">&lt;</span>int<span class="sc">&gt;</span> <span class="er">&lt;</span>dbl<span class="sc">&gt;</span>       <span class="er">&lt;</span>dbl<span class="sc">&gt;</span></span>
+<span id="cb6-30"><a href=""></a> <span class="dv">1</span>    <span class="dv">14</span>    <span class="dv">30</span>   <span class="fl">0.3</span>           <span class="dv">6</span></span>
+<span id="cb6-31"><a href=""></a> <span class="dv">2</span>     <span class="dv">3</span>    <span class="dv">30</span>   <span class="fl">0.3</span>           <span class="dv">6</span></span>
+<span id="cb6-32"><a href=""></a> <span class="dv">3</span>    <span class="dv">10</span>    <span class="dv">30</span>   <span class="fl">0.3</span>           <span class="dv">6</span></span>
+<span id="cb6-33"><a href=""></a> <span class="dv">4</span>    <span class="dv">18</span>    <span class="dv">30</span>   <span class="fl">0.3</span>           <span class="dv">6</span></span>
+<span id="cb6-34"><a href=""></a> <span class="dv">5</span>    <span class="dv">22</span>    <span class="dv">30</span>   <span class="fl">0.3</span>           <span class="dv">6</span></span>
+<span id="cb6-35"><a href=""></a> <span class="dv">6</span>    <span class="dv">11</span>    <span class="dv">30</span>   <span class="fl">0.3</span>           <span class="dv">6</span></span>
+<span id="cb6-36"><a href=""></a> <span class="dv">7</span>    <span class="dv">75</span>    <span class="dv">30</span>   <span class="fl">0.3</span>           <span class="dv">6</span></span>
+<span id="cb6-37"><a href=""></a> <span class="dv">8</span>    <span class="dv">90</span>    <span class="dv">30</span>   <span class="fl">0.3</span>           <span class="dv">6</span></span>
+<span id="cb6-38"><a href=""></a> <span class="dv">9</span>    <span class="dv">84</span>    <span class="dv">30</span>   <span class="fl">0.3</span>           <span class="dv">6</span></span>
+<span id="cb6-39"><a href=""></a><span class="dv">10</span>    <span class="dv">92</span>    <span class="dv">30</span>   <span class="fl">0.3</span>           <span class="dv">6</span></span>
+<span id="cb6-40"><a href=""></a><span class="dv">11</span>    <span class="dv">95</span>    <span class="dv">30</span>   <span class="fl">0.3</span>           <span class="dv">6</span></span>
+<span id="cb6-41"><a href=""></a><span class="dv">12</span>   <span class="dv">100</span>    <span class="dv">30</span>   <span class="fl">0.3</span>           <span class="dv">6</span></span>
+<span id="cb6-42"><a href=""></a><span class="dv">13</span>    <span class="dv">57</span>    <span class="dv">40</span>   <span class="fl">0.4</span>           <span class="dv">8</span></span>
+<span id="cb6-43"><a href=""></a><span class="dv">14</span>    <span class="dv">58</span>    <span class="dv">40</span>   <span class="fl">0.4</span>           <span class="dv">8</span></span>
+<span id="cb6-44"><a href=""></a><span class="dv">15</span>    <span class="dv">39</span>    <span class="dv">40</span>   <span class="fl">0.4</span>           <span class="dv">8</span></span>
+<span id="cb6-45"><a href=""></a><span class="dv">16</span>    <span class="dv">59</span>    <span class="dv">40</span>   <span class="fl">0.4</span>           <span class="dv">8</span></span>
+<span id="cb6-46"><a href=""></a><span class="dv">17</span>    <span class="dv">65</span>    <span class="dv">40</span>   <span class="fl">0.4</span>           <span class="dv">8</span></span>
+<span id="cb6-47"><a href=""></a><span class="dv">18</span>    <span class="dv">38</span>    <span class="dv">40</span>   <span class="fl">0.4</span>           <span class="dv">8</span></span>
+<span id="cb6-48"><a href=""></a><span class="dv">19</span>    <span class="dv">56</span>    <span class="dv">40</span>   <span class="fl">0.4</span>           <span class="dv">8</span></span>
+<span id="cb6-49"><a href=""></a><span class="dv">20</span>    <span class="dv">37</span>    <span class="dv">40</span>   <span class="fl">0.4</span>           <span class="dv">8</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="sampling-design-19" class="slide level2">
+<h2>Sampling design</h2>
+<div class="callout callout-tip callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Example in R</strong></p>
+</div>
+<div class="callout-content">
+<p><strong>Disproportional sampling</strong></p>
+</div>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href=""></a><span class="co"># ... (same population data frame as before)</span></span>
+<span id="cb7-2"><a href=""></a></span>
+<span id="cb7-3"><a href=""></a><span class="co"># Set the total sample size</span></span>
+<span id="cb7-4"><a href=""></a>total_sample_size <span class="ot">&lt;-</span> <span class="dv">20</span></span>
+<span id="cb7-5"><a href=""></a></span>
+<span id="cb7-6"><a href=""></a><span class="co"># Define the sampling ratios</span></span>
+<span id="cb7-7"><a href=""></a>sampling_ratios <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="fl">0.5</span>, <span class="fl">0.3</span>, <span class="fl">0.2</span>)</span>
+<span id="cb7-8"><a href=""></a></span>
+<span id="cb7-9"><a href=""></a><span class="co"># Calculate sample sizes for each stratum based on the specified ratios</span></span>
+<span id="cb7-10"><a href=""></a>disproportional_sample_sizes <span class="ot">&lt;-</span> <span class="fu">tibble</span>(</span>
+<span id="cb7-11"><a href=""></a>  <span class="at">stratum =</span> <span class="fu">c</span>(<span class="st">"Freshman"</span>, <span class="st">"Sophomore"</span>, <span class="st">"JuniorSenior"</span>),</span>
+<span id="cb7-12"><a href=""></a>  <span class="at">sample_size =</span> <span class="fu">round</span>(sampling_ratios <span class="sc">*</span> total_sample_size)</span>
+<span id="cb7-13"><a href=""></a>)</span>
+<span id="cb7-14"><a href=""></a></span>
+<span id="cb7-15"><a href=""></a><span class="co"># Perform the disproportional sampling</span></span>
+<span id="cb7-16"><a href=""></a>sample_data <span class="ot">&lt;-</span> population <span class="sc">|&gt;</span> </span>
+<span id="cb7-17"><a href=""></a>  <span class="fu">left_join</span>(disproportional_sample_sizes, <span class="at">by =</span> <span class="st">"stratum"</span>) <span class="sc">|&gt;</span> </span>
+<span id="cb7-18"><a href=""></a>  <span class="fu">group_by</span>(stratum) <span class="sc">|&gt;</span> </span>
+<span id="cb7-19"><a href=""></a>  <span class="fu">group_map</span>(<span class="sc">~</span> <span class="fu">slice_sample</span>(.x, <span class="at">n =</span> .x<span class="sc">$</span>sample_size[<span class="dv">1</span>])) <span class="sc">|&gt;</span> </span>
+<span id="cb7-20"><a href=""></a>  <span class="fu">bind_rows</span>()</span>
+<span id="cb7-21"><a href=""></a></span>
+<span id="cb7-22"><a href=""></a><span class="co"># Print the sample</span></span>
+<span id="cb7-23"><a href=""></a><span class="fu">print</span>(sample_data)</span>
+<span id="cb7-24"><a href=""></a><span class="co"># A tibble: 20 × 2</span></span>
+<span id="cb7-25"><a href=""></a>      id sample_size</span>
+<span id="cb7-26"><a href=""></a>   <span class="sc">&lt;</span>int<span class="sc">&gt;</span>       <span class="er">&lt;</span>dbl<span class="sc">&gt;</span></span>
+<span id="cb7-27"><a href=""></a> <span class="dv">1</span>    <span class="dv">10</span>          <span class="dv">10</span></span>
+<span id="cb7-28"><a href=""></a> <span class="dv">2</span>     <span class="dv">9</span>          <span class="dv">10</span></span>
+<span id="cb7-29"><a href=""></a> <span class="dv">3</span>    <span class="dv">19</span>          <span class="dv">10</span></span>
+<span id="cb7-30"><a href=""></a> <span class="dv">4</span>     <span class="dv">4</span>          <span class="dv">10</span></span>
+<span id="cb7-31"><a href=""></a> <span class="dv">5</span>    <span class="dv">14</span>          <span class="dv">10</span></span>
+<span id="cb7-32"><a href=""></a> <span class="dv">6</span>    <span class="dv">17</span>          <span class="dv">10</span></span>
+<span id="cb7-33"><a href=""></a> <span class="dv">7</span>    <span class="dv">11</span>          <span class="dv">10</span></span>
+<span id="cb7-34"><a href=""></a> <span class="dv">8</span>     <span class="dv">7</span>          <span class="dv">10</span></span>
+<span id="cb7-35"><a href=""></a> <span class="dv">9</span>    <span class="dv">21</span>          <span class="dv">10</span></span>
+<span id="cb7-36"><a href=""></a><span class="dv">10</span>    <span class="dv">12</span>          <span class="dv">10</span></span>
+<span id="cb7-37"><a href=""></a><span class="dv">11</span>    <span class="dv">85</span>           <span class="dv">4</span></span>
+<span id="cb7-38"><a href=""></a><span class="dv">12</span>    <span class="dv">80</span>           <span class="dv">4</span></span>
+<span id="cb7-39"><a href=""></a><span class="dv">13</span>    <span class="dv">83</span>           <span class="dv">4</span></span>
+<span id="cb7-40"><a href=""></a><span class="dv">14</span>    <span class="dv">77</span>           <span class="dv">4</span></span>
+<span id="cb7-41"><a href=""></a><span class="dv">15</span>    <span class="dv">39</span>           <span class="dv">6</span></span>
+<span id="cb7-42"><a href=""></a><span class="dv">16</span>    <span class="dv">40</span>           <span class="dv">6</span></span>
+<span id="cb7-43"><a href=""></a><span class="dv">17</span>    <span class="dv">53</span>           <span class="dv">6</span></span>
+<span id="cb7-44"><a href=""></a><span class="dv">18</span>    <span class="dv">57</span>           <span class="dv">6</span></span>
+<span id="cb7-45"><a href=""></a><span class="dv">19</span>    <span class="dv">37</span>           <span class="dv">6</span></span>
+<span id="cb7-46"><a href=""></a><span class="dv">20</span>    <span class="dv">67</span>           <span class="dv">6</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="sampling-design-20" class="slide level2">
 <h2>Sampling design</h2>
 <h3 id="cluster-sampling">Cluster sampling</h3>
 <blockquote>
@@ -851,7 +1072,7 @@
 <li>e.g., all inhabitant in a municipality from part of a population, barangays can serve as clusters wherein its inhabitant can serve as observations.</li>
 </ul>
 </section>
-<section id="sampling-design-15" class="slide level2">
+<section id="sampling-design-21" class="slide level2">
 <h2>Sampling design</h2>
 <div class="callout callout-tip callout-titled callout-style-default">
 <div class="callout-body">
@@ -867,6 +1088,22 @@
 </ul>
 </div>
 </div>
+</div>
+<div class="cell">
+<pre><code># A tibble: 300 × 4
+   barangay      id   age income
+   &lt;chr&gt;      &lt;int&gt; &lt;int&gt;  &lt;int&gt;
+ 1 Barangay_2   101    69  35188
+ 2 Barangay_2   102    39  29076
+ 3 Barangay_2   103    42  45150
+ 4 Barangay_2   104    49  11631
+ 5 Barangay_2   105    63  18610
+ 6 Barangay_2   106    42  16037
+ 7 Barangay_2   107    40  22888
+ 8 Barangay_2   108    52  25994
+ 9 Barangay_2   109    57  25302
+10 Barangay_2   110    65  20447
+# ℹ 290 more rows</code></pre>
 </div>
 </section>
 <section id="section" class="slide level2">
@@ -941,7 +1178,7 @@
 </tbody>
 </table>
 </section>
-<section id="sampling-design-16" class="slide level2">
+<section id="sampling-design-22" class="slide level2">
 <h2>Sampling design</h2>
 <h3 id="sample-size-determination-requirements">Sample size determination requirements</h3>
 <ul>
@@ -954,7 +1191,7 @@
 </ul></li>
 </ul>
 </section>
-<section id="sampling-design-17" class="slide level2">
+<section id="sampling-design-23" class="slide level2">
 <h2>Sampling design</h2>
 <h3 id="sample-size-determination-requirements-1">Sample size determination requirements</h3>
 <ul>
@@ -972,7 +1209,7 @@
 </ul></li>
 </ul>
 </section>
-<section id="sampling-design-18" class="slide level2">
+<section id="sampling-design-24" class="slide level2">
 <h2>Sampling design</h2>
 <div class="callout callout-note callout-titled callout-style-default">
 <div class="callout-body">
@@ -995,7 +1232,7 @@
 </div>
 </div>
 </section>
-<section id="sampling-design-19" class="slide level2">
+<section id="sampling-design-25" class="slide level2">
 <h2>Sampling design</h2>
 <h3 id="cochrans-formula">Cochran’s formula</h3>
 <blockquote>
@@ -1005,7 +1242,7 @@
 n = \frac{Z^2 \cdot p(1-p)}{E^2}
 \]</span></p>
 </section>
-<section id="sampling-design-20" class="slide level2">
+<section id="sampling-design-26" class="slide level2">
 <h2>Sampling design</h2>
 <h3 id="cochrans-formula-1">Cochran’s formula</h3>
 <div class="callout callout-tip callout-titled callout-style-default">
@@ -1025,7 +1262,7 @@ n = \frac{Z^2 \times p(1-p)}{E^2} = \frac{1.96^2 \times 0.75(1-0.75)}{0.1^2} = 7
 </div>
 </div>
 </section>
-<section id="sampling-design-21" class="slide level2">
+<section id="sampling-design-27" class="slide level2">
 <h2>Sampling design</h2>
 <h3 id="cochrans-formula-2">Cochran’s formula</h3>
 <div class="callout callout-tip callout-titled callout-style-default">
@@ -1041,28 +1278,28 @@ n = \frac{Z^2 \times p(1-p)}{E^2} = \frac{1.96^2 \times 0.75(1-0.75)}{0.1^2} = 7
 </div>
 </div>
 </div>
-<div class="sourceCode" id="cb6"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb6-1"><a href=""></a><span class="in">```{r}</span></span>
-<span id="cb6-2"><a href=""></a><span class="in"># Define the parameters</span></span>
-<span id="cb6-3"><a href=""></a><span class="in">confidence_level &lt;- 0.95</span></span>
-<span id="cb6-4"><a href=""></a><span class="in">margin_of_error &lt;- 0.10</span></span>
-<span id="cb6-5"><a href=""></a><span class="in">p &lt;- 0.75</span></span>
-<span id="cb6-6"><a href=""></a></span>
-<span id="cb6-7"><a href=""></a><span class="in"># Calculate the Z-value for the given confidence level</span></span>
-<span id="cb6-8"><a href=""></a><span class="in">Z &lt;- qnorm(1 - (1 - confidence_level) / 2)</span></span>
-<span id="cb6-9"><a href=""></a></span>
-<span id="cb6-10"><a href=""></a><span class="in"># Calculate the sample size using Cochran's formula</span></span>
-<span id="cb6-11"><a href=""></a><span class="in">sample_size &lt;- (Z^2 * p * (1 - p)) / (margin_of_error^2)</span></span>
-<span id="cb6-12"><a href=""></a></span>
-<span id="cb6-13"><a href=""></a><span class="in"># Print the sample size</span></span>
-<span id="cb6-14"><a href=""></a><span class="in">cat("The sample size needed for the study is:", floor(sample_size), "\n")</span></span>
-<span id="cb6-15"><a href=""></a></span>
-<span id="cb6-16"><a href=""></a><span class="in">```</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb9"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb9-1"><a href=""></a><span class="in">```{r}</span></span>
+<span id="cb9-2"><a href=""></a><span class="in"># Define the parameters</span></span>
+<span id="cb9-3"><a href=""></a><span class="in">confidence_level &lt;- 0.95</span></span>
+<span id="cb9-4"><a href=""></a><span class="in">margin_of_error &lt;- 0.10</span></span>
+<span id="cb9-5"><a href=""></a><span class="in">p &lt;- 0.75</span></span>
+<span id="cb9-6"><a href=""></a></span>
+<span id="cb9-7"><a href=""></a><span class="in"># Calculate the Z-value for the given confidence level</span></span>
+<span id="cb9-8"><a href=""></a><span class="in">Z &lt;- qnorm(1 - (1 - confidence_level) / 2)</span></span>
+<span id="cb9-9"><a href=""></a></span>
+<span id="cb9-10"><a href=""></a><span class="in"># Calculate the sample size using Cochran's formula</span></span>
+<span id="cb9-11"><a href=""></a><span class="in">sample_size &lt;- (Z^2 * p * (1 - p)) / (margin_of_error^2)</span></span>
+<span id="cb9-12"><a href=""></a></span>
+<span id="cb9-13"><a href=""></a><span class="in"># Print the sample size</span></span>
+<span id="cb9-14"><a href=""></a><span class="in">cat("The sample size needed for the study is:", floor(sample_size), "\n")</span></span>
+<span id="cb9-15"><a href=""></a></span>
+<span id="cb9-16"><a href=""></a><span class="in">```</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p><br></p>
 <div class="cell">
 <pre><code>The sample size needed for the study is: 72 </code></pre>
 </div>
 </section>
-<section id="sampling-design-22" class="slide level2">
+<section id="sampling-design-28" class="slide level2">
 <h2>Sampling design</h2>
 <h3 id="slovins-formula">Slovin’s formula</h3>
 <blockquote>
@@ -1072,7 +1309,7 @@ n = \frac{Z^2 \times p(1-p)}{E^2} = \frac{1.96^2 \times 0.75(1-0.75)}{0.1^2} = 7
 n = \frac{N}{1 + N(E^2)}
 \]</span></p>
 </section>
-<section id="sampling-design-23" class="slide level2">
+<section id="sampling-design-29" class="slide level2">
 <h2>Sampling design</h2>
 <h3 id="slovins-formula-1">Slovin’s formula</h3>
 <div class="callout callout-tip callout-titled callout-style-default">
@@ -1092,7 +1329,7 @@ n = \frac{N}{1 + N(E^2)} = \frac{1000}{1 + 1000(0.05^2)} = 286
 </div>
 </div>
 </section>
-<section id="sampling-design-24" class="slide level2">
+<section id="sampling-design-30" class="slide level2">
 <h2>Sampling design</h2>
 <h3 id="slovins-formula-2">Slovin’s formula</h3>
 <div class="callout callout-tip callout-titled callout-style-default">
@@ -1108,24 +1345,24 @@ n = \frac{N}{1 + N(E^2)} = \frac{1000}{1 + 1000(0.05^2)} = 286
 </div>
 </div>
 </div>
-<div class="sourceCode" id="cb8"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb8-1"><a href=""></a><span class="in">```{r}</span></span>
-<span id="cb8-2"><a href=""></a><span class="in"># Define the parameters</span></span>
-<span id="cb8-3"><a href=""></a><span class="in">N &lt;- 1000</span></span>
-<span id="cb8-4"><a href=""></a><span class="in">margin_of_error &lt;- 0.05</span></span>
-<span id="cb8-5"><a href=""></a></span>
-<span id="cb8-6"><a href=""></a><span class="in"># Calculate the sample size using Slovin's formula</span></span>
-<span id="cb8-7"><a href=""></a><span class="in">sample_size &lt;- N / (1 + N * margin_of_error^2)</span></span>
-<span id="cb8-8"><a href=""></a></span>
-<span id="cb8-9"><a href=""></a><span class="in"># Print the sample size</span></span>
-<span id="cb8-10"><a href=""></a><span class="in">cat("The sample size needed for the study is:", ceiling(sample_size), "\n")</span></span>
-<span id="cb8-11"><a href=""></a></span>
-<span id="cb8-12"><a href=""></a><span class="in">```</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb11"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb11-1"><a href=""></a><span class="in">```{r}</span></span>
+<span id="cb11-2"><a href=""></a><span class="in"># Define the parameters</span></span>
+<span id="cb11-3"><a href=""></a><span class="in">N &lt;- 1000</span></span>
+<span id="cb11-4"><a href=""></a><span class="in">margin_of_error &lt;- 0.05</span></span>
+<span id="cb11-5"><a href=""></a></span>
+<span id="cb11-6"><a href=""></a><span class="in"># Calculate the sample size using Slovin's formula</span></span>
+<span id="cb11-7"><a href=""></a><span class="in">sample_size &lt;- N / (1 + N * margin_of_error^2)</span></span>
+<span id="cb11-8"><a href=""></a></span>
+<span id="cb11-9"><a href=""></a><span class="in"># Print the sample size</span></span>
+<span id="cb11-10"><a href=""></a><span class="in">cat("The sample size needed for the study is:", ceiling(sample_size), "\n")</span></span>
+<span id="cb11-11"><a href=""></a></span>
+<span id="cb11-12"><a href=""></a><span class="in">```</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p><br></p>
 <div class="cell">
 <pre><code>The sample size needed for the study is: 286 </code></pre>
 </div>
 </section>
-<section id="sampling-design-25" class="slide level2">
+<section id="sampling-design-31" class="slide level2">
 <h2>Sampling design</h2>
 <h3 id="margin-of-error-formula">Margin of error formula</h3>
 <p><span class="math display">\[
@@ -1148,7 +1385,7 @@ n = \frac{N}{1 + N(E^2)} = \frac{1000}{1 + 1000(0.05^2)} = 286
 </div>
 </div>
 </section>
-<section id="sampling-design-26" class="slide level2">
+<section id="sampling-design-32" class="slide level2">
 <h2>Sampling design</h2>
 <div class="callout callout-tip callout-titled callout-style-default">
 <div class="callout-body">
@@ -1163,24 +1400,24 @@ n = \frac{N}{1 + N(E^2)} = \frac{1000}{1 + 1000(0.05^2)} = 286
 </div>
 </div>
 </div>
-<div class="sourceCode" id="cb10"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb10-1"><a href=""></a><span class="in">```{r}</span></span>
-<span id="cb10-2"><a href=""></a><span class="in"># Define the parameters</span></span>
-<span id="cb10-3"><a href=""></a><span class="in">Z &lt;- qnorm(1 - (1 - 0.95) / 2)</span></span>
-<span id="cb10-4"><a href=""></a><span class="in">s &lt;- 140000</span></span>
-<span id="cb10-5"><a href=""></a><span class="in">E &lt;- 30000</span></span>
-<span id="cb10-6"><a href=""></a></span>
-<span id="cb10-7"><a href=""></a><span class="in"># Calculate the sample size using the margin of error formula</span></span>
-<span id="cb10-8"><a href=""></a><span class="in">sample_size &lt;- (Z * s / E)^2</span></span>
-<span id="cb10-9"><a href=""></a></span>
-<span id="cb10-10"><a href=""></a><span class="in"># Print the sample size</span></span>
-<span id="cb10-11"><a href=""></a><span class="in">cat("The sample size needed for the study is:", ceiling(sample_size), "\n")</span></span>
-<span id="cb10-12"><a href=""></a></span>
-<span id="cb10-13"><a href=""></a><span class="in">```</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb13"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb13-1"><a href=""></a><span class="in">```{r}</span></span>
+<span id="cb13-2"><a href=""></a><span class="in"># Define the parameters</span></span>
+<span id="cb13-3"><a href=""></a><span class="in">Z &lt;- qnorm(1 - (1 - 0.95) / 2)</span></span>
+<span id="cb13-4"><a href=""></a><span class="in">s &lt;- 140000</span></span>
+<span id="cb13-5"><a href=""></a><span class="in">E &lt;- 30000</span></span>
+<span id="cb13-6"><a href=""></a></span>
+<span id="cb13-7"><a href=""></a><span class="in"># Calculate the sample size using the margin of error formula</span></span>
+<span id="cb13-8"><a href=""></a><span class="in">sample_size &lt;- (Z * s / E)^2</span></span>
+<span id="cb13-9"><a href=""></a></span>
+<span id="cb13-10"><a href=""></a><span class="in"># Print the sample size</span></span>
+<span id="cb13-11"><a href=""></a><span class="in">cat("The sample size needed for the study is:", ceiling(sample_size), "\n")</span></span>
+<span id="cb13-12"><a href=""></a></span>
+<span id="cb13-13"><a href=""></a><span class="in">```</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell">
 <pre><code>The sample size needed for the study is: 84 </code></pre>
 </div>
 </section>
-<section id="sampling-design-27" class="slide level2">
+<section id="sampling-design-33" class="slide level2">
 <h2>Sampling design</h2>
 <div class="callout callout-note callout-titled callout-style-default">
 <div class="callout-body">
