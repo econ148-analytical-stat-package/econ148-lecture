@@ -11,7 +11,7 @@ format:
     code-summary: "code"
     chalkboard: true
     slide-number: true
-    footer: "Econ 148: Analytical and statistical packages for economists 1"
+    footer: "Econ 148: Analytical and statistical packages for economics 1"
 engine: knitr
 from: markdown+emoji
 editor: visual
@@ -314,13 +314,74 @@ sample(LETTERS)
 
 -   sample will then be a set of composef of $U_r, U_{r+k}, U_{r+2k}, \ldots, U_{r+(n-1)k}$
 
+
+## Sampling design
+
+::: callout-tip
+## Steps in Systematic sampling in R
+
+1. Define the population $\text{N}$ and sample size $\text{n}$
+
+2. Calculate the interval $\text{k}$
+
+3. Set a random starting point $\text{r}$
+
+4. Generate sample indices
+
+5. Extract sample values
+
+:::
+
+
 ## Sampling design
 
 ::: callout-tip
 ## Example in R
 
--   insert examples
+Supposed you have a population of 100 students adn want to select a sample of 20.
+
+1. Population size $\text{N} = 100$ and Sample size $\text{n} = 20$
+
+2. Sampling interval $\text{k} = \text{N/n} = 100/20 = 5$
+
+3. Set a random starting point $\text{r} = 3$ (randomly chosen between 1 and 5)
+
 :::
+
+## Sampling design
+
+::: callout-tip
+## Example in R
+
+Supposed you have a population of 100 students adn want to select a sample of 20.
+
+:::
+
+```{r}
+#| echo: true
+
+# Define the population (N) and sample size (n)
+N <- 100
+n <- 20
+
+# Calculate the interval (k)
+k <- N / n
+
+# Set a random starting point (r)
+set.seed(123) # set seed for reproducibility
+r <- sample(1:k, 1)
+
+# Generate sample indices
+sample_indices <- seq(r, N, k)
+
+# Extract sample values
+sample_values <- sample_indices
+
+print(sample_values)
+```
+
+
+
 
 ## Sampling design
 
@@ -685,13 +746,10 @@ cat("The sample size needed for the study is:", ceiling(sample_size), "\n")
 
 ## Criteria for good measurement
 
--   **Reliability**
+- **Reliability**
 
-    -   the extent to which a measure is consistent and stable over time.
+    - is the measurement able to consistently lead to same conclusion?
 
-    -   the extent to which a measure is free from random error.
-
-    -   the extent to which a measure is free from systematic error.
     
 
 ## Criteria for good measurement
