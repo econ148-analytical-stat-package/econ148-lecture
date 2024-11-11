@@ -821,22 +821,13 @@ $$
 confidence_level <- 0.95
 margin_of_error <- 0.10
 p <- 0.75
-
-# Calculate the Z-value for the given confidence level
-Z <- qnorm(1 - (1 - confidence_level) / 2)
-
-# Calculate the sample size using Cochran's formula
-sample_size <- (Z^2 * p * (1 - p)) / (margin_of_error^2)
-
-# Print the sample size
-cat("The sample size needed for the study is:", floor(sample_size), "\n")
-
 ```
 
 <br>
 
 ```{r}
-#| echo: FALSE
+#| echo: false
+#| eval: false
 
 # Define the parameters
 confidence_level <- 0.95

@@ -699,7 +699,7 @@
 <div class="cell">
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href=""></a><span class="do">## random sample with replacement</span></span>
 <span id="cb2-2"><a href=""></a><span class="fu">sample</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">6</span>, <span class="dv">4</span>, <span class="at">replace =</span> <span class="cn">TRUE</span>)</span>
-<span id="cb2-3"><a href=""></a>[<span class="dv">1</span>] <span class="dv">4</span> <span class="dv">2</span> <span class="dv">2</span> <span class="dv">6</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb2-3"><a href=""></a>[<span class="dv">1</span>] <span class="dv">5</span> <span class="dv">6</span> <span class="dv">1</span> <span class="dv">1</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </div><div class="column">
 
@@ -734,14 +734,14 @@
 <div class="cell">
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href=""></a><span class="do">## random sample without replacement</span></span>
 <span id="cb3-2"><a href=""></a><span class="fu">sample</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">20</span>, <span class="dv">5</span>)</span>
-<span id="cb3-3"><a href=""></a>[<span class="dv">1</span>] <span class="dv">19</span> <span class="dv">18</span> <span class="dv">17</span> <span class="dv">13</span>  <span class="dv">7</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb3-3"><a href=""></a>[<span class="dv">1</span>] <span class="dv">11</span>  <span class="dv">3</span> <span class="dv">16</span> <span class="dv">19</span> <span class="dv">20</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p><br></p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href=""></a><span class="do">## random sample without replacement</span></span>
 <span id="cb4-2"><a href=""></a><span class="fu">sample</span>(LETTERS)</span>
-<span id="cb4-3"><a href=""></a> [<span class="dv">1</span>] <span class="st">"X"</span> <span class="st">"H"</span> <span class="st">"Y"</span> <span class="st">"B"</span> <span class="st">"K"</span> <span class="st">"D"</span> <span class="st">"Q"</span> <span class="st">"T"</span> <span class="st">"W"</span> <span class="st">"F"</span> <span class="st">"Z"</span> <span class="st">"J"</span> <span class="st">"I"</span> <span class="st">"L"</span> <span class="st">"M"</span> <span class="st">"A"</span> <span class="st">"U"</span> <span class="st">"R"</span> <span class="st">"O"</span></span>
-<span id="cb4-4"><a href=""></a>[<span class="dv">20</span>] <span class="st">"N"</span> <span class="st">"S"</span> <span class="st">"P"</span> <span class="st">"G"</span> <span class="st">"C"</span> <span class="st">"E"</span> <span class="st">"V"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb4-3"><a href=""></a> [<span class="dv">1</span>] <span class="st">"R"</span> <span class="st">"B"</span> <span class="st">"S"</span> <span class="st">"L"</span> <span class="st">"C"</span> <span class="st">"J"</span> <span class="st">"D"</span> <span class="st">"W"</span> <span class="st">"I"</span> <span class="st">"F"</span> <span class="st">"M"</span> <span class="st">"V"</span> <span class="st">"P"</span> <span class="st">"X"</span> <span class="st">"H"</span> <span class="st">"U"</span> <span class="st">"K"</span> <span class="st">"Y"</span> <span class="st">"G"</span></span>
+<span id="cb4-4"><a href=""></a>[<span class="dv">20</span>] <span class="st">"O"</span> <span class="st">"Z"</span> <span class="st">"T"</span> <span class="st">"E"</span> <span class="st">"A"</span> <span class="st">"N"</span> <span class="st">"Q"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </div><div class="column">
 
@@ -1358,21 +1358,8 @@ n = \frac{Z^2 \times p(1-p)}{E^2} = \frac{1.96^2 \times 0.75(1-0.75)}{0.1^2} = 7
 <span id="cb10-3"><a href=""></a><span class="in">confidence_level &lt;- 0.95</span></span>
 <span id="cb10-4"><a href=""></a><span class="in">margin_of_error &lt;- 0.10</span></span>
 <span id="cb10-5"><a href=""></a><span class="in">p &lt;- 0.75</span></span>
-<span id="cb10-6"><a href=""></a></span>
-<span id="cb10-7"><a href=""></a><span class="in"># Calculate the Z-value for the given confidence level</span></span>
-<span id="cb10-8"><a href=""></a><span class="in">Z &lt;- qnorm(1 - (1 - confidence_level) / 2)</span></span>
-<span id="cb10-9"><a href=""></a></span>
-<span id="cb10-10"><a href=""></a><span class="in"># Calculate the sample size using Cochran's formula</span></span>
-<span id="cb10-11"><a href=""></a><span class="in">sample_size &lt;- (Z^2 * p * (1 - p)) / (margin_of_error^2)</span></span>
-<span id="cb10-12"><a href=""></a></span>
-<span id="cb10-13"><a href=""></a><span class="in"># Print the sample size</span></span>
-<span id="cb10-14"><a href=""></a><span class="in">cat("The sample size needed for the study is:", floor(sample_size), "\n")</span></span>
-<span id="cb10-15"><a href=""></a></span>
-<span id="cb10-16"><a href=""></a><span class="in">```</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb10-6"><a href=""></a><span class="in">```</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p><br></p>
-<div class="cell">
-<pre><code>The sample size needed for the study is: 72 </code></pre>
-</div>
 </section>
 <section id="sampling-design-31" class="slide level2">
 <h2>Sampling design</h2>
@@ -1420,18 +1407,18 @@ n = \frac{N}{1 + N(E^2)} = \frac{1000}{1 + 1000(0.05^2)} = 286
 </div>
 </div>
 </div>
-<div class="sourceCode" id="cb12"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb12-1"><a href=""></a><span class="in">```{r}</span></span>
-<span id="cb12-2"><a href=""></a><span class="in"># Define the parameters</span></span>
-<span id="cb12-3"><a href=""></a><span class="in">N &lt;- 1000</span></span>
-<span id="cb12-4"><a href=""></a><span class="in">margin_of_error &lt;- 0.05</span></span>
-<span id="cb12-5"><a href=""></a></span>
-<span id="cb12-6"><a href=""></a><span class="in"># Calculate the sample size using Slovin's formula</span></span>
-<span id="cb12-7"><a href=""></a><span class="in">sample_size &lt;- N / (1 + N * margin_of_error^2)</span></span>
-<span id="cb12-8"><a href=""></a></span>
-<span id="cb12-9"><a href=""></a><span class="in"># Print the sample size</span></span>
-<span id="cb12-10"><a href=""></a><span class="in">cat("The sample size needed for the study is:", ceiling(sample_size), "\n")</span></span>
-<span id="cb12-11"><a href=""></a></span>
-<span id="cb12-12"><a href=""></a><span class="in">```</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb11"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb11-1"><a href=""></a><span class="in">```{r}</span></span>
+<span id="cb11-2"><a href=""></a><span class="in"># Define the parameters</span></span>
+<span id="cb11-3"><a href=""></a><span class="in">N &lt;- 1000</span></span>
+<span id="cb11-4"><a href=""></a><span class="in">margin_of_error &lt;- 0.05</span></span>
+<span id="cb11-5"><a href=""></a></span>
+<span id="cb11-6"><a href=""></a><span class="in"># Calculate the sample size using Slovin's formula</span></span>
+<span id="cb11-7"><a href=""></a><span class="in">sample_size &lt;- N / (1 + N * margin_of_error^2)</span></span>
+<span id="cb11-8"><a href=""></a></span>
+<span id="cb11-9"><a href=""></a><span class="in"># Print the sample size</span></span>
+<span id="cb11-10"><a href=""></a><span class="in">cat("The sample size needed for the study is:", ceiling(sample_size), "\n")</span></span>
+<span id="cb11-11"><a href=""></a></span>
+<span id="cb11-12"><a href=""></a><span class="in">```</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p><br></p>
 <div class="cell">
 <pre><code>The sample size needed for the study is: 286 </code></pre>
@@ -1475,19 +1462,19 @@ n = \frac{N}{1 + N(E^2)} = \frac{1000}{1 + 1000(0.05^2)} = 286
 </div>
 </div>
 </div>
-<div class="sourceCode" id="cb14"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb14-1"><a href=""></a><span class="in">```{r}</span></span>
-<span id="cb14-2"><a href=""></a><span class="in"># Define the parameters</span></span>
-<span id="cb14-3"><a href=""></a><span class="in">Z &lt;- qnorm(1 - (1 - 0.95) / 2)</span></span>
-<span id="cb14-4"><a href=""></a><span class="in">s &lt;- 140000</span></span>
-<span id="cb14-5"><a href=""></a><span class="in">E &lt;- 30000</span></span>
-<span id="cb14-6"><a href=""></a></span>
-<span id="cb14-7"><a href=""></a><span class="in"># Calculate the sample size using the margin of error formula</span></span>
-<span id="cb14-8"><a href=""></a><span class="in">sample_size &lt;- (Z * s / E)^2</span></span>
-<span id="cb14-9"><a href=""></a></span>
-<span id="cb14-10"><a href=""></a><span class="in"># Print the sample size</span></span>
-<span id="cb14-11"><a href=""></a><span class="in">cat("The sample size needed for the study is:", ceiling(sample_size), "\n")</span></span>
-<span id="cb14-12"><a href=""></a></span>
-<span id="cb14-13"><a href=""></a><span class="in">```</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb13"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb13-1"><a href=""></a><span class="in">```{r}</span></span>
+<span id="cb13-2"><a href=""></a><span class="in"># Define the parameters</span></span>
+<span id="cb13-3"><a href=""></a><span class="in">Z &lt;- qnorm(1 - (1 - 0.95) / 2)</span></span>
+<span id="cb13-4"><a href=""></a><span class="in">s &lt;- 140000</span></span>
+<span id="cb13-5"><a href=""></a><span class="in">E &lt;- 30000</span></span>
+<span id="cb13-6"><a href=""></a></span>
+<span id="cb13-7"><a href=""></a><span class="in"># Calculate the sample size using the margin of error formula</span></span>
+<span id="cb13-8"><a href=""></a><span class="in">sample_size &lt;- (Z * s / E)^2</span></span>
+<span id="cb13-9"><a href=""></a></span>
+<span id="cb13-10"><a href=""></a><span class="in"># Print the sample size</span></span>
+<span id="cb13-11"><a href=""></a><span class="in">cat("The sample size needed for the study is:", ceiling(sample_size), "\n")</span></span>
+<span id="cb13-12"><a href=""></a></span>
+<span id="cb13-13"><a href=""></a><span class="in">```</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell">
 <pre><code>The sample size needed for the study is: 84 </code></pre>
 </div>
