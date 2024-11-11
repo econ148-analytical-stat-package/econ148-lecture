@@ -586,9 +586,9 @@ Imagine a municipality divided into barangays (villages or neighborhoods). Each 
 
 Let’s assume:
 
-- We have a population of individuals spread across several barangays.
+- We have a 1000 population of individuals spread across several barangays.
 
-- We’ll randomly select a few barangays (clusters) and then sample individuals within each selected barangay.
+- We’ll randomly select 3 barangays (clusters) and then sample individuals within each selected barangay.
 :::
 
 
@@ -616,19 +616,6 @@ population <- tibble(
 
 # Define the number of clusters to sample
 n_clusters <- 3
-
-# Randomly select a subset of barangays
-selected_barangays <- population |> 
-  distinct(barangay) |> 
-  sample_n(n_clusters) |> 
-  pull(barangay)
-
-# Filter the population to include only individuals from the selected barangays
-sample_data <- population |> 
-  filter(barangay %in% selected_barangays)
-
-# Print the sampled data
-print(sample_data)
 
 ```
 
