@@ -565,8 +565,6 @@ print(sample_data)
 
 ::: callout-tip
 ## Example in R
-
--   insert examples
 :::
 
 ```{r}
@@ -653,6 +651,7 @@ print(sample_data)
 -   **Perceived value of proportion (**$p$)
 
     -   the ratio at which the characteristics being studied is present in the population.
+    
 
 ## Sampling design
 
@@ -693,6 +692,7 @@ $$
 n = \frac{Z^2 \times p(1-p)}{E^2} = \frac{1.96^2 \times 0.75(1-0.75)}{0.1^2} = 72
 $$
 :::
+
 
 ## Sampling design
 
@@ -930,18 +930,56 @@ cat("The sample size needed for the study is:", ceiling(sample_size), "\n")
 - **Reliability**
 
     - is the measurement able to consistently lead to same conclusion?
-
     
+    - clearly define how observations will be counted; make sure that questions are phrased for all respondents.
+    
+
 
 ## Criteria for good measurement
 
 -   **Validity**
 
-    -   the extent to which a measure captures the concept it is intended to measure.
+    - the extent to which a measure captures the concept it is intended to measure.
+    
+    - check how your measurements corresponds to established theories or other measures in literature
+    
+    - make sure to have appropriate number of observations that will represent the population
+    
 
 
+## Steps in questinnaire construction
+
+- Determination of questionnaire content
+
+- Framing the questions and accompanying instructions
+
+- Composing the form by deciding on the layout
+
+- Constructing the draft questionnaire (and making revisions if necessary)
+
+- Reproduction of the final questionnaire
 
 
+## Questions and statements
+
+- Questionnaire  -  a collection of questions and statements
+
+- Statements - stated for the respondents to agree or disagree with.
+
+    - Likert scale (Rensis Likert) - formalized procedure of asking respondents their response to a statement such as strongly agree, agree, disagree, and strongly disagree (and the like)
+    
+    - Likert - type scale has no neutral option in the middle
+
+
+## Questions and statements
+
+::: {style="font-size: 80%; text-align: center;"}
+
+![](https://www.statisticsconsultation.com/wp-content/uploads/2023/07/blog2week142.jpg){height=80% width=80% fig-align=center}
+
+Image source: [Statistics Consultations](https://www.statisticsconsultation.com/applying-likert-scale-in-social-sciences-surveys-and-applications-reasons-and-advantages/)
+
+:::
 
 
 
