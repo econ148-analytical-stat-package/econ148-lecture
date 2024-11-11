@@ -565,6 +565,23 @@ print(sample_data)
 
 ::: callout-tip
 ## Example in R
+
+Imagine a municipality divided into barangays (villages or neighborhoods). Each barangay represents a "cluster," and within each selected cluster, we’ll sample all individuals (or a random subset of them).
+
+**Scenario**
+
+Let’s assume:
+
+- We have a population of individuals spread across several barangays.
+
+- We’ll randomly select a few barangays (clusters) and then sample individuals within each selected barangay.
+:::
+
+
+## Sampling design
+
+::: callout-tip
+## Example in R
 :::
 
 ```{r}
@@ -602,7 +619,8 @@ print(sample_data)
 ```
 
 
-## 
+
+## Summary
 
 +-----------------------+-------------------------------------------------------------+--------------------------------------------------------------+
 | Sampling design       | Advantages                                                  | Disadvantages                                                |
