@@ -561,6 +561,20 @@ print(sample_data)
 
 -   e.g., all inhabitant in a municipality from part of a population, barangays can serve as clusters wherein its inhabitant can serve as observations.
 
+
+## Sampling design
+
+::: {style="font-size: 80%; text-align: center;"}
+
+![](https://www.scribbr.com/wp-content/uploads/2023/02/cluster-sampling.webp){height=90% width=90% fig-align=center}
+
+
+Image source: [Scribbr](https://www.scribbr.com/methodology/cluster-sampling/)
+
+:::
+
+
+
 ## Sampling design
 
 ::: callout-tip
@@ -653,6 +667,101 @@ print(sample_data)
     -   $\alpha$ is the level of signficance, which is the probability of having results due to chance.
 
     -   critical value $Z$ for 95% confidence level is 1.96
+    
+## Sampling design
+
+:::: {.columns}
+
+::: {.column width="30%"}
+```{{r}}
+# Load required libraries
+library(ggplot2)
+library(dplyr)
+
+# Sample data
+set.seed(123)
+data <- data.frame(
+  Group = rep(c("A", "B", "C"), each = 30),
+  Value = c(rnorm(30, mean = 10, sd = 3),
+            rnorm(30, mean = 15, sd = 3),
+            rnorm(30, mean = 20, sd = 3))
+)
+
+# Calculate summary statistics including confidence intervals
+summary_data <- data %>%
+  group_by(Group) %>%
+  summarize(
+    Mean = mean(Value),
+    Lower_CI = Mean - qt(0.975, df = n() - 1) * sd(Value) / sqrt(n()),
+    Upper_CI = Mean + qt(0.975, df = n() - 1) * sd(Value) / sqrt(n())
+  )
+
+# Create the plot
+ggplot(data, aes(x = Group, y = Value)) +
+  geom_errorbar(data = summary_data,                       # Add error bars for CI
+                aes(x = Group, y = Mean, ymin = Lower_CI, ymax = Upper_CI),
+                width = 0.2, color = "black") +
+  geom_point(data = summary_data,                          # Add points for means
+             aes(x = Group, y = Mean),
+             color = "black", size = 3) +
+  labs(title = "Boxplot with Confidence Interval Error Bars",
+       x = "Group",
+       y = "Value") +
+  theme_minimal()
+
+```
+:::
+
+::: {.column width="70%"}
+```{r}
+#| echo: FALSE
+
+# Load required libraries
+library(ggplot2)
+library(dplyr)
+
+# Sample data
+set.seed(123)
+data <- data.frame(
+  Group = rep(c("A", "B", "C"), each = 30),
+  Value = c(rnorm(30, mean = 10, sd = 3),
+            rnorm(30, mean = 15, sd = 3),
+            rnorm(30, mean = 20, sd = 3))
+)
+
+# Calculate summary statistics including confidence intervals
+summary_data <- data %>%
+  group_by(Group) %>%
+  summarize(
+    Mean = mean(Value),
+    Lower_CI = Mean - qt(0.975, df = n() - 1) * sd(Value) / sqrt(n()),
+    Upper_CI = Mean + qt(0.975, df = n() - 1) * sd(Value) / sqrt(n())
+  )
+
+# Create the plot
+ggplot(data, aes(x = Group, y = Value)) +
+  geom_errorbar(data = summary_data,                       # Add error bars for CI
+                aes(x = Group, y = Mean, ymin = Lower_CI, ymax = Upper_CI),
+                width = 0.2, color = "black") +
+  geom_point(data = summary_data,                          # Add points for means
+             aes(x = Group, y = Mean),
+             color = "black", size = 3) +
+  labs(title = "Boxplot with Confidence Interval Error Bars",
+       x = "Group",
+       y = "Value") +
+  theme_minimal() +
+  theme(axis.text.x = element_text(size = 14),
+        axis.text.y = element_text(size = 14),
+        axis.title = element_text(size = 16),
+        plot.title = element_text(size = 18, hjust = 0.5))
+
+```
+
+:::
+
+::::
+
+
 
 ## Sampling design
 
@@ -691,7 +800,7 @@ print(sample_data)
 
 ### Cochran's formula
 
-> can be used when estimating proportions (commonly in market research) and when population is no known.
+> can be used when estimating proportions (commonly in market research) and when population is not known.
 
 $$
 n = \frac{Z^2 \cdot p(1-p)}{E^2}
@@ -775,7 +884,7 @@ $$
 ::: callout-tip
 ## Example
 
-A market study by a company wishes to know the proportion of individual that likes its product. It uses a systematic sampling methodology to select the individuals to be part of the survey and used the Slovin's formula to determine the sample size. The company wants to have a 95% confidence level and a margin of error of 10%. Its market is expected to be around 1000 individuals. Assume 5% margin of error. What is the sample size needed for the study?
+A market study by a company wishes to know the proportion of individual that likes its product. It uses a systematic sampling methodology to select the individuals to be part of the survey and used the Slovin's formula to determine the sample size. The company wants to have a 95% confidence level and a margin of error of 5%. Its market is expected to be around 1000 individuals. What is the sample size needed for the study?
 
 $$
 n = \frac{N}{1 + N(E^2)} = \frac{1000}{1 + 1000(0.05^2)} = 286
