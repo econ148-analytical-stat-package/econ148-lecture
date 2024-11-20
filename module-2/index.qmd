@@ -1,0 +1,102 @@
+---
+title: ". "
+title-slide-attributes:
+  data-background-image: "plot/module-5.png"
+  data-background-size: "cover"
+format: 
+  revealjs:
+    theme: [simple, custom.scss]
+    preview-links: true
+    code-fold: false
+    code-summary: "code"
+    chalkboard: true
+    slide-number: true
+    footer: "Econ 148: Analytical and statistical packages for economics 1"
+    quiz:
+      defaultCorrect: "Correct!"
+      defaultIncorrect: "Incorrect!"
+revealjs-plugins:
+  - quiz
+engine: knitr
+from: markdown+emoji
+editor: visual
+---
+
+```{r}
+#| echo: false
+#| include: false
+knitr::opts_chunk$set(comment = "", collapse = TRUE)
+
+## working directory
+setwd("D:/Githu-repository/econ148-analytical-stat-packages/econ148-lecture/module-2")
+
+## Libraries
+library(tidyverse)
+
+```
+
+## Lessons
+
+-   Overview of EDA
+
+-   Centrality and variability
+
+-   Amounts and proportions
+
+-   Comparisons
+
+-   Trends
+
+# Lesson 1: What is EDA?
+
+## EDA: an introduction
+
+EDA is an iterative cycle that helps you understand what your data says. It involves:
+
+- Generate questions about your data
+
+- Search for answers by visualizing, transforming, and modeling your data
+
+- Use what you learn to refine your questions and/or generate new questions
+
+
+## EDA: an introduction
+
+Your goal during EDA is to develop an understanding of your data.
+
+> “Far better an approximate answer to the right question, which is often vague, than an exact answer to the wrong question, which can always be made precise.”
+— John Tukey
+
+
+## EDA: two useful questions
+
+There is no rule about which questions you should ask to guide your research. However, two questions are particularly useful:
+
+1. What type of variation occurs within my variables?
+
+2. What type of covariation occurs between my variables?
+
+
+## Is EDA a tool for discovery or confirmation? {.quiz-question}
+
+- [Discovery]{.correct data-explanation="Correct! EDA is a tool for discovery; in fact, EDA is one of the most fruitful tools for discovery in science. We’ll focus on discovery throughout this primer, but remember that you should test any pattern that you discover before you rely on it."}
+
+- [Confirmation]{data-explanation="Not quite. EDA reveals patterns, but it does not confirm that those patterns exist beyond your data set."}
+
+
+## When you begin to explore data, is it better to formulate one or two high-quality questions to ask, or many, many questions to explore? {.quiz-question}
+
+- [One or two high-quality questions]{data-explanation="Not quite. It is hard to spot useful questions ahead of time because you don’t know which discoveries are waiting in your data."}
+
+- [Many, many questions]{.correct data-explanation="Correct! Each question you ask creates a new opportunity to discover something surprising. You can lead yourself to high-value questions by iterating on questions that reveal unexpected results."}   
+
+
+
+
+
+
+
+
+
+
+
