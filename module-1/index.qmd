@@ -1086,8 +1086,305 @@ Image source: [Statistics Consultations](https://www.statisticsconsultation.com/
 
 :::
 
+## Open-ended vs closed-ended questions
+
+:::: {.columns}
+
+::: {.column width="50%"}
+**Open-ended questions**
+
+- the respondents provides his/her own answer to the question
+
+- e.g., "What is your opinion on the government's response to the COVID-19 pandemic?"
+:::
+
+::: {.column width="50%"}
+**Close-ended questions**
+
+- the respondents chooses from a list of pre-defined answers.
+
+- e.g., "Do you agree or disagree with the government's response to the COVID-19 pandemic?"
+    - Agree, Disagree, Neutral, Can't say, etc.
+:::
+
+::::
 
 
+## Open-ended questions
 
+:::: {.columns}
+
+::: {.column width="50%"}
+**Advantages**
+
+- Can be used when all  possible response categories  are not known
+
+- Allow more detail,  clarification, and  qualification on the  responses
+
+- Can be used when there are  too many potential answer  categories to list
+
+- Preferable for complex issues
+
+- Allow more opportunity for  exploitation and self-  expression.
+
+:::
+
+::: {.column width="50%"}
+**Disadvantages**
+
+- May lead to collection of  worthless/irrelevant  information
+
+- Data are not standard from  person to person
+
+- Low intercoder readability
+
+- Require superior respondent writing/speaking skills
+
+- Questions may be too  general for respondent to  understand.
+
+:::
+
+::::
+
+
+## Close-ended questions
+
+:::: {.columns}
+
+::: {.column width="50%"}
+**Advantages**
+
+- Comparability of  answers
+
+- Easier to code
+
+- Item meaning is clearer
+
+- Answers tend to be  complete and relevant
+
+- Greater inclination to  answer sensitive  questions
+
+- Easier to understand
+
+:::
+
+::: {.column width="50%"}
+**Disadvantages**\
+
+- Guessing or “random”  answering
+
+- Inappropriate or  irrelevant response  categories
+
+- Too many categories
+
+- Undetected differences  in interpretation
+
+- Less variation in  responses
+
+- Higher likelihood of  clerical error.
+
+:::
+
+::::
+
+
+## Questionnaire formats for respondents
+
+- Ordering questions in a questionnaire can affect the
+answers given.
+
+- Do not randomize the order of questions.
+
+- Be sensitive to the effect of the ordering of the  questions.
+
+- For self-administered questionnaires, begin with the  most interesting set of questions. Requests for  duller, demographic data should generally be placed  at the end.
+
+- For interviews, do the opposite.	The interviewer  might gain rapport quickly by introducing briefly the  study and getting demographic data afterwards.
+
+
+## Questionnaire formats for respondents
+
+- Every questionnaire, whether self-  administered or interview schedule, must  contain clear instructions and introductory  statements where appropriate.
+
+- For self-administered questionnaires, basic  instructions as to how to complete the  questionnaire is useful.
+
+- If the questionnaire is arranged into sub-  sections, introduce each section with a short  statement concerning its content and  purpose.
+
+
+## Questionnaire formats for respondents
+
+- For closed-ended questions, make clear  instructions as to whether the respondents  should choose only 1 or can select as many  as he/she can.
+
+- When a set of answer categories are to be  rank-ordered by the respondent, instructions  should be clear as how to do the ranking,  and how many answers are to be ranked.
+
+
+## Basics of interviewing
+
+### Phases of the interview process
+
+- Identification and	Introduction of the  Interviewer
+
+- Explanation of the Nature	and Purpose of  the Survey
+
+- Getting the Respondent to Initially  Cooperate or Establishing Rapport
+
+- Interview Proper
+
+- Formal Closing of the Interview
+
+
+## Basics of interviewing
+
+### Interviewer attitudes
+
+- The job is important.
+
+- He must follow instructions.
+
+- Biases affect the quality of the data.
+
+- He is a professional.
+
+- He is a guest in someone’s home and thus treat the
+respondent with courtesy and respect.
+
+- Randomness, rather than personal decisions, works in
+choosing the respondents.
+
+- The respondent is entitled to privacy and the
+interviewer must help to ensure that privacy.
+
+
+## Basics of interviewing
+
+### Interviewer approach
+
+- Neutral
+
+- Confident
+
+- Impartial
+
+- Casual
+
+- Conversational
+
+- Friendly
+
+
+## Basics of interviewing
+
+### Interviewer conduct: Do's
+
+- Study all questions before you can ask them instead of
+reading them verbatim from the questionnaire.
+
+- Reread the instructions between interviews to pick up
+errors committed and correct them.
+
+- Check with your supervisor when you encounter
+difficulties.
+
+- Be polite as you are	a guest in someone’s home.
+
+- Act naturally.
+
+- Complete the interview at one sitting.
+
+- Assure confidentiality.
+
+- Interview the person you are supposed to.
+
+- Interview only at the listing unit designated for the sample  or follow the substitution procedures specified by the  survey.
+
+
+## Basics of interviewing
+
+### Interviewer conduct: Do's 
+
+- Use the introduction and standard replies
+prepared for the survey.
+
+- Record free-response answers verbatim.
+
+- Write legibly.
+
+- Use the response categories provided in the
+questionnaire.
+
+- Record every answer in the correct place.
+
+- Keep talking as you write.
+
+- Focus the respondent’s attention on the  questions.
+
+- Accept a refusal graciously and naturally.
+
+- Check over your questionnaire before leaving the
+interview.
+
+
+## Basics of interviewing
+
+### Interviewer conduct: Don'ts
+
+- Deviate from the study, introduction and  procedures provided for the survey.
+
+- Suggest an answer and never agree or disagree
+with an answer.
+
+- Interpret the meaning of a question, add to or  subtract words from a question or change the  sequence of questions.
+
+- Rush the respondent.
+
+- React to answers.
+
+- Record a “don’t know” answer too quickly.
+
+- Let another person answer for the intended  respondent.
+
+- Let another interviewer do the work for you.
+
+- Reveal the details of specific interviews to others.
+
+- Falsify interviews.
+
+## Assignment: Questionnaire analysis from an OATD thesis {.scrollable}
+
+<br>
+
+::: {.panel-tabset} 
+
+### Find a Thesis
+
+1. Visit [OATD](https://oatd.org/)
+
+2. Choose a thesis with a detailed questionnaire.
+
+3. Use the search function to find a thesis related to a topic of your interest.
+
+### Analyze the Questionnaire 
+
+Once you've selected a thesis, carefully examine the questionnaire. Consider the following aspects:
+
+1. Clarity & Conciseness
+
+2. Relevance to Research Objectives
+
+3. Question Types & Format
+
+
+4. Question Order & Flow
+
+5. Response Options
+
+### Submit
+
+To submit the assignment, answer and accomplished the Google form below:
+
+ * [Google form assignment](https://forms.gle/DpDjgCBSoG3HBXCX7)
+
+
+:::
 
 

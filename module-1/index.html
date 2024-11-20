@@ -699,7 +699,7 @@
 <div class="cell">
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href=""></a><span class="do">## random sample with replacement</span></span>
 <span id="cb2-2"><a href=""></a><span class="fu">sample</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">6</span>, <span class="dv">4</span>, <span class="at">replace =</span> <span class="cn">TRUE</span>)</span>
-<span id="cb2-3"><a href=""></a>[<span class="dv">1</span>] <span class="dv">5</span> <span class="dv">6</span> <span class="dv">1</span> <span class="dv">1</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb2-3"><a href=""></a>[<span class="dv">1</span>] <span class="dv">5</span> <span class="dv">2</span> <span class="dv">2</span> <span class="dv">3</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </div><div class="column">
 
@@ -734,14 +734,14 @@
 <div class="cell">
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href=""></a><span class="do">## random sample without replacement</span></span>
 <span id="cb3-2"><a href=""></a><span class="fu">sample</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">20</span>, <span class="dv">5</span>)</span>
-<span id="cb3-3"><a href=""></a>[<span class="dv">1</span>] <span class="dv">11</span>  <span class="dv">3</span> <span class="dv">16</span> <span class="dv">19</span> <span class="dv">20</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb3-3"><a href=""></a>[<span class="dv">1</span>]  <span class="dv">5</span> <span class="dv">14</span> <span class="dv">19</span>  <span class="dv">1</span> <span class="dv">18</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p><br></p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href=""></a><span class="do">## random sample without replacement</span></span>
 <span id="cb4-2"><a href=""></a><span class="fu">sample</span>(LETTERS)</span>
-<span id="cb4-3"><a href=""></a> [<span class="dv">1</span>] <span class="st">"R"</span> <span class="st">"B"</span> <span class="st">"S"</span> <span class="st">"L"</span> <span class="st">"C"</span> <span class="st">"J"</span> <span class="st">"D"</span> <span class="st">"W"</span> <span class="st">"I"</span> <span class="st">"F"</span> <span class="st">"M"</span> <span class="st">"V"</span> <span class="st">"P"</span> <span class="st">"X"</span> <span class="st">"H"</span> <span class="st">"U"</span> <span class="st">"K"</span> <span class="st">"Y"</span> <span class="st">"G"</span></span>
-<span id="cb4-4"><a href=""></a>[<span class="dv">20</span>] <span class="st">"O"</span> <span class="st">"Z"</span> <span class="st">"T"</span> <span class="st">"E"</span> <span class="st">"A"</span> <span class="st">"N"</span> <span class="st">"Q"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb4-3"><a href=""></a> [<span class="dv">1</span>] <span class="st">"B"</span> <span class="st">"E"</span> <span class="st">"O"</span> <span class="st">"D"</span> <span class="st">"N"</span> <span class="st">"K"</span> <span class="st">"I"</span> <span class="st">"M"</span> <span class="st">"W"</span> <span class="st">"C"</span> <span class="st">"J"</span> <span class="st">"G"</span> <span class="st">"Q"</span> <span class="st">"V"</span> <span class="st">"X"</span> <span class="st">"L"</span> <span class="st">"Y"</span> <span class="st">"T"</span> <span class="st">"S"</span></span>
+<span id="cb4-4"><a href=""></a>[<span class="dv">20</span>] <span class="st">"U"</span> <span class="st">"F"</span> <span class="st">"Z"</span> <span class="st">"H"</span> <span class="st">"P"</span> <span class="st">"A"</span> <span class="st">"R"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </div><div class="column">
 
@@ -1697,6 +1697,214 @@ n = \frac{N}{1 + N(E^2)} = \frac{1000}{1 + 1000(0.05^2)} = 286
 </figure>
 </div>
 <p>Image source: <a href="https://www.statisticsconsultation.com/applying-likert-scale-in-social-sciences-surveys-and-applications-reasons-and-advantages/">Statistics Consultations</a></p>
+</div>
+</section>
+<section id="open-ended-vs-closed-ended-questions" class="slide level2">
+<h2>Open-ended vs closed-ended questions</h2>
+<div class="columns">
+<div class="column" style="width:50%;">
+<p><strong>Open-ended questions</strong></p>
+<ul>
+<li><p>the respondents provides his/her own answer to the question</p></li>
+<li><p>e.g., “What is your opinion on the government’s response to the COVID-19 pandemic?”</p></li>
+</ul>
+</div><div class="column" style="width:50%;">
+<p><strong>Close-ended questions</strong></p>
+<ul>
+<li><p>the respondents chooses from a list of pre-defined answers.</p></li>
+<li><p>e.g., “Do you agree or disagree with the government’s response to the COVID-19 pandemic?”</p>
+<ul>
+<li>Agree, Disagree, Neutral, Can’t say, etc.</li>
+</ul></li>
+</ul>
+</div></div>
+</section>
+<section id="open-ended-questions" class="slide level2">
+<h2>Open-ended questions</h2>
+<div class="columns">
+<div class="column" style="width:50%;">
+<p><strong>Advantages</strong></p>
+<ul>
+<li><p>Can be used when all possible response categories are not known</p></li>
+<li><p>Allow more detail, clarification, and qualification on the responses</p></li>
+<li><p>Can be used when there are too many potential answer categories to list</p></li>
+<li><p>Preferable for complex issues</p></li>
+<li><p>Allow more opportunity for exploitation and self- expression.</p></li>
+</ul>
+</div><div class="column" style="width:50%;">
+<p><strong>Disadvantages</strong></p>
+<ul>
+<li><p>May lead to collection of worthless/irrelevant information</p></li>
+<li><p>Data are not standard from person to person</p></li>
+<li><p>Low intercoder readability</p></li>
+<li><p>Require superior respondent writing/speaking skills</p></li>
+<li><p>Questions may be too general for respondent to understand.</p></li>
+</ul>
+</div></div>
+</section>
+<section id="close-ended-questions" class="slide level2">
+<h2>Close-ended questions</h2>
+<div class="columns">
+<div class="column" style="width:50%;">
+<p><strong>Advantages</strong></p>
+<ul>
+<li><p>Comparability of answers</p></li>
+<li><p>Easier to code</p></li>
+<li><p>Item meaning is clearer</p></li>
+<li><p>Answers tend to be complete and relevant</p></li>
+<li><p>Greater inclination to answer sensitive questions</p></li>
+<li><p>Easier to understand</p></li>
+</ul>
+</div><div class="column" style="width:50%;">
+<p><strong>Disadvantages</strong><br>
+</p>
+<ul>
+<li><p>Guessing or “random” answering</p></li>
+<li><p>Inappropriate or irrelevant response categories</p></li>
+<li><p>Too many categories</p></li>
+<li><p>Undetected differences in interpretation</p></li>
+<li><p>Less variation in responses</p></li>
+<li><p>Higher likelihood of clerical error.</p></li>
+</ul>
+</div></div>
+</section>
+<section id="questionnaire-formats-for-respondents" class="slide level2">
+<h2>Questionnaire formats for respondents</h2>
+<ul>
+<li><p>Ordering questions in a questionnaire can affect the answers given.</p></li>
+<li><p>Do not randomize the order of questions.</p></li>
+<li><p>Be sensitive to the effect of the ordering of the questions.</p></li>
+<li><p>For self-administered questionnaires, begin with the most interesting set of questions. Requests for duller, demographic data should generally be placed at the end.</p></li>
+<li><p>For interviews, do the opposite. The interviewer might gain rapport quickly by introducing briefly the study and getting demographic data afterwards.</p></li>
+</ul>
+</section>
+<section id="questionnaire-formats-for-respondents-1" class="slide level2">
+<h2>Questionnaire formats for respondents</h2>
+<ul>
+<li><p>Every questionnaire, whether self- administered or interview schedule, must contain clear instructions and introductory statements where appropriate.</p></li>
+<li><p>For self-administered questionnaires, basic instructions as to how to complete the questionnaire is useful.</p></li>
+<li><p>If the questionnaire is arranged into sub- sections, introduce each section with a short statement concerning its content and purpose.</p></li>
+</ul>
+</section>
+<section id="questionnaire-formats-for-respondents-2" class="slide level2">
+<h2>Questionnaire formats for respondents</h2>
+<ul>
+<li><p>For closed-ended questions, make clear instructions as to whether the respondents should choose only 1 or can select as many as he/she can.</p></li>
+<li><p>When a set of answer categories are to be rank-ordered by the respondent, instructions should be clear as how to do the ranking, and how many answers are to be ranked.</p></li>
+</ul>
+</section>
+<section id="basics-of-interviewing" class="slide level2">
+<h2>Basics of interviewing</h2>
+<h3 id="phases-of-the-interview-process">Phases of the interview process</h3>
+<ul>
+<li><p>Identification and Introduction of the Interviewer</p></li>
+<li><p>Explanation of the Nature and Purpose of the Survey</p></li>
+<li><p>Getting the Respondent to Initially Cooperate or Establishing Rapport</p></li>
+<li><p>Interview Proper</p></li>
+<li><p>Formal Closing of the Interview</p></li>
+</ul>
+</section>
+<section id="basics-of-interviewing-1" class="slide level2">
+<h2>Basics of interviewing</h2>
+<h3 id="interviewer-attitudes">Interviewer attitudes</h3>
+<ul>
+<li><p>The job is important.</p></li>
+<li><p>He must follow instructions.</p></li>
+<li><p>Biases affect the quality of the data.</p></li>
+<li><p>He is a professional.</p></li>
+<li><p>He is a guest in someone’s home and thus treat the respondent with courtesy and respect.</p></li>
+<li><p>Randomness, rather than personal decisions, works in choosing the respondents.</p></li>
+<li><p>The respondent is entitled to privacy and the interviewer must help to ensure that privacy.</p></li>
+</ul>
+</section>
+<section id="basics-of-interviewing-2" class="slide level2">
+<h2>Basics of interviewing</h2>
+<h3 id="interviewer-approach">Interviewer approach</h3>
+<ul>
+<li><p>Neutral</p></li>
+<li><p>Confident</p></li>
+<li><p>Impartial</p></li>
+<li><p>Casual</p></li>
+<li><p>Conversational</p></li>
+<li><p>Friendly</p></li>
+</ul>
+</section>
+<section id="basics-of-interviewing-3" class="slide level2">
+<h2>Basics of interviewing</h2>
+<h3 id="interviewer-conduct-dos">Interviewer conduct: Do’s</h3>
+<ul>
+<li><p>Study all questions before you can ask them instead of reading them verbatim from the questionnaire.</p></li>
+<li><p>Reread the instructions between interviews to pick up errors committed and correct them.</p></li>
+<li><p>Check with your supervisor when you encounter difficulties.</p></li>
+<li><p>Be polite as you are a guest in someone’s home.</p></li>
+<li><p>Act naturally.</p></li>
+<li><p>Complete the interview at one sitting.</p></li>
+<li><p>Assure confidentiality.</p></li>
+<li><p>Interview the person you are supposed to.</p></li>
+<li><p>Interview only at the listing unit designated for the sample or follow the substitution procedures specified by the survey.</p></li>
+</ul>
+</section>
+<section id="basics-of-interviewing-4" class="slide level2">
+<h2>Basics of interviewing</h2>
+<h3 id="interviewer-conduct-dos-1">Interviewer conduct: Do’s</h3>
+<ul>
+<li><p>Use the introduction and standard replies prepared for the survey.</p></li>
+<li><p>Record free-response answers verbatim.</p></li>
+<li><p>Write legibly.</p></li>
+<li><p>Use the response categories provided in the questionnaire.</p></li>
+<li><p>Record every answer in the correct place.</p></li>
+<li><p>Keep talking as you write.</p></li>
+<li><p>Focus the respondent’s attention on the questions.</p></li>
+<li><p>Accept a refusal graciously and naturally.</p></li>
+<li><p>Check over your questionnaire before leaving the interview.</p></li>
+</ul>
+</section>
+<section id="basics-of-interviewing-5" class="slide level2">
+<h2>Basics of interviewing</h2>
+<h3 id="interviewer-conduct-donts">Interviewer conduct: Don’ts</h3>
+<ul>
+<li><p>Deviate from the study, introduction and procedures provided for the survey.</p></li>
+<li><p>Suggest an answer and never agree or disagree with an answer.</p></li>
+<li><p>Interpret the meaning of a question, add to or subtract words from a question or change the sequence of questions.</p></li>
+<li><p>Rush the respondent.</p></li>
+<li><p>React to answers.</p></li>
+<li><p>Record a “don’t know” answer too quickly.</p></li>
+<li><p>Let another person answer for the intended respondent.</p></li>
+<li><p>Let another interviewer do the work for you.</p></li>
+<li><p>Reveal the details of specific interviews to others.</p></li>
+<li><p>Falsify interviews.</p></li>
+</ul>
+</section>
+<section id="assignment-questionnaire-analysis-from-an-oatd-thesis" class="slide level2 scrollable">
+<h2>Assignment: Questionnaire analysis from an OATD thesis</h2>
+<p><br></p>
+<div class="panel-tabset">
+<ul id="tabset-1" class="panel-tabset-tabby"><li><a data-tabby-default="" href="#tabset-1-1">Find a Thesis</a></li><li><a href="#tabset-1-2">Analyze the Questionnaire</a></li><li><a href="#tabset-1-3">Submit</a></li></ul>
+<div class="tab-content">
+<div id="tabset-1-1">
+<ol type="1">
+<li><p>Visit <a href="https://oatd.org/">OATD</a></p></li>
+<li><p>Choose a thesis with a detailed questionnaire.</p></li>
+<li><p>Use the search function to find a thesis related to a topic of your interest.</p></li>
+</ol>
+</div>
+<div id="tabset-1-2">
+<p>Once you’ve selected a thesis, carefully examine the questionnaire. Consider the following aspects:</p>
+<ol type="1">
+<li><p>Clarity &amp; Conciseness</p></li>
+<li><p>Relevance to Research Objectives</p></li>
+<li><p>Question Types &amp; Format</p></li>
+<li><p>Question Order &amp; Flow</p></li>
+<li><p>Response Options</p></li>
+</ol>
+</div>
+<div id="tabset-1-3">
+<p>To submit the assignment, answer and accomplished the Google form below:</p>
+<ul>
+<li><a href="https://forms.gle/DpDjgCBSoG3HBXCX7">Google form assignment</a></li>
+</ul>
+</div>
+</div>
 </div>
 <div class="quarto-auto-generated-content">
 <div class="footer footer-default">
