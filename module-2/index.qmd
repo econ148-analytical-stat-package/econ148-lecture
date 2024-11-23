@@ -25,13 +25,28 @@ editor: visual
 ```{r}
 #| echo: false
 #| include: false
-knitr::opts_chunk$set(comment = "", collapse = TRUE)
+knitr::opts_chunk$set(comment = "", 
+                      collapse = TRUE,
+                      fig.align = "center",
+                      fig.width = 8,
+                      fig.height = 7
+                      )
 
 ## working directory
-setwd("D:/Githu-repository/econ148-analytical-stat-packages/econ148-lecture/module-2")
+setwd("C:/Users/chris/Documents/Github-repository/econ148-2024/econ148-lecture/module-2")
 
 ## Libraries
 library(tidyverse)
+
+# reading data
+wildlife_impacts <- read_csv("data/wildlife_impacts.csv")
+days_to_ship <- tibble(
+  order = seq(12),
+  warehouseA = c(3,3,3,4,4,4,5,5,5,5,5,5),
+  warehouseB = c(1,1,1,3,3,4,5,5,5,6,7,10))
+
+# setting the theme
+theme_set(theme_bw(base_size = 18)) # Set theme for all ggplots
 
 ```
 
@@ -53,50 +68,203 @@ library(tidyverse)
 
 EDA is an iterative cycle that helps you understand what your data says. It involves:
 
-- Generate questions about your data
+-   Generate questions about your data
 
-- Search for answers by visualizing, transforming, and modeling your data
+-   Search for answers by visualizing, transforming, and modeling your data
 
-- Use what you learn to refine your questions and/or generate new questions
-
+-   Use what you learn to refine your questions and/or generate new questions
 
 ## EDA: an introduction
 
 Your goal during EDA is to develop an understanding of your data.
 
-> “Far better an approximate answer to the right question, which is often vague, than an exact answer to the wrong question, which can always be made precise.”
-— John Tukey
-
+> “Far better an approximate answer to the right question, which is often vague, than an exact answer to the wrong question, which can always be made precise.” — John Tukey
 
 ## EDA: two useful questions
 
 There is no rule about which questions you should ask to guide your research. However, two questions are particularly useful:
 
-1. What type of variation occurs within my variables?
+1.  What type of variation occurs within my variables?
 
-2. What type of covariation occurs between my variables?
-
+2.  What type of covariation occurs between my variables?
 
 ## Is EDA a tool for discovery or confirmation? {.quiz-question}
 
-- [Discovery]{.correct data-explanation="Correct! EDA is a tool for discovery; in fact, EDA is one of the most fruitful tools for discovery in science. We’ll focus on discovery throughout this primer, but remember that you should test any pattern that you discover before you rely on it."}
+-   [Discovery]{.correct data-explanation="Correct! EDA is a tool for discovery; in fact, EDA is one of the most fruitful tools for discovery in science. We’ll focus on discovery throughout this primer, but remember that you should test any pattern that you discover before you rely on it."}
 
-- [Confirmation]{data-explanation="Not quite. EDA reveals patterns, but it does not confirm that those patterns exist beyond your data set."}
-
+-   [Confirmation]{data-explanation="Not quite. EDA reveals patterns, but it does not confirm that those patterns exist beyond your data set."}
 
 ## When you begin to explore data, is it better to formulate one or two high-quality questions to ask, or many, many questions to explore? {.quiz-question}
 
-- [One or two high-quality questions]{data-explanation="Not quite. It is hard to spot useful questions ahead of time because you don’t know which discoveries are waiting in your data."}
+-   [One or two high-quality questions]{data-explanation="Not quite. It is hard to spot useful questions ahead of time because you don’t know which discoveries are waiting in your data."}
 
-- [Many, many questions]{.correct data-explanation="Correct! Each question you ask creates a new opportunity to discover something surprising. You can lead yourself to high-value questions by iterating on questions that reveal unexpected results."}   
+-   [Many, many questions]{.correct data-explanation="Correct! Each question you ask creates a new opportunity to discover something surprising. You can lead yourself to high-value questions by iterating on questions that reveal unexpected results."}
+
+# Lesson 2: Centrality and variability
+
+## Centrality (aka the "Average" value)
+
+A single number representing the _middle_ of a set of numbers
+
+<br>
+
+:::{.incremental}
+
+- **Mean**: $\frac{\text{Sum of values}}{\text{# of values}}$
+
+- **Median**: "Middle" value (50% of data above & below)
+
+- **Mode**: Most frequent value (usually for categorical data)
+
+:::
 
 
+## Centrality (aka the "Average" value)
+
+### Mean is not the always "best" choice
+
+<br>
+
+:::: {.columns}
+
+::: {.column width="40%"}
+
+```{r}
+#| echo: true
+
+wildlife_impacts %>%
+    filter(! is.na(height)) %>%
+    summarise(
+      mean = mean(height),
+      median = median(height))
+```
+
+Percent of data below mean:
+
+```{r}
+#| echo: true
+
+percentiles <- ecdf(wildlife_impacts$height)
+meanP <- percentiles(mean(wildlife_impacts$height, na.rm = TRUE))
+paste0(round(100*meanP, 1), '%')
+```
+
+:::
+
+::: {.column width="60%"}
+```{r}
+knitr::include_graphics("plot/wildlife_impacts_hist.png")
+```
+
+:::
+
+::::
 
 
+## Variability ("spread")
 
 
+- **Standard deviation**: distribution of values relative to the mean
+
+  - $s = \sqrt{\frac{\sum_{i=1}^{N}(x_i - \bar{x})^2}{N - 1}}$
+
+- **Interquartile range (IQR)**: $Q_3 - Q_1$ (middle 50% of data)
+
+- **Range**: max - min
 
 
+## Variability ("spread")
 
+- Complaints are coming in about orders shipped from warehouse B, so you collect some data.
+
+- ... here **averages** are misleading
+
+:::: {.columns}
+
+::: {.column width="50%"}
+
+```{r}
+#| echo: true
+days_to_ship
+```
+
+:::
+
+::: {.column width="50%"}
+```{.r code-line-numbers="5-6"}
+days_to_ship |> 
+  pivot_longer(-order, names_to = "warehouse", values_to = "days") |> 
+  group_by(warehouse) |>
+  summarise(
+    mean = mean(days),
+    median = median(days))
+```
+
+```{r}
+days_to_ship |> 
+  pivot_longer(-order, names_to = "warehouse", values_to = "days") |> 
+  group_by(warehouse) |>
+  summarise(
+    mean = mean(days),
+    median = median(days))
+```
+
+:::
+
+::::
+
+
+## Variability ("spread")
+
+
+:::: {.columns}
+
+- Complaints are coming in about orders shipped from warehouse B, so you collect some data:
+
+- **variability** reveals difference in days to ship
+
+::: {.column width="50%"}
+```{r}
+#| echo: true
+days_to_ship
+```
+
+:::
+
+::: {.column width="50%"}
+```{.r code-line-numbers="5-8"}
+days_to_ship |> 
+  pivot_longer(-order, names_to = "warehouse", values_to = "days") |> 
+  group_by(warehouse) |>
+  summarise(
+    mean = mean(days),
+    sd = sd(days),
+    iqr = IQR(days),
+    range = max(days) - min(days))
+```
+
+```{r}
+days_to_ship |> 
+  pivot_longer(-order, names_to = "warehouse", values_to = "days") |> 
+  group_by(warehouse) |>
+  summarise(
+    mean = mean(days),
+    sd = sd(days),
+    iqr = IQR(days),
+    range = max(days) - min(days))
+```
+
+:::
+
+::::
+
+
+## Variability ("spread")
+
+<br>
+
+```{r}
+knitr::include_graphics("plot/days_to_ship.png")
+```
 
 
