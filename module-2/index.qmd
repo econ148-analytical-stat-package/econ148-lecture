@@ -268,3 +268,68 @@ knitr::include_graphics("plot/days_to_ship.png")
 ```
 
 
+## Outliers
+
+**Mean** and **standard deviation** are sensitive to outliers
+
+- **Outliers**: $Q_1 - 1.5 IQR$ * $Q_3 + 1.5 IQR$
+
+- **Extreme values**: $Q_1 - 3 IQR$ * $Q_3 + 3 IQR$
+
+<br>
+
+:::: {.columns}
+
+::: {.column width="50%"}
+```{r}
+#| echo: true
+data1 <- c(3,3,4,5,5,6,6,7,8,9)
+```
+
+- Mean: `r round(mean(data1), 2)`
+
+- Standard deviation: `r round(sd(data1), 2)`
+
+- Median: `r median(data1)`
+
+- IQR: `r IQR(data1)`
+:::
+
+::: {.column width="50%"}
+```{r}
+#| echo: true
+data2 <- c(3,3,4,5,5,6,6,7,8,20)
+```
+
+- Mean: `r mean(data2)`
+
+- Standard deviation: `r round(sd(data2), 2)`
+
+- Median: `r median(data2)`
+
+- IQR: `r IQR(data2)`   
+:::
+
+::::
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

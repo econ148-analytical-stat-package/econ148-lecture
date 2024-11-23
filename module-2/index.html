@@ -605,7 +605,39 @@
 <h2>Variability (“spread”)</h2>
 <p><br></p>
 
-<img data-src="plot/days_to_ship.png" class="quarto-figure quarto-figure-center r-stretch"><div class="quarto-auto-generated-content">
+<img data-src="plot/days_to_ship.png" class="quarto-figure quarto-figure-center r-stretch"></section>
+<section id="outliers" class="slide level2">
+<h2>Outliers</h2>
+<p><strong>Mean</strong> and <strong>standard deviation</strong> are sensitive to outliers</p>
+<ul>
+<li><p><strong>Outliers</strong>: <span class="math inline">\(Q_1 - 1.5 IQR\)</span> * <span class="math inline">\(Q_3 + 1.5 IQR\)</span></p></li>
+<li><p><strong>Extreme values</strong>: <span class="math inline">\(Q_1 - 3 IQR\)</span> * <span class="math inline">\(Q_3 + 3 IQR\)</span></p></li>
+</ul>
+<p><br></p>
+<div class="columns">
+<div class="column" style="width:50%;">
+<div class="cell" data-layout-align="center">
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href=""></a>data1 <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">3</span>,<span class="dv">3</span>,<span class="dv">4</span>,<span class="dv">5</span>,<span class="dv">5</span>,<span class="dv">6</span>,<span class="dv">6</span>,<span class="dv">7</span>,<span class="dv">8</span>,<span class="dv">9</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<ul>
+<li><p>Mean: 5.6</p></li>
+<li><p>Standard deviation: 2.01</p></li>
+<li><p>Median: 5.5</p></li>
+<li><p>IQR: 2.5</p></li>
+</ul>
+</div><div class="column" style="width:50%;">
+<div class="cell" data-layout-align="center">
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href=""></a>data2 <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">3</span>,<span class="dv">3</span>,<span class="dv">4</span>,<span class="dv">5</span>,<span class="dv">5</span>,<span class="dv">6</span>,<span class="dv">6</span>,<span class="dv">7</span>,<span class="dv">8</span>,<span class="dv">20</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<ul>
+<li><p>Mean: 6.7</p></li>
+<li><p>Standard deviation: 4.95</p></li>
+<li><p>Median: 5.5</p></li>
+<li><p>IQR: 2.5<br>
+</p></li>
+</ul>
+</div></div>
+<div class="quarto-auto-generated-content">
 <div class="footer footer-default">
 <p>Econ 148: Analytical and statistical packages for economics 1</p>
 </div>

@@ -71,13 +71,16 @@ p_days_to_ship_1 <-
     ),
     hjust = 1.1, vjust = 1.1,
     color = "black", fill = "lightblue", size = 4
+  ) +
+  labs(
+    y = "Days to ship (scaled)"
   )
 
 ggsave(
   filename = "plot/days_to_ship.png",
   plot = p_days_to_ship_1,
-  width = 10,
-  height = 4
+  width = 12,
+  height = 6
 )
 
 
@@ -85,8 +88,8 @@ ggsave(
 
 
 
-
-
+IQR(days_to_ship$warehouseA)
+quantile(days_to_ship$warehouseA)
 
 
 
