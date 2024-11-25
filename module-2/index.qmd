@@ -91,6 +91,8 @@ There is no rule about which questions you should ask to guide your research. Ho
 - [Many, many questions]{.correct data-explanation="Correct! Each question you ask creates a new opportunity to discover something surprising. You can lead yourself to high-value questions by iterating on questions that reveal unexpected results."}   
 
 
+# Lesson 2: Centrality and variability
+
 
 
 
