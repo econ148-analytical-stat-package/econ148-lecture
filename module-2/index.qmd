@@ -437,7 +437,145 @@ wildlife_impacts |>
 knitr::include_graphics("plot/ordinal_barplot.jpeg")
 ```
 
+:::
 
+::::
+
+## Summarizing continuous data
+
+:::: {.columns}
+
+::: {.column width="50%"}
+
+**Histograms**:
+
+- Skewness
+
+- Number of modes
+
+<br>
+
+**Boxplots**:
+
+- Outliers
+
+- Comparing variablesn
+:::
+
+::: {.column width="50%"}
+```{r}
+knitr::include_graphics("plot/eda-boxplot.png")
+```
+
+:::
+
+::::
+
+
+## **Histogram**: Identify Skewness & # of Modes
+
+:::: {.columns}
+
+::: {.column width="50%"}
+**Summarise**:
+
+- Mean, median, sd, range, & IQR:
+
+```{r}
+summary(wildlife_impacts$height)
+```
+:::
+
+::: {.column width="50%"}
+**Visualize**:
+
+- Histogram (identify skewness & modes)
+
+```{r wildlife-height-hist, fig.width=7, fig.height=5, fig.align='center'}
+ggplot(wildlife_impacts) +
+  geom_histogram(aes(x = height), bins = 50) + #<<
+  labs(x = 'Height (ft)', y = 'Count')
+```
+
+:::
+
+::::
+
+
+## Histogram: Identify Skewness & # of Modes
+
+:::: {.columns}
+
+::: {.column width="50%"}
+**Height**
+
+```{r, ref.label="wildlife-height-hist", fig.width=7, fig.height=5, fig.align='center'}
+```
+:::
+
+::: {.column width="50%"}
+**Speed**
+
+```{r wildlife-speed-hist, fig.width=7, fig.height=5, fig.align='center'}
+ggplot(wildlife_impacts) +
+  geom_histogram(aes(x = speed), bins = 50) + #<<
+  labs(x = 'speed (mph)', y = 'Count')
+```
+:::
+::::
+
+
+## Boxplot: Identify outliers
+
+:::: {.columns}
+
+::: {.column width="50%"}
+**Height**
+
+```{r wildlife-height-boxplot, fig.width=7, fig.height=4, fig.align='center'}
+ggplot(wildlife_impacts) +
+    geom_boxplot(aes(x = height)) + #<<
+    labs(x = 'Height (ft)', y = NULL)
+```
+:::
+
+::: {.column width="50%"}
+**Speed**
+
+```{r wildlife-speed-boxplot, fig.width=7, fig.height=4, fig.align='center'}
+ggplot(wildlife_impacts) +
+    geom_boxplot(aes(x = speed)) + #<<
+    labs(x = 'Speed (mph)', y = NULL)
+```
+:::
+
+::::
+
+
+## Histogram and Boxplot
+
+:::: {.columns}
+
+::: {.column width="50%"}
+**Histogram**
+
+- Skewness
+- Modes
+
+```{r, ref.label="wildlife-speed-hist", echo=FALSE, fig.width=7, fig.height=5, fig.align='center'}
+```
+
+:::
+
+::: {.column width="50%"}
+**Boxplot**
+
+- Outliers
+
+<br><br>
+
+```{r, ref.label="wildlife-speed-boxplot", echo=FALSE, fig.width=7, fig.height=5, fig.align='center'}
+```
 :::
 
 ::::
