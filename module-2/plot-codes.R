@@ -3,6 +3,8 @@ setwd("D:/Githu-repository/econ148-analytical-stat-packages/econ148-lecture/modu
 
 ## load packages
 library(tidyverse)
+library(glue)
+library(patchwork)
 
 ## setting theme
 theme_set(theme_bw(base_size = 20)) # Set theme for all ggplots
@@ -85,15 +87,59 @@ ggsave(
 
 
 # anscombe plot
+# Function to create a correlation plot
+create_corr_plot <- function(data, x, y) {
+  corr <- round(cor(data[[x]], data[[y]]), 2)
+  
+  ggplot(data, aes(x = .data[[x]], y = .data[[y]])) +
+    geom_point(size = 3) +
+    geom_smooth(method = "lm", se = FALSE) +
+    labs(title = glue("Correlation: {corr}")) +
+    theme(axis.title = element_text(face = "bold"))
+}
+
+# Create a correlation plot for each pair of x and y
+# Combine the plots for x1-y1 and x2-y2, and x3-y3 and x4-y4
+p_corr_anscombe <- 
+(create_corr_plot(anscombe, "x1", "y1") + create_corr_plot(anscombe, "x2", "y2")) / 
+(create_corr_plot(anscombe, "x3", "y3") + create_corr_plot(anscombe, "x4", "y4"))
+
+## saving plot
+ggsave("plot/p_corr_anscombe.png", p_corr_anscombe, width = 10, height = 8)
+
+
+## summarising nominal data
+p_nominal_barplot <- 
+  wildlife_impacts |> 
+  count(operator, sort = TRUE) |> 
+  ggplot(aes(x = fct_reorder(operator, n), y = n)) +
+  geom_col(width = 0.6) +
+  coord_flip() +
+  labs(x = "Operator", y = "Count") +
+  theme_minimal()
+
+ggsave(
+  filename = "plot/nominal_barplot.jpeg",
+  plot = p_nominal_barplot,
+  width = 5,
+  height = 3
+)
+
+## summarizing ordinal
+p_ordinal <- 
+  wildlife_impacts |> 
+  count(incident_month, sort = TRUE) |> 
+  ggplot(aes(x = as.factor(incident_month), y = n)) +
+  geom_col() +
+  labs(x = "Incident Month", y = "Count") 
+
+ggsave(
+  filename = "plot/ordinal_barplot.jpeg",
+  plot = p_ordinal,
+  width = 10,
+  height = 6
+)
 
 
 
 
-
-
-
-
-
-
-
-                                                         

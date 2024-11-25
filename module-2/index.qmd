@@ -106,20 +106,17 @@ There is no rule about which questions you should ask to guide your research. Ho
 
 ## Centrality (aka the "Average" value)
 
-A single number representing the _middle_ of a set of numbers
+A single number representing the *middle* of a set of numbers
 
 <br>
 
-:::{.incremental}
+::: incremental
+-   **Mean**: $\frac{\text{Sum of values}}{\text{# of values}}$
 
-- **Mean**: $\frac{\text{Sum of values}}{\text{# of values}}$
+-   **Median**: "Middle" value (50% of data above & below)
 
-- **Median**: "Middle" value (50% of data above & below)
-
-- **Mode**: Most frequent value (usually for categorical data)
-
+-   **Mode**: Most frequent value (usually for categorical data)
 :::
-
 
 ## Centrality (aka the "Average" value)
 
@@ -127,10 +124,8 @@ A single number representing the _middle_ of a set of numbers
 
 <br>
 
-:::: {.columns}
-
+::::: columns
 ::: {.column width="40%"}
-
 ```{r}
 #| echo: true
 
@@ -150,50 +145,41 @@ percentiles <- ecdf(wildlife_impacts$height)
 meanP <- percentiles(mean(wildlife_impacts$height, na.rm = TRUE))
 paste0(round(100*meanP, 1), '%')
 ```
-
 :::
 
 ::: {.column width="60%"}
 ```{r}
 knitr::include_graphics("plot/wildlife_impacts_hist.png")
 ```
-
 :::
-
-::::
-
+:::::
 
 ## Variability ("spread")
 
+-   **Standard deviation**: distribution of values relative to the mean
 
-- **Standard deviation**: distribution of values relative to the mean
+    -   $s = \sqrt{\frac{\sum_{i=1}^{N}(x_i - \bar{x})^2}{N - 1}}$
 
-  - $s = \sqrt{\frac{\sum_{i=1}^{N}(x_i - \bar{x})^2}{N - 1}}$
+-   **Interquartile range (IQR)**: $Q_3 - Q_1$ (middle 50% of data)
 
-- **Interquartile range (IQR)**: $Q_3 - Q_1$ (middle 50% of data)
-
-- **Range**: max - min
-
+-   **Range**: max - min
 
 ## Variability ("spread")
 
-- Complaints are coming in about orders shipped from warehouse B, so you collect some data.
+-   Complaints are coming in about orders shipped from warehouse B, so you collect some data.
 
-- ... here **averages** are misleading
+-   ... here **averages** are misleading
 
-:::: {.columns}
-
+::::: columns
 ::: {.column width="50%"}
-
 ```{r}
 #| echo: true
 days_to_ship
 ```
-
 :::
 
 ::: {.column width="50%"}
-```{.r code-line-numbers="5-6"}
+``` {.r code-line-numbers="5-6"}
 days_to_ship |> 
   pivot_longer(-order, names_to = "warehouse", values_to = "days") |> 
   group_by(warehouse) |>
@@ -210,31 +196,25 @@ days_to_ship |>
     mean = mean(days),
     median = median(days))
 ```
-
 :::
-
-::::
-
+:::::
 
 ## Variability ("spread")
 
+::::: columns
+-   Complaints are coming in about orders shipped from warehouse B, so you collect some data:
 
-:::: {.columns}
-
-- Complaints are coming in about orders shipped from warehouse B, so you collect some data:
-
-- **variability** reveals difference in days to ship
+-   **variability** reveals difference in days to ship
 
 ::: {.column width="50%"}
 ```{r}
 #| echo: true
 days_to_ship
 ```
-
 :::
 
 ::: {.column width="50%"}
-```{.r code-line-numbers="5-8"}
+``` {.r code-line-numbers="5-8"}
 days_to_ship |> 
   pivot_longer(-order, names_to = "warehouse", values_to = "days") |> 
   group_by(warehouse) |>
@@ -255,11 +235,8 @@ days_to_ship |>
     iqr = IQR(days),
     range = max(days) - min(days))
 ```
-
 :::
-
-::::
-
+:::::
 
 ## Variability ("spread")
 
@@ -269,32 +246,30 @@ days_to_ship |>
 knitr::include_graphics("plot/days_to_ship.png")
 ```
 
-
 ## Outliers
 
 **Mean** and **standard deviation** are sensitive to outliers
 
-- **Outliers**: $Q_1 - 1.5 IQR$ * $Q_3 + 1.5 IQR$
+-   **Outliers**: $Q_1 - 1.5 IQR$ \* $Q_3 + 1.5 IQR$
 
-- **Extreme values**: $Q_1 - 3 IQR$ * $Q_3 + 3 IQR$
+-   **Extreme values**: $Q_1 - 3 IQR$ \* $Q_3 + 3 IQR$
 
 <br>
 
-:::: {.columns}
-
+::::: columns
 ::: {.column width="50%"}
 ```{r}
 #| echo: true
 data1 <- c(3,3,4,5,5,6,6,7,8,9)
 ```
 
-- Mean: `r round(mean(data1), 2)`
+-   Mean: `r round(mean(data1), 2)`
 
-- Standard deviation: `r round(sd(data1), 2)`
+-   Standard deviation: `r round(sd(data1), 2)`
 
-- Median: `r median(data1)`
+-   Median: `r median(data1)`
 
-- IQR: `r IQR(data1)`
+-   IQR: `r IQR(data1)`
 :::
 
 ::: {.column width="50%"}
@@ -303,28 +278,35 @@ data1 <- c(3,3,4,5,5,6,6,7,8,9)
 data2 <- c(3,3,4,5,5,6,6,7,8,20)
 ```
 
-- Mean: `r mean(data2)`
+-   Mean: `r mean(data2)`
 
-- Standard deviation: `r round(sd(data2), 2)`
+-   Standard deviation: `r round(sd(data2), 2)`
 
-- Median: `r median(data2)`
+-   Median: `r median(data2)`
 
-- IQR: `r IQR(data2)`   
+-   IQR: `r IQR(data2)`\
 :::
+:::::
 
-::::
+## Outliers
+
+<br>
+
+![](plot/boxplot-iqr.png){width=70% height=70% fig-align="center"}
+
+:::{style="font-size: 70%; text-align: center;"}
+Source: [Data Science Discovery](https://discovery.cs.illinois.edu/learn/Exploratory-Data-Analysis/Quartiles-and-Box-Plots/)
+:::
 
 ## Outliers
 
 Robust statistics for continuous data (less sensitive to outliers)
 
-- **Centrality**: use *median* rather than *mean*
+-   **Centrality**: use *median* rather than *mean*
 
-- **Variability**: use *IQR* rather than *standard deviation*
-
+-   **Variability**: use *IQR* rather than *standard deviation*
 
 ## "Visualizing data helps us think"
-
 
 ```{r}
 #| echo: true
@@ -351,13 +333,117 @@ anscombe_summary_stats <-
 anscombe_summary_stats
 ```
 
-
 ## Anscombe's Quartet
 
-- Stephen Few (2009, p6)
+-   Stephen Few (2009, p6)
 
 ```{r}
 knitr::include_graphics("plot/p_corr_anscombe.png")
 ```
+
+## Data types determines how to summarize it
+
+<br>
+
++-----------------------+----------------------+------------------------------------+
+| Nominal (categorical) | Ordinal (categorical | Numerical (continuous)             |
++=======================+======================+====================================+
+| **Measures**          | **Measures**         | **Measures**                       |
+|                       |                      |                                    |
+| -   Frequency counts  | -   Frequency counts | -   Mean, median                   |
+| -   proportions       | -   proportions      | -   Range, standard deviation, IQR |
+|                       | -   Median, mode     |                                    |
+|                       | -   IQR              |                                    |
++-----------------------+----------------------+------------------------------------+
+| **Charts**            | **Charts**           | **Charts**                         |
+|                       |                      |                                    |
+| -   Bars              | -   Bars             | -   Histogram                      |
+|                       |                      | -   Boxplot                        |
++-----------------------+----------------------+------------------------------------+
+
+
+## Summarizing Nominal data
+
+:::: {.columns}
+
+::: {.column width="50%"}
+Summarize with counts/ percentages
+
+```{r}
+#| echo: true
+
+wildlife_impacts |> 
+  count(operator, sort = TRUE) |> 
+  mutate(percent = n / sum(n))
+```
+
+:::
+
+::: {.column width="50%"}
+Visualize with bars
+
+```{r}
+#| echo: true
+#| eval: false
+
+wildlife_impacts |> 
+  count(operator, sort = TRUE) |> 
+  ggplot(aes(x = fct_reorder(operator, n), y = n)) +
+  geom_col() +
+  coord_flip() +
+  labs(x = "Operator", y = "Count") +
+  theme_minimal()
+```
+
+```{r}
+knitr::include_graphics("plot/nominal_barplot.jpeg")
+```
+
+:::
+::::
+
+
+## Summarizing Ordinal data
+
+:::: {.columns}
+
+::: {.column width="50%"}
+Summarize: counts/ percentages
+
+```{r}
+#| echo: true
+wildlife_impacts |> 
+  count(incident_month, sort = TRUE) |> 
+  mutate(percent = n / sum(n))
+```
+
+:::
+
+::: {.column width="50%"}
+Visualize: bars
+
+```{r}
+#| echo: true
+#| eval: false
+
+wildlife_impacts |> 
+  count(incident_month, sort = TRUE) |> 
+  ggplot(aes(x = as.factor(incident_month), y = n)) +
+  geom_col() +
+  labs(x = "Incident Month", y = "Count") 
+```
+
+```{r}
+knitr::include_graphics("plot/ordinal_barplot.jpeg")
+```
+
+
+:::
+
+::::
+
+
+
+
 
 

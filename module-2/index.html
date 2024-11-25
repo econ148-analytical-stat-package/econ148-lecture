@@ -640,6 +640,18 @@
 </section>
 <section id="outliers-1" class="slide level2">
 <h2>Outliers</h2>
+<p><br></p>
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="plot/boxplot-iqr.png" class="quarto-figure quarto-figure-center" style="width:70.0%;height:70.0%"></p>
+</figure>
+</div>
+<div style="font-size: 70%; text-align: center;">
+<p>Source: <a href="https://discovery.cs.illinois.edu/learn/Exploratory-Data-Analysis/Quartiles-and-Box-Plots/">Data Science Discovery</a></p>
+</div>
+</section>
+<section id="outliers-2" class="slide level2">
+<h2>Outliers</h2>
 <p>Robust statistics for continuous data (less sensitive to outliers)</p>
 <ul>
 <li><p><strong>Centrality</strong>: use <em>median</em> rather than <em>mean</em></p></li>
@@ -681,7 +693,145 @@
 <li>Stephen Few (2009, p6)</li>
 </ul>
 
-<img data-src="plot/p_corr_anscombe.png" class="quarto-figure quarto-figure-center r-stretch" width="1500"><div class="quarto-auto-generated-content">
+<img data-src="plot/p_corr_anscombe.png" class="quarto-figure quarto-figure-center r-stretch" width="1500"></section>
+<section id="data-types-determines-how-to-summarize-it" class="slide level2">
+<h2>Data types determines how to summarize it</h2>
+<p><br></p>
+<table class="caption-top" style="width:99%;">
+<colgroup>
+<col style="width: 28%">
+<col style="width: 27%">
+<col style="width: 43%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Nominal (categorical)</th>
+<th>Ordinal (categorical</th>
+<th>Numerical (continuous)</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><p><strong>Measures</strong></p>
+<ul>
+<li>Frequency counts</li>
+<li>proportions</li>
+</ul></td>
+<td><p><strong>Measures</strong></p>
+<ul>
+<li>Frequency counts</li>
+<li>proportions</li>
+<li>Median, mode</li>
+<li>IQR</li>
+</ul></td>
+<td><p><strong>Measures</strong></p>
+<ul>
+<li>Mean, median</li>
+<li>Range, standard deviation, IQR</li>
+</ul></td>
+</tr>
+<tr class="even">
+<td><p><strong>Charts</strong></p>
+<ul>
+<li>Bars</li>
+</ul></td>
+<td><p><strong>Charts</strong></p>
+<ul>
+<li>Bars</li>
+</ul></td>
+<td><p><strong>Charts</strong></p>
+<ul>
+<li>Histogram</li>
+<li>Boxplot</li>
+</ul></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="summarizing-nominal-data" class="slide level2">
+<h2>Summarizing Nominal data</h2>
+<div class="columns">
+<div class="column" style="width:50%;">
+<p>Summarize with counts/ percentages</p>
+<div class="cell" data-layout-align="center">
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href=""></a>wildlife_impacts <span class="sc">|&gt;</span> </span>
+<span id="cb13-2"><a href=""></a>  <span class="fu">count</span>(operator, <span class="at">sort =</span> <span class="cn">TRUE</span>) <span class="sc">|&gt;</span> </span>
+<span id="cb13-3"><a href=""></a>  <span class="fu">mutate</span>(<span class="at">percent =</span> n <span class="sc">/</span> <span class="fu">sum</span>(n))</span>
+<span id="cb13-4"><a href=""></a><span class="co"># A tibble: 4 × 3</span></span>
+<span id="cb13-5"><a href=""></a>  operator               n percent</span>
+<span id="cb13-6"><a href=""></a>  <span class="sc">&lt;</span>chr<span class="sc">&gt;</span>              <span class="er">&lt;</span>int<span class="sc">&gt;</span>   <span class="er">&lt;</span>dbl<span class="sc">&gt;</span></span>
+<span id="cb13-7"><a href=""></a><span class="dv">1</span> SOUTHWEST AIRLINES <span class="dv">17970</span>   <span class="fl">0.315</span></span>
+<span id="cb13-8"><a href=""></a><span class="dv">2</span> UNITED AIRLINES    <span class="dv">15116</span>   <span class="fl">0.265</span></span>
+<span id="cb13-9"><a href=""></a><span class="dv">3</span> AMERICAN AIRLINES  <span class="dv">14887</span>   <span class="fl">0.261</span></span>
+<span id="cb13-10"><a href=""></a><span class="dv">4</span> DELTA AIR LINES     <span class="dv">9005</span>   <span class="fl">0.158</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div><div class="column" style="width:50%;">
+<p>Visualize with bars</p>
+<div class="cell" data-layout-align="center">
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href=""></a>wildlife_impacts <span class="sc">|&gt;</span> </span>
+<span id="cb14-2"><a href=""></a>  <span class="fu">count</span>(operator, <span class="at">sort =</span> <span class="cn">TRUE</span>) <span class="sc">|&gt;</span> </span>
+<span id="cb14-3"><a href=""></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> <span class="fu">fct_reorder</span>(operator, n), <span class="at">y =</span> n)) <span class="sc">+</span></span>
+<span id="cb14-4"><a href=""></a>  <span class="fu">geom_col</span>() <span class="sc">+</span></span>
+<span id="cb14-5"><a href=""></a>  <span class="fu">coord_flip</span>() <span class="sc">+</span></span>
+<span id="cb14-6"><a href=""></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"Operator"</span>, <span class="at">y =</span> <span class="st">"Count"</span>) <span class="sc">+</span></span>
+<span id="cb14-7"><a href=""></a>  <span class="fu">theme_minimal</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="plot/nominal_barplot.jpeg" class="quarto-figure quarto-figure-center" width="750"></p>
+</figure>
+</div>
+</div>
+</div>
+</div></div>
+</section>
+<section id="summarizing-ordinal-data" class="slide level2">
+<h2>Summarizing Ordinal data</h2>
+<div class="columns">
+<div class="column" style="width:50%;">
+<p>Summarize: counts/ percentages</p>
+<div class="cell" data-layout-align="center">
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href=""></a>wildlife_impacts <span class="sc">|&gt;</span> </span>
+<span id="cb15-2"><a href=""></a>  <span class="fu">count</span>(incident_month, <span class="at">sort =</span> <span class="cn">TRUE</span>) <span class="sc">|&gt;</span> </span>
+<span id="cb15-3"><a href=""></a>  <span class="fu">mutate</span>(<span class="at">percent =</span> n <span class="sc">/</span> <span class="fu">sum</span>(n))</span>
+<span id="cb15-4"><a href=""></a><span class="co"># A tibble: 12 × 3</span></span>
+<span id="cb15-5"><a href=""></a>   incident_month     n percent</span>
+<span id="cb15-6"><a href=""></a>            <span class="sc">&lt;</span>dbl<span class="sc">&gt;</span> <span class="er">&lt;</span>int<span class="sc">&gt;</span>   <span class="er">&lt;</span>dbl<span class="sc">&gt;</span></span>
+<span id="cb15-7"><a href=""></a> <span class="dv">1</span>              <span class="dv">9</span>  <span class="dv">7980</span>  <span class="fl">0.140</span> </span>
+<span id="cb15-8"><a href=""></a> <span class="dv">2</span>             <span class="dv">10</span>  <span class="dv">7754</span>  <span class="fl">0.136</span> </span>
+<span id="cb15-9"><a href=""></a> <span class="dv">3</span>              <span class="dv">8</span>  <span class="dv">7104</span>  <span class="fl">0.125</span> </span>
+<span id="cb15-10"><a href=""></a> <span class="dv">4</span>              <span class="dv">5</span>  <span class="dv">6161</span>  <span class="fl">0.108</span> </span>
+<span id="cb15-11"><a href=""></a> <span class="dv">5</span>              <span class="dv">7</span>  <span class="dv">6133</span>  <span class="fl">0.108</span> </span>
+<span id="cb15-12"><a href=""></a> <span class="dv">6</span>              <span class="dv">6</span>  <span class="dv">4541</span>  <span class="fl">0.0797</span></span>
+<span id="cb15-13"><a href=""></a> <span class="dv">7</span>              <span class="dv">4</span>  <span class="dv">4490</span>  <span class="fl">0.0788</span></span>
+<span id="cb15-14"><a href=""></a> <span class="dv">8</span>             <span class="dv">11</span>  <span class="dv">4191</span>  <span class="fl">0.0736</span></span>
+<span id="cb15-15"><a href=""></a> <span class="dv">9</span>              <span class="dv">3</span>  <span class="dv">2678</span>  <span class="fl">0.0470</span></span>
+<span id="cb15-16"><a href=""></a><span class="dv">10</span>             <span class="dv">12</span>  <span class="dv">2303</span>  <span class="fl">0.0404</span></span>
+<span id="cb15-17"><a href=""></a><span class="dv">11</span>              <span class="dv">1</span>  <span class="dv">1951</span>  <span class="fl">0.0342</span></span>
+<span id="cb15-18"><a href=""></a><span class="dv">12</span>              <span class="dv">2</span>  <span class="dv">1692</span>  <span class="fl">0.0297</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div><div class="column" style="width:50%;">
+<p>Visualize: bars</p>
+<div class="cell" data-layout-align="center">
+<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href=""></a>wildlife_impacts <span class="sc">|&gt;</span> </span>
+<span id="cb16-2"><a href=""></a>  <span class="fu">count</span>(incident_month, <span class="at">sort =</span> <span class="cn">TRUE</span>) <span class="sc">|&gt;</span> </span>
+<span id="cb16-3"><a href=""></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> <span class="fu">as.factor</span>(incident_month), <span class="at">y =</span> n)) <span class="sc">+</span></span>
+<span id="cb16-4"><a href=""></a>  <span class="fu">geom_col</span>() <span class="sc">+</span></span>
+<span id="cb16-5"><a href=""></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"Incident Month"</span>, <span class="at">y =</span> <span class="st">"Count"</span>) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="plot/ordinal_barplot.jpeg" class="quarto-figure quarto-figure-center" width="1500"></p>
+</figure>
+</div>
+</div>
+</div>
+</div></div>
+<div class="quarto-auto-generated-content">
 <div class="footer footer-default">
 <p>Econ 148: Analytical and statistical packages for economics 1</p>
 </div>
