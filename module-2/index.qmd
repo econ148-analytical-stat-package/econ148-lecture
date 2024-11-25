@@ -37,6 +37,8 @@ setwd("D:/Githu-repository/econ148-analytical-stat-packages/econ148-lecture/modu
 
 ## Libraries
 library(tidyverse)
+library(glue)
+library(patchwork)
 
 # reading data
 wildlife_impacts <- read_csv("data/wildlife_impacts.csv")
@@ -312,26 +314,50 @@ data2 <- c(3,3,4,5,5,6,6,7,8,20)
 
 ::::
 
+## Outliers
+
+Robust statistics for continuous data (less sensitive to outliers)
+
+- **Centrality**: use *median* rather than *mean*
+
+- **Variability**: use *IQR* rather than *standard deviation*
 
 
+## "Visualizing data helps us think"
 
 
+```{r}
+#| echo: true
+anscombe |> tibble()
+```
+
+```{r}
+#| echo: false
+anscombe_summary_stats <- 
+  anscombe |> 
+  psych::describe() |> 
+  select(mean, sd) |> 
+  # tranform to column iwth rownames as column
+  rownames_to_column("variable") |> 
+  tibble() |> 
+  pivot_longer(cols = c(mean, sd), names_to = "statistic", values_to = "value") |> 
+  pivot_wider(names_from = variable, values_from = value)
+```
+
+<br>
+
+```{r}
+#| echo: true
+anscombe_summary_stats
+```
 
 
+## Anscombe's Quartet
 
+- Stephen Few (2009, p6)
 
-
-
-
-
-# Lesson 2: Centrality and variability
-
-
-
-
-
-
-
-
+```{r}
+knitr::include_graphics("plot/p_corr_anscombe.png")
+```
 
 

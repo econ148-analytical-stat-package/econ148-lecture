@@ -84,12 +84,8 @@ ggsave(
 )
 
 
+# anscombe plot
 
-
-
-
-IQR(days_to_ship$warehouseA)
-quantile(days_to_ship$warehouseA)
 
 
 
