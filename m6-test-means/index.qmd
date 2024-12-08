@@ -1,0 +1,236 @@
+---
+title: ". "
+title-slide-attributes:
+  data-background-image: "plot/module-6.png"
+  data-background-size: "cover"
+format: 
+  revealjs:
+    theme: [simple, custom.scss]
+    preview-links: true
+    code-fold: false
+    code-summary: "code"
+    chalkboard: true
+    slide-number: true
+    footer: "Econ 148: Analytical and statistical packages for economics 1"
+    quiz:
+      defaultCorrect: "Correct!"
+      defaultIncorrect: "Incorrect!"
+revealjs-plugins:
+  - quiz
+engine: knitr
+from: markdown+emoji
+editor: visual
+---
+
+```{r}
+#| echo: false
+#| include: false
+knitr::opts_chunk$set(comment = "", 
+                      collapse = TRUE,
+                      fig.align = "center",
+                      fig.width = 8,
+                      fig.height = 7
+                      )
+
+## working directory
+setwd("C:/Users/chris/Documents/Github-repository/econ148-2024/econ148-lecture/m6-test-means")
+
+## Libraries
+library(tidyverse)
+library(glue)
+library(patchwork)
+library(kableExtra)
+
+# reading data
+
+
+# setting the theme
+theme_set(theme_bw(base_size = 18)) # Set theme for all ggplots
+
+```
+
+## Lessons
+
+-   Introduction to hypothesis testing
+
+-   Parametric vs non-parametric tests
+
+-   Independent samples t-test
+
+-   Paired samples t-test
+
+-   One-way ANOVA
+
+-   Two-way ANOVA
+
+-   Chi-square test
+
+# Lesson 1: Introduction to hypothesis testing?
+
+## What is hypothesis testing?
+
+-   Hypothesis testing is a statistical method used to make inferences or draw conclusions about a population based on sample data.
+
+-   It involves evaluating two competing hypotheses to determine if there is enough evidence to support a particular claim.
+
+## Key Concepts in Hypothesis Testing
+
+:::::: columns
+::::: incremental
+::: {.column width="50%"}
+**Null Hypothesis (H₀)**
+
+-   A statement suggesting no effect, no difference, or no relationship exists. This is the hypothesis that is tested.
+
+-   Example: "There is no difference in the average test scores between two groups."
+:::
+
+::: {.column width="50%"}
+**Alternative Hypothesis (H₁ or Ha)**
+
+-   A statement that contradicts the null hypothesis, proposing that there is a significant effect or difference.
+
+-   Example: "There is a significant difference in the average test scores between two groups."
+:::
+:::::
+::::::
+
+## Steps in Hypothesis Testing
+
+::: incremental
+1.  **State the hypotheses**: Define H₀ and H₁.
+
+2.  **Choose a significance level (α)**: Common choices are 0.05 or 0.01. This determines the threshold for rejecting H₀.
+
+3.  **Select the appropriate test**: Based on the data type and hypotheses (e.g., t-test, ANOVA).
+
+4.  **Compute the test statistic**: This involves calculating a value that measures the difference between the sample data and the null hypothesis.
+
+5.  **Make a decision**:
+
+-   Reject H₀ if the test statistic shows significant evidence against H₀ (i.e., p-value \< α).
+-   Fail to reject H₀ if there is not enough evidence (i.e., p-value ≥ α).
+:::
+
+## Types of Errors
+
+:::::: columns
+::::: incremental
+::: {.column width="50%"}
+**Type I Error (False Positive)**
+
+-   Rejecting H₀ when it is actually true.
+
+-   Example: Concluding there is a difference when there isn’t.
+:::
+
+::: {.column width="50%"}
+**Type II Error (False Negative)**
+
+-   Failing to reject H₀ when it is false.
+
+-   Example: Concluding there is no difference when there actually is.
+:::
+:::::
+::::::
+
+## Test Statistic and P-Value
+
+-   The test statistic is a value calculated from the sample data used to decide whether to reject the null hypothesis.
+
+-   The p-value is the probability of obtaining a result at least as extreme as the one observed, given that H₀ is true.
+
+    -   If p-value \< α, reject H₀; otherwise, fail to reject H₀.
+
+# Check-up quiz!
+
+## What is the purpose of hypothesis testing? {.quiz-question}
+
+-   To prove a hypothesis is true
+
+-   [To make inferences about a population based on sample data]{.correct}
+
+-   To collect sample data
+
+-   To test the validity of a hypothesis in all situations
+
+## Which of the following is the null hypothesis (H₀)? {.quiz-question}
+
+-   There is a significant difference between the two groups.
+
+-   [There is no effect or no difference between the two groups.]{.correct}
+
+-   The sample data is unreliable.
+
+-   The alternative hypothesis is true.
+
+## What does the p-value represent in hypothesis testing? {.quiz-question}
+
+-   The probability that the null hypothesis is true
+
+-   [The probability of observing a test statistic as extreme as the one calculated, assuming the null hypothesis is true]{.correct}
+
+-   The critical value required to reject the null hypothesis
+
+-   The likelihood of making a Type II error
+
+## Which of the following is a Type I error? {.quiz-question}
+
+-   Concluding there is no effect when one exists
+
+-   Concluding there is an effect when none exists
+
+-   [Rejecting the null hypothesis when it is true]{.correct}
+
+-   Accepting the null hypothesis when it is false
+
+## What is the significance level (α) typically set at in hypothesis testing? {.quiz-question}
+
+-   0.10
+
+-   0.01
+
+-   [0.05]{.correct}
+
+-   0.50
+
+# Lesson 2: Parametric vs Non-parametric tests
+
+## Parametric and non-parametric tests
+
+| Parametric                | Non-parametric            |
+|---------------------------|---------------------------|
+| Independent sample t-test | Mann-Whitney U test       |
+| Paired samples t-test     | Wilcoxon signed rank test |
+| One-way ANOVA             | Kruskal-Wallis test       |
+|                           | Chi-squared tests         |
+
+## Statistical tests for comparing two groups
+
+<br>
+
++-----------------------------------------------------------------------------------------------------------------------------------+----------------------------------------------------------------------+----------------------------------------------------------------------------------------------------------------+
+| Purpose                                                                                                                           | Data types                                                           | Usage                                                                                                          |
++===================================================================================================================================+======================================================================+================================================================================================================+
+| -   To determine if there is a significant differences between two groups in a dataset, either in means, means, or distributions. | -   Continuous data (e.g., height, test scores, income)              | -   Comparing average performance between two independent groups (e.g., test scores of two classes)            |
+|                                                                                                                                   | -   Ordinal data (e.g., satisfaction rating, ranks)                  | -   Comparing means when groups have unequal variances (e.g., salaries across department)                      |
+|                                                                                                                                   | -   Assumptions about data (normality, equal variances) vary by test | -   Comparing medians of two groups when data isn’t normally distributed (e.g., customer satisfaction scores). |
++-----------------------------------------------------------------------------------------------------------------------------------+----------------------------------------------------------------------+----------------------------------------------------------------------------------------------------------------+
+
+## Independent samples t-test
+
++----------------------------------------------------------+-----------------------------------------------------------------------------+------------------------------------------------------------------------------------------------------+
+| Purpose                                                  | Data requirements                                                           | Example                                                                                              |
++==========================================================+=============================================================================+======================================================================================================+
+| -   Comparing means of two independent/unrelated groups. | -   Two variables                                                           | -   Comparing average performance between two independent groups (e.g., test scores of two classes). |
+|                                                          |                                                                             |                                                                                                      |
+|                                                          |     -   1 continuous variable and 1 categorical/discrete with 2 categories  |                                                                                                      |
+|                                                          |                                                                             |                                                                                                      |
+|                                                          | -   Normality                                                               |                                                                                                      |
+|                                                          |                                                                             |                                                                                                      |
+|                                                          |     -   use Shapiro Wilk's test (p-value \> 0.05                            |                                                                                                      |
+|                                                          |                                                                             |                                                                                                      |
+|                                                          | -   Homogeneity of variance                                                 |                                                                                                      |
+|                                                          |                                                                             |                                                                                                      |
+|                                                          |     -   use Levene's tests (p-value\>0.05)                                  |                                                                                                      |
++----------------------------------------------------------+-----------------------------------------------------------------------------+------------------------------------------------------------------------------------------------------+
