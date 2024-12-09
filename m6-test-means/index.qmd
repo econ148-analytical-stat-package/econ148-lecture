@@ -372,15 +372,15 @@ t.test(hwy ~ cyl, data = mpg_dta, var.equal = FALSE, na.rm = TRUE)
 
 3. Test Assumptions
 
-  - Normality: Satisfy
+  - Normality: failed to satisfy
 
-  - Homogeneity of variance: Failed to Satisfy
+  - Homogeneity of variance: failed to Satisfy
   
-  - Test to be used: Welch
+  - Test to be used: Welch's t-test
 
 4. Run the test in R, get the statistic and p-value
 
-  - T Statistic: 7.49
+  - T Statistic: 17.58
 
   - p-value: 0.000
 
@@ -462,7 +462,7 @@ wilcox.test(hwy ~ cyl, data = mpg_dta, exact = FALSE)
 
 ## Instructions
 
-1. Load the diamonds dataset from the ggplot2 package. Filter the data to include only "Very Good" and "Premium" cut diamonds. Sample 1000 observations from each group to ensure the Shapiro-Wilk test can be applied.
+1. Load the diamonds dataset from the `ggplot2` package. Filter the data to include only "Very Good" and "Premium" cut diamonds. Sample 1000 observations from each group to ensure the Shapiro-Wilk test can be applied.
 
 2. Checking Assumptions: Normality and Homogeneity of Variance
 
@@ -546,4 +546,168 @@ wilcox.test(price ~ cut, data = diamond_dataset, exact = FALSE)
 - The test is inconclusive
 
 - The assumptions of the test are not met
+
+
+## Dependent t-test
+
+-  Used to compare the means of two related groups.
+
+-  Example: Comparing test scores before and after a training program.
+
+-  Assumptions: Normality, homogeneity of variance, and dependent observations.
+
+## Dependent t-test
+
+::: {.callout-tip}
+
+-  Steps in hypothesis testing:
+
+    1.  State the hypotheses.
+
+    2.  Specify the level of statistical significance (α).
+
+    3.  Test assumptions and identify the appropriate test.
+
+    4.  Compute the statistic and p-value.
+
+    5.  Decision: Compare p-value and alpha value.
+
+    6.  Conclusion.
+    
+:::
+    
+## Dependent t-test
+
+::: {.callout-tip}
+
+## Activity: Dependent t-test
+
+Using the a synthetic data on training scores of before and after a training program, test whether there is a statistically significant difference in the scores before and after the training program.
+
+:::
+
+## Dependent t-test
+
+:::: {.columns}
+
+::: {.column width="50%"}
+
+Step 1: Import data and data management
+
+```{r}
+#| echo: true
+## using a synthetic dataset
+before <- c(12.2, 14.6, 13.4, 11.2, 12.7, 10.4, 15.8, 13.9, 9.5, 14.2)
+after <- c(13.5, 15.2, 13.6, 12.8, 13.7, 11.3, 16.5, 13.4, 8.7, 14.6)
+
+training_data <- tibble(subject = rep(c(1:10), 2), 
+                   time = rep(c("before", "after"), each = 10),
+                   score = c(before, after)) |> 
+  mutate(time = as_factor(time))
+
+head(training_data)
+```
+
+:::
+
+::: {.column width="50%"}
+
+Step 2: Test of normality
+
+```{r}
+#| echo: true
+training_data |>
+  group_by(time) |>
+  summarise(
+    shapiro_test = shapiro.test(score)$statistic,
+    p_value = shapiro.test(score)$p.value
+  )
+```
+:::
+
+::::
+
+
+## Dependent t-test
+
+:::: {.columns}
+
+::: {.column width="50%"}
+Step 3: Test of homogeneity of variance
+
+```{r}
+#| echo: true
+
+car::leveneTest(data = training_data, score ~ time, center = mean)
+```
+
+
+:::
+
+::: {.column width="50%"}
+Step 4: Perform dependent sample t-test
+
+```{r}
+#| echo: true
+
+t.test(score ~ time, data = training_data, paired = TRUE, na.rm = TRUE)
+```
+:::
+
+::::
+
+## Dependent t-test
+
+:::: {.columns}
+
+::: {.column width="30%"}
+```{r}
+#| echo: true
+#| eval: false
+
+## plot paired sample t test using ggbetweenstats
+ggwithinstats(
+  data = training_data,
+  x = time,
+  y = score,
+  title = "Paired Samples T-Test",
+)
+```
+:::
+
+::: {.column width="70%"}
+```{r}
+#| echo: false
+#| fig-width: 10
+#| fig-height: 8
+
+## plot paired sample t test using ggbetweenstats
+ggwithinstats(
+  data = training_data,
+  x = time,
+  y = score,
+  title = "Paired Samples T-Test",
+) +
+  theme_minimal(base_size = 18) +
+  theme(legend.position = "none")
+
+```
+
+:::
+
+::::
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
