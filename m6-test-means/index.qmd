@@ -33,7 +33,7 @@ knitr::opts_chunk$set(comment = "",
                       )
 
 ## working directory
-setwd("C:/Users/chris/Documents/Github-repository/econ148-2024/econ148-lecture/m6-test-means")
+setwd("D:/Githu-repository/econ148-analytical-stat-packages/econ148-lecture/m6-test-means")
 
 ## Libraries
 library(tidyverse)
@@ -219,18 +219,331 @@ theme_set(theme_bw(base_size = 18)) # Set theme for all ggplots
 
 ## Independent samples t-test
 
-+----------------------------------------------------------+-----------------------------------------------------------------------------+------------------------------------------------------------------------------------------------------+
-| Purpose                                                  | Data requirements                                                           | Example                                                                                              |
-+==========================================================+=============================================================================+======================================================================================================+
-| -   Comparing means of two independent/unrelated groups. | -   Two variables                                                           | -   Comparing average performance between two independent groups (e.g., test scores of two classes). |
-|                                                          |                                                                             |                                                                                                      |
-|                                                          |     -   1 continuous variable and 1 categorical/discrete with 2 categories  |                                                                                                      |
-|                                                          |                                                                             |                                                                                                      |
-|                                                          | -   Normality                                                               |                                                                                                      |
-|                                                          |                                                                             |                                                                                                      |
-|                                                          |     -   use Shapiro Wilk's test (p-value \> 0.05                            |                                                                                                      |
-|                                                          |                                                                             |                                                                                                      |
-|                                                          | -   Homogeneity of variance                                                 |                                                                                                      |
-|                                                          |                                                                             |                                                                                                      |
-|                                                          |     -   use Levene's tests (p-value\>0.05)                                  |                                                                                                      |
-+----------------------------------------------------------+-----------------------------------------------------------------------------+------------------------------------------------------------------------------------------------------+
++----------------------------------------------------------+----------------------------------------------------------------------------+------------------------------------------------------------------------------------------------------+
+| Purpose                                                  | Data requirements                                                          | Example                                                                                              |
++==========================================================+============================================================================+======================================================================================================+
+| -   Comparing means of two independent/unrelated groups. | -   Two variables                                                          | -   Comparing average performance between two independent groups (e.g., test scores of two classes). |
+|                                                          |                                                                            |                                                                                                      |
+|                                                          |     -   1 continuous variable and 1 categorical/discrete with 2 categories |                                                                                                      |
+|                                                          |                                                                            |                                                                                                      |
+|                                                          | -   Normality                                                              |                                                                                                      |
+|                                                          |                                                                            |                                                                                                      |
+|                                                          |     -   use Shapiro Wilk's test (p-value \> 0.05                           |                                                                                                      |
+|                                                          |                                                                            |                                                                                                      |
+|                                                          | -   Homogeneity of variance                                                |                                                                                                      |
+|                                                          |                                                                            |                                                                                                      |
+|                                                          |     -   use Levene's tests (p-value\>0.05)                                 |                                                                                                      |
++----------------------------------------------------------+----------------------------------------------------------------------------+------------------------------------------------------------------------------------------------------+
+
+## Independent sample t-test
+
+```{r}
+knitr::include_graphics("plot/idependent-t-tst.png")
+```
+
+
+## Independent sample t-test
+
+::: {.callout-tip}
+
+## Steps in Hypothesis testing
+
+1. State the hypotheses
+
+2. Specify the decision rule and the level of  
+statistical significance.
+
+3. Test the assumptions and Identify the 
+appropriate test.
+
+4. Compute for the statistic and p-value
+
+5. Decision: Compare p-value and alpha value.
+
+6. Conclusion
+
+:::
+
+
+## Independent sample t-test
+
+::: {.callout-tip}
+## Activitiy: Comparison two independent group
+
+Using the **mpg** dataset, test whether there is 
+a statistically significant difference in the hwy miles per 
+gallon (hwy) between 4-cylinder and 8-cylinder 
+automobiles.
+
+:::
+
+
+## Independent sample t-test
+
+:::: {.columns}
+
+::: {.column width="50%"}
+Step 1: Import data and data management
+
+```{r}
+#| echo: true
+
+## setting cyl variable as factor
+mpg_dta <- 
+  mpg |> 
+  filter(cyl %in% c(4, 8)) |> 
+  mutate(cyl = as_factor(cyl))
+
+head(mpg_dta)
+```
+
+:::
+
+::: {.column width="50%"}
+Step 2: Test of normality
+
+```{r}
+#| echo: true
+
+mpg_dta |>
+  group_by(cyl) |>
+  summarise(
+    shapiro_test = shapiro.test(hwy)$statistic,
+    p_value = shapiro.test(hwy)$p.value
+  )
+```
+
+:::
+
+::::
+
+
+## Independent sample t-test
+
+:::: {.columns}
+
+::: {.column width="50%"}
+Step 3: Test of homogeneity of variance
+
+```{r}
+#| echo: true
+car::leveneTest(data = mpg_dta, hwy ~ cyl, center = mean)
+car::leveneTest(data = mpg_dta, hwy ~ cyl, center = median)
+```
+
+:::
+
+::: {.column width="50%"}
+Step 4: Perform independent sample t-test
+
+```{r}
+#| echo: true
+
+t.test(hwy ~ cyl, data = mpg_dta, var.equal = FALSE, na.rm = TRUE)
+```
+
+:::
+
+::::
+
+## Independent sample t-test
+
+::: {.callout-tip}
+
+## Solution
+
+1. State the Null and Alternative Hypotheses
+
+  - Ho: There is no significant difference in the average miles per gallon between 4-cylinder and 8-cylinder automobiles.
+
+  - Ha: There is a significant difference in the average miles per gallon between 4-cylinder and 8-cylinder automobiles.
+ 
+2. Specify the level of statistical significance (α)
+  - α: 0.05
+ 
+
+
+:::
+
+## Independent sample t-test
+
+::: {.callout-tip}
+## Solution
+
+3. Test Assumptions
+
+  - Normality: Satisfy
+
+  - Homogeneity of variance: Failed to Satisfy
+  
+  - Test to be used: Welch
+
+4. Run the test in R, get the statistic and p-value
+
+  - T Statistic: 7.49
+
+  - p-value: 0.000
+
+:::
+
+
+## Independent sample t-test
+
+::: {.callout-tip}
+## Solution
+
+5. Decision
+ 
+  - Since the p-value (0.000) is less than alpha (0.05), reject Ho.
+ 
+6. Conclusion
+
+  - There is a significant difference in the average miles per gallon between 4-cylinder and 8-cylinder automobiles.
+:::
+
+
+
+## Independent sample t-test
+
+:::: {.columns}
+
+::: {.column width="30%"}
+```{r}
+#| echo: true
+#| eval: false
+
+library(ggstatsplot)
+
+ggbetweenstats(
+  data = mpg_dta,
+  x = cyl,
+  y = hwy,
+  messages = FALSE
+)
+
+```
+
+:::
+
+::: {.column width="70%"}
+```{r}
+#| echo: false
+#| fig-width: 10
+#| fig-height: 8
+
+library(ggstatsplot)
+
+ggbetweenstats(
+  data = mpg_dta,
+  x = cyl,
+  y = hwy,
+  messages = FALSE
+) +
+  theme_minimal(base_size = 18)
+
+```
+
+:::
+
+::::
+
+
+## Mann-Whitney U test
+
+```{r}
+#| echo: true
+wilcox.test(hwy ~ cyl, data = mpg_dta, exact = FALSE)
+```
+
+
+## R Activity: Mann-Whitney U test
+
+::: {.callout-tip}
+
+## Instructions
+
+1. Load the diamonds dataset from the ggplot2 package. Filter the data to include only "Very Good" and "Premium" cut diamonds. Sample 1000 observations from each group to ensure the Shapiro-Wilk test can be applied.
+
+2. Checking Assumptions: Normality and Homogeneity of Variance
+
+3. Conduct the Mann-Whitney U test to compare the median prices of the two groups.
+
+4. Interpret the result
+
+:::
+
+
+```{r}
+#| echo: false
+#| eval: false
+
+## answer key to the exercises
+diamond_dataset <- 
+  ggplot2::diamonds |> 
+  filter(cut %in% c("Very Good", "Premium")) |> 
+  mutate(cut = as_factor(cut)) |> 
+  mutate(price = as.numeric(price)) |> 
+  group_by(cut) |> 
+  sample_n(1000) |> 
+  ungroup()
+
+## normality test
+diamond_dataset |>
+  group_by(cut) |>
+  summarise(
+    shapiro_test = shapiro.test(price)$statistic,
+    p_value = shapiro.test(price)$p.value
+  )
+
+## homogeneity of variance
+car::leveneTest(data = diamond_dataset, price ~ cut, center = mean)
+
+## mann-whitney u test
+wilcox.test(price ~ cut, data = diamond_dataset, exact = FALSE)
+```
+
+
+# Check up quiz
+
+## Which of the following is a key assumption of the independent t-test? {.quiz-question}
+
+- Normality of the dependent variable in both groups
+
+- Equal variances between the two groups
+
+- Independence of observations within each group
+
+- [All of the above]{.correct}
+
+
+## When would you choose to use the Mann-Whitney U-test instead of an independent t-test? {.quiz-question}
+
+- When the sample sizes are small
+
+- When the data is normally distributed
+
+- When the variances of the two groups are equal
+
+- [When the data is not normally distributed]{.correct}
+
+
+## Which of the following is a non-parametric test? {.quiz-question}
+
+- Independent t-test
+
+- One-way ANOVA
+
+- [Mann-Whitney U-test]{.correct}
+
+- Pearson correlation
+
+## If the p-value of a Mann-Whitney U-test is less than 0.05, what conclusion can we draw? {.quiz-question}
+
+- There is no significant difference between the two groups
+
+- [There is a significant difference between the two groups]{.correct}
+
+- The test is inconclusive
+
+- The assumptions of the test are not met
+

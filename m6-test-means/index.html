@@ -28,6 +28,71 @@
       margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
       vertical-align: middle;
     }
+    /* CSS for syntax highlighting */
+    pre > code.sourceCode { white-space: pre; position: relative; }
+    pre > code.sourceCode > span { line-height: 1.25; }
+    pre > code.sourceCode > span:empty { height: 1.2em; }
+    .sourceCode { overflow: visible; }
+    code.sourceCode > span { color: inherit; text-decoration: inherit; }
+    div.sourceCode { margin: 1em 0; }
+    pre.sourceCode { margin: 0; }
+    @media screen {
+    div.sourceCode { overflow: auto; }
+    }
+    @media print {
+    pre > code.sourceCode { white-space: pre-wrap; }
+    pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+    }
+    pre.numberSource code
+      { counter-reset: source-line 0; }
+    pre.numberSource code > span
+      { position: relative; left: -4em; counter-increment: source-line; }
+    pre.numberSource code > span > a:first-child::before
+      { content: counter(source-line);
+        position: relative; left: -1em; text-align: right; vertical-align: baseline;
+        border: none; display: inline-block;
+        -webkit-touch-callout: none; -webkit-user-select: none;
+        -khtml-user-select: none; -moz-user-select: none;
+        -ms-user-select: none; user-select: none;
+        padding: 0 4px; width: 4em;
+        color: #aaaaaa;
+      }
+    pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+    div.sourceCode
+      { color: #003b4f; background-color: #f1f3f5; }
+    @media screen {
+    pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+    }
+    code span { color: #003b4f; } /* Normal */
+    code span.al { color: #ad0000; } /* Alert */
+    code span.an { color: #5e5e5e; } /* Annotation */
+    code span.at { color: #657422; } /* Attribute */
+    code span.bn { color: #ad0000; } /* BaseN */
+    code span.bu { } /* BuiltIn */
+    code span.cf { color: #003b4f; font-weight: bold; } /* ControlFlow */
+    code span.ch { color: #20794d; } /* Char */
+    code span.cn { color: #8f5902; } /* Constant */
+    code span.co { color: #5e5e5e; } /* Comment */
+    code span.cv { color: #5e5e5e; font-style: italic; } /* CommentVar */
+    code span.do { color: #5e5e5e; font-style: italic; } /* Documentation */
+    code span.dt { color: #ad0000; } /* DataType */
+    code span.dv { color: #ad0000; } /* DecVal */
+    code span.er { color: #ad0000; } /* Error */
+    code span.ex { } /* Extension */
+    code span.fl { color: #ad0000; } /* Float */
+    code span.fu { color: #4758ab; } /* Function */
+    code span.im { color: #00769e; } /* Import */
+    code span.in { color: #5e5e5e; } /* Information */
+    code span.kw { color: #003b4f; font-weight: bold; } /* Keyword */
+    code span.op { color: #5e5e5e; } /* Operator */
+    code span.ot { color: #003b4f; } /* Other */
+    code span.pp { color: #ad0000; } /* Preprocessor */
+    code span.sc { color: #5e5e5e; } /* SpecialChar */
+    code span.ss { color: #20794d; } /* SpecialString */
+    code span.st { color: #20794d; } /* String */
+    code span.va { color: #111111; } /* Variable */
+    code span.vs { color: #20794d; } /* VerbatimString */
+    code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
   </style>
   <link rel="stylesheet" href="index_files/libs/revealjs/dist/theme/quarto.css">
   <link href="index_files/libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
@@ -581,6 +646,312 @@
 </tr>
 </tbody>
 </table>
+</section>
+<section id="independent-sample-t-test" class="slide level2">
+<h2>Independent sample t-test</h2>
+
+<img data-src="plot/idependent-t-tst.png" class="quarto-figure quarto-figure-center r-stretch" width="960"></section>
+<section id="independent-sample-t-test-1" class="slide level2">
+<h2>Independent sample t-test</h2>
+<div class="callout callout-tip callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Steps in Hypothesis testing</strong></p>
+</div>
+<div class="callout-content">
+<ol type="1">
+<li><p>State the hypotheses</p></li>
+<li><p>Specify the decision rule and the level of<br>
+statistical significance.</p></li>
+<li><p>Test the assumptions and Identify the appropriate test.</p></li>
+<li><p>Compute for the statistic and p-value</p></li>
+<li><p>Decision: Compare p-value and alpha value.</p></li>
+<li><p>Conclusion</p></li>
+</ol>
+</div>
+</div>
+</div>
+</section>
+<section id="independent-sample-t-test-2" class="slide level2">
+<h2>Independent sample t-test</h2>
+<div class="callout callout-tip callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Activitiy: Comparison two independent group</strong></p>
+</div>
+<div class="callout-content">
+<p>Using the <strong>mpg</strong> dataset, test whether there is a statistically significant difference in the hwy miles per gallon (hwy) between 4-cylinder and 8-cylinder automobiles.</p>
+</div>
+</div>
+</div>
+</section>
+<section id="independent-sample-t-test-3" class="slide level2">
+<h2>Independent sample t-test</h2>
+<div class="columns">
+<div class="column" style="width:50%;">
+<p>Step 1: Import data and data management</p>
+<div class="cell" data-layout-align="center">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href=""></a><span class="do">## setting cyl variable as factor</span></span>
+<span id="cb1-2"><a href=""></a>mpg_dta <span class="ot">&lt;-</span> </span>
+<span id="cb1-3"><a href=""></a>  mpg <span class="sc">|&gt;</span> </span>
+<span id="cb1-4"><a href=""></a>  <span class="fu">filter</span>(cyl <span class="sc">%in%</span> <span class="fu">c</span>(<span class="dv">4</span>, <span class="dv">8</span>)) <span class="sc">|&gt;</span> </span>
+<span id="cb1-5"><a href=""></a>  <span class="fu">mutate</span>(<span class="at">cyl =</span> <span class="fu">as_factor</span>(cyl))</span>
+<span id="cb1-6"><a href=""></a></span>
+<span id="cb1-7"><a href=""></a><span class="fu">head</span>(mpg_dta)</span>
+<span id="cb1-8"><a href=""></a><span class="co"># A tibble: 6 × 11</span></span>
+<span id="cb1-9"><a href=""></a>  manufacturer model      displ  year cyl   trans  drv     cty   hwy fl    class</span>
+<span id="cb1-10"><a href=""></a>  <span class="sc">&lt;</span>chr<span class="sc">&gt;</span>        <span class="er">&lt;</span>chr<span class="sc">&gt;</span>      <span class="er">&lt;</span>dbl<span class="sc">&gt;</span> <span class="er">&lt;</span>int<span class="sc">&gt;</span> <span class="er">&lt;</span>fct<span class="sc">&gt;</span> <span class="er">&lt;</span>chr<span class="sc">&gt;</span>  <span class="er">&lt;</span>chr<span class="sc">&gt;</span> <span class="er">&lt;</span>int<span class="sc">&gt;</span> <span class="er">&lt;</span>int<span class="sc">&gt;</span> <span class="er">&lt;</span>chr<span class="sc">&gt;</span> <span class="er">&lt;</span>chr<span class="sc">&gt;</span></span>
+<span id="cb1-11"><a href=""></a><span class="dv">1</span> audi         a4           <span class="fl">1.8</span>  <span class="dv">1999</span> <span class="dv">4</span>     <span class="fu">auto</span>(… f        <span class="dv">18</span>    <span class="dv">29</span> p     comp…</span>
+<span id="cb1-12"><a href=""></a><span class="dv">2</span> audi         a4           <span class="fl">1.8</span>  <span class="dv">1999</span> <span class="dv">4</span>     manua… f        <span class="dv">21</span>    <span class="dv">29</span> p     comp…</span>
+<span id="cb1-13"><a href=""></a><span class="dv">3</span> audi         a4           <span class="dv">2</span>    <span class="dv">2008</span> <span class="dv">4</span>     manua… f        <span class="dv">20</span>    <span class="dv">31</span> p     comp…</span>
+<span id="cb1-14"><a href=""></a><span class="dv">4</span> audi         a4           <span class="dv">2</span>    <span class="dv">2008</span> <span class="dv">4</span>     <span class="fu">auto</span>(… f        <span class="dv">21</span>    <span class="dv">30</span> p     comp…</span>
+<span id="cb1-15"><a href=""></a><span class="dv">5</span> audi         a4 quattro   <span class="fl">1.8</span>  <span class="dv">1999</span> <span class="dv">4</span>     manua… <span class="dv">4</span>        <span class="dv">18</span>    <span class="dv">26</span> p     comp…</span>
+<span id="cb1-16"><a href=""></a><span class="dv">6</span> audi         a4 quattro   <span class="fl">1.8</span>  <span class="dv">1999</span> <span class="dv">4</span>     <span class="fu">auto</span>(… <span class="dv">4</span>        <span class="dv">16</span>    <span class="dv">25</span> p     comp…</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div><div class="column" style="width:50%;">
+<p>Step 2: Test of normality</p>
+<div class="cell" data-layout-align="center">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href=""></a>mpg_dta <span class="sc">|&gt;</span></span>
+<span id="cb2-2"><a href=""></a>  <span class="fu">group_by</span>(cyl) <span class="sc">|&gt;</span></span>
+<span id="cb2-3"><a href=""></a>  <span class="fu">summarise</span>(</span>
+<span id="cb2-4"><a href=""></a>    <span class="at">shapiro_test =</span> <span class="fu">shapiro.test</span>(hwy)<span class="sc">$</span>statistic,</span>
+<span id="cb2-5"><a href=""></a>    <span class="at">p_value =</span> <span class="fu">shapiro.test</span>(hwy)<span class="sc">$</span>p.value</span>
+<span id="cb2-6"><a href=""></a>  )</span>
+<span id="cb2-7"><a href=""></a><span class="co"># A tibble: 2 × 3</span></span>
+<span id="cb2-8"><a href=""></a>  cyl   shapiro_test   p_value</span>
+<span id="cb2-9"><a href=""></a>  <span class="sc">&lt;</span>fct<span class="sc">&gt;</span>        <span class="er">&lt;</span>dbl<span class="sc">&gt;</span>     <span class="er">&lt;</span>dbl<span class="sc">&gt;</span></span>
+<span id="cb2-10"><a href=""></a><span class="dv">1</span> <span class="dv">4</span>            <span class="fl">0.919</span> <span class="fl">0.0000756</span></span>
+<span id="cb2-11"><a href=""></a><span class="dv">2</span> <span class="dv">8</span>            <span class="fl">0.924</span> <span class="fl">0.000390</span> </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div></div>
+</section>
+<section id="independent-sample-t-test-4" class="slide level2">
+<h2>Independent sample t-test</h2>
+<div class="columns">
+<div class="column" style="width:50%;">
+<p>Step 3: Test of homogeneity of variance</p>
+<div class="cell" data-layout-align="center">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href=""></a>car<span class="sc">::</span><span class="fu">leveneTest</span>(<span class="at">data =</span> mpg_dta, hwy <span class="sc">~</span> cyl, <span class="at">center =</span> mean)</span>
+<span id="cb3-2"><a href=""></a>Levene<span class="st">'s Test for Homogeneity of Variance (center = mean)</span></span>
+<span id="cb3-3"><a href=""></a><span class="st">       Df F value Pr(&gt;F)</span></span>
+<span id="cb3-4"><a href=""></a><span class="st">group   1  2.6677 0.1045</span></span>
+<span id="cb3-5"><a href=""></a><span class="st">      149               </span></span>
+<span id="cb3-6"><a href=""></a><span class="st">car::leveneTest(data = mpg_dta, hwy ~ cyl, center = median)</span></span>
+<span id="cb3-7"><a href=""></a><span class="st">Levene'</span>s Test <span class="cf">for</span> Homogeneity of <span class="fu">Variance</span> (<span class="at">center =</span> median)</span>
+<span id="cb3-8"><a href=""></a>       Df F value  <span class="fu">Pr</span>(<span class="sc">&gt;</span>F)  </span>
+<span id="cb3-9"><a href=""></a>group   <span class="dv">1</span>   <span class="fl">3.277</span> <span class="fl">0.07227</span> .</span>
+<span id="cb3-10"><a href=""></a>      <span class="dv">149</span>                  </span>
+<span id="cb3-11"><a href=""></a><span class="sc">---</span></span>
+<span id="cb3-12"><a href=""></a>Signif. codes<span class="sc">:</span>  <span class="dv">0</span> <span class="st">'***'</span> <span class="fl">0.001</span> <span class="st">'**'</span> <span class="fl">0.01</span> <span class="st">'*'</span> <span class="fl">0.05</span> <span class="st">'.'</span> <span class="fl">0.1</span> <span class="st">' '</span> <span class="dv">1</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div><div class="column" style="width:50%;">
+<p>Step 4: Perform independent sample t-test</p>
+<div class="cell" data-layout-align="center">
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href=""></a><span class="fu">t.test</span>(hwy <span class="sc">~</span> cyl, <span class="at">data =</span> mpg_dta, <span class="at">var.equal =</span> <span class="cn">FALSE</span>, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb4-2"><a href=""></a></span>
+<span id="cb4-3"><a href=""></a>    Welch Two Sample t<span class="sc">-</span>test</span>
+<span id="cb4-4"><a href=""></a></span>
+<span id="cb4-5"><a href=""></a>data<span class="sc">:</span>  hwy by cyl</span>
+<span id="cb4-6"><a href=""></a>t <span class="ot">=</span> <span class="fl">17.586</span>, df <span class="ot">=</span> <span class="fl">144.65</span>, p<span class="sc">-</span>value <span class="sc">&lt;</span> <span class="fl">2.2e-16</span></span>
+<span id="cb4-7"><a href=""></a>alternative hypothesis<span class="sc">:</span> true difference <span class="cf">in</span> means between group <span class="dv">4</span> and group <span class="dv">8</span> is not equal to <span class="dv">0</span></span>
+<span id="cb4-8"><a href=""></a><span class="dv">95</span> percent confidence interval<span class="sc">:</span></span>
+<span id="cb4-9"><a href=""></a>  <span class="fl">9.918065</span> <span class="fl">12.429731</span></span>
+<span id="cb4-10"><a href=""></a>sample estimates<span class="sc">:</span></span>
+<span id="cb4-11"><a href=""></a>mean <span class="cf">in</span> group <span class="dv">4</span> mean <span class="cf">in</span> group <span class="dv">8</span> </span>
+<span id="cb4-12"><a href=""></a>       <span class="fl">28.80247</span>        <span class="fl">17.62857</span> </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div></div>
+</section>
+<section id="independent-sample-t-test-5" class="slide level2">
+<h2>Independent sample t-test</h2>
+<div class="callout callout-tip callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Solution</strong></p>
+</div>
+<div class="callout-content">
+<ol type="1">
+<li>State the Null and Alternative Hypotheses</li>
+</ol>
+<ul>
+<li><p>Ho: There is no significant difference in the average miles per gallon between 4-cylinder and 8-cylinder automobiles.</p></li>
+<li><p>Ha: There is a significant difference in the average miles per gallon between 4-cylinder and 8-cylinder automobiles.</p></li>
+</ul>
+<ol start="2" type="1">
+<li>Specify the level of statistical significance (α)</li>
+</ol>
+<ul>
+<li>α: 0.05</li>
+</ul>
+</div>
+</div>
+</div>
+</section>
+<section id="independent-sample-t-test-6" class="slide level2">
+<h2>Independent sample t-test</h2>
+<div class="callout callout-tip callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Solution</strong></p>
+</div>
+<div class="callout-content">
+<ol start="3" type="1">
+<li>Test Assumptions</li>
+</ol>
+<ul>
+<li><p>Normality: Satisfy</p></li>
+<li><p>Homogeneity of variance: Failed to Satisfy</p></li>
+<li><p>Test to be used: Welch</p></li>
+</ul>
+<ol start="4" type="1">
+<li>Run the test in R, get the statistic and p-value</li>
+</ol>
+<ul>
+<li><p>T Statistic: 7.49</p></li>
+<li><p>p-value: 0.000</p></li>
+</ul>
+</div>
+</div>
+</div>
+</section>
+<section id="independent-sample-t-test-7" class="slide level2">
+<h2>Independent sample t-test</h2>
+<div class="callout callout-tip callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Solution</strong></p>
+</div>
+<div class="callout-content">
+<ol start="5" type="1">
+<li>Decision</li>
+</ol>
+<ul>
+<li>Since the p-value (0.000) is less than alpha (0.05), reject Ho.</li>
+</ul>
+<ol start="6" type="1">
+<li>Conclusion</li>
+</ol>
+<ul>
+<li>There is a significant difference in the average miles per gallon between 4-cylinder and 8-cylinder automobiles.</li>
+</ul>
+</div>
+</div>
+</div>
+</section>
+<section id="independent-sample-t-test-8" class="slide level2">
+<h2>Independent sample t-test</h2>
+<div class="columns">
+<div class="column" style="width:30%;">
+<div class="cell" data-layout-align="center">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href=""></a><span class="fu">library</span>(ggstatsplot)</span>
+<span id="cb5-2"><a href=""></a></span>
+<span id="cb5-3"><a href=""></a><span class="fu">ggbetweenstats</span>(</span>
+<span id="cb5-4"><a href=""></a>  <span class="at">data =</span> mpg_dta,</span>
+<span id="cb5-5"><a href=""></a>  <span class="at">x =</span> cyl,</span>
+<span id="cb5-6"><a href=""></a>  <span class="at">y =</span> hwy,</span>
+<span id="cb5-7"><a href=""></a>  <span class="at">messages =</span> <span class="cn">FALSE</span></span>
+<span id="cb5-8"><a href=""></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div><div class="column" style="width:70%;">
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="index_files/figure-revealjs/unnamed-chunk-8-1.png" class="quarto-figure quarto-figure-center" width="960"></p>
+</figure>
+</div>
+</div>
+</div>
+</div></div>
+</section>
+<section id="mann-whitney-u-test" class="slide level2">
+<h2>Mann-Whitney U test</h2>
+<div class="cell" data-layout-align="center">
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href=""></a><span class="fu">wilcox.test</span>(hwy <span class="sc">~</span> cyl, <span class="at">data =</span> mpg_dta, <span class="at">exact =</span> <span class="cn">FALSE</span>)</span>
+<span id="cb6-2"><a href=""></a></span>
+<span id="cb6-3"><a href=""></a>    Wilcoxon rank sum test with continuity correction</span>
+<span id="cb6-4"><a href=""></a></span>
+<span id="cb6-5"><a href=""></a>data<span class="sc">:</span>  hwy by cyl</span>
+<span id="cb6-6"><a href=""></a>W <span class="ot">=</span> <span class="fl">5569.5</span>, p<span class="sc">-</span>value <span class="sc">&lt;</span> <span class="fl">2.2e-16</span></span>
+<span id="cb6-7"><a href=""></a>alternative hypothesis<span class="sc">:</span> true location shift is not equal to <span class="dv">0</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="r-activity-mann-whitney-u-test" class="slide level2">
+<h2>R Activity: Mann-Whitney U test</h2>
+<div class="callout callout-tip callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Instructions</strong></p>
+</div>
+<div class="callout-content">
+<ol type="1">
+<li><p>Load the diamonds dataset from the ggplot2 package. Filter the data to include only “Very Good” and “Premium” cut diamonds. Sample 1000 observations from each group to ensure the Shapiro-Wilk test can be applied.</p></li>
+<li><p>Checking Assumptions: Normality and Homogeneity of Variance</p></li>
+<li><p>Conduct the Mann-Whitney U test to compare the median prices of the two groups.</p></li>
+<li><p>Interpret the result</p></li>
+</ol>
+</div>
+</div>
+</div>
+</section></section>
+<section>
+<section id="check-up-quiz-1" class="title-slide slide level1 center">
+<h1>Check up quiz</h1>
+
+</section>
+<section id="which-of-the-following-is-a-key-assumption-of-the-independent-t-test" class="slide level2 quiz-question">
+<h2>Which of the following is a key assumption of the independent t-test?</h2>
+<ul>
+<li><p>Normality of the dependent variable in both groups</p></li>
+<li><p>Equal variances between the two groups</p></li>
+<li><p>Independence of observations within each group</p></li>
+<li><p><span class="correct">All of the above</span></p></li>
+</ul>
+</section>
+<section id="when-would-you-choose-to-use-the-mann-whitney-u-test-instead-of-an-independent-t-test" class="slide level2 quiz-question">
+<h2>When would you choose to use the Mann-Whitney U-test instead of an independent t-test?</h2>
+<ul>
+<li><p>When the sample sizes are small</p></li>
+<li><p>When the data is normally distributed</p></li>
+<li><p>When the variances of the two groups are equal</p></li>
+<li><p><span class="correct">When the data is not normally distributed</span></p></li>
+</ul>
+</section>
+<section id="which-of-the-following-is-a-non-parametric-test" class="slide level2 quiz-question">
+<h2>Which of the following is a non-parametric test?</h2>
+<ul>
+<li><p>Independent t-test</p></li>
+<li><p>One-way ANOVA</p></li>
+<li><p><span class="correct">Mann-Whitney U-test</span></p></li>
+<li><p>Pearson correlation</p></li>
+</ul>
+</section>
+<section id="if-the-p-value-of-a-mann-whitney-u-test-is-less-than-0.05-what-conclusion-can-we-draw" class="slide level2 quiz-question">
+<h2>If the p-value of a Mann-Whitney U-test is less than 0.05, what conclusion can we draw?</h2>
+<ul>
+<li><p>There is no significant difference between the two groups</p></li>
+<li><p><span class="correct">There is a significant difference between the two groups</span></p></li>
+<li><p>The test is inconclusive</p></li>
+<li><p>The assumptions of the test are not met</p></li>
+</ul>
 <div class="quarto-auto-generated-content">
 <div class="footer footer-default">
 <p>Econ 148: Analytical and statistical packages for economics 1</p>
