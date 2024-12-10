@@ -65,7 +65,7 @@ theme_set(theme_bw(base_size = 18)) # Set theme for all ggplots
 
 -   Chi-square test
 
-# Lesson 1: Introduction to hypothesis testing?
+# Lesson 1: Introduction to hypothesis testing
 
 ## What is hypothesis testing?
 
