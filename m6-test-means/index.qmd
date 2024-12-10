@@ -33,7 +33,7 @@ knitr::opts_chunk$set(comment = "",
                       )
 
 ## working directory
-setwd("D:/Githu-repository/econ148-analytical-stat-packages/econ148-lecture/m6-test-means")
+setwd("~/christopherllones-files/class-materials/econ148-lecture/m6-test-means")
 
 ## Libraries
 library(tidyverse)
@@ -146,19 +146,19 @@ theme_set(theme_bw(base_size = 18)) # Set theme for all ggplots
 
 ## What is the purpose of hypothesis testing? {.quiz-question}
 
--   To prove a hypothesis is true
+-   To prove a hypothesis is true.
 
 -   [To make inferences about a population based on sample data]{.correct}
 
--   To collect sample data
+-   To collect sample data.
 
--   To test the validity of a hypothesis in all situations
+-   To test the validity of a hypothesis in all situations.
 
 ## Which of the following is the null hypothesis (H₀)? {.quiz-question}
 
 -   There is a significant difference between the two groups.
 
--   [There is no effect or no difference between the two groups.]{.correct}
+-   [There is no effect or no difference between the two groups]{.correct}
 
 -   The sample data is unreliable.
 
@@ -166,23 +166,23 @@ theme_set(theme_bw(base_size = 18)) # Set theme for all ggplots
 
 ## What does the p-value represent in hypothesis testing? {.quiz-question}
 
--   The probability that the null hypothesis is true
+-   The probability that the null hypothesis is true.
 
 -   [The probability of observing a test statistic as extreme as the one calculated, assuming the null hypothesis is true]{.correct}
 
--   The critical value required to reject the null hypothesis
+-   The critical value required to reject the null hypothesis.
 
--   The likelihood of making a Type II error
+-   The likelihood of making a Type II error.
 
 ## Which of the following is a Type I error? {.quiz-question}
 
--   Concluding there is no effect when one exists
+-   Concluding there is no effect when one exists.
 
--   Concluding there is an effect when none exists
+-   Concluding there is an effect when none exists.
 
 -   [Rejecting the null hypothesis when it is true]{.correct}
 
--   Accepting the null hypothesis when it is false
+-   Accepting the null hypothesis when it is false.
 
 ## What is the significance level (α) typically set at in hypothesis testing? {.quiz-question}
 
@@ -241,47 +241,36 @@ theme_set(theme_bw(base_size = 18)) # Set theme for all ggplots
 knitr::include_graphics("plot/idependent-t-tst.png")
 ```
 
-
 ## Independent sample t-test
 
-::: {.callout-tip}
-
+::: callout-tip
 ## Steps in Hypothesis testing
 
-1. State the hypotheses
+1.  State the hypotheses
 
-2. Specify the decision rule and the level of  
-statistical significance.
+2.  Specify the decision rule and the level of\
+    statistical significance.
 
-3. Test the assumptions and Identify the 
-appropriate test.
+3.  Test the assumptions and Identify the appropriate test.
 
-4. Compute for the statistic and p-value
+4.  Compute for the statistic and p-value
 
-5. Decision: Compare p-value and alpha value.
+5.  Decision: Compare p-value and alpha value.
 
-6. Conclusion
-
+6.  Conclusion
 :::
-
 
 ## Independent sample t-test
 
-::: {.callout-tip}
+::: callout-tip
 ## Activitiy: Comparison two independent group
 
-Using the **mpg** dataset, test whether there is 
-a statistically significant difference in the hwy miles per 
-gallon (hwy) between 4-cylinder and 8-cylinder 
-automobiles.
-
+Using the **mpg** dataset, test whether there is a statistically significant difference in the hwy miles per gallon (hwy) between 4-cylinder and 8-cylinder automobiles.
 :::
-
 
 ## Independent sample t-test
 
-:::: {.columns}
-
+::::: columns
 ::: {.column width="50%"}
 Step 1: Import data and data management
 
@@ -296,7 +285,6 @@ mpg_dta <-
 
 head(mpg_dta)
 ```
-
 :::
 
 ::: {.column width="50%"}
@@ -312,16 +300,12 @@ mpg_dta |>
     p_value = shapiro.test(hwy)$p.value
   )
 ```
-
 :::
-
-::::
-
+:::::
 
 ## Independent sample t-test
 
-:::: {.columns}
-
+::::: columns
 ::: {.column width="50%"}
 Step 3: Test of homogeneity of variance
 
@@ -330,7 +314,6 @@ Step 3: Test of homogeneity of variance
 car::leveneTest(data = mpg_dta, hwy ~ cyl, center = mean)
 car::leveneTest(data = mpg_dta, hwy ~ cyl, center = median)
 ```
-
 :::
 
 ::: {.column width="50%"}
@@ -341,72 +324,62 @@ Step 4: Perform independent sample t-test
 
 t.test(hwy ~ cyl, data = mpg_dta, var.equal = FALSE, na.rm = TRUE)
 ```
-
 :::
-
-::::
+:::::
 
 ## Independent sample t-test
 
-::: {.callout-tip}
-
+::: callout-tip
 ## Solution
 
-1. State the Null and Alternative Hypotheses
+1.  State the Null and Alternative Hypotheses
 
-  - Ho: There is no significant difference in the average miles per gallon between 4-cylinder and 8-cylinder automobiles.
+-   Ho: There is no significant difference in the average miles per gallon between 4-cylinder and 8-cylinder automobiles.
 
-  - Ha: There is a significant difference in the average miles per gallon between 4-cylinder and 8-cylinder automobiles.
- 
-2. Specify the level of statistical significance (α)
-  - α: 0.05
- 
+-   Ha: There is a significant difference in the average miles per gallon between 4-cylinder and 8-cylinder automobiles.
 
+2.  Specify the level of statistical significance (α)
 
+-   α: 0.05
 :::
 
 ## Independent sample t-test
 
-::: {.callout-tip}
+::: callout-tip
 ## Solution
 
-3. Test Assumptions
+3.  Test Assumptions
 
-  - Normality: failed to satisfy
+-   Normality: failed to satisfy
 
-  - Homogeneity of variance: failed to Satisfy
-  
-  - Test to be used: Welch's t-test
+-   Homogeneity of variance: failed to Satisfy
 
-4. Run the test in R, get the statistic and p-value
+-   Test to be used: Welch's t-test
 
-  - T Statistic: 17.58
+4.  Run the test in R, get the statistic and p-value
 
-  - p-value: 0.000
+-   T Statistic: 17.58
 
+-   p-value: 0.000
 :::
-
 
 ## Independent sample t-test
 
-::: {.callout-tip}
+::: callout-tip
 ## Solution
 
-5. Decision
- 
-  - Since the p-value (0.000) is less than alpha (0.05), reject Ho.
- 
-6. Conclusion
+5.  Decision
 
-  - There is a significant difference in the average miles per gallon between 4-cylinder and 8-cylinder automobiles.
+-   Since the p-value (0.000) is less than alpha (0.05), reject Ho.
+
+6.  Conclusion
+
+-   There is a significant difference in the average miles per gallon between 4-cylinder and 8-cylinder automobiles.
 :::
-
-
 
 ## Independent sample t-test
 
-:::: {.columns}
-
+::::: columns
 ::: {.column width="30%"}
 ```{r}
 #| echo: true
@@ -422,7 +395,6 @@ ggbetweenstats(
 )
 
 ```
-
 :::
 
 ::: {.column width="70%"}
@@ -442,11 +414,8 @@ ggbetweenstats(
   theme_minimal(base_size = 18)
 
 ```
-
 :::
-
-::::
-
+:::::
 
 ## Mann-Whitney U test
 
@@ -455,23 +424,19 @@ ggbetweenstats(
 wilcox.test(hwy ~ cyl, data = mpg_dta, exact = FALSE)
 ```
 
-
 ## R Activity: Mann-Whitney U test
 
-::: {.callout-tip}
-
+::: callout-tip
 ## Instructions
 
-1. Load the diamonds dataset from the `ggplot2` package. Filter the data to include only "Very Good" and "Premium" cut diamonds. Sample 1000 observations from each group to ensure the Shapiro-Wilk test can be applied.
+1.  Load the diamonds dataset from the `ggplot2` package. Filter the data to include only "Very Good" and "Premium" cut diamonds. Sample 1000 observations from each group to ensure the Shapiro-Wilk test can be applied.
 
-2. Checking Assumptions: Normality and Homogeneity of Variance
+2.  Checking Assumptions: Normality and Homogeneity of Variance
 
-3. Conduct the Mann-Whitney U test to compare the median prices of the two groups.
+3.  Conduct the Mann-Whitney U test to compare the median prices of the two groups.
 
-4. Interpret the result
-
+4.  Interpret the result
 :::
-
 
 ```{r}
 #| echo: false
@@ -502,65 +467,60 @@ car::leveneTest(data = diamond_dataset, price ~ cut, center = mean)
 wilcox.test(price ~ cut, data = diamond_dataset, exact = FALSE)
 ```
 
-
 # Check up quiz
 
 ## Which of the following is a key assumption of the independent t-test? {.quiz-question}
 
-- Normality of the dependent variable in both groups
+-   Normality of the dependent variable in both groups
 
-- Equal variances between the two groups
+-   Equal variances between the two groups
 
-- Independence of observations within each group
+-   Independence of observations within each group
 
-- [All of the above]{.correct}
-
+-   [All of the above]{.correct}
 
 ## When would you choose to use the Mann-Whitney U-test instead of an independent t-test? {.quiz-question}
 
-- When the sample sizes are small
+-   When the sample sizes are small
 
-- When the data is normally distributed
+-   When the data is normally distributed
 
-- When the variances of the two groups are equal
+-   When the variances of the two groups are equal
 
-- [When the data is not normally distributed]{.correct}
-
+-   [When the data is not normally distributed]{.correct}
 
 ## Which of the following is a non-parametric test? {.quiz-question}
 
-- Independent t-test
+-   Independent t-test
 
-- One-way ANOVA
+-   One-way ANOVA
 
-- [Mann-Whitney U-test]{.correct}
+-   [Mann-Whitney U-test]{.correct}
 
-- Pearson correlation
+-   Pearson correlation
 
 ## If the p-value of a Mann-Whitney U-test is less than 0.05, what conclusion can we draw? {.quiz-question}
 
-- There is no significant difference between the two groups
+-   There is no significant difference between the two groups
 
-- [There is a significant difference between the two groups]{.correct}
+-   [There is a significant difference between the two groups]{.correct}
 
-- The test is inconclusive
+-   The test is inconclusive
 
-- The assumptions of the test are not met
-
-
-## Dependent t-test
-
--  Used to compare the means of two related groups.
-
--  Example: Comparing test scores before and after a training program.
-
--  Assumptions: Normality, homogeneity of variance, and dependent observations.
+-   The assumptions of the test are not met
 
 ## Dependent t-test
 
-::: {.callout-tip}
+-   Used to compare the means of two related groups.
 
--  Steps in hypothesis testing:
+-   Example: Comparing test scores before and after a training program.
+
+-   Assumptions: Normality, homogeneity of variance, and dependent observations.
+
+## Dependent t-test
+
+::: callout-tip
+-   Steps in hypothesis testing:
 
     1.  State the hypotheses.
 
@@ -573,25 +533,20 @@ wilcox.test(price ~ cut, data = diamond_dataset, exact = FALSE)
     5.  Decision: Compare p-value and alpha value.
 
     6.  Conclusion.
-    
 :::
-    
+
 ## Dependent t-test
 
-::: {.callout-tip}
-
+::: callout-tip
 ## Activity: Dependent t-test
 
 Using the a synthetic data on training scores of before and after a training program, test whether there is a statistically significant difference in the scores before and after the training program.
-
 :::
 
 ## Dependent t-test
 
-:::: {.columns}
-
+::::: columns
 ::: {.column width="50%"}
-
 Step 1: Import data and data management
 
 ```{r}
@@ -607,11 +562,9 @@ training_data <- tibble(subject = rep(c(1:10), 2),
 
 head(training_data)
 ```
-
 :::
 
 ::: {.column width="50%"}
-
 Step 2: Test of normality
 
 ```{r}
@@ -624,14 +577,11 @@ training_data |>
   )
 ```
 :::
-
-::::
-
+:::::
 
 ## Dependent t-test
 
-:::: {.columns}
-
+::::: columns
 ::: {.column width="50%"}
 Step 3: Test of homogeneity of variance
 
@@ -640,8 +590,6 @@ Step 3: Test of homogeneity of variance
 
 car::leveneTest(data = training_data, score ~ time, center = mean)
 ```
-
-
 :::
 
 ::: {.column width="50%"}
@@ -650,16 +598,15 @@ Step 4: Perform dependent sample t-test
 ```{r}
 #| echo: true
 
-t.test(score ~ time, data = training_data, paired = TRUE, na.rm = TRUE)
+t.test(training_data$score[training_data$time=="before"], 
+       training_data$score[training_data$time=="after"], paired = TRUE, na.rm = TRUE)
 ```
 :::
-
-::::
+:::::
 
 ## Dependent t-test
 
-:::: {.columns}
-
+::::: columns
 ::: {.column width="30%"}
 ```{r}
 #| echo: true
@@ -692,22 +639,219 @@ ggwithinstats(
   theme(legend.position = "none")
 
 ```
+:::
+:::::
+
+# Check-up quiz
+
+## Which of the following scenarios is appropriate for a paired samples t-test? {.quiz-question}
+
+-   Comparing the test scores of two independent groups.
+
+-   [Measuring the effectiveness of a training program by comparing pre and post test scores of the same individuals]{.correct}
+
+-   Comparing the heights of men and women in a population.
+
+-   Testing the correlation between two variables.
+
+## What is the null hypothesis in a paired samples t-test? {.quiz-question}
+
+-   The means of the two groups are equal.
+
+-   The means of the paired measurements are equal.
+
+-   [The paired differences have a mean of zero]{.correct}
+
+-   There is no relationship between the two variables.
+
+## In the context of a paired t-test, which of the following R functions is used to perform the test? {.quiz-question}
+
+-   `lm()`
+
+-   [`t.test()`]{.correct}
+
+-   `aov()`
+
+-   `cor.test()`
+
+# Statistiscal tests for comparing more than two groups
+
+## comparing more than two groups
+
+<br>
+
++--------------------------------------------------------------------------------------------------------------------------------------------+----------------------------------------------------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| Purpose                                                                                                                                    | Data requirements                                                    | Example                                                                                                                                                           |
++============================================================================================================================================+======================================================================+===================================================================================================================================================================+
+| -   To determine whether there are significant differences among the means, medians, or distribution of three or more groups in a dataset. | -   continuous data (e.g., height, test scores, income)              | -   Testing if the means of multiple independent groups are significantly different (e.g., "Are the average incomes of employees in three companies different?"). |
+|                                                                                                                                            | -   Ordinal data (e.g., satisfaction ratings, ranks).                |                                                                                                                                                                   |
+|                                                                                                                                            | -   Assumptions about data (normality, equal variances) vary by test |                                                                                                                                                                   |
++--------------------------------------------------------------------------------------------------------------------------------------------+----------------------------------------------------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+
+## One-way Anova
+
+<br>
+
++-----------------------------------------------------------+---------------------------------------------------------------------------------------------+----------------------------------------------------------------------------------------------------+
+| Purpose                                                   | Data requirements                                                                           | Example                                                                                            |
++===========================================================+=============================================================================================+====================================================================================================+
+| -   Comparing means of at least three independent groups. | -   two variables: i continuous variable, 1 categorical/discrete with at least 3 categories | -   Comparing average performance among three independent groups (e.g., test scores of 3 classes). |
+|                                                           | -   normality: data should be approximately normally distributed.                           |                                                                                                    |
+|                                                           | -   homogeneity of variance: the variances of the group should be equal.                    |                                                                                                    |
++-----------------------------------------------------------+---------------------------------------------------------------------------------------------+----------------------------------------------------------------------------------------------------+
+
+## One-way Anova
+
+::: callout-tip
+## Steps in Hypothesis testing
+
+1.  State the hypotheses
+
+2.  Specify the decision rule and the level of\
+    statistical significance.
+
+3.  Test the assumptions and Identify the appropriate test.
+
+4.  Compute for the statistic and p-value
+
+5.  Decision: Compare p-value and alpha value.
+
+6.  Conclusion
+:::
+
+## One-way Anova
+
+::::: columns
+::: {.column width="50%"}
+Step 1: Import data and data management
+
+```{r}
+#| echo: true
+
+# Create the dataframe
+exam_data <- data.frame(
+  group = c(
+    rep(1, 10),
+    rep(2, 10),
+    rep(3, 10)
+  ),
+  exam = c(
+    50, 45, 48, 47, 45, 49, 50, 54, 57, 55, # Group 1
+    63, 55, 54, 49, 65, 46, 53, 67, 58, 50, # Group 2
+    71, 67, 68, 62, 65, 58, 63, 69, 70, 61  # Group 3
+  )
+) |> 
+  mutate(group = as_factor(group))
+
+# View the dataframe
+head(exam_data)
+
+```
+:::
+
+::: {.column width="50%"}
+Step 2: Test of normality
+
+```{r}
+#| echo: true
+
+exam_data |>
+  group_by(group) |>
+  summarise(
+    shapiro_test = shapiro.test(exam)$statistic,
+    p_value = shapiro.test(exam)$p.value
+  )
+```
+:::
+:::::
+
+## One-way Anova
+
+::::: columns
+::: {.column width="50%"}
+Step 3: Test of homogeneity of variance
+
+```{r}
+#| echo: true
+
+car::leveneTest(data = exam_data, exam ~ group, center = mean)
+```
+:::
+
+::: {.column width="50%"}
+Step 4: Perform one-way Anova
+
+```{r}
+#| echo: true
+
+aov_result <- aov(exam ~ group, data = exam_data)
+summary(aov_result)
+
+```
+:::
+:::::
+
+## One-way Anova
+
+::::: columns
+::: {.column width="50%"}
+Step 5: Post-hoc test
+
+```{r}
+#| echo: true
+
+TukeyHSD(aov_result)
+```
+:::
+
+::: {.column width="50%"}
+Step 6: Interpretation
+
+```{r}
+#| echo: true
+
+report::report(aov_result)
+```
+:::
+:::::
+
+
+## One-way Anova
+
+
+:::: {.columns}
+
+::: {.column width="30%"}
+```{r}
+#| echo: true
+#| eval: false
+
+## plot one-way anova
+ggbetweenstats(
+  data = exam_data,
+  x = group,
+  y = exam,
+  title = "One-way ANOVA"
+)
+```
 
 :::
 
+::: {.column width="70%"}
+```{r}
+#| echo: false
+#| fig-width: 10
+#| fig-height: 8
+
+## plot one-way anova
+ggbetweenstats(
+  data = exam_data,
+  x = group,
+  y = exam,
+  title = "One-way ANOVA"
+) + theme_minimal(base_size = 18) +
+  theme(legend.position = "none")
+```
+:::
+
 ::::
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
