@@ -65,7 +65,7 @@ theme_set(theme_bw(base_size = 18)) # Set theme for all ggplots
 
 -   Chi-square test
 
-# Lesson 1: Introduction to hypothesis testing
+# Lesson 1: Introduction to hypothesis testing?
 
 ## What is hypothesis testing?
 
@@ -676,7 +676,7 @@ ggwithinstats(
 
 # Statistiscal tests for comparing more than two groups
 
-## comparing more than two groups
+## comparing more than two groups {.smaller}
 
 <br>
 
@@ -814,44 +814,3 @@ report::report(aov_result)
 ```
 :::
 :::::
-
-
-## One-way Anova
-
-
-:::: {.columns}
-
-::: {.column width="30%"}
-```{r}
-#| echo: true
-#| eval: false
-
-## plot one-way anova
-ggbetweenstats(
-  data = exam_data,
-  x = group,
-  y = exam,
-  title = "One-way ANOVA"
-)
-```
-
-:::
-
-::: {.column width="70%"}
-```{r}
-#| echo: false
-#| fig-width: 10
-#| fig-height: 8
-
-## plot one-way anova
-ggbetweenstats(
-  data = exam_data,
-  x = group,
-  y = exam,
-  title = "One-way ANOVA"
-) + theme_minimal(base_size = 18) +
-  theme(legend.position = "none")
-```
-:::
-
-::::
