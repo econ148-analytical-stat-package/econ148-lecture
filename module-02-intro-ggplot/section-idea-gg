@@ -1,0 +1,1321 @@
+### Code pasted here to help other chunks run faster
+
+
+## The idea of grammar of graphics
+
+:::: {.columns}
+
+::: {.column width="50%"}
+:::
+
+::: {.column width="50%"}
+<br>
+```{r}
+#| echo: FALSE
+#| out-width: 95%
+knitr::include_graphics("image/gg0.png")
+```
+:::
+::::
+
+## The idea of grammar of graphics
+
+:::: {.columns}
+
+::: {.column width="50%"}
+```{r}
+#| include: FALSE
+
+data1 <- sample_n(diamonds, 15000)
+```
+
+```{r}
+#| echo: FALSE
+#| fig-height: 8
+
+ggplot(data = data1) +
+  theme_gray()
+```
+:::
+
+::: {.column width="50%"}
+```{r}
+#| echo: FALSE
+#| out-width: 80%
+#| fig-align: center
+
+knitr::include_graphics("image/gg_data.png")
+```
+
+```{.r code-line-numbers="1"}
+ggplot(data = data1)
+```
+:::
+
+::::
+
+
+## The idea of grammar of graphics
+
+:::: {.columns}
+
+::: {.column width="50%"}
+```{r}
+#| echo: FALSE
+#| fig-height: 9
+
+ggplot(data = data1, 
+       mapping = aes(x = price, y = carat, color = clarity)) +
+  theme(axis.title = element_text(size = 20),
+        axis.text = element_text(size = 16))
+```
+:::
+
+::: {.column width="50%"}
+```{r}
+#| echo: false
+#| out-width: 80%
+#| fig-align: center
+
+knitr::include_graphics("image/gg_map.png")
+```
+
+```{.r code-line-numbers="2"}
+ggplot(data = data1, 
+       mapping = aes(x = price, y = carat))
+```
+:::
+
+::::
+
+
+## The idea of grammar of graphics
+
+:::: {.columns}
+
+::: {.column width="50%"}
+```{r}
+#| echo: FALSE
+#| fig-height: 9
+
+ggplot(data = data1, 
+       mapping = aes(x = price, y = carat, color = clarity)) +
+  geom_point() +
+  theme(axis.title = element_text(size = 20),
+        axis.text = element_text(size = 16))
+```
+:::
+
+::: {.column width="50%"}
+```{r}
+#| echo: false
+#| out-width: 80%
+#| fig-align: center
+
+knitr::include_graphics("image/gg_geom.png")
+```
+
+```{.r code-line-numbers="3"}
+ggplot(data = data1, 
+       mapping = aes(x = price, y = carat, color = clarity)) +
+       geom_point()
+```
+:::
+
+::::
+
+
+## The idea of grammar of graphics
+
+:::: {.columns}
+
+::: {.column width="50%"}
+```{r}
+#| echo: FALSE
+#| fig-height: 9
+
+ggplot(data = data1, 
+       mapping = aes(x = price, y = carat, color = clarity)) +
+  geom_point() +
+  stat_smooth() +
+  theme(axis.title = element_text(size = 20),
+        axis.text = element_text(size = 16))
+```
+:::
+
+::: {.column width="50%"}
+```{r}
+#| echo: false
+#| out-width: 80%
+#| fig-align: center
+
+knitr::include_graphics("image/gg_stat.png")
+```
+
+```{.r code-line-numbers="4"}
+ggplot(data = data1, 
+       mapping = aes(x = price, y = carat, color = clarity)) +
+       geom_point() +
+       stat_smooth()
+```
+:::
+
+::::
+
+
+## The idea of grammar of graphics
+
+:::: {.columns}
+
+::: {.column width="50%"}
+```{r}
+#| echo: FALSE
+#| fig-height: 9
+
+ggplot(data = data1, 
+       mapping = aes(x = price, y = carat, color = clarity)) +
+  geom_point() +
+  stat_smooth() +
+  scale_x_log10() +
+  theme(axis.title = element_text(size = 20),
+       axis.text = element_text(size = 16))
+```
+:::
+
+::: {.column width="50%"}
+```{r}
+#| echo: false
+#| out-width: 80%
+#| fig-align: center
+
+knitr::include_graphics("image/gg_scale.png")
+```
+
+```{.r code-line-numbers="5"}
+ggplot(data = data1, 
+       mapping = aes(x = price, y = carat, color = clarity)) +
+       geom_point() +
+       stat_smooth() +
+       scale_x_log10()
+```
+:::
+
+::::
+
+
+## The idea idea of grammar of graphics
+
+:::: {.columns}
+
+::: {.column width="50%"}
+```{r fig.height=7, echo=FALSE}
+#| echo: false
+#| fig-height: 9
+
+ggplot(data = data1, 
+       mapping = aes(x = price, y = carat, color = clarity)) +
+  geom_point() +
+  stat_smooth() +
+  scale_x_log10() +
+  coord_flip()
+```
+:::
+
+::: {.column width="50%"}
+```{r echo=FALSE, out.width="50%", fig.align='center'}
+#| echo: false
+#| out-width: 80%
+#| fig-align: center
+
+knitr::include_graphics("image/gg_coord.png")
+```
+
+```{.r code-line-numbers="6"}
+ggplot(data = data1, 
+       mapping = aes(x = price, y = carat, color = clarity)) +
+       geom_point() +
+       stat_smooth() +
+       scale_x_log10() +
+       coord_flip()
+```
+:::
+
+::::
+
+
+## The idea of grammar of graphics
+
+:::: {.columns}
+
+::: {.column width="50%"}
+```{r fig.height=7, echo=FALSE}
+#| echo: false
+#| fig-height: 9
+
+ggplot(data = data1, 
+       mapping = aes(x = price, y = carat, color = clarity)) +
+  geom_point() +
+  stat_smooth() +
+  scale_x_log10() +
+  coord_flip() +
+  facet_wrap(~ cut) +
+  theme(axis.title = element_text(size = 20),
+        axis.text = element_text(size = 16))
+```
+:::
+
+::: {.column width="50%"}
+```{r echo=FALSE, out.width="50%", fig.align='center'}
+#| echo: false
+#| out-width: 80%
+#| fig-align: center
+
+knitr::include_graphics("image/gg_facet.png")
+```
+
+```{.r code-line-numbers="7"}
+ggplot(data = data1, 
+       mapping = aes(x = price, y = carat, color = clarity)) +
+       geom_point() +
+       stat_smooth() +
+       scale_x_log10() +
+       coord_flip() +
+       facet_wrap(~ cut)
+```
+:::
+
+::::
+
+
+## The idea of grammar of graphics
+
+:::: {.columns}
+
+::: {.column width="50%"}
+```{r fig.height=7, echo=FALSE}
+#| echo: false
+#| fig-height: 9
+
+ggplot(data = data1, 
+       mapping = aes(x = price, y = carat, color = clarity)) +
+  geom_point() +
+  stat_smooth() +
+  scale_x_log10() +
+  coord_flip() +
+  facet_wrap(~ cut) +
+  theme_light() + 
+  theme(axis.title = element_text(size = 20),
+        axis.text = element_text(size = 16))
+```
+:::
+
+::: {.column width="50%"}
+```{r echo=FALSE, out.width="50%", fig.align='center'}
+#| echo: false
+#| out-width: 80%
+#| fig-align: center
+
+knitr::include_graphics("image/gg_theme.png")
+```
+
+```{.r code-line-numbers="8"}
+ggplot(data = data1, 
+       mapping = aes(x = price, y = carat, color = clarity)) +
+       geom_point() +
+       stat_smooth() +
+       scale_x_log10() +
+       coord_flip() +
+       facet_wrap(~ cut) +
+       theme_light()
+```
+:::
+
+::::
+
+
+## Mapping
+
+:::: {.columns}
+
+::: {.column width="60%"}
+- syntax
+```{.r code-line-numbers="2"}
+ggplot(data = <dataset>,
+       mapping = aes(x = <var1>, y = <var2>, ...))
+```
+
+- Variables are mapped to graphic's visual properties with **aesthetics mapping**
+
+- Usually we map:
+
+  + one variable on x axis
+  
+  + one variable on y axis
+  
+  + mapped to color, shape, fill, group, etc.
+:::
+
+::: {.column width="40%"}
+```{r out.width="70%", fig.align='center', echo=FALSE}
+#| echo: FALSE
+#| out-width: 95%
+#| fig-align: center
+
+knitr::include_graphics("image/gg_map.png")
+```
+:::
+
+::::
+
+
+## Data and mapping
+
+:::: {.columns}
+
+::: {.column width="60%"}
+- Can specify data and mappings in the plot category
+
+```{.r}
+ggplot(data = mydata, mapping = aes(x = varX, y = varY))
+```
+
+- Or specify for each layer
+
+```{.r code-line-numbers="2"}
+ggplot() +
+  geom_point(data = mydata, mapping = aes(x = varX, y =varY))
+```
+:::
+
+::: {.column width="40%"}
+```{r}
+#| echo: FALSE
+#| out-width: 95%
+#| fig-align: center
+
+knitr::include_graphics("image/gg_data_map.png")
+```
+:::
+
+::::
+
+
+## Data and mapping
+
+:::: {.columns}
+
+::: {.column width="50%"}
+```{.r code-line-numbers="2"}
+ggplot(data = mpg, 
+       mapping = aes(x = displ, y = hwy, color = class)) +
+       geom_point() +
+       geom_smooth(se = FALSE)
+
+```
+
+```{r}
+#| echo: FALSE
+#| fig-height: 7
+ggplot(data = mpg, 
+       mapping = aes(x = displ, y = hwy, color = class)) + 
+  geom_point(size = 4) +
+  geom_smooth(se = FALSE, size = 1.5) +
+  theme(axis.title = element_text(size = 24),
+        axis.text = element_text(size = 16))
+
+```
+:::
+
+::: {.column width="50%"}
+```{.r code-line-numbers="3"}
+ggplot(data = mpg, 
+       mapping = aes(x = displ, y = hwy)) +
+       geom_point(aes(color = class)) +
+       geom_smooth(se = FALSE)
+
+```
+
+```{r}
+#| echo: FALSE
+#| fig-height: 7
+
+ggplot(data = mpg, 
+       mapping = aes(x = displ, y = hwy)) +
+  geom_point(aes(color = class), size = 4) +
+  geom_smooth(se = FALSE, size = 1.5) +
+  theme(axis.title = element_text(size = 24),
+        axis.text = element_text(size = 16))
+
+```
+:::
+
+::::
+
+
+## Aesthetic mapping
+
+:::: {.columns}
+
+::: {.column width="50%"}
+**mapping**
+
+```{.r code-line-numbers="2"}
+ggplot(data = mpg, 
+       mapping = aes(x = displ, y = hwy, color = class)) +
+       geom_point()
+```
+
+```{r}
+#| echo: FALSE
+#| fig-height: 7
+
+ggplot(data = mpg, 
+       mapping = aes(x = displ, y = hwy, color = class)) +
+       geom_point(size = 4) +
+       theme(axis.title = element_text(size = 24),
+        axis.text = element_text(size = 16))
+```
+:::
+
+::: {.column width="50%"}
+**setting**
+
+```{.r code-line-numbers="3"}
+ggplot(data = mpg, 
+       mapping = aes(x = displ, y = hwy, color = class)) +
+       geom_point(color  = "red")
+```
+
+```{r}
+#| echo: FALSE
+#| fig-height: 7
+ggplot(data = mpg, 
+       mapping = aes(x = displ, y = hwy, color = class)) +
+       geom_point(color = "red", size = 4) +
+       theme(axis.title = element_text(size = 24),
+       axis.text = element_text(size = 16))
+```
+:::
+
+::::
+
+
+# Geometries
+
+
+## Geometries
+
+:::: {.columns}
+
+::: {.column width="50%"}
+- syntax
+
+```{.r codeline-numbers="3"}
+ggplot(data = <dataset>,
+       mapping = aes(x = <varX>, y = <varY>, ...)) +
+  geom_<function>(...)
+```
+
+- Geometry stands for geom function
+
+- Tell R how to render each data point on a given figure.
+
+:::
+
+::: {.column width="50%"}
+```{r}
+#| echo: FALSE
+#| out-width: 95%
+#| fig-align: center
+knitr::include_graphics("image/gg_geom.png")
+```
+:::
+
+::::
+
+
+## Geometries
+
+```{r}
+#| echo: FALSE
+#| out-width: 95%
+knitr::include_graphics("image/geom_collection.png")
+```
+
+::: aside
+Source: [National Bioinformatics Insfrastructure Sweden (NBIS), 2019](https://github.com/NBISweden/RaukR-2019/blob/master/docs/ggplot/presentation/ggplot_presentation_assets/geoms.png)]
+:::
+
+
+## Geometries
+
+:::: {.columns}
+
+::: {.column width="40%"}
+- Each geom can display certain aesthetics.
+
+- Some of them are required.
+:::
+
+::: {.column width="60%"}
+```{r echo=FALSE, out.width="90%"}
+#| echo: FALSE
+#| out-width: 95%
+knitr::include_graphics("image/geom_aes_summary.jpg")
+```
+:::
+
+::::
+
+
+## Geometries
+
+:::: {.columns}
+
+**Line plots**
+
+Aesthetics of `geom_path`, `geom_line`, `geom_step`:
+
+::: {.column width="40%"}
+- x
+- y
+- alpha
+- colour/ color
+- linetype
+- size
+- group
+
+:::
+
+::: {.column width="60%" }
+
+:::{.callout-tip style="font-size: 1.5em;" appearance="minimal"}
+We will use the `babynames` data from the `babynames` package for demonstration.
+:::
+
+```{.r}
+library(babynames)
+glimpse(babynames)
+```
+
+```{r}
+#| echo: FALSE
+
+library(babynames)
+glimpse(babynames)
+```
+:::
+
+::::
+
+
+## Geometries
+
+:::: {.columns}
+
+::: {.column width="40%"}
+**Line plots: practice exercise**
+
+- Recreate the plot shown on the right.
+:::
+
+::: {.column width="60%"}
+```{r}
+#| echo: FALSE
+#| fig-height: 7
+#| fig-align: center
+
+friends <- babynames %>% 
+  filter(year >= 1950,
+         name %in% c("Christopher", "Dave", "Karl"),
+         sex == "M")
+
+ggplot(data = friends,
+       mapping = aes(x = year, y = n, color = name)) +
+  geom_line(linetype = "dashed") +
+  geom_point(size = 4, alpha = 0.5) +
+  scale_y_log10() +
+  theme_minimal() +
+  theme(axis.title = element_text(size = 24),
+        axis.text = element_text(size = 16),
+        legend.text = element_text(size = 16),
+        legend.title = element_text(size = 18)
+        )
+
+```
+:::
+
+::::
+
+
+## Geometries
+
+:::: {.columns}
+
+::: {.column width="60%"}
+**Scatterplots**
+
+We can derived plots like:
+
+- Connected scatter plot (if `geom_line` is added)
+- Bubble plot (mapping size to a variable)
+
+To avoid overlappping
+
+- alpha aesthetic
+- "jitter" or `geom_jitter` for position
+:::
+
+::: {.column width="40%"}
+```{.r}
+geom_point(
+  mapping = NULL,
+  data = NULL,
+  stat = "identity",
+  position = "identity",
+  ...,
+  na.rm = FALSE,
+  show.legend = NA,
+  inherit.aes = TRUE
+)
+```
+:::
+
+::::
+
+
+## Geometries
+
+:::: {.columns}
+
+::: {.column width="60%"}
+
+**Scatterplots**
+
+#### Colors
+
++ continuous data
+
+  + `scale_color_gradient`
+  + `scale_fill_gradient`
+  
++ discrete data
+
+  + `scale_color_manual`
+  + `scale_fill_manual`
+  
+:::
+
+::: {.column width="40%"}
+```{.r}
+geom_point(
+  mapping = NULL,
+  data = NULL,
+  stat = "identity",
+  position = "identity",
+  ...,
+  na.rm = FALSE,
+  show.legend = NA,
+  inherit.aes = TRUE
+)
+```
+:::
+
+::::
+
+
+## Geometries
+
+:::: {.columns}
+
+::: {.column width="50%"}
+
+**Scatter plot: practice exercise**
+
+Use the `mpg` data to recreate the plot shown on the right.
+
+:::
+
+::: {.column width="50%"}
+```{r}
+#| echo: FALSE
+#| fig-height: 9
+#| fig-align: center
+#| warning: FALSE
+
+mean_hwy_data <- mpg %>% 
+  group_by(class) %>% 
+  summarise(mean_hwy = mean(hwy, na.rm = TRUE))
+
+ggplot(data = mpg,
+       mapping = aes(x = class, y = hwy, color = class)) +
+  geom_point(position = "jitter", size = 3, alpha = 0.5) +
+  geom_point(data = mean_hwy_data, aes(y = mean_hwy), size = 7) +
+  labs(title = "Fuel consumption per class vehicle",
+       x = "Class of vehicle",
+       y = "Highway fuel consumption") +
+  theme_minimal() +
+  theme(plot.title = element_text(size = 24),
+        axis.title = element_text(size = 24),
+        axis.text = element_text(size = 16),
+        legend.text = element_text(size = 16),
+        legend.title = element_text(size = 18)
+        )
+  
+
+```
+:::
+
+::::
+
+
+# Statistical transformation and plotting distribution
+
+
+## Statistics
+
+:::: {.columns}
+
+::: {.column width="60%"}
+
+- syntax
+
+```{.r code-line-numbers="3-4"}
+ggplot(data = <dataset>,
+       mapping = aes(x = <varX>, y = <varY>, ...)) +
+      geom_<function>(..., stat = <stat>, position = <position>) +
+      geom_<stat>(...)
+```
+
+- Every layer has a statistical transformation associated to it.
+
+- **geoms** control the way the plot looks
+
+- **stats** control the way the data is transformed
+:::
+
+::: {.column width="40%"}
+```{r out.width="70%", fig.align='center', echo=FALSE}
+#| echo: FALSE
+#| out-width: 95%
+#| fig-align: center
+
+knitr::include_graphics("image/gg_stat.png")
+```
+:::
+
+::::
+
+
+## Statistics
+
+**Geoms and stats**
+
+:::: {.columns}
+
+::: {.column width="60%"}
+Every geometry has a default stat.
+
+- `geom_line` default stat is `stat_identity`
+- `geom_point` default stat is `stat_identity`
+- `geom_smooth` default stat is `stat_smooth`
+
+Each stat has a default geom
+
+- `stat_smooth` default geom is `geom_smooth`
+- `stat_count` default geom is `geom_bar`
+- `stat_sum` default geom is `geom_point`
+:::
+
+::: {.column width="40%"}
+
+```{r}
+#| echo: FALSE
+#| out-width: 95%
+#| fig-align: center
+
+knitr::include_graphics("image/gg_stat.png")
+```
+:::
+
+::::
+
+
+## Statistics
+
+:::: {.columns}
+
+::: {.column width="50%"}
+**Interesting stats**
+
++ `stat_smooth(geom_smooth)`
++ `stat_unique(geom_point)`
++ `stat_summary(geom_pointrange`
++ `stat_count(geom_bar)`
++ `stat_bin(geom_histogram)`
++ `stat_density(geom_density)`
++ `stat_boxplot(geom_boxplot)`
++ `stat_ydensity(geom_violin)`    
+:::
+
+::: {.column width="50%"}
+```{r}
+#| echo: FALSE
+#| out-width: 95%
+#| fig-align: center
+
+knitr::include_graphics("image/gg_stat.png")
+```
+:::
+
+::::
+
+
+## Statistics
+
+:::: {.columns}
+
+::: {.column width="60%"}
+**Computed aesthetics**
+
+When a stat perform a transformation, new variables are created.
+
+e.g., in `geom_histogram` computed variables are:
+
+  + **`count`** - number of points in bin
+  + **`density`**  - density of points in bins, scaled to integrate to 1 ncount.
+  + **`ncount`** - count, scaled to maximum of 1
+  + **`ndensity`** - density, scaled to maximum of 1
+  
+
+To access:
+  + old way: **`..<stat name>..`**
+  + new way: **`stat(name)`**
+:::
+
+::: {.column width="40%"}
+```{.r code-line-numbers="2"}
+ggplot(data = mpg, mapping = aes(x = displ)) +
+      geom_histogram(aes(y = ..count..))
+```
+:::
+
+::::
+
+
+## Statistics
+
+:::: {.columns}
+
+::: {.column width="40%"}
+**Computed aesthetics**
+
+When a stat perform a transformation, new variables are created.
+
+e.g., in `geom_histogram` computed variables are:
+
+  + **`count`** - number of points in bin
+  + **`density`**  - density of points in bins, scaled to integrate to 1 ncount.
+  + **`ncount`** - count, scaled to maximum of 1
+  + **`ndensity`** - density, scaled to maximum of 1
+  
+
+To access:
+  + old way: **`..<stat name>..`**
+  + new way: **`stat(name)`**
+:::
+
+::: {.column width="60%"}
+```{.r code-line-numbers="2"}
+ggplot(data = mpg, mapping = aes(x = displ)) +
+  geom_histogram(aes(y = stat(density)))
+```
+:::
+
+::::
+
+
+## Displaying distribution
+
+
+:::: {.columns}
+
+::: {.column width="40%"}
+Ways to look at distributions:
+
+- Histograms
+
+- Frequency polygons
+
+- Density plots
+
+- Boxplots
+
+- Violin plots
+:::
+
+::: {.column width="60%"}
+```{r}
+#| echo: FALSE
+data1 <- sample_n(diamonds, 15000)
+```
+
+```{r}
+#| echo: FALSE
+#| fig-height: 8
+
+ggplot(data = data1, aes(depth, color = cut, fill = cut)) + 
+  geom_density(alpha = 0.5) +
+  theme_minimal() +
+  theme(axis.text = element_text(size = 14),
+        axis.title = element_text(size = 16),
+        legend.text = element_text(size = 14),
+        legend.title = element_text(size = 16)
+        )
+```
+:::
+
+::::
+
+
+## Displaying distribution
+
+:::: {.columns}
+
+::: {.column width="60%"}
+**Histogram and freq polygon**
+
+**`geom_histogram`**
+- display counts with bars
+- require continuous data
+:::
+
+::: {.column width="40%"}
+```{.r code-line-numbers="2"}
+ggplot(data = data1, mapping = aes(x = price)) + 
+  geom_histogram()
+```
+:::
+
+::::
+
+
+## Displaying distribution
+
+:::: {.columns}
+
+::: {.column width="40%"}
+
+**Histogram and freq polygon**
+
+**`geom_histogram`**
+
+- display counts with bars
+- require continuous data
+
+
+**`geom_freqpoly`**
+
+- use lines instead of bars
+- same parameters can be applied
+  - bindwith
+  - bins
+:::
+
+::: {.column width="60%"}
+```{.r code-line-numbers="2"}
+ggplot(data = data1, mapping = aes(x = price)) + 
+  geom_freqpoly()
+```
+:::
+
+::::
+
+
+## Displaying distribution
+
+:::: {.columns}
+
+::: {.column width="40%"}
+**Histogram and freq polygon**
+
+**`geom_histogram`**
+
+- display counts with bars
+
+- require continuous data
+
+
+**`geom_freqpoly`**
+
+- use lines instead of bars
+
+- same parameters can be applied
+
+  - bindwith
+  
+  - bins
+:::
+
+::: {.column width="60%"}
+```{.r code-line-numbers="2-3"}
+ggplot(data = data1, mapping = aes(x = price)) + 
+  geom_freqpoly() +
+  geom_histogram(alpha = 0.4)
+```
+:::
+
+::::
+
+
+## Displaying distribution
+
+:::: {.columns}
+
+::: {.column width="50%"}
+**`Density plots`**
+
+**`geom_density`**
+
+- a smoothed version of the frequency polygon
+
+- different from **`geom_area`** where aesthetic y is needed
+
+:::
+
+::: {.column width="50%"}
+```{.r code-line-numbers="2"}
+ggplot(data = data1, mapping = aes(x = depth)) +
+  geom_density()
+
+```
+
+:::
+
+::::
+
+
+## Displaying distribution
+
+:::: {.columns}
+
+::: {.column width="50%"}
+
+**`Density plots`**
+
+**`geom_density`**
+
+- a smoothed version of the frequency polygon
+
+- different from **`geom_area`** where aesthetic y is needed
+
+:::
+
+::: {.column width="50%"}
+```{.r code-line-numbers="2"}
+ggplot(data = data1, mapping = aes(x = depth, color = cut, fill = cut)) +
+      geom_density(alpha = 0.4)
+
+```
+:::
+
+::::
+
+
+## Displaying distribution
+
+:::: {.columns}
+
+::: {.column width="40%"}
+
+**`Density plots`**
+
+**`geom_density`**
+
+- a smoothed version of the frequency polygon
+
+- different from **`geom_area`** where aesthetic y is needed
+
+**`geom_density_ridges`**
+
+- available in **ggridges** package
+
+- create a ridgeline plots
+
+:::
+
+::: {.column width="60%"}
+```{.r code-line-numbers="5"}
+install.packages("ggridges")
+library(ggridges)
+
+ggplot(data = data1, mapping = aes(x = depth, color = cut, fill = cut)) +
+  geom_density_ridges(aes(y = cut))
+
+```
+
+```{r echo=FALSE, fig.height=5}
+#| echo: FALSE
+#| fig-height: 7
+#| fig-align: center
+
+library(ggridges)
+
+ggplot(data = data1, mapping = aes(x = depth, color = cut, fill = cut)) +
+  geom_density_ridges(aes(y = cut)) +
+  theme(axis.text = element_text(size = 14),
+        axis.title = element_text(size = 16),
+        legend.text = element_text(size = 14),
+        legend.title = element_text(size = 16)
+        )
+
+```
+:::
+
+::::
+
+
+## Displaying distribution
+
+:::: {.columns}
+
+::: {.column width="40%"}
+**Practice exercise**
+
+Use the `mpg` data to recreate the plot shown on the right.
+:::
+
+::: {.column width="60%"}
+```{r}
+#| echo: FALSE
+#| fig-height: 9
+#| fig-align: center
+
+ggplot(data = mpg, 
+       mapping = aes(x = displ)) +
+  geom_histogram(bins = 10, fill = "cadetblue3", alpha = 0.5) + 
+  geom_text(aes(label = stat(count)),
+            stat = "bin", 
+            bins = 10, 
+            nudge_y = 2) +
+  theme(axis.text = element_text(size = 14),
+        axis.title = element_text(size = 16),
+        legend.text = element_text(size = 14),
+        legend.title = element_text(size = 16)
+        )
+```
+:::
+
+::::
+
+
+## Displaying distribution
+
+**Boxplot**
+
+**`geom_boxplot`**
+
+:::: {.columns}
+
+::: {.column width="40%"}
+
+- Interesting parameters
+
+  - width and varwidth
+  
+  - show.legend
+  
+  - outlier.alpha
+  
+  - outlier.shape
+  
+:::
+
+::: {.column width="60%"}
+```{.r code-line-numbers="2"}
+ggplot(data = mpg, mapping = aes(x = class, y = hwy)) +
+  geom_boxplot()
+  
+```
+:::
+
+::::
+
+
+## Displaying distribution
+
+:::: {.columns}
+
+::: {.column width="40%"}
+**Violin plot**
+
+**`geom_violin`**
+
+- Interesting parameters
+
+  - trim
+  
+  - scale
+  
+  - draw_quantiles
+  
+:::
+
+::: {.column width="60%"}
+```{.r code-line-numbers="2"}
+ggplot(data = mpg, mapping = aes(x = class, y = hwy)) +
+  geom_violin()
+  
+```
+:::
+
+::::
+
+
+## Displaying distribution
+
+:::: {.columns}
+
+::: {.column width="40%"}
+**Practice exercise**
+
+Use the `mpg` data to recreate the plot shown on the right.
+:::
+
+::: {.column width="60%"}
+```{r}
+#| echo: FALSE
+#| fig-height: 7
+#| fig-align: center
+
+ggplot(data = mpg, 
+       mapping = aes(x = hwy, y = class)) +
+  geom_violin(aes(fill = class),
+              show.legend = FALSE,
+              color = NA,
+              alpha = 0.5) +
+  geom_boxplot(width = 0.2, 
+               fill = NA) +
+  scale_fill_viridis_d() +
+  theme(axis.text = element_text(size = 14),
+        axis.title = element_text(size = 16),
+        legend.text = element_text(size = 14),
+        legend.title = element_text(size = 16)
+        )
+```
+:::
+
+::::
+
+
+
+
+
+
+
+
+
+
+
+
+

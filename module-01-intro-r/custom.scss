@@ -1,0 +1,54 @@
+/*--scss:defaults --*/
+$presentation-font-size-root: 30px;
+$presentation-font-smaller: 0.4;
+$presentation-h1-font-size: 2.0em;
+$presentation-heading-line-height: 1.5;
+$code-block-border-left: #1d3557;
+$link-color: #1d3557;
+
+
+
+/*-- scss:rules --*/
+
+h1 {
+  text-align: center;
+  color: #457b9d !important;
+}
+
+h2 {
+  color: #1d3557 !important;
+}
+
+
+.center-text {
+  text-align: center;
+}
+
+
+/* Code chunk output */
+pre {
+  background-color: #000;
+  border-radius: 5px; /* Rounded edges */
+  max-width: 100%;
+  max-height: 100%;
+  overflow-x: auto;
+  overflow-y: auto;
+  margin: 0.5em 0px;
+}
+
+
+.remark-code {
+  display: block;
+  overflow-x: scroll !important;
+  overflow-y: auto !important;
+  max-height: 70%;
+  padding: .5em;
+  color: #fff;
+  background: rgb(131, 139, 139);
+  margin-top: 2em;
+}
+
+.vscroll {
+  overflow-y: auto;
+  white-space: nowrap;
+}
