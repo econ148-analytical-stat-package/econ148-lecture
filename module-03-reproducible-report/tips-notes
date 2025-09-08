@@ -1,0 +1,7 @@
+Tips
+
+- to disable codechunk output to be shown in the Quarto document
+  - global option > RMarkdown > disable output inline in all markdown
+
+- to enable preview of output e.g., view knitted html in the RStudio viewer pane
+  - global option > RMarkdown > Show output preview > pane viewer
