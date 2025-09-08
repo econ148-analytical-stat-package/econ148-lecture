@@ -71,7 +71,7 @@ Illustration adopted from [Allison Horst](https://twitter.com/allison_horst)
 
 ## R objects
 
--   Objects in R are assigned a value using →
+-   Objects in R are assigned a value using ←
 
 :::::::::: columns
 :::::: column
