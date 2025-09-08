@@ -1,0 +1,123 @@
+/*--scss:defaults --*/
+$presentation-font-size-root: 26px;
+$presentation-font-smaller: 0.4;
+$presentation-h1-font-size: 2.0em;
+$presentation-heading-line-height: 1.5;
+$code-block-border-left: #1d3557;
+$link-color: #1d3557;
+
+
+/*-- scss:rules --*/
+
+
+
+h1 {
+  text-align: center;
+  color: #457b9d !important;
+}
+
+h2 {
+  color: #1d3557 !important;
+}
+
+table td {
+  font-size: 0.8em;
+}
+
+table th {
+  text-align: center;
+}
+
+
+
+.center-text {
+  text-align: center;
+  
+}
+
+
+.left-text {
+  text-align: left;
+  
+}
+
+
+.source-text {
+  font-size: 0.75em;
+  font-style: italic;
+}
+
+.source-text-smaller {
+  text-align: left;
+  font-size: 0.50em;
+  font-style: italic;
+  color: #1d3557;
+}
+
+.source-text-smaller-center {
+  text-align: center;
+  font-size: 0.50em;
+  font-style: italic;
+  color: #1d3557;
+}
+
+.center-figure {
+  justify-content: center;
+}
+
+.vertical-align {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 90%;
+}
+
+
+/* Code chunk output */
+pre {
+  background-color: #000;
+  border-radius: 5px; /* Rounded edges */
+  max-width: 100%;
+  max-height: 100%;
+  overflow-x: auto;
+  overflow-y: auto;
+  margin: 0.5em 0px;
+}
+
+
+.remark-code {
+  display: block;
+  overflow-x: scroll !important;
+  overflow-y: auto !important;
+  max-height: 60%;
+  padding: .5em;
+  color: #fff;
+  background: rgb(131, 139, 139);
+  margin-top: 2em;
+}
+
+.remark-code-short {
+  display: block;
+  overflow-x: scroll !important;
+  overflow-y: auto !important;
+  max-height: 50%;
+  padding: .5em;
+  color: #fff;
+  background: rgb(131, 139, 139);
+  margin-top: 2em;
+}
+
+.vscroll {
+  overflow-y: auto;
+  white-space: nowrap;
+}
+
+/* Callout */
+
+.callout.callout-style-default.my-callout .callout-body {
+    font-size: 2.0rem;
+}
+
+.reveal .callout.callout-style-default div.callout-body {
+ 	  font-size: var(--r-main-font-size);
+}
