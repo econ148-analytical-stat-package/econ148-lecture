@@ -54,27 +54,25 @@ theme_set(theme_bw(base_size = 18)) # Set theme for all ggplots
 
 ## Lessons
 
--   Overview of EDA
+-   
 
--   Centrality and variability
-
--   Amounts and proportions
-
--   Comparisons
-
--   Trends
+    -   Overview of EDA
+    -   Examining numerical data
+    -   Considering categorical data
+    -   Centrality and variability
+    -   Amounts and proportions
+    -   Comparisons
+    -   Trends
 
 # Lesson 1: What is EDA?
 
 ## EDA: an introduction
 
-EDA is an iterative cycle that helps you understand what your data says. It involves:
+-   EDA is an iterative cycle that helps you understand what your data says. It involves:
 
--   Generate questions about your data
-
--   Search for answers by visualizing, transforming, and modeling your data
-
--   Use what you learn to refine your questions and/or generate new questions
+    -   Generate questions about your data
+    -   Search for answers by visualizing, transforming, and modeling your data
+    -   Use what you learn to refine your questions and/or generate new questions
 
 ## EDA: an introduction
 
@@ -101,6 +99,77 @@ There is no rule about which questions you should ask to guide your research. Ho
 -   [One or two high-quality questions]{data-explanation="Not quite. It is hard to spot useful questions ahead of time because you don’t know which discoveries are waiting in your data."}
 
 -   [Many, many questions]{.correct data-explanation="Correct! Each question you ask creates a new opportunity to discover something surprising. You can lead yourself to high-value questions by iterating on questions that reveal unexpected results."}
+
+# Lesson 2: Examining numerical data
+
+## scatter plots
+
+```{r}
+#| echo: false
+knitr::include_graphics("plot/loan_scatter.png")
+```
+- 
+  -   many borrowers with an income below \$100,000
+  -   a handful of borrowers with income above \$250,000
+
+
+## scatter plots
+
+```{r}
+knitr::include_graphics("plot/poverty_scatter.png")
+```
+
+- 
+  - The relationship is nonlinear, as highlighted by the dashed line.
+  - What implications can you draw from this pattern?
+
+::: {.notes}
+1. Inverse relationship: As poverty rates increase, median household income decreases, following a clear downward trend shown by the dashed curve.
+
+2. Concentration pattern: Most counties cluster in the lower-left region (poverty rates between 5-20% and incomes between $40K-$60K), indicating this is the typical range for U.S. counties.
+
+3. Inverse relationship: As poverty rates increase, median household income decreases, following a clear downward trend shown by the dashed curve.
+
+4. Concentration pattern: Most counties cluster in the lower-left region (poverty rates between 5-20% and incomes between $40K-$60K), indicating this is the typical range for U.S. counties.
+:::
+
+## Scatter plots
+
+```{r}
+knitr::include_graphics("plot/population_change_scatter.png")
+```
+
+- 
+  - (a) Scatter plot of population change against the population before the change. 
+  - (b) A scatter plot of the same data but where the population size has beenlog-transformed.
+  - What can we infer from these plots?
+  - Why log transformation is important?
+
+::: {.notes}
+1. (a) The untransformed plot shows extreme compression - nearly all counties are squeezed into the left side near 0. This makes it impossible to see patterns or relationships for the vast majority of counties
+
+2. The log₁₀ transformation spreads out the data points across the entire plot. Now we can clearly see the relationship between population and population change for ALL counties
+
+3. Large counties tend to have stable, modest population changes (clustered around 0%). Small to medium counties show much wider variation (both growth and decline)
+
+4. Why log transformation is important? It helps to reveal patterns in data that span several orders of magnitude, making it easier to analyze and interpret relationships that would otherwise be obscured.
+:::
+
+
+## Dot plots
+
+```{r}
+knitr::include_graphics("plot/interest_rate_dotplot.png")
+```
+
+- 
+  - A dot plot is a one-variable scatterplot; an example
+ using the interest rate of 50 loans above.
+  - Sometimes two variables are one too many: only one variable may be of interest.
+
+
+
+
 
 # Lesson 2: Centrality and variability
 

@@ -204,11 +204,15 @@
 <section id="lessons" class="slide level2">
 <h2>Lessons</h2>
 <ul>
-<li><p>Overview of EDA</p></li>
-<li><p>Centrality and variability</p></li>
-<li><p>Amounts and proportions</p></li>
-<li><p>Comparisons</p></li>
-<li><p>Trends</p></li>
+<li><ul>
+<li>Overview of EDA</li>
+<li>Examining numerical data</li>
+<li>Considering categorical data</li>
+<li>Centrality and variability</li>
+<li>Amounts and proportions</li>
+<li>Comparisons</li>
+<li>Trends</li>
+</ul></li>
 </ul>
 </section>
 <section>
@@ -218,11 +222,13 @@
 </section>
 <section id="eda-an-introduction" class="slide level2">
 <h2>EDA: an introduction</h2>
-<p>EDA is an iterative cycle that helps you understand what your data says. It involves:</p>
 <ul>
-<li><p>Generate questions about your data</p></li>
-<li><p>Search for answers by visualizing, transforming, and modeling your data</p></li>
-<li><p>Use what you learn to refine your questions and/or generate new questions</p></li>
+<li><p>EDA is an iterative cycle that helps you understand what your data says. It involves:</p>
+<ul>
+<li>Generate questions about your data</li>
+<li>Search for answers by visualizing, transforming, and modeling your data</li>
+<li>Use what you learn to refine your questions and/or generate new questions</li>
+</ul></li>
 </ul>
 </section>
 <section id="eda-an-introduction-1" class="slide level2">
@@ -252,6 +258,95 @@
 <ul>
 <li><p><span data-explanation="Not quite. It is hard to spot useful questions ahead of time because you don’t know which discoveries are waiting in your data.">One or two high-quality questions</span></p></li>
 <li><p><span class="correct" data-explanation="Correct! Each question you ask creates a new opportunity to discover something surprising. You can lead yourself to high-value questions by iterating on questions that reveal unexpected results.">Many, many questions</span></p></li>
+</ul>
+</section></section>
+<section>
+<section id="lesson-2-examining-numerical-data" class="title-slide slide level1 center">
+<h1>Lesson 2: Examining numerical data</h1>
+
+</section>
+<section id="scatter-plots" class="slide level2">
+<h2>scatter plots</h2>
+
+<img data-src="plot/loan_scatter.png" class="quarto-figure quarto-figure-center r-stretch" width="1500"><ul>
+<li><ul>
+<li>many borrowers with an income below $100,000</li>
+<li>a handful of borrowers with income above $250,000</li>
+</ul></li>
+</ul>
+</section>
+<section id="scatter-plots-1" class="slide level2">
+<h2>scatter plots</h2>
+
+<img data-src="plot/poverty_scatter.png" class="quarto-figure quarto-figure-center r-stretch" width="1500"><ul>
+<li><ul>
+<li>The relationship is nonlinear, as highlighted by the dashed line.</li>
+<li>What implications can you draw from this pattern?</li>
+</ul></li>
+</ul>
+<aside class="notes">
+<ol type="1">
+<li><p>Inverse relationship: As poverty rates increase, median household income decreases, following a clear downward trend shown by the dashed curve.</p></li>
+<li><p>Concentration pattern: Most counties cluster in the lower-left region (poverty rates between 5-20% and incomes between $40K-$60K), indicating this is the typical range for U.S. counties.</p></li>
+<li><p>Inverse relationship: As poverty rates increase, median household income decreases, following a clear downward trend shown by the dashed curve.</p></li>
+<li><p>Concentration pattern: Most counties cluster in the lower-left region (poverty rates between 5-20% and incomes between $40K-$60K), indicating this is the typical range for U.S. counties.</p></li>
+</ol>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="scatter-plots-2" class="slide level2">
+<h2>Scatter plots</h2>
+
+<img data-src="plot/population_change_scatter.png" class="quarto-figure quarto-figure-center r-stretch" width="1800"><ul>
+<li><ul>
+<li><ol type="a">
+<li>Scatter plot of population change against the population before the change.</li>
+</ol></li>
+<li><ol start="2" type="a">
+<li>A scatter plot of the same data but where the population size has beenlog-transformed.</li>
+</ol></li>
+<li>What can we infer from these plots?</li>
+<li>Why log transformation is important?</li>
+</ul></li>
+</ul>
+<aside class="notes">
+<ol type="1">
+<li><ol type="a">
+<li>The untransformed plot shows extreme compression - nearly all counties are squeezed into the left side near 0. This makes it impossible to see patterns or relationships for the vast majority of counties</li>
+</ol></li>
+<li><p>The log₁₀ transformation spreads out the data points across the entire plot. Now we can clearly see the relationship between population and population change for ALL counties</p></li>
+<li><p>Large counties tend to have stable, modest population changes (clustered around 0%). Small to medium counties show much wider variation (both growth and decline)</p></li>
+<li><p>Why log transformation is important? It helps to reveal patterns in data that span several orders of magnitude, making it easier to analyze and interpret relationships that would otherwise be obscured.</p></li>
+</ol>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="dot-plots" class="slide level2">
+<h2>Dot plots</h2>
+
+<img data-src="plot/interest_rate_dotplot.png" class="quarto-figure quarto-figure-center r-stretch" width="1500"><ul>
+<li><ul>
+<li>A dot plot is a one-variable scatterplot; an example using the interest rate of 50 loans above.</li>
+<li>Sometimes two variables are one too many: only one variable may be of interest.</li>
+</ul></li>
 </ul>
 </section></section>
 <section>
@@ -696,7 +791,7 @@
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure>
-<p><img data-src="index_files/figure-revealjs/unnamed-chunk-24-1.png" class="quarto-figure quarto-figure-center" width="672"></p>
+<p><img data-src="index_files/figure-revealjs/unnamed-chunk-28-1.png" class="quarto-figure quarto-figure-center" width="672"></p>
 </figure>
 </div>
 </div>
@@ -754,7 +849,7 @@
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure>
-<p><img data-src="index_files/figure-revealjs/unnamed-chunk-25-1.png" class="quarto-figure quarto-figure-center" width="672"></p>
+<p><img data-src="index_files/figure-revealjs/unnamed-chunk-29-1.png" class="quarto-figure quarto-figure-center" width="672"></p>
 </figure>
 </div>
 </div>
@@ -769,7 +864,7 @@
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure>
-<p><img data-src="index_files/figure-revealjs/unnamed-chunk-26-1.png" class="quarto-figure quarto-figure-center" width="672"></p>
+<p><img data-src="index_files/figure-revealjs/unnamed-chunk-30-1.png" class="quarto-figure quarto-figure-center" width="672"></p>
 </figure>
 </div>
 </div>

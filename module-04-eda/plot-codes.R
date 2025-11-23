@@ -5,6 +5,9 @@ setwd("D:/Githu-repository/econ148-analytical-stat-packages/econ148-lecture/modu
 library(tidyverse)
 library(glue)
 library(patchwork)
+library(openintro)
+library(ggthemes)
+library(latex2exp)
 
 ## setting theme
 theme_set(theme_bw(base_size = 20)) # Set theme for all ggplots
@@ -139,6 +142,10 @@ ggsave(
   width = 10,
   height = 6
 )
+
+
+####################
+# plots for examining numerical data
 
 
 
