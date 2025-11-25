@@ -313,7 +313,7 @@ loan50 |>
   labs(x = "Interest Rate, Rounded to Nearest Percent") 
 ```
 
-
+## histogram and shapes
 
 
 

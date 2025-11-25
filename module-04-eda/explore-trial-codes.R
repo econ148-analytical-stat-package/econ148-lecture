@@ -43,9 +43,6 @@ loan50 |>
 
 ## figure 2.2
 county |> 
-  glimpse()
-
-county |> 
   mutate(median_hh_income = median_hh_income / 1000) |>
   ggplot(aes(poverty, median_hh_income)) +
   geom_point(size = 3, color = "#377eb8", alpha = 0.8) +
@@ -60,9 +57,6 @@ county |>
 
 
 ## figure 2.3
-county |> 
-  glimpse()
-
 p_231 <- 
   county |> 
   mutate(pop2017 = pop2017 / 1e6) |> 
@@ -71,7 +65,7 @@ p_231 <-
   scale_x_continuous(breaks = seq(0, 10, 2), limits = c(0, 10), expand = c(0, 0), labels = scales::label_number(suffix = "m")) +
   scale_y_continuous(labels = scales::label_number(suffix = "%")) +
   coord_cartesian(clip = "off") +
-  labs(x = "Population before change (m = millions)", 
+  labs(x = "(a) Population before change (m = millions)", 
        y = "Population Change (%)") +
   plot_theme
 
@@ -83,9 +77,40 @@ p_232 <-
   scale_y_continuous(labels = scales::label_number(suffix = "%")) +
   scale_x_log10() +
   coord_cartesian(clip = "off") +
-  labs(x = TeX("$\\log_{10}$ Population before change (m = millions)"), 
+  labs(x = TeX("(b) $\\log_{10}$ Population before change (m = millions)"), 
        y = "Population Change (%)") +
   plot_theme
 
 p_231 + p_232 + plot_layout(ncol = 2)
+
+
+## dotplot
+loan50 |>
+  ggplot(aes(x = interest_rate)) +
+  geom_dotplot(
+    binwidth = 1, 
+    method = "histodot",
+    fill = "#5A9BD5", 
+    color = "#5A9BD5",
+    dotsize = 0.8,
+    stackratio = 1.2
+  ) +
+  geom_point(
+    aes(y = -0.05, x = mean(loan50$interest_rate)),
+    color = "red",
+    size = 4,
+    shape = 17,
+    fill = "red",
+    stroke = 5
+  ) +
+  geom_hline(yintercept = 0, color = "gray60") +
+  scale_y_continuous(NULL, breaks = NULL) +
+  scale_x_continuous(
+    breaks = seq(5, 30, 5),
+    labels = scales::percent_format(scale = 1),
+    limits = c(5, 30)
+  ) +
+  coord_cartesian(ylim = c(-0.05, 1), clip = "off") +
+  labs(x = "Interest Rate, Rounded to Nearest Percent") +
+  plot_theme
 
