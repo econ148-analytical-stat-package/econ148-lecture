@@ -268,7 +268,7 @@
 <section id="scatter-plots" class="slide level2">
 <h2>scatter plots</h2>
 
-<img data-src="plot/loan_scatter.png" class="quarto-figure quarto-figure-center r-stretch" width="1500"><ul>
+<img data-src="plot/loan_scatter.png" class="quarto-figure quarto-figure-center r-stretch"><ul>
 <li><ul>
 <li>many borrowers with an income below $100,000</li>
 <li>a handful of borrowers with income above $250,000</li>
@@ -305,7 +305,7 @@
 <section id="scatter-plots-1" class="slide level2">
 <h2>scatter plots</h2>
 
-<img data-src="plot/poverty_scatter.png" class="quarto-figure quarto-figure-center r-stretch" width="1500"><ul>
+<img data-src="plot/poverty_scatter.png" class="quarto-figure quarto-figure-center r-stretch"><ul>
 <li><ul>
 <li>The relationship is nonlinear, as highlighted by the dashed line.</li>
 <li>What implications can you draw from this pattern?</li>
@@ -369,7 +369,7 @@
 <section id="scatter-plots-2" class="slide level2">
 <h2>scatter plots</h2>
 
-<img data-src="plot/population_change_scatter.png" class="quarto-figure quarto-figure-center r-stretch" width="1800"><ul>
+<img data-src="plot/population_change_scatter.png" class="quarto-figure quarto-figure-center r-stretch"><ul>
 <li><ul>
 <li><ol type="a">
 <li>Scatter plot of population change against the population before the change.</li>
@@ -377,8 +377,8 @@
 <li><ol start="2" type="a">
 <li>A scatter plot of the same data but where the population size has beenlog-transformed.</li>
 </ol></li>
-<li>What can we infer from these plots?</li>
-<li>Why log transformation is important?</li>
+<li><p>What can we infer from these plots?</p></li>
+<li><p>Why log transformation is important?</p></li>
 </ul></li>
 </ul>
 <aside class="notes">
@@ -445,51 +445,6 @@
 <span id="cb3-39"><a href=""></a></span>
 <span id="cb3-40"><a href=""></a>p_c_233 <span class="ot">&lt;-</span> p_231 <span class="sc">+</span> p_232 <span class="sc">+</span> <span class="fu">plot_layout</span>(<span class="at">ncol =</span> <span class="dv">2</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
-<section id="dot-plots" class="slide level2">
-<h2>dot plots</h2>
-
-<img data-src="plot/interest_rate_dotplot.png" class="quarto-figure quarto-figure-center r-stretch" width="1500"><ul>
-<li><ul>
-<li>A dot plot is a one-variable scatterplot; an example using the interest rate of 50 loans above.</li>
-<li>Sometimes two variables are one too many: only one variable may be of interest.</li>
-</ul></li>
-</ul>
-</section>
-<section id="dot-plots-r-codes" class="slide level2">
-<h2>dot plots: R codes</h2>
-<div class="sourceCode" id="cb4"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href=""></a>loan50 <span class="sc">|&gt;</span></span>
-<span id="cb4-2"><a href=""></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> interest_rate)) <span class="sc">+</span></span>
-<span id="cb4-3"><a href=""></a>  <span class="fu">geom_dotplot</span>(</span>
-<span id="cb4-4"><a href=""></a>    <span class="at">binwidth =</span> <span class="dv">1</span>, </span>
-<span id="cb4-5"><a href=""></a>    <span class="at">method =</span> <span class="st">"histodot"</span>,</span>
-<span id="cb4-6"><a href=""></a>    <span class="at">fill =</span> <span class="st">"#5A9BD5"</span>, </span>
-<span id="cb4-7"><a href=""></a>    <span class="at">color =</span> <span class="st">"#5A9BD5"</span>,</span>
-<span id="cb4-8"><a href=""></a>    <span class="at">dotsize =</span> <span class="fl">0.8</span>,</span>
-<span id="cb4-9"><a href=""></a>    <span class="at">stackratio =</span> <span class="fl">1.2</span></span>
-<span id="cb4-10"><a href=""></a>  ) <span class="sc">+</span></span>
-<span id="cb4-11"><a href=""></a>  <span class="fu">geom_point</span>(</span>
-<span id="cb4-12"><a href=""></a>    <span class="fu">aes</span>(<span class="at">y =</span> <span class="sc">-</span><span class="fl">0.05</span>, <span class="at">x =</span> <span class="fu">mean</span>(loan50<span class="sc">$</span>interest_rate)),</span>
-<span id="cb4-13"><a href=""></a>    <span class="at">color =</span> <span class="st">"red"</span>,</span>
-<span id="cb4-14"><a href=""></a>    <span class="at">size =</span> <span class="dv">4</span>,</span>
-<span id="cb4-15"><a href=""></a>    <span class="at">shape =</span> <span class="dv">17</span>,</span>
-<span id="cb4-16"><a href=""></a>    <span class="at">fill =</span> <span class="st">"red"</span>,</span>
-<span id="cb4-17"><a href=""></a>    <span class="at">stroke =</span> <span class="dv">5</span></span>
-<span id="cb4-18"><a href=""></a>  ) <span class="sc">+</span></span>
-<span id="cb4-19"><a href=""></a>  <span class="fu">geom_hline</span>(<span class="at">yintercept =</span> <span class="dv">0</span>, <span class="at">color =</span> <span class="st">"gray60"</span>) <span class="sc">+</span></span>
-<span id="cb4-20"><a href=""></a>  <span class="fu">scale_y_continuous</span>(<span class="cn">NULL</span>, <span class="at">breaks =</span> <span class="cn">NULL</span>) <span class="sc">+</span></span>
-<span id="cb4-21"><a href=""></a>  <span class="fu">scale_x_continuous</span>(</span>
-<span id="cb4-22"><a href=""></a>    <span class="at">breaks =</span> <span class="fu">seq</span>(<span class="dv">5</span>, <span class="dv">30</span>, <span class="dv">5</span>),</span>
-<span id="cb4-23"><a href=""></a>    <span class="at">labels =</span> scales<span class="sc">::</span><span class="fu">percent_format</span>(<span class="at">scale =</span> <span class="dv">1</span>),</span>
-<span id="cb4-24"><a href=""></a>    <span class="at">limits =</span> <span class="fu">c</span>(<span class="dv">5</span>, <span class="dv">30</span>)</span>
-<span id="cb4-25"><a href=""></a>  ) <span class="sc">+</span></span>
-<span id="cb4-26"><a href=""></a>  <span class="fu">coord_cartesian</span>(<span class="at">ylim =</span> <span class="fu">c</span>(<span class="sc">-</span><span class="fl">0.05</span>, <span class="dv">1</span>), <span class="at">clip =</span> <span class="st">"off"</span>) <span class="sc">+</span></span>
-<span id="cb4-27"><a href=""></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"Interest Rate, Rounded to Nearest Percent"</span>) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</section></section>
-<section>
-<section id="lesson-2-centrality-and-variability" class="title-slide slide level1 center">
-<h1>Lesson 2: Centrality and variability</h1>
-
-</section>
 <section id="centrality-aka-the-average-value" class="slide level2">
 <h2>Centrality (aka the “Average” value)</h2>
 <p>A single number representing the <em>middle</em> of a set of numbers</p>
@@ -507,34 +462,126 @@
 <div class="columns">
 <div class="column" style="width:40%;">
 <div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href=""></a>wildlife_impacts <span class="sc">%&gt;%</span></span>
-<span id="cb5-2"><a href=""></a>    <span class="fu">filter</span>(<span class="sc">!</span> <span class="fu">is.na</span>(height)) <span class="sc">%&gt;%</span></span>
-<span id="cb5-3"><a href=""></a>    <span class="fu">summarise</span>(</span>
-<span id="cb5-4"><a href=""></a>      <span class="at">mean =</span> <span class="fu">mean</span>(height),</span>
-<span id="cb5-5"><a href=""></a>      <span class="at">median =</span> <span class="fu">median</span>(height))</span>
-<span id="cb5-6"><a href=""></a><span class="co"># A tibble: 1 × 2</span></span>
-<span id="cb5-7"><a href=""></a>   mean median</span>
-<span id="cb5-8"><a href=""></a>  <span class="sc">&lt;</span>dbl<span class="sc">&gt;</span>  <span class="er">&lt;</span>dbl<span class="sc">&gt;</span></span>
-<span id="cb5-9"><a href=""></a><span class="dv">1</span>  <span class="fl">984.</span>     <span class="dv">50</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href=""></a>wildlife_impacts <span class="sc">%&gt;%</span></span>
+<span id="cb4-2"><a href=""></a>    <span class="fu">filter</span>(<span class="sc">!</span> <span class="fu">is.na</span>(height)) <span class="sc">%&gt;%</span></span>
+<span id="cb4-3"><a href=""></a>    <span class="fu">summarise</span>(</span>
+<span id="cb4-4"><a href=""></a>      <span class="at">mean =</span> <span class="fu">mean</span>(height),</span>
+<span id="cb4-5"><a href=""></a>      <span class="at">median =</span> <span class="fu">median</span>(height))</span>
+<span id="cb4-6"><a href=""></a><span class="co"># A tibble: 1 × 2</span></span>
+<span id="cb4-7"><a href=""></a>   mean median</span>
+<span id="cb4-8"><a href=""></a>  <span class="sc">&lt;</span>dbl<span class="sc">&gt;</span>  <span class="er">&lt;</span>dbl<span class="sc">&gt;</span></span>
+<span id="cb4-9"><a href=""></a><span class="dv">1</span>  <span class="fl">984.</span>     <span class="dv">50</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Percent of data below mean:</p>
 <div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href=""></a>percentiles <span class="ot">&lt;-</span> <span class="fu">ecdf</span>(wildlife_impacts<span class="sc">$</span>height)</span>
-<span id="cb6-2"><a href=""></a>meanP <span class="ot">&lt;-</span> <span class="fu">percentiles</span>(<span class="fu">mean</span>(wildlife_impacts<span class="sc">$</span>height, <span class="at">na.rm =</span> <span class="cn">TRUE</span>))</span>
-<span id="cb6-3"><a href=""></a><span class="fu">paste0</span>(<span class="fu">round</span>(<span class="dv">100</span><span class="sc">*</span>meanP, <span class="dv">1</span>), <span class="st">'%'</span>)</span>
-<span id="cb6-4"><a href=""></a>[<span class="dv">1</span>] <span class="st">"73.9%"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href=""></a>percentiles <span class="ot">&lt;-</span> <span class="fu">ecdf</span>(wildlife_impacts<span class="sc">$</span>height)</span>
+<span id="cb5-2"><a href=""></a>meanP <span class="ot">&lt;-</span> <span class="fu">percentiles</span>(<span class="fu">mean</span>(wildlife_impacts<span class="sc">$</span>height, <span class="at">na.rm =</span> <span class="cn">TRUE</span>))</span>
+<span id="cb5-3"><a href=""></a><span class="fu">paste0</span>(<span class="fu">round</span>(<span class="dv">100</span><span class="sc">*</span>meanP, <span class="dv">1</span>), <span class="st">'%'</span>)</span>
+<span id="cb5-4"><a href=""></a>[<span class="dv">1</span>] <span class="st">"73.9%"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </div><div class="column" style="width:60%;">
 <div class="cell" data-layout-align="center">
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure>
-<p><img data-src="plot/wildlife_impacts_hist.png" class="quarto-figure quarto-figure-center" width="1500"></p>
+<p><img data-src="plot/wildlife_impacts_hist.png" class="quarto-figure quarto-figure-center"></p>
 </figure>
 </div>
 </div>
 </div>
 </div></div>
+</section>
+<section id="dot-plots" class="slide level2">
+<h2>dot plots</h2>
+
+<img data-src="plot/interest_rate_dotplot.png" class="quarto-figure quarto-figure-center r-stretch"><ul>
+<li><ul>
+<li>A dot plot is a one-variable scatterplot; an example using the interest rate of 50 loans above.</li>
+<li>Sometimes two variables are one too many: only one variable may be of interest.</li>
+</ul></li>
+</ul>
+</section>
+<section id="dot-plots-r-codes" class="slide level2">
+<h2>dot plots: R codes</h2>
+<div class="sourceCode" id="cb6"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href=""></a>loan50 <span class="sc">|&gt;</span></span>
+<span id="cb6-2"><a href=""></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> interest_rate)) <span class="sc">+</span></span>
+<span id="cb6-3"><a href=""></a>  <span class="fu">geom_dotplot</span>(</span>
+<span id="cb6-4"><a href=""></a>    <span class="at">binwidth =</span> <span class="dv">1</span>, </span>
+<span id="cb6-5"><a href=""></a>    <span class="at">method =</span> <span class="st">"histodot"</span>,</span>
+<span id="cb6-6"><a href=""></a>    <span class="at">fill =</span> <span class="st">"#5A9BD5"</span>, </span>
+<span id="cb6-7"><a href=""></a>    <span class="at">color =</span> <span class="st">"#5A9BD5"</span>,</span>
+<span id="cb6-8"><a href=""></a>    <span class="at">dotsize =</span> <span class="fl">0.8</span>,</span>
+<span id="cb6-9"><a href=""></a>    <span class="at">stackratio =</span> <span class="fl">1.2</span></span>
+<span id="cb6-10"><a href=""></a>  ) <span class="sc">+</span></span>
+<span id="cb6-11"><a href=""></a>  <span class="fu">geom_point</span>(</span>
+<span id="cb6-12"><a href=""></a>    <span class="fu">aes</span>(<span class="at">y =</span> <span class="sc">-</span><span class="fl">0.05</span>, <span class="at">x =</span> <span class="fu">mean</span>(loan50<span class="sc">$</span>interest_rate)),</span>
+<span id="cb6-13"><a href=""></a>    <span class="at">color =</span> <span class="st">"red"</span>,</span>
+<span id="cb6-14"><a href=""></a>    <span class="at">size =</span> <span class="dv">4</span>,</span>
+<span id="cb6-15"><a href=""></a>    <span class="at">shape =</span> <span class="dv">17</span>,</span>
+<span id="cb6-16"><a href=""></a>    <span class="at">fill =</span> <span class="st">"red"</span>,</span>
+<span id="cb6-17"><a href=""></a>    <span class="at">stroke =</span> <span class="dv">5</span></span>
+<span id="cb6-18"><a href=""></a>  ) <span class="sc">+</span></span>
+<span id="cb6-19"><a href=""></a>  <span class="fu">geom_hline</span>(<span class="at">yintercept =</span> <span class="dv">0</span>, <span class="at">color =</span> <span class="st">"gray60"</span>) <span class="sc">+</span></span>
+<span id="cb6-20"><a href=""></a>  <span class="fu">scale_y_continuous</span>(<span class="cn">NULL</span>, <span class="at">breaks =</span> <span class="cn">NULL</span>) <span class="sc">+</span></span>
+<span id="cb6-21"><a href=""></a>  <span class="fu">scale_x_continuous</span>(</span>
+<span id="cb6-22"><a href=""></a>    <span class="at">breaks =</span> <span class="fu">seq</span>(<span class="dv">5</span>, <span class="dv">30</span>, <span class="dv">5</span>),</span>
+<span id="cb6-23"><a href=""></a>    <span class="at">labels =</span> scales<span class="sc">::</span><span class="fu">percent_format</span>(<span class="at">scale =</span> <span class="dv">1</span>),</span>
+<span id="cb6-24"><a href=""></a>    <span class="at">limits =</span> <span class="fu">c</span>(<span class="dv">5</span>, <span class="dv">30</span>)</span>
+<span id="cb6-25"><a href=""></a>  ) <span class="sc">+</span></span>
+<span id="cb6-26"><a href=""></a>  <span class="fu">coord_cartesian</span>(<span class="at">ylim =</span> <span class="fu">c</span>(<span class="sc">-</span><span class="fl">0.05</span>, <span class="dv">1</span>), <span class="at">clip =</span> <span class="st">"off"</span>) <span class="sc">+</span></span>
+<span id="cb6-27"><a href=""></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"Interest Rate, Rounded to Nearest Percent"</span>) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="histogram-and-shapes" class="slide level2">
+<h2>histogram and shapes</h2>
+
+<img data-src="plot/interest_rate_histogram.png" class="quarto-figure quarto-figure-center r-stretch"><ul>
+<li><ul>
+<li>histograms provide a view of data density</li>
+<li>more loans with rates between 5% and 10% than loans with rates between 20% and 25%</li>
+<li>What key patterns can histograms reveal about data?</li>
+</ul></li>
+</ul>
+</section>
+<section id="historgram-and-shapes" class="slide level2">
+<h2>historgram and shapes</h2>
+
+<img data-src="plot/histogram_modal_comparison.png" class="quarto-figure quarto-figure-center r-stretch"><ul>
+<li><ul>
+<li>modes in histograms tell us how many “centers of activity” exist in the data.</li>
+<li>they help uncover structure, complexity, and potential subgroup differences that a simple average or variance might miss.</li>
+</ul></li>
+</ul>
+</section>
+<section id="histrogram-comparison-r-codes" class="slide level2">
+<h2>histrogram comparison: R codes</h2>
+<div class="sourceCode" id="cb7"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href=""></a><span class="co"># histogram comparison: unimodal, bimodal, multimodal</span></span>
+<span id="cb7-2"><a href=""></a><span class="fu">set.seed</span>(<span class="dv">123</span>)</span>
+<span id="cb7-3"><a href=""></a></span>
+<span id="cb7-4"><a href=""></a><span class="co"># Generate equal-sized samples (500 each)</span></span>
+<span id="cb7-5"><a href=""></a>unimodal   <span class="ot">&lt;-</span> <span class="fu">rnorm</span>(<span class="dv">10000</span>, <span class="at">mean =</span> <span class="dv">10</span>, <span class="at">sd =</span> <span class="dv">2</span>)</span>
+<span id="cb7-6"><a href=""></a>bimodal    <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="fu">rnorm</span>(<span class="dv">5000</span>, <span class="at">mean =</span> <span class="dv">5</span>, <span class="at">sd =</span> <span class="dv">1</span>),</span>
+<span id="cb7-7"><a href=""></a>                <span class="fu">rnorm</span>(<span class="dv">5000</span>, <span class="at">mean =</span> <span class="fl">8.5</span>, <span class="at">sd =</span> <span class="dv">1</span>))</span>
+<span id="cb7-8"><a href=""></a>multimodal <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="fu">rnorm</span>(<span class="dv">3333</span>, <span class="at">mean =</span> <span class="dv">5</span>,  <span class="at">sd =</span> <span class="dv">1</span>),</span>
+<span id="cb7-9"><a href=""></a>                <span class="fu">rnorm</span>(<span class="dv">3333</span>, <span class="at">mean =</span> <span class="fl">8.5</span>, <span class="at">sd =</span> <span class="dv">1</span>),</span>
+<span id="cb7-10"><a href=""></a>                <span class="fu">rnorm</span>(<span class="dv">3334</span>, <span class="at">mean =</span> <span class="dv">12</span>, <span class="at">sd =</span> <span class="dv">1</span>))</span>
+<span id="cb7-11"><a href=""></a></span>
+<span id="cb7-12"><a href=""></a><span class="co"># Combine into one data frame</span></span>
+<span id="cb7-13"><a href=""></a>data <span class="ot">&lt;-</span> <span class="fu">bind_rows</span>(</span>
+<span id="cb7-14"><a href=""></a>  <span class="fu">data.frame</span>(<span class="at">value =</span> unimodal,   <span class="at">type =</span> <span class="st">"Unimodal"</span>),</span>
+<span id="cb7-15"><a href=""></a>  <span class="fu">data.frame</span>(<span class="at">value =</span> bimodal,    <span class="at">type =</span> <span class="st">"Bimodal"</span>),</span>
+<span id="cb7-16"><a href=""></a>  <span class="fu">data.frame</span>(<span class="at">value =</span> multimodal, <span class="at">type =</span> <span class="st">"Multimodal"</span>)</span>
+<span id="cb7-17"><a href=""></a>) <span class="sc">|&gt;</span> </span>
+<span id="cb7-18"><a href=""></a>  <span class="fu">tibble</span>() <span class="sc">|&gt;</span> </span>
+<span id="cb7-19"><a href=""></a>  <span class="fu">mutate</span>(<span class="at">type =</span> <span class="fu">factor</span>(type, <span class="at">levels =</span> <span class="fu">c</span>(<span class="st">"Unimodal"</span>, <span class="st">"Bimodal"</span>, <span class="st">"Multimodal"</span>)))</span>
+<span id="cb7-20"><a href=""></a></span>
+<span id="cb7-21"><a href=""></a><span class="co"># Plot histograms side-by-side</span></span>
+<span id="cb7-22"><a href=""></a><span class="fu">ggplot</span>(data, <span class="fu">aes</span>(<span class="at">x =</span> value)) <span class="sc">+</span></span>
+<span id="cb7-23"><a href=""></a>  <span class="fu">geom_histogram</span>(<span class="at">bins =</span> <span class="dv">35</span>, <span class="at">fill =</span> <span class="st">"steelblue"</span>, <span class="at">color =</span> <span class="st">"white"</span>, <span class="at">boundary =</span> <span class="dv">0</span>) <span class="sc">+</span></span>
+<span id="cb7-24"><a href=""></a>  <span class="fu">facet_wrap</span>(<span class="sc">~</span> type, <span class="at">nrow =</span> <span class="dv">1</span>) <span class="sc">+</span></span>
+<span id="cb7-25"><a href=""></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"Value"</span>,</span>
+<span id="cb7-26"><a href=""></a>       <span class="at">y =</span> <span class="st">"Frequency"</span>) <span class="sc">+</span></span>
+<span id="cb7-27"><a href=""></a>  plot_theme <span class="sc">+</span> </span>
+<span id="cb7-28"><a href=""></a>  <span class="fu">theme</span>(<span class="at">strip.text =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">16</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
 <section id="variability-spread" class="slide level2">
 <h2>Variability (“spread”)</h2>
@@ -556,30 +603,30 @@
 <div class="columns">
 <div class="column" style="width:50%;">
 <div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href=""></a>days_to_ship</span>
-<span id="cb7-2"><a href=""></a><span class="co"># A tibble: 12 × 3</span></span>
-<span id="cb7-3"><a href=""></a>   order warehouseA warehouseB</span>
-<span id="cb7-4"><a href=""></a>   <span class="sc">&lt;</span>int<span class="sc">&gt;</span>      <span class="er">&lt;</span>dbl<span class="sc">&gt;</span>      <span class="er">&lt;</span>dbl<span class="sc">&gt;</span></span>
-<span id="cb7-5"><a href=""></a> <span class="dv">1</span>     <span class="dv">1</span>          <span class="dv">3</span>          <span class="dv">1</span></span>
-<span id="cb7-6"><a href=""></a> <span class="dv">2</span>     <span class="dv">2</span>          <span class="dv">3</span>          <span class="dv">1</span></span>
-<span id="cb7-7"><a href=""></a> <span class="dv">3</span>     <span class="dv">3</span>          <span class="dv">3</span>          <span class="dv">1</span></span>
-<span id="cb7-8"><a href=""></a> <span class="dv">4</span>     <span class="dv">4</span>          <span class="dv">4</span>          <span class="dv">3</span></span>
-<span id="cb7-9"><a href=""></a> <span class="dv">5</span>     <span class="dv">5</span>          <span class="dv">4</span>          <span class="dv">3</span></span>
-<span id="cb7-10"><a href=""></a> <span class="dv">6</span>     <span class="dv">6</span>          <span class="dv">4</span>          <span class="dv">4</span></span>
-<span id="cb7-11"><a href=""></a> <span class="dv">7</span>     <span class="dv">7</span>          <span class="dv">5</span>          <span class="dv">5</span></span>
-<span id="cb7-12"><a href=""></a> <span class="dv">8</span>     <span class="dv">8</span>          <span class="dv">5</span>          <span class="dv">5</span></span>
-<span id="cb7-13"><a href=""></a> <span class="dv">9</span>     <span class="dv">9</span>          <span class="dv">5</span>          <span class="dv">5</span></span>
-<span id="cb7-14"><a href=""></a><span class="dv">10</span>    <span class="dv">10</span>          <span class="dv">5</span>          <span class="dv">6</span></span>
-<span id="cb7-15"><a href=""></a><span class="dv">11</span>    <span class="dv">11</span>          <span class="dv">5</span>          <span class="dv">7</span></span>
-<span id="cb7-16"><a href=""></a><span class="dv">12</span>    <span class="dv">12</span>          <span class="dv">5</span>         <span class="dv">10</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href=""></a>days_to_ship</span>
+<span id="cb8-2"><a href=""></a><span class="co"># A tibble: 12 × 3</span></span>
+<span id="cb8-3"><a href=""></a>   order warehouseA warehouseB</span>
+<span id="cb8-4"><a href=""></a>   <span class="sc">&lt;</span>int<span class="sc">&gt;</span>      <span class="er">&lt;</span>dbl<span class="sc">&gt;</span>      <span class="er">&lt;</span>dbl<span class="sc">&gt;</span></span>
+<span id="cb8-5"><a href=""></a> <span class="dv">1</span>     <span class="dv">1</span>          <span class="dv">3</span>          <span class="dv">1</span></span>
+<span id="cb8-6"><a href=""></a> <span class="dv">2</span>     <span class="dv">2</span>          <span class="dv">3</span>          <span class="dv">1</span></span>
+<span id="cb8-7"><a href=""></a> <span class="dv">3</span>     <span class="dv">3</span>          <span class="dv">3</span>          <span class="dv">1</span></span>
+<span id="cb8-8"><a href=""></a> <span class="dv">4</span>     <span class="dv">4</span>          <span class="dv">4</span>          <span class="dv">3</span></span>
+<span id="cb8-9"><a href=""></a> <span class="dv">5</span>     <span class="dv">5</span>          <span class="dv">4</span>          <span class="dv">3</span></span>
+<span id="cb8-10"><a href=""></a> <span class="dv">6</span>     <span class="dv">6</span>          <span class="dv">4</span>          <span class="dv">4</span></span>
+<span id="cb8-11"><a href=""></a> <span class="dv">7</span>     <span class="dv">7</span>          <span class="dv">5</span>          <span class="dv">5</span></span>
+<span id="cb8-12"><a href=""></a> <span class="dv">8</span>     <span class="dv">8</span>          <span class="dv">5</span>          <span class="dv">5</span></span>
+<span id="cb8-13"><a href=""></a> <span class="dv">9</span>     <span class="dv">9</span>          <span class="dv">5</span>          <span class="dv">5</span></span>
+<span id="cb8-14"><a href=""></a><span class="dv">10</span>    <span class="dv">10</span>          <span class="dv">5</span>          <span class="dv">6</span></span>
+<span id="cb8-15"><a href=""></a><span class="dv">11</span>    <span class="dv">11</span>          <span class="dv">5</span>          <span class="dv">7</span></span>
+<span id="cb8-16"><a href=""></a><span class="dv">12</span>    <span class="dv">12</span>          <span class="dv">5</span>         <span class="dv">10</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </div><div class="column" style="width:50%;">
-<div class="sourceCode" id="cb8" data-code-line-numbers="5-6"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href=""></a>days_to_ship <span class="sc">|&gt;</span> </span>
-<span id="cb8-2"><a href=""></a>  <span class="fu">pivot_longer</span>(<span class="sc">-</span>order, <span class="at">names_to =</span> <span class="st">"warehouse"</span>, <span class="at">values_to =</span> <span class="st">"days"</span>) <span class="sc">|&gt;</span> </span>
-<span id="cb8-3"><a href=""></a>  <span class="fu">group_by</span>(warehouse) <span class="sc">|&gt;</span></span>
-<span id="cb8-4"><a href=""></a>  <span class="fu">summarise</span>(</span>
-<span id="cb8-5"><a href=""></a>    <span class="at">mean =</span> <span class="fu">mean</span>(days),</span>
-<span id="cb8-6"><a href=""></a>    <span class="at">median =</span> <span class="fu">median</span>(days))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb9" data-code-line-numbers="5-6"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href=""></a>days_to_ship <span class="sc">|&gt;</span> </span>
+<span id="cb9-2"><a href=""></a>  <span class="fu">pivot_longer</span>(<span class="sc">-</span>order, <span class="at">names_to =</span> <span class="st">"warehouse"</span>, <span class="at">values_to =</span> <span class="st">"days"</span>) <span class="sc">|&gt;</span> </span>
+<span id="cb9-3"><a href=""></a>  <span class="fu">group_by</span>(warehouse) <span class="sc">|&gt;</span></span>
+<span id="cb9-4"><a href=""></a>  <span class="fu">summarise</span>(</span>
+<span id="cb9-5"><a href=""></a>    <span class="at">mean =</span> <span class="fu">mean</span>(days),</span>
+<span id="cb9-6"><a href=""></a>    <span class="at">median =</span> <span class="fu">median</span>(days))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell" data-layout-align="center">
 <pre><code># A tibble: 2 × 3
   warehouse   mean median
@@ -597,32 +644,32 @@
 <li><p><strong>variability</strong> reveals difference in days to ship</p></li>
 </ul><div class="column" style="width:50%;">
 <div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href=""></a>days_to_ship</span>
-<span id="cb10-2"><a href=""></a><span class="co"># A tibble: 12 × 3</span></span>
-<span id="cb10-3"><a href=""></a>   order warehouseA warehouseB</span>
-<span id="cb10-4"><a href=""></a>   <span class="sc">&lt;</span>int<span class="sc">&gt;</span>      <span class="er">&lt;</span>dbl<span class="sc">&gt;</span>      <span class="er">&lt;</span>dbl<span class="sc">&gt;</span></span>
-<span id="cb10-5"><a href=""></a> <span class="dv">1</span>     <span class="dv">1</span>          <span class="dv">3</span>          <span class="dv">1</span></span>
-<span id="cb10-6"><a href=""></a> <span class="dv">2</span>     <span class="dv">2</span>          <span class="dv">3</span>          <span class="dv">1</span></span>
-<span id="cb10-7"><a href=""></a> <span class="dv">3</span>     <span class="dv">3</span>          <span class="dv">3</span>          <span class="dv">1</span></span>
-<span id="cb10-8"><a href=""></a> <span class="dv">4</span>     <span class="dv">4</span>          <span class="dv">4</span>          <span class="dv">3</span></span>
-<span id="cb10-9"><a href=""></a> <span class="dv">5</span>     <span class="dv">5</span>          <span class="dv">4</span>          <span class="dv">3</span></span>
-<span id="cb10-10"><a href=""></a> <span class="dv">6</span>     <span class="dv">6</span>          <span class="dv">4</span>          <span class="dv">4</span></span>
-<span id="cb10-11"><a href=""></a> <span class="dv">7</span>     <span class="dv">7</span>          <span class="dv">5</span>          <span class="dv">5</span></span>
-<span id="cb10-12"><a href=""></a> <span class="dv">8</span>     <span class="dv">8</span>          <span class="dv">5</span>          <span class="dv">5</span></span>
-<span id="cb10-13"><a href=""></a> <span class="dv">9</span>     <span class="dv">9</span>          <span class="dv">5</span>          <span class="dv">5</span></span>
-<span id="cb10-14"><a href=""></a><span class="dv">10</span>    <span class="dv">10</span>          <span class="dv">5</span>          <span class="dv">6</span></span>
-<span id="cb10-15"><a href=""></a><span class="dv">11</span>    <span class="dv">11</span>          <span class="dv">5</span>          <span class="dv">7</span></span>
-<span id="cb10-16"><a href=""></a><span class="dv">12</span>    <span class="dv">12</span>          <span class="dv">5</span>         <span class="dv">10</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href=""></a>days_to_ship</span>
+<span id="cb11-2"><a href=""></a><span class="co"># A tibble: 12 × 3</span></span>
+<span id="cb11-3"><a href=""></a>   order warehouseA warehouseB</span>
+<span id="cb11-4"><a href=""></a>   <span class="sc">&lt;</span>int<span class="sc">&gt;</span>      <span class="er">&lt;</span>dbl<span class="sc">&gt;</span>      <span class="er">&lt;</span>dbl<span class="sc">&gt;</span></span>
+<span id="cb11-5"><a href=""></a> <span class="dv">1</span>     <span class="dv">1</span>          <span class="dv">3</span>          <span class="dv">1</span></span>
+<span id="cb11-6"><a href=""></a> <span class="dv">2</span>     <span class="dv">2</span>          <span class="dv">3</span>          <span class="dv">1</span></span>
+<span id="cb11-7"><a href=""></a> <span class="dv">3</span>     <span class="dv">3</span>          <span class="dv">3</span>          <span class="dv">1</span></span>
+<span id="cb11-8"><a href=""></a> <span class="dv">4</span>     <span class="dv">4</span>          <span class="dv">4</span>          <span class="dv">3</span></span>
+<span id="cb11-9"><a href=""></a> <span class="dv">5</span>     <span class="dv">5</span>          <span class="dv">4</span>          <span class="dv">3</span></span>
+<span id="cb11-10"><a href=""></a> <span class="dv">6</span>     <span class="dv">6</span>          <span class="dv">4</span>          <span class="dv">4</span></span>
+<span id="cb11-11"><a href=""></a> <span class="dv">7</span>     <span class="dv">7</span>          <span class="dv">5</span>          <span class="dv">5</span></span>
+<span id="cb11-12"><a href=""></a> <span class="dv">8</span>     <span class="dv">8</span>          <span class="dv">5</span>          <span class="dv">5</span></span>
+<span id="cb11-13"><a href=""></a> <span class="dv">9</span>     <span class="dv">9</span>          <span class="dv">5</span>          <span class="dv">5</span></span>
+<span id="cb11-14"><a href=""></a><span class="dv">10</span>    <span class="dv">10</span>          <span class="dv">5</span>          <span class="dv">6</span></span>
+<span id="cb11-15"><a href=""></a><span class="dv">11</span>    <span class="dv">11</span>          <span class="dv">5</span>          <span class="dv">7</span></span>
+<span id="cb11-16"><a href=""></a><span class="dv">12</span>    <span class="dv">12</span>          <span class="dv">5</span>         <span class="dv">10</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </div><div class="column" style="width:50%;">
-<div class="sourceCode" id="cb11" data-code-line-numbers="5-8"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href=""></a>days_to_ship <span class="sc">|&gt;</span> </span>
-<span id="cb11-2"><a href=""></a>  <span class="fu">pivot_longer</span>(<span class="sc">-</span>order, <span class="at">names_to =</span> <span class="st">"warehouse"</span>, <span class="at">values_to =</span> <span class="st">"days"</span>) <span class="sc">|&gt;</span> </span>
-<span id="cb11-3"><a href=""></a>  <span class="fu">group_by</span>(warehouse) <span class="sc">|&gt;</span></span>
-<span id="cb11-4"><a href=""></a>  <span class="fu">summarise</span>(</span>
-<span id="cb11-5"><a href=""></a>    <span class="at">mean =</span> <span class="fu">mean</span>(days),</span>
-<span id="cb11-6"><a href=""></a>    <span class="at">sd =</span> <span class="fu">sd</span>(days),</span>
-<span id="cb11-7"><a href=""></a>    <span class="at">iqr =</span> <span class="fu">IQR</span>(days),</span>
-<span id="cb11-8"><a href=""></a>    <span class="at">range =</span> <span class="fu">max</span>(days) <span class="sc">-</span> <span class="fu">min</span>(days))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb12" data-code-line-numbers="5-8"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href=""></a>days_to_ship <span class="sc">|&gt;</span> </span>
+<span id="cb12-2"><a href=""></a>  <span class="fu">pivot_longer</span>(<span class="sc">-</span>order, <span class="at">names_to =</span> <span class="st">"warehouse"</span>, <span class="at">values_to =</span> <span class="st">"days"</span>) <span class="sc">|&gt;</span> </span>
+<span id="cb12-3"><a href=""></a>  <span class="fu">group_by</span>(warehouse) <span class="sc">|&gt;</span></span>
+<span id="cb12-4"><a href=""></a>  <span class="fu">summarise</span>(</span>
+<span id="cb12-5"><a href=""></a>    <span class="at">mean =</span> <span class="fu">mean</span>(days),</span>
+<span id="cb12-6"><a href=""></a>    <span class="at">sd =</span> <span class="fu">sd</span>(days),</span>
+<span id="cb12-7"><a href=""></a>    <span class="at">iqr =</span> <span class="fu">IQR</span>(days),</span>
+<span id="cb12-8"><a href=""></a>    <span class="at">range =</span> <span class="fu">max</span>(days) <span class="sc">-</span> <span class="fu">min</span>(days))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell" data-layout-align="center">
 <pre><code># A tibble: 2 × 5
   warehouse   mean    sd   iqr range
@@ -636,9 +683,29 @@
 <h2>Variability (“spread”)</h2>
 <p><br></p>
 
-<img data-src="plot/days_to_ship.png" class="quarto-figure quarto-figure-center r-stretch" width="1800"></section>
-<section id="outliers" class="slide level2">
-<h2>Outliers</h2>
+<img data-src="plot/days_to_ship.png" class="quarto-figure quarto-figure-center r-stretch"></section>
+<section id="variance-and-standard-deviation" class="slide level2">
+<h2>Variance and standard deviation</h2>
+<div class="columns">
+<div class="column" style="width:60%;">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="plot/variance_standard_deviation.png" class="quarto-figure quarto-figure-center" style="width:80.0%;height:80.0%"></p>
+</figure>
+</div>
+</div><div class="column" style="width:40%;">
+<ul>
+<li><ul>
+<li>Low variance: tightly clustered around the mean</li>
+<li>Medium variance: moderately spread</li>
+<li>High variance: widely spread</li>
+<li>these plots tell us whether values cluster tightly around the mean (predictable) or spread widely (uncertain).</li>
+</ul></li>
+</ul>
+</div></div>
+</section>
+<section id="box-plots-quartiles-and-median" class="slide level2">
+<h2>Box plots, quartiles, and median</h2>
 <p><strong>Mean</strong> and <strong>standard deviation</strong> are sensitive to outliers</p>
 <ul>
 <li><p><strong>Outliers</strong>: <span class="math inline">\(Q_1 - 1.5 IQR\)</span> * <span class="math inline">\(Q_3 + 1.5 IQR\)</span></p></li>
@@ -648,7 +715,7 @@
 <div class="columns">
 <div class="column" style="width:50%;">
 <div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href=""></a>data1 <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">3</span>,<span class="dv">3</span>,<span class="dv">4</span>,<span class="dv">5</span>,<span class="dv">5</span>,<span class="dv">6</span>,<span class="dv">6</span>,<span class="dv">7</span>,<span class="dv">8</span>,<span class="dv">9</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href=""></a>data1 <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">3</span>,<span class="dv">3</span>,<span class="dv">4</span>,<span class="dv">5</span>,<span class="dv">5</span>,<span class="dv">6</span>,<span class="dv">6</span>,<span class="dv">7</span>,<span class="dv">8</span>,<span class="dv">9</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <ul>
 <li><p>Mean: 5.6</p></li>
@@ -658,7 +725,7 @@
 </ul>
 </div><div class="column" style="width:50%;">
 <div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href=""></a>data2 <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">3</span>,<span class="dv">3</span>,<span class="dv">4</span>,<span class="dv">5</span>,<span class="dv">5</span>,<span class="dv">6</span>,<span class="dv">6</span>,<span class="dv">7</span>,<span class="dv">8</span>,<span class="dv">20</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href=""></a>data2 <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">3</span>,<span class="dv">3</span>,<span class="dv">4</span>,<span class="dv">5</span>,<span class="dv">5</span>,<span class="dv">6</span>,<span class="dv">6</span>,<span class="dv">7</span>,<span class="dv">8</span>,<span class="dv">20</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <ul>
 <li><p>Mean: 6.7</p></li>
@@ -669,8 +736,8 @@
 </ul>
 </div></div>
 </section>
-<section id="outliers-1" class="slide level2">
-<h2>Outliers</h2>
+<section id="box-plots-quartiles-and-median-1" class="slide level2">
+<h2>Box plots, quartiles, and median</h2>
 <p><br></p>
 <div class="quarto-figure quarto-figure-center">
 <figure>
@@ -681,7 +748,7 @@
 <p>Source: <a href="https://discovery.cs.illinois.edu/learn/Exploratory-Data-Analysis/Quartiles-and-Box-Plots/">Data Science Discovery</a></p>
 </div>
 </section>
-<section id="outliers-2" class="slide level2">
+<section id="outliers" class="slide level2">
 <h2>Outliers</h2>
 <p>Robust statistics for continuous data (less sensitive to outliers)</p>
 <ul>
@@ -692,30 +759,30 @@
 <section id="visualizing-data-helps-us-think" class="slide level2">
 <h2>“Visualizing data helps us think”</h2>
 <div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href=""></a>anscombe <span class="sc">|&gt;</span> <span class="fu">tibble</span>()</span>
-<span id="cb15-2"><a href=""></a><span class="co"># A tibble: 11 × 8</span></span>
-<span id="cb15-3"><a href=""></a>      x1    x2    x3    x4    y1    y2    y3    y4</span>
-<span id="cb15-4"><a href=""></a>   <span class="sc">&lt;</span>dbl<span class="sc">&gt;</span> <span class="er">&lt;</span>dbl<span class="sc">&gt;</span> <span class="er">&lt;</span>dbl<span class="sc">&gt;</span> <span class="er">&lt;</span>dbl<span class="sc">&gt;</span> <span class="er">&lt;</span>dbl<span class="sc">&gt;</span> <span class="er">&lt;</span>dbl<span class="sc">&gt;</span> <span class="er">&lt;</span>dbl<span class="sc">&gt;</span> <span class="er">&lt;</span>dbl<span class="sc">&gt;</span></span>
-<span id="cb15-5"><a href=""></a> <span class="dv">1</span>    <span class="dv">10</span>    <span class="dv">10</span>    <span class="dv">10</span>     <span class="dv">8</span>  <span class="fl">8.04</span>  <span class="fl">9.14</span>  <span class="fl">7.46</span>  <span class="fl">6.58</span></span>
-<span id="cb15-6"><a href=""></a> <span class="dv">2</span>     <span class="dv">8</span>     <span class="dv">8</span>     <span class="dv">8</span>     <span class="dv">8</span>  <span class="fl">6.95</span>  <span class="fl">8.14</span>  <span class="fl">6.77</span>  <span class="fl">5.76</span></span>
-<span id="cb15-7"><a href=""></a> <span class="dv">3</span>    <span class="dv">13</span>    <span class="dv">13</span>    <span class="dv">13</span>     <span class="dv">8</span>  <span class="fl">7.58</span>  <span class="fl">8.74</span> <span class="fl">12.7</span>   <span class="fl">7.71</span></span>
-<span id="cb15-8"><a href=""></a> <span class="dv">4</span>     <span class="dv">9</span>     <span class="dv">9</span>     <span class="dv">9</span>     <span class="dv">8</span>  <span class="fl">8.81</span>  <span class="fl">8.77</span>  <span class="fl">7.11</span>  <span class="fl">8.84</span></span>
-<span id="cb15-9"><a href=""></a> <span class="dv">5</span>    <span class="dv">11</span>    <span class="dv">11</span>    <span class="dv">11</span>     <span class="dv">8</span>  <span class="fl">8.33</span>  <span class="fl">9.26</span>  <span class="fl">7.81</span>  <span class="fl">8.47</span></span>
-<span id="cb15-10"><a href=""></a> <span class="dv">6</span>    <span class="dv">14</span>    <span class="dv">14</span>    <span class="dv">14</span>     <span class="dv">8</span>  <span class="fl">9.96</span>  <span class="fl">8.1</span>   <span class="fl">8.84</span>  <span class="fl">7.04</span></span>
-<span id="cb15-11"><a href=""></a> <span class="dv">7</span>     <span class="dv">6</span>     <span class="dv">6</span>     <span class="dv">6</span>     <span class="dv">8</span>  <span class="fl">7.24</span>  <span class="fl">6.13</span>  <span class="fl">6.08</span>  <span class="fl">5.25</span></span>
-<span id="cb15-12"><a href=""></a> <span class="dv">8</span>     <span class="dv">4</span>     <span class="dv">4</span>     <span class="dv">4</span>    <span class="dv">19</span>  <span class="fl">4.26</span>  <span class="fl">3.1</span>   <span class="fl">5.39</span> <span class="fl">12.5</span> </span>
-<span id="cb15-13"><a href=""></a> <span class="dv">9</span>    <span class="dv">12</span>    <span class="dv">12</span>    <span class="dv">12</span>     <span class="dv">8</span> <span class="fl">10.8</span>   <span class="fl">9.13</span>  <span class="fl">8.15</span>  <span class="fl">5.56</span></span>
-<span id="cb15-14"><a href=""></a><span class="dv">10</span>     <span class="dv">7</span>     <span class="dv">7</span>     <span class="dv">7</span>     <span class="dv">8</span>  <span class="fl">4.82</span>  <span class="fl">7.26</span>  <span class="fl">6.42</span>  <span class="fl">7.91</span></span>
-<span id="cb15-15"><a href=""></a><span class="dv">11</span>     <span class="dv">5</span>     <span class="dv">5</span>     <span class="dv">5</span>     <span class="dv">8</span>  <span class="fl">5.68</span>  <span class="fl">4.74</span>  <span class="fl">5.73</span>  <span class="fl">6.89</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href=""></a>anscombe <span class="sc">|&gt;</span> <span class="fu">tibble</span>()</span>
+<span id="cb16-2"><a href=""></a><span class="co"># A tibble: 11 × 8</span></span>
+<span id="cb16-3"><a href=""></a>      x1    x2    x3    x4    y1    y2    y3    y4</span>
+<span id="cb16-4"><a href=""></a>   <span class="sc">&lt;</span>dbl<span class="sc">&gt;</span> <span class="er">&lt;</span>dbl<span class="sc">&gt;</span> <span class="er">&lt;</span>dbl<span class="sc">&gt;</span> <span class="er">&lt;</span>dbl<span class="sc">&gt;</span> <span class="er">&lt;</span>dbl<span class="sc">&gt;</span> <span class="er">&lt;</span>dbl<span class="sc">&gt;</span> <span class="er">&lt;</span>dbl<span class="sc">&gt;</span> <span class="er">&lt;</span>dbl<span class="sc">&gt;</span></span>
+<span id="cb16-5"><a href=""></a> <span class="dv">1</span>    <span class="dv">10</span>    <span class="dv">10</span>    <span class="dv">10</span>     <span class="dv">8</span>  <span class="fl">8.04</span>  <span class="fl">9.14</span>  <span class="fl">7.46</span>  <span class="fl">6.58</span></span>
+<span id="cb16-6"><a href=""></a> <span class="dv">2</span>     <span class="dv">8</span>     <span class="dv">8</span>     <span class="dv">8</span>     <span class="dv">8</span>  <span class="fl">6.95</span>  <span class="fl">8.14</span>  <span class="fl">6.77</span>  <span class="fl">5.76</span></span>
+<span id="cb16-7"><a href=""></a> <span class="dv">3</span>    <span class="dv">13</span>    <span class="dv">13</span>    <span class="dv">13</span>     <span class="dv">8</span>  <span class="fl">7.58</span>  <span class="fl">8.74</span> <span class="fl">12.7</span>   <span class="fl">7.71</span></span>
+<span id="cb16-8"><a href=""></a> <span class="dv">4</span>     <span class="dv">9</span>     <span class="dv">9</span>     <span class="dv">9</span>     <span class="dv">8</span>  <span class="fl">8.81</span>  <span class="fl">8.77</span>  <span class="fl">7.11</span>  <span class="fl">8.84</span></span>
+<span id="cb16-9"><a href=""></a> <span class="dv">5</span>    <span class="dv">11</span>    <span class="dv">11</span>    <span class="dv">11</span>     <span class="dv">8</span>  <span class="fl">8.33</span>  <span class="fl">9.26</span>  <span class="fl">7.81</span>  <span class="fl">8.47</span></span>
+<span id="cb16-10"><a href=""></a> <span class="dv">6</span>    <span class="dv">14</span>    <span class="dv">14</span>    <span class="dv">14</span>     <span class="dv">8</span>  <span class="fl">9.96</span>  <span class="fl">8.1</span>   <span class="fl">8.84</span>  <span class="fl">7.04</span></span>
+<span id="cb16-11"><a href=""></a> <span class="dv">7</span>     <span class="dv">6</span>     <span class="dv">6</span>     <span class="dv">6</span>     <span class="dv">8</span>  <span class="fl">7.24</span>  <span class="fl">6.13</span>  <span class="fl">6.08</span>  <span class="fl">5.25</span></span>
+<span id="cb16-12"><a href=""></a> <span class="dv">8</span>     <span class="dv">4</span>     <span class="dv">4</span>     <span class="dv">4</span>    <span class="dv">19</span>  <span class="fl">4.26</span>  <span class="fl">3.1</span>   <span class="fl">5.39</span> <span class="fl">12.5</span> </span>
+<span id="cb16-13"><a href=""></a> <span class="dv">9</span>    <span class="dv">12</span>    <span class="dv">12</span>    <span class="dv">12</span>     <span class="dv">8</span> <span class="fl">10.8</span>   <span class="fl">9.13</span>  <span class="fl">8.15</span>  <span class="fl">5.56</span></span>
+<span id="cb16-14"><a href=""></a><span class="dv">10</span>     <span class="dv">7</span>     <span class="dv">7</span>     <span class="dv">7</span>     <span class="dv">8</span>  <span class="fl">4.82</span>  <span class="fl">7.26</span>  <span class="fl">6.42</span>  <span class="fl">7.91</span></span>
+<span id="cb16-15"><a href=""></a><span class="dv">11</span>     <span class="dv">5</span>     <span class="dv">5</span>     <span class="dv">5</span>     <span class="dv">8</span>  <span class="fl">5.68</span>  <span class="fl">4.74</span>  <span class="fl">5.73</span>  <span class="fl">6.89</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p><br></p>
 <div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href=""></a>anscombe_summary_stats</span>
-<span id="cb16-2"><a href=""></a><span class="co"># A tibble: 2 × 9</span></span>
-<span id="cb16-3"><a href=""></a>  statistic    x1    x2    x3    x4    y1    y2    y3    y4</span>
-<span id="cb16-4"><a href=""></a>  <span class="sc">&lt;</span>chr<span class="sc">&gt;</span>     <span class="er">&lt;</span>dbl<span class="sc">&gt;</span> <span class="er">&lt;</span>dbl<span class="sc">&gt;</span> <span class="er">&lt;</span>dbl<span class="sc">&gt;</span> <span class="er">&lt;</span>dbl<span class="sc">&gt;</span> <span class="er">&lt;</span>dbl<span class="sc">&gt;</span> <span class="er">&lt;</span>dbl<span class="sc">&gt;</span> <span class="er">&lt;</span>dbl<span class="sc">&gt;</span> <span class="er">&lt;</span>dbl<span class="sc">&gt;</span></span>
-<span id="cb16-5"><a href=""></a><span class="dv">1</span> mean       <span class="dv">9</span>     <span class="dv">9</span>     <span class="dv">9</span>     <span class="dv">9</span>     <span class="fl">7.50</span>  <span class="fl">7.50</span>  <span class="fl">7.5</span>   <span class="fl">7.50</span></span>
-<span id="cb16-6"><a href=""></a><span class="dv">2</span> sd         <span class="fl">3.32</span>  <span class="fl">3.32</span>  <span class="fl">3.32</span>  <span class="fl">3.32</span>  <span class="fl">2.03</span>  <span class="fl">2.03</span>  <span class="fl">2.03</span>  <span class="fl">2.03</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href=""></a>anscombe_summary_stats</span>
+<span id="cb17-2"><a href=""></a><span class="co"># A tibble: 2 × 9</span></span>
+<span id="cb17-3"><a href=""></a>  statistic    x1    x2    x3    x4    y1    y2    y3    y4</span>
+<span id="cb17-4"><a href=""></a>  <span class="sc">&lt;</span>chr<span class="sc">&gt;</span>     <span class="er">&lt;</span>dbl<span class="sc">&gt;</span> <span class="er">&lt;</span>dbl<span class="sc">&gt;</span> <span class="er">&lt;</span>dbl<span class="sc">&gt;</span> <span class="er">&lt;</span>dbl<span class="sc">&gt;</span> <span class="er">&lt;</span>dbl<span class="sc">&gt;</span> <span class="er">&lt;</span>dbl<span class="sc">&gt;</span> <span class="er">&lt;</span>dbl<span class="sc">&gt;</span> <span class="er">&lt;</span>dbl<span class="sc">&gt;</span></span>
+<span id="cb17-5"><a href=""></a><span class="dv">1</span> mean       <span class="dv">9</span>     <span class="dv">9</span>     <span class="dv">9</span>     <span class="dv">9</span>     <span class="fl">7.50</span>  <span class="fl">7.50</span>  <span class="fl">7.5</span>   <span class="fl">7.50</span></span>
+<span id="cb17-6"><a href=""></a><span class="dv">2</span> sd         <span class="fl">3.32</span>  <span class="fl">3.32</span>  <span class="fl">3.32</span>  <span class="fl">3.32</span>  <span class="fl">2.03</span>  <span class="fl">2.03</span>  <span class="fl">2.03</span>  <span class="fl">2.03</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 <section id="anscombes-quartet" class="slide level2">
@@ -724,7 +791,7 @@
 <li>Stephen Few (2009, p6)</li>
 </ul>
 
-<img data-src="plot/p_corr_anscombe.png" class="quarto-figure quarto-figure-center r-stretch" width="1500"></section>
+<img data-src="plot/p_corr_anscombe.png" class="quarto-figure quarto-figure-center r-stretch"></section>
 <section id="data-types-determines-how-to-summarize-it" class="slide level2">
 <h2>Data types determines how to summarize it</h2>
 <p><br></p>
@@ -778,6 +845,11 @@
 </tr>
 </tbody>
 </table>
+</section></section>
+<section>
+<section id="lesson-3-considering-categorical-data" class="title-slide slide level1 center">
+<h1>Lesson 3: Considering categorical data</h1>
+
 </section>
 <section id="summarizing-nominal-data" class="slide level2">
 <h2>Summarizing Nominal data</h2>
@@ -785,33 +857,33 @@
 <div class="column" style="width:50%;">
 <p>Summarize with counts/ percentages</p>
 <div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href=""></a>wildlife_impacts <span class="sc">|&gt;</span> </span>
-<span id="cb17-2"><a href=""></a>  <span class="fu">count</span>(operator, <span class="at">sort =</span> <span class="cn">TRUE</span>) <span class="sc">|&gt;</span> </span>
-<span id="cb17-3"><a href=""></a>  <span class="fu">mutate</span>(<span class="at">percent =</span> n <span class="sc">/</span> <span class="fu">sum</span>(n))</span>
-<span id="cb17-4"><a href=""></a><span class="co"># A tibble: 4 × 3</span></span>
-<span id="cb17-5"><a href=""></a>  operator               n percent</span>
-<span id="cb17-6"><a href=""></a>  <span class="sc">&lt;</span>chr<span class="sc">&gt;</span>              <span class="er">&lt;</span>int<span class="sc">&gt;</span>   <span class="er">&lt;</span>dbl<span class="sc">&gt;</span></span>
-<span id="cb17-7"><a href=""></a><span class="dv">1</span> SOUTHWEST AIRLINES <span class="dv">17970</span>   <span class="fl">0.315</span></span>
-<span id="cb17-8"><a href=""></a><span class="dv">2</span> UNITED AIRLINES    <span class="dv">15116</span>   <span class="fl">0.265</span></span>
-<span id="cb17-9"><a href=""></a><span class="dv">3</span> AMERICAN AIRLINES  <span class="dv">14887</span>   <span class="fl">0.261</span></span>
-<span id="cb17-10"><a href=""></a><span class="dv">4</span> DELTA AIR LINES     <span class="dv">9005</span>   <span class="fl">0.158</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href=""></a>wildlife_impacts <span class="sc">|&gt;</span> </span>
+<span id="cb18-2"><a href=""></a>  <span class="fu">count</span>(operator, <span class="at">sort =</span> <span class="cn">TRUE</span>) <span class="sc">|&gt;</span> </span>
+<span id="cb18-3"><a href=""></a>  <span class="fu">mutate</span>(<span class="at">percent =</span> n <span class="sc">/</span> <span class="fu">sum</span>(n))</span>
+<span id="cb18-4"><a href=""></a><span class="co"># A tibble: 4 × 3</span></span>
+<span id="cb18-5"><a href=""></a>  operator               n percent</span>
+<span id="cb18-6"><a href=""></a>  <span class="sc">&lt;</span>chr<span class="sc">&gt;</span>              <span class="er">&lt;</span>int<span class="sc">&gt;</span>   <span class="er">&lt;</span>dbl<span class="sc">&gt;</span></span>
+<span id="cb18-7"><a href=""></a><span class="dv">1</span> SOUTHWEST AIRLINES <span class="dv">17970</span>   <span class="fl">0.315</span></span>
+<span id="cb18-8"><a href=""></a><span class="dv">2</span> UNITED AIRLINES    <span class="dv">15116</span>   <span class="fl">0.265</span></span>
+<span id="cb18-9"><a href=""></a><span class="dv">3</span> AMERICAN AIRLINES  <span class="dv">14887</span>   <span class="fl">0.261</span></span>
+<span id="cb18-10"><a href=""></a><span class="dv">4</span> DELTA AIR LINES     <span class="dv">9005</span>   <span class="fl">0.158</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </div><div class="column" style="width:50%;">
 <p>Visualize with bars</p>
 <div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href=""></a>wildlife_impacts <span class="sc">|&gt;</span> </span>
-<span id="cb18-2"><a href=""></a>  <span class="fu">count</span>(operator, <span class="at">sort =</span> <span class="cn">TRUE</span>) <span class="sc">|&gt;</span> </span>
-<span id="cb18-3"><a href=""></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> <span class="fu">fct_reorder</span>(operator, n), <span class="at">y =</span> n)) <span class="sc">+</span></span>
-<span id="cb18-4"><a href=""></a>  <span class="fu">geom_col</span>() <span class="sc">+</span></span>
-<span id="cb18-5"><a href=""></a>  <span class="fu">coord_flip</span>() <span class="sc">+</span></span>
-<span id="cb18-6"><a href=""></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"Operator"</span>, <span class="at">y =</span> <span class="st">"Count"</span>) <span class="sc">+</span></span>
-<span id="cb18-7"><a href=""></a>  <span class="fu">theme_minimal</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href=""></a>wildlife_impacts <span class="sc">|&gt;</span> </span>
+<span id="cb19-2"><a href=""></a>  <span class="fu">count</span>(operator, <span class="at">sort =</span> <span class="cn">TRUE</span>) <span class="sc">|&gt;</span> </span>
+<span id="cb19-3"><a href=""></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> <span class="fu">fct_reorder</span>(operator, n), <span class="at">y =</span> n)) <span class="sc">+</span></span>
+<span id="cb19-4"><a href=""></a>  <span class="fu">geom_col</span>() <span class="sc">+</span></span>
+<span id="cb19-5"><a href=""></a>  <span class="fu">coord_flip</span>() <span class="sc">+</span></span>
+<span id="cb19-6"><a href=""></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"Operator"</span>, <span class="at">y =</span> <span class="st">"Count"</span>) <span class="sc">+</span></span>
+<span id="cb19-7"><a href=""></a>  <span class="fu">theme_minimal</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="cell" data-layout-align="center">
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure>
-<p><img data-src="plot/nominal_barplot.jpeg" class="quarto-figure quarto-figure-center" width="750"></p>
+<p><img data-src="plot/nominal_barplot.jpeg" class="quarto-figure quarto-figure-center"></p>
 </figure>
 </div>
 </div>
@@ -824,39 +896,39 @@
 <div class="column" style="width:50%;">
 <p>Summarize: counts/ percentages</p>
 <div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href=""></a>wildlife_impacts <span class="sc">|&gt;</span> </span>
-<span id="cb19-2"><a href=""></a>  <span class="fu">count</span>(incident_month, <span class="at">sort =</span> <span class="cn">TRUE</span>) <span class="sc">|&gt;</span> </span>
-<span id="cb19-3"><a href=""></a>  <span class="fu">mutate</span>(<span class="at">percent =</span> n <span class="sc">/</span> <span class="fu">sum</span>(n))</span>
-<span id="cb19-4"><a href=""></a><span class="co"># A tibble: 12 × 3</span></span>
-<span id="cb19-5"><a href=""></a>   incident_month     n percent</span>
-<span id="cb19-6"><a href=""></a>            <span class="sc">&lt;</span>dbl<span class="sc">&gt;</span> <span class="er">&lt;</span>int<span class="sc">&gt;</span>   <span class="er">&lt;</span>dbl<span class="sc">&gt;</span></span>
-<span id="cb19-7"><a href=""></a> <span class="dv">1</span>              <span class="dv">9</span>  <span class="dv">7980</span>  <span class="fl">0.140</span> </span>
-<span id="cb19-8"><a href=""></a> <span class="dv">2</span>             <span class="dv">10</span>  <span class="dv">7754</span>  <span class="fl">0.136</span> </span>
-<span id="cb19-9"><a href=""></a> <span class="dv">3</span>              <span class="dv">8</span>  <span class="dv">7104</span>  <span class="fl">0.125</span> </span>
-<span id="cb19-10"><a href=""></a> <span class="dv">4</span>              <span class="dv">5</span>  <span class="dv">6161</span>  <span class="fl">0.108</span> </span>
-<span id="cb19-11"><a href=""></a> <span class="dv">5</span>              <span class="dv">7</span>  <span class="dv">6133</span>  <span class="fl">0.108</span> </span>
-<span id="cb19-12"><a href=""></a> <span class="dv">6</span>              <span class="dv">6</span>  <span class="dv">4541</span>  <span class="fl">0.0797</span></span>
-<span id="cb19-13"><a href=""></a> <span class="dv">7</span>              <span class="dv">4</span>  <span class="dv">4490</span>  <span class="fl">0.0788</span></span>
-<span id="cb19-14"><a href=""></a> <span class="dv">8</span>             <span class="dv">11</span>  <span class="dv">4191</span>  <span class="fl">0.0736</span></span>
-<span id="cb19-15"><a href=""></a> <span class="dv">9</span>              <span class="dv">3</span>  <span class="dv">2678</span>  <span class="fl">0.0470</span></span>
-<span id="cb19-16"><a href=""></a><span class="dv">10</span>             <span class="dv">12</span>  <span class="dv">2303</span>  <span class="fl">0.0404</span></span>
-<span id="cb19-17"><a href=""></a><span class="dv">11</span>              <span class="dv">1</span>  <span class="dv">1951</span>  <span class="fl">0.0342</span></span>
-<span id="cb19-18"><a href=""></a><span class="dv">12</span>              <span class="dv">2</span>  <span class="dv">1692</span>  <span class="fl">0.0297</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href=""></a>wildlife_impacts <span class="sc">|&gt;</span> </span>
+<span id="cb20-2"><a href=""></a>  <span class="fu">count</span>(incident_month, <span class="at">sort =</span> <span class="cn">TRUE</span>) <span class="sc">|&gt;</span> </span>
+<span id="cb20-3"><a href=""></a>  <span class="fu">mutate</span>(<span class="at">percent =</span> n <span class="sc">/</span> <span class="fu">sum</span>(n))</span>
+<span id="cb20-4"><a href=""></a><span class="co"># A tibble: 12 × 3</span></span>
+<span id="cb20-5"><a href=""></a>   incident_month     n percent</span>
+<span id="cb20-6"><a href=""></a>            <span class="sc">&lt;</span>dbl<span class="sc">&gt;</span> <span class="er">&lt;</span>int<span class="sc">&gt;</span>   <span class="er">&lt;</span>dbl<span class="sc">&gt;</span></span>
+<span id="cb20-7"><a href=""></a> <span class="dv">1</span>              <span class="dv">9</span>  <span class="dv">7980</span>  <span class="fl">0.140</span> </span>
+<span id="cb20-8"><a href=""></a> <span class="dv">2</span>             <span class="dv">10</span>  <span class="dv">7754</span>  <span class="fl">0.136</span> </span>
+<span id="cb20-9"><a href=""></a> <span class="dv">3</span>              <span class="dv">8</span>  <span class="dv">7104</span>  <span class="fl">0.125</span> </span>
+<span id="cb20-10"><a href=""></a> <span class="dv">4</span>              <span class="dv">5</span>  <span class="dv">6161</span>  <span class="fl">0.108</span> </span>
+<span id="cb20-11"><a href=""></a> <span class="dv">5</span>              <span class="dv">7</span>  <span class="dv">6133</span>  <span class="fl">0.108</span> </span>
+<span id="cb20-12"><a href=""></a> <span class="dv">6</span>              <span class="dv">6</span>  <span class="dv">4541</span>  <span class="fl">0.0797</span></span>
+<span id="cb20-13"><a href=""></a> <span class="dv">7</span>              <span class="dv">4</span>  <span class="dv">4490</span>  <span class="fl">0.0788</span></span>
+<span id="cb20-14"><a href=""></a> <span class="dv">8</span>             <span class="dv">11</span>  <span class="dv">4191</span>  <span class="fl">0.0736</span></span>
+<span id="cb20-15"><a href=""></a> <span class="dv">9</span>              <span class="dv">3</span>  <span class="dv">2678</span>  <span class="fl">0.0470</span></span>
+<span id="cb20-16"><a href=""></a><span class="dv">10</span>             <span class="dv">12</span>  <span class="dv">2303</span>  <span class="fl">0.0404</span></span>
+<span id="cb20-17"><a href=""></a><span class="dv">11</span>              <span class="dv">1</span>  <span class="dv">1951</span>  <span class="fl">0.0342</span></span>
+<span id="cb20-18"><a href=""></a><span class="dv">12</span>              <span class="dv">2</span>  <span class="dv">1692</span>  <span class="fl">0.0297</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </div><div class="column" style="width:50%;">
 <p>Visualize: bars</p>
 <div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href=""></a>wildlife_impacts <span class="sc">|&gt;</span> </span>
-<span id="cb20-2"><a href=""></a>  <span class="fu">count</span>(incident_month, <span class="at">sort =</span> <span class="cn">TRUE</span>) <span class="sc">|&gt;</span> </span>
-<span id="cb20-3"><a href=""></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> <span class="fu">as.factor</span>(incident_month), <span class="at">y =</span> n)) <span class="sc">+</span></span>
-<span id="cb20-4"><a href=""></a>  <span class="fu">geom_col</span>() <span class="sc">+</span></span>
-<span id="cb20-5"><a href=""></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"Incident Month"</span>, <span class="at">y =</span> <span class="st">"Count"</span>) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href=""></a>wildlife_impacts <span class="sc">|&gt;</span> </span>
+<span id="cb21-2"><a href=""></a>  <span class="fu">count</span>(incident_month, <span class="at">sort =</span> <span class="cn">TRUE</span>) <span class="sc">|&gt;</span> </span>
+<span id="cb21-3"><a href=""></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> <span class="fu">as.factor</span>(incident_month), <span class="at">y =</span> n)) <span class="sc">+</span></span>
+<span id="cb21-4"><a href=""></a>  <span class="fu">geom_col</span>() <span class="sc">+</span></span>
+<span id="cb21-5"><a href=""></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"Incident Month"</span>, <span class="at">y =</span> <span class="st">"Count"</span>) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="cell" data-layout-align="center">
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure>
-<p><img data-src="plot/ordinal_barplot.jpeg" class="quarto-figure quarto-figure-center" width="1500"></p>
+<p><img data-src="plot/ordinal_barplot.jpeg" class="quarto-figure quarto-figure-center"></p>
 </figure>
 </div>
 </div>
@@ -883,7 +955,7 @@
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure>
-<p><img data-src="plot/eda-boxplot.png" class="quarto-figure quarto-figure-center" width="942"></p>
+<p><img data-src="plot/eda-boxplot.png" class="quarto-figure quarto-figure-center"></p>
 </figure>
 </div>
 </div>
@@ -927,7 +999,7 @@
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure>
-<p><img data-src="index_files/figure-revealjs/unnamed-chunk-28-1.png" class="quarto-figure quarto-figure-center" width="672"></p>
+<p><img data-src="index_files/figure-revealjs/unnamed-chunk-30-1.png" class="quarto-figure quarto-figure-center" width="672"></p>
 </figure>
 </div>
 </div>
@@ -985,7 +1057,7 @@
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure>
-<p><img data-src="index_files/figure-revealjs/unnamed-chunk-29-1.png" class="quarto-figure quarto-figure-center" width="672"></p>
+<p><img data-src="index_files/figure-revealjs/unnamed-chunk-31-1.png" class="quarto-figure quarto-figure-center" width="672"></p>
 </figure>
 </div>
 </div>
@@ -1000,12 +1072,13 @@
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure>
-<p><img data-src="index_files/figure-revealjs/unnamed-chunk-30-1.png" class="quarto-figure quarto-figure-center" width="672"></p>
+<p><img data-src="index_files/figure-revealjs/unnamed-chunk-32-1.png" class="quarto-figure quarto-figure-center" width="672"></p>
 </figure>
 </div>
 </div>
 </div>
 </div></div>
+<p>::::::::::::::::::::::::::::::::::::::::</p>
 
 </section></section>
     </div>

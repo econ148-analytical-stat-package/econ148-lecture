@@ -33,7 +33,9 @@ knitr::opts_chunk$set(comment = "",
                       )
 
 ## working directory
-setwd("C:/Users/chris/Documents/Github-repository/econ148-lecture/module-04-eda")
+# setwd("C:/Users/chris/Documents/Github-repository/econ148-lecture/module-04-eda")
+
+setwd("c:\\Users\\viser\\OneDrive\\Dokumen\\Github repository\\econ148-lecture\\module-04-eda")
 
 ## Libraries
 library(tidyverse)
@@ -108,14 +110,15 @@ There is no rule about which questions you should ask to guide your research. Ho
 #| echo: false
 knitr::include_graphics("plot/loan_scatter.png")
 ```
-- 
-  -   many borrowers with an income below \$100,000
-  -   a handful of borrowers with income above \$250,000
 
+-   
+
+    -   many borrowers with an income below \$100,000
+    -   a handful of borrowers with income above \$250,000
 
 ## scatter plots: R codes
 
-```{.r}
+``` r
 loan50 |> 
   mutate(total_income = total_income / 1000) |> 
   mutate(loan_amount = loan_amount / 1000) |>
@@ -142,30 +145,30 @@ loan50 |>
       )
 ```
 
-
 ## scatter plots
 
 ```{r}
 knitr::include_graphics("plot/poverty_scatter.png")
 ```
 
-- 
-  - The relationship is nonlinear, as highlighted by the dashed line.
-  - What implications can you draw from this pattern?
+-   
 
-::: {.notes}
-1. Inverse relationship: As poverty rates increase, median household income decreases, following a clear downward trend shown by the dashed curve.
+    -   The relationship is nonlinear, as highlighted by the dashed line.
+    -   What implications can you draw from this pattern?
 
-2. Concentration pattern: Most counties cluster in the lower-left region (poverty rates between 5-20% and incomes between $40K-$60K), indicating this is the typical range for U.S. counties.
+::: notes
+1.  Inverse relationship: As poverty rates increase, median household income decreases, following a clear downward trend shown by the dashed curve.
 
-3. Inverse relationship: As poverty rates increase, median household income decreases, following a clear downward trend shown by the dashed curve.
+2.  Concentration pattern: Most counties cluster in the lower-left region (poverty rates between 5-20% and incomes between \$40K-\$60K), indicating this is the typical range for U.S. counties.
 
-4. Concentration pattern: Most counties cluster in the lower-left region (poverty rates between 5-20% and incomes between $40K-$60K), indicating this is the typical range for U.S. counties.
+3.  Inverse relationship: As poverty rates increase, median household income decreases, following a clear downward trend shown by the dashed curve.
+
+4.  Concentration pattern: Most counties cluster in the lower-left region (poverty rates between 5-20% and incomes between \$40K-\$60K), indicating this is the typical range for U.S. counties.
 :::
 
 ## scatter plots: R codes
 
-```{.r}
+``` r
 county |> 
   mutate(median_hh_income = median_hh_income / 1000) |>
   ggplot(aes(poverty, median_hh_income)) +
@@ -201,32 +204,41 @@ county |>
       )
 ```
 
-
 ## scatter plots
 
 ```{r}
 knitr::include_graphics("plot/population_change_scatter.png")
 ```
 
-- 
-  - (a) Scatter plot of population change against the population before the change. 
-  - (b) A scatter plot of the same data but where the population size has beenlog-transformed.
-  - What can we infer from these plots?
-  - Why log transformation is important?
+-   
 
-::: {.notes}
-1. (a) The untransformed plot shows extreme compression - nearly all counties are squeezed into the left side near 0. This makes it impossible to see patterns or relationships for the vast majority of counties
+    -   
 
-2. The log₁₀ transformation spreads out the data points across the entire plot. Now we can clearly see the relationship between population and population change for ALL counties
+        (a) Scatter plot of population change against the population before the change.
 
-3. Large counties tend to have stable, modest population changes (clustered around 0%). Small to medium counties show much wider variation (both growth and decline)
+    -   
 
-4. Why log transformation is important? It helps to reveal patterns in data that span several orders of magnitude, making it easier to analyze and interpret relationships that would otherwise be obscured.
+        (b) A scatter plot of the same data but where the population size has beenlog-transformed.
+
+    -   What can we infer from these plots?
+
+    -   Why log transformation is important?
+
+::: notes
+1.  
+
+    (a) The untransformed plot shows extreme compression - nearly all counties are squeezed into the left side near 0. This makes it impossible to see patterns or relationships for the vast majority of counties
+
+2.  The log₁₀ transformation spreads out the data points across the entire plot. Now we can clearly see the relationship between population and population change for ALL counties
+
+3.  Large counties tend to have stable, modest population changes (clustered around 0%). Small to medium counties show much wider variation (both growth and decline)
+
+4.  Why log transformation is important? It helps to reveal patterns in data that span several orders of magnitude, making it easier to analyze and interpret relationships that would otherwise be obscured.
 :::
 
 ## scatter plots: R codes
 
-```{.r}
+``` r
 p_231 <- 
   county |> 
   mutate(pop2017 = pop2017 / 1e6) |> 
@@ -268,56 +280,6 @@ p_232 <-
 
 p_c_233 <- p_231 + p_232 + plot_layout(ncol = 2)
 ```
-
-
-## dot plots
-
-```{r}
-knitr::include_graphics("plot/interest_rate_dotplot.png")
-```
-
-- 
-  - A dot plot is a one-variable scatterplot; an example
- using the interest rate of 50 loans above.
-  - Sometimes two variables are one too many: only one variable may be of interest.
-
-## dot plots: R codes
-
-```{.r}
-loan50 |>
-  ggplot(aes(x = interest_rate)) +
-  geom_dotplot(
-    binwidth = 1, 
-    method = "histodot",
-    fill = "#5A9BD5", 
-    color = "#5A9BD5",
-    dotsize = 0.8,
-    stackratio = 1.2
-  ) +
-  geom_point(
-    aes(y = -0.05, x = mean(loan50$interest_rate)),
-    color = "red",
-    size = 4,
-    shape = 17,
-    fill = "red",
-    stroke = 5
-  ) +
-  geom_hline(yintercept = 0, color = "gray60") +
-  scale_y_continuous(NULL, breaks = NULL) +
-  scale_x_continuous(
-    breaks = seq(5, 30, 5),
-    labels = scales::percent_format(scale = 1),
-    limits = c(5, 30)
-  ) +
-  coord_cartesian(ylim = c(-0.05, 1), clip = "off") +
-  labs(x = "Interest Rate, Rounded to Nearest Percent") 
-```
-
-## histogram and shapes
-
-
-
-# Lesson 2: Centrality and variability
 
 ## Centrality (aka the "Average" value)
 
@@ -368,6 +330,105 @@ knitr::include_graphics("plot/wildlife_impacts_hist.png")
 ```
 :::
 :::::
+
+## dot plots
+
+```{r}
+knitr::include_graphics("plot/interest_rate_dotplot.png")
+```
+
+-   
+
+    -   A dot plot is a one-variable scatterplot; an example using the interest rate of 50 loans above.
+    -   Sometimes two variables are one too many: only one variable may be of interest.
+
+## dot plots: R codes
+
+``` r
+loan50 |>
+  ggplot(aes(x = interest_rate)) +
+  geom_dotplot(
+    binwidth = 1, 
+    method = "histodot",
+    fill = "#5A9BD5", 
+    color = "#5A9BD5",
+    dotsize = 0.8,
+    stackratio = 1.2
+  ) +
+  geom_point(
+    aes(y = -0.05, x = mean(loan50$interest_rate)),
+    color = "red",
+    size = 4,
+    shape = 17,
+    fill = "red",
+    stroke = 5
+  ) +
+  geom_hline(yintercept = 0, color = "gray60") +
+  scale_y_continuous(NULL, breaks = NULL) +
+  scale_x_continuous(
+    breaks = seq(5, 30, 5),
+    labels = scales::percent_format(scale = 1),
+    limits = c(5, 30)
+  ) +
+  coord_cartesian(ylim = c(-0.05, 1), clip = "off") +
+  labs(x = "Interest Rate, Rounded to Nearest Percent") 
+```
+
+## histogram and shapes
+
+```{r}
+knitr::include_graphics("plot/interest_rate_histogram.png")
+```
+
+-   
+
+    -   histograms provide a view of data density
+    -   more loans with rates between 5% and 10% than loans with rates between 20% and 25%
+    -   What key patterns can histograms reveal about data?
+
+## historgram and shapes
+
+```{r}
+knitr::include_graphics("plot/histogram_modal_comparison.png")
+```
+
+-   
+
+    -   modes in histograms tell us how many “centers of activity” exist in the data.
+    -   they help uncover structure, complexity, and potential subgroup differences that a simple average or variance might miss.
+
+## histrogram comparison: R codes
+
+``` r
+# histogram comparison: unimodal, bimodal, multimodal
+set.seed(123)
+
+# Generate equal-sized samples (500 each)
+unimodal   <- rnorm(10000, mean = 10, sd = 2)
+bimodal    <- c(rnorm(5000, mean = 5, sd = 1),
+                rnorm(5000, mean = 8.5, sd = 1))
+multimodal <- c(rnorm(3333, mean = 5,  sd = 1),
+                rnorm(3333, mean = 8.5, sd = 1),
+                rnorm(3334, mean = 12, sd = 1))
+
+# Combine into one data frame
+data <- bind_rows(
+  data.frame(value = unimodal,   type = "Unimodal"),
+  data.frame(value = bimodal,    type = "Bimodal"),
+  data.frame(value = multimodal, type = "Multimodal")
+) |> 
+  tibble() |> 
+  mutate(type = factor(type, levels = c("Unimodal", "Bimodal", "Multimodal")))
+
+# Plot histograms side-by-side
+ggplot(data, aes(x = value)) +
+  geom_histogram(bins = 35, fill = "steelblue", color = "white", boundary = 0) +
+  facet_wrap(~ type, nrow = 1) +
+  labs(x = "Value",
+       y = "Frequency") +
+  plot_theme + 
+  theme(strip.text = element_text(size = 16))
+```
 
 ## Variability ("spread")
 
@@ -461,7 +522,25 @@ days_to_ship |>
 knitr::include_graphics("plot/days_to_ship.png")
 ```
 
-## Outliers
+
+## Variance and standard deviation
+
+:::: columns
+:::  {.column width="60%"}
+![](plot/variance_standard_deviation.png){width="80%" height="80%" fig-align="center"}
+:::
+
+:::  {.column width="40%"}
+-   
+    -   Low variance: tightly clustered around the mean
+    -   Medium variance: moderately spread
+    -   High variance: widely spread
+    -   these plots tell us whether values cluster tightly around the mean (predictable) or spread widely (uncertain).
+:::
+::::
+
+
+## Box plots, quartiles, and median
 
 **Mean** and **standard deviation** are sensitive to outliers
 
@@ -503,7 +582,8 @@ data2 <- c(3,3,4,5,5,6,6,7,8,20)
 :::
 :::::
 
-## Outliers
+
+## Box plots, quartiles, and median
 
 <br>
 
@@ -575,6 +655,39 @@ knitr::include_graphics("plot/p_corr_anscombe.png")
 | -   Bars              | -   Bars             | -   Histogram                      |
 |                       |                      | -   Boxplot                        |
 +-----------------------+----------------------+------------------------------------+
+
+
+
+# Lesson 3: Considering categorical data
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 ## Summarizing Nominal data
 
@@ -768,3 +881,4 @@ ggplot(wildlife_impacts) +
 ```
 :::
 :::::
+::::::::::::::::::::::::::::::::::::::::

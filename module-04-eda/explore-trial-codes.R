@@ -114,3 +114,104 @@ loan50 |>
   labs(x = "Interest Rate, Rounded to Nearest Percent") +
   plot_theme
 
+## histogram
+loan50 |> glimpse()
+loan50 |> count(interest_rate)
+loan50 |> 
+  mutate(irate_bin = case_when(
+    interest_rate < 10 ~ "< 10%",
+    interest_rate >= 10 & interest_rate < 15 ~ "10% - 14%",
+    interest_rate >= 15 & interest_rate < 20 ~ "15% - 19%",
+    interest_rate >= 20 ~ ">= 20%"
+  ))
+
+
+loan50 |> 
+  ggplot(aes(x = interest_rate)) +
+  geom_histogram(
+    bins = 9,
+    fill = "#5A9BD5",
+    color = "white",
+    boundary = 0
+  ) +
+  scale_x_continuous(
+    breaks = seq(0, 30, 5),
+    labels = scales::percent_format(scale = 1),
+    limits = c(0, 30),
+    expand = c(0, 0)
+  ) +
+  labs(x = "Interest Rate",
+       y = "Frequency"
+  ) +
+  plot_theme
+
+
+
+# histogram comparison: unimodal, bimodal, multimodal
+set.seed(123)
+
+# Generate equal-sized samples (500 each)
+unimodal   <- rnorm(10000, mean = 10, sd = 2)
+bimodal    <- c(rnorm(5000, mean = 5, sd = 1),
+                rnorm(5000, mean = 8.5, sd = 1))
+multimodal <- c(rnorm(3333, mean = 5,  sd = 1),
+                rnorm(3333, mean = 8.5, sd = 1),
+                rnorm(3334, mean = 12, sd = 1))
+
+# Combine into one data frame
+data <- bind_rows(
+  data.frame(value = unimodal,   type = "Unimodal"),
+  data.frame(value = bimodal,    type = "Bimodal"),
+  data.frame(value = multimodal, type = "Multimodal")
+) |> 
+  tibble() |> 
+  mutate(type = factor(type, levels = c("Unimodal", "Bimodal", "Multimodal")))
+
+# Plot histograms side-by-side
+ggplot(data, aes(x = value)) +
+  geom_histogram(bins = 35, fill = "steelblue", color = "white", boundary = 0) +
+  facet_wrap(~ type, nrow = 1) +
+  labs(x = "Value",
+       y = "Frequency") +
+  plot_theme + 
+  theme(strip.text = element_text(size = 16))
+
+
+
+
+
+## variance and standard deviation
+
+# Load libraries
+library(ggplot2)
+library(dplyr)
+
+set.seed(42)
+
+# Simulate data with different variances
+low_var    <- rnorm(500, mean = 0, sd = 0.5)
+medium_var <- rnorm(500, mean = 0, sd = 1)
+high_var   <- rnorm(500, mean = 0, sd = 2)
+
+# Combine into one data frame
+data <- bind_rows(
+  data.frame(value = low_var,    type = "Low Variance"),
+  data.frame(value = medium_var, type = "Medium Variance"),
+  data.frame(value = high_var,   type = "High Variance")
+) |> 
+  tibble() |>
+  mutate(type = factor(type, levels = c("Low Variance", "Medium Variance", "High Variance")))
+
+# Plot histograms
+ggplot(data, aes(x = value)) +
+  geom_histogram(binwidth = 0.1, fill = "steelblue", color = "white", boundary = 0) +
+  facet_wrap(~ type, ncol = 1) +
+  scale_x_continuous(limits = c(-3, 3), breaks = seq(-3, 3, 1)) +
+  labs(x = "Value",
+       y = "Frequency") +
+  plot_theme +
+  theme(strip.text = element_text(size = 16))
+
+
+
+table(loan50$has_second_income, loan50$homeownership)

@@ -1,6 +1,6 @@
 ## working directory
-#setwd("D:/Githu-repository/econ148-analytical-stat-packages/econ148-lecture/module-2")
-setwd("c:\\Users\\chris\\Documents\\Github-repository\\econ148-lecture\\module-04-eda")
+# setwd("D:/Githu-repository/econ148-analytical-stat-packages/econ148-lecture/module-2")
+# setwd("c:\\Users\\chris\\Documents\\Github-repository\\econ148-lecture\\module-04-eda")
 
 ## load packages
 library(tidyverse)
@@ -279,4 +279,108 @@ ggsave(
   plot = p_dotplot_interest,
   width = 10,
   height = 6
+)
+
+
+## histogram
+p_interest_hist <- 
+  loan50 |> 
+  ggplot(aes(x = interest_rate)) +
+  geom_histogram(
+    bins = 9,
+    fill = "#5A9BD5",
+    color = "white",
+    boundary = 0
+  ) +
+  scale_x_continuous(
+    breaks = seq(0, 30, 5),
+    labels = scales::percent_format(scale = 1),
+    limits = c(0, 30),
+    expand = c(0, 0)
+  ) +
+  labs(x = "Interest Rate",
+       y = "Frequency"
+  ) +
+  plot_theme
+
+ggsave(
+  filename = "plot/interest_rate_histogram.png",
+  plot = p_interest_hist,
+  width = 10,
+  height = 6
+)
+
+
+# histogram comparison: unimodal, bimodal, multimodal
+set.seed(123)
+
+# generate synthetic data
+unimodal   <- rnorm(10000, mean = 10, sd = 2)
+bimodal    <- c(rnorm(5000, mean = 5, sd = 1),
+                rnorm(5000, mean = 8.5, sd = 1))
+multimodal <- c(rnorm(3333, mean = 5,  sd = 1),
+                rnorm(3333, mean = 8.5, sd = 1),
+                rnorm(3334, mean = 12, sd = 1))
+
+# Combine into one data frame
+data <- bind_rows(
+  data.frame(value = unimodal,   type = "Unimodal"),
+  data.frame(value = bimodal,    type = "Bimodal"),
+  data.frame(value = multimodal, type = "Multimodal")
+) |> 
+  tibble() |> 
+  mutate(type = factor(type, levels = c("Unimodal", "Bimodal", "Multimodal")))
+
+# Plot histograms side-by-side
+p_histogram_modal <- 
+  ggplot(data, aes(x = value)) +
+  geom_histogram(bins = 35, fill = "steelblue", color = "white", boundary = 0) +
+  facet_wrap(~ type, nrow = 1) +
+  labs(x = "Value",
+       y = "Frequency") +
+  plot_theme + 
+  theme(strip.text = element_text(size = 16))
+
+ggsave(
+  filename = "plot/histogram_modal_comparison.png",
+  plot = p_histogram_modal,
+  width = 12,
+  height = 6
+)
+
+
+
+## variance and standard deviation
+set.seed(42)
+
+# Simulate data with different variances
+low_var    <- rnorm(500, mean = 0, sd = 0.5)
+medium_var <- rnorm(500, mean = 0, sd = 1)
+high_var   <- rnorm(500, mean = 0, sd = 2)
+
+# Combine into one data frame
+data <- bind_rows(
+  data.frame(value = low_var,    type = "Low Variance"),
+  data.frame(value = medium_var, type = "Medium Variance"),
+  data.frame(value = high_var,   type = "High Variance")
+) |> 
+  tibble() |>
+  mutate(type = factor(type, levels = c("Low Variance", "Medium Variance", "High Variance")))
+
+# Plot histograms
+p_var_sd <- 
+  ggplot(data, aes(x = value)) +
+  geom_histogram(binwidth = 0.1, fill = "steelblue", color = "white", boundary = 0) +
+  facet_wrap(~ type, ncol = 1) +
+  scale_x_continuous(limits = c(-3, 3), breaks = seq(-3, 3, 1)) +
+  labs(x = "Value",
+       y = "Frequency") +
+  plot_theme +
+  theme(strip.text = element_text(size = 16))
+
+## saving plot
+ggsave(
+  filename = "plot/variance_standard_deviation.png",
+  width = 8,
+  height = 10
 )
