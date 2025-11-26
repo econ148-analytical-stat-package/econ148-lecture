@@ -386,7 +386,80 @@ knitr::include_graphics("plot/interest_rate_histogram.png")
     -   more loans with rates between 5% and 10% than loans with rates between 20% and 25%
     -   What key patterns can histograms reveal about data?
 
-## historgram and shapes
+
+::::: columns
+::: {.column width="50%"}
+**Histograms**:
+
+-   Skewness
+
+-   Number of modes
+
+<br>
+
+**Boxplots**:
+
+-   Outliers
+
+-   Comparing variablesn
+:::
+
+::: {.column width="50%"}
+```{r}
+knitr::include_graphics("plot/eda-boxplot.png")
+```
+:::
+:::::
+
+## **Histogram**: Identify Skewness & \# of Modes
+
+::::: columns
+::: {.column width="50%"}
+**Summarise**:
+
+-   Mean, median, sd, range, & IQR:
+
+```{r}
+summary(wildlife_impacts$height)
+```
+:::
+
+::: {.column width="50%"}
+**Visualize**:
+
+-   Histogram (identify skewness & modes)
+
+```{r wildlife-height-hist, fig.width=7, fig.height=5, fig.align='center'}
+ggplot(wildlife_impacts) +
+  geom_histogram(aes(x = height), bins = 50) + #<<
+  labs(x = 'Height (ft)', y = 'Count')
+```
+:::
+:::::
+
+## Historgam and shape: Skewness & \# of Modes
+
+::::: columns
+::: {.column width="50%"}
+**Height**
+
+```{r, ref.label="wildlife-height-hist", fig.width=7, fig.height=5, fig.align='center'}
+```
+:::
+
+::: {.column width="50%"}
+**Speed**
+
+```{r wildlife-speed-hist, fig.width=7, fig.height=5, fig.align='center'}
+ggplot(wildlife_impacts) +
+  geom_histogram(aes(x = speed), bins = 50) + #<<
+  labs(x = 'speed (mph)', y = 'Count')
+```
+:::
+:::::
+
+
+## histogram and shapes
 
 ```{r}
 knitr::include_graphics("plot/histogram_modal_comparison.png")
@@ -593,6 +666,57 @@ data2 <- c(3,3,4,5,5,6,6,7,8,20)
 Source: [Data Science Discovery](https://discovery.cs.illinois.edu/learn/Exploratory-Data-Analysis/Quartiles-and-Box-Plots/)
 :::
 
+
+## Identifying outliers
+
+::::: columns
+::: {.column width="50%"}
+**Height**
+
+```{r wildlife-height-boxplot, fig.width=7, fig.height=4, fig.align='center'}
+ggplot(wildlife_impacts) +
+    geom_boxplot(aes(x = height)) + #<<
+    labs(x = 'Height (ft)', y = NULL)
+```
+:::
+
+::: {.column width="50%"}
+**Speed**
+
+```{r wildlife-speed-boxplot, fig.width=7, fig.height=4, fig.align='center'}
+ggplot(wildlife_impacts) +
+    geom_boxplot(aes(x = speed)) + #<<
+    labs(x = 'Speed (mph)', y = NULL)
+```
+:::
+:::::
+
+## Boxplot and histogram
+
+::::: columns
+::: {.column width="50%"}
+**Histogram**
+
+-   Skewness
+-   Modes
+
+```{r, ref.label="wildlife-speed-hist", echo=FALSE, fig.width=7, fig.height=5, fig.align='center'}
+```
+:::
+
+::: {.column width="50%"}
+**Boxplot**
+
+-   Outliers
+
+<br><br>
+
+```{r, ref.label="wildlife-speed-boxplot", echo=FALSE, fig.width=7, fig.height=5, fig.align='center'}
+```
+:::
+:::::
+
+
 ## Outliers
 
 Robust statistics for continuous data (less sensitive to outliers)
@@ -659,35 +783,6 @@ knitr::include_graphics("plot/p_corr_anscombe.png")
 
 
 # Lesson 3: Considering categorical data
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 ## Summarizing Nominal data
 
@@ -759,126 +854,3 @@ knitr::include_graphics("plot/ordinal_barplot.jpeg")
 ```
 :::
 :::::
-
-## Summarizing continuous data
-
-::::: columns
-::: {.column width="50%"}
-**Histograms**:
-
--   Skewness
-
--   Number of modes
-
-<br>
-
-**Boxplots**:
-
--   Outliers
-
--   Comparing variablesn
-:::
-
-::: {.column width="50%"}
-```{r}
-knitr::include_graphics("plot/eda-boxplot.png")
-```
-:::
-:::::
-
-## **Histogram**: Identify Skewness & \# of Modes
-
-::::: columns
-::: {.column width="50%"}
-**Summarise**:
-
--   Mean, median, sd, range, & IQR:
-
-```{r}
-summary(wildlife_impacts$height)
-```
-:::
-
-::: {.column width="50%"}
-**Visualize**:
-
--   Histogram (identify skewness & modes)
-
-```{r wildlife-height-hist, fig.width=7, fig.height=5, fig.align='center'}
-ggplot(wildlife_impacts) +
-  geom_histogram(aes(x = height), bins = 50) + #<<
-  labs(x = 'Height (ft)', y = 'Count')
-```
-:::
-:::::
-
-## Histogram: Identify Skewness & \# of Modes
-
-::::: columns
-::: {.column width="50%"}
-**Height**
-
-```{r, ref.label="wildlife-height-hist", fig.width=7, fig.height=5, fig.align='center'}
-```
-:::
-
-::: {.column width="50%"}
-**Speed**
-
-```{r wildlife-speed-hist, fig.width=7, fig.height=5, fig.align='center'}
-ggplot(wildlife_impacts) +
-  geom_histogram(aes(x = speed), bins = 50) + #<<
-  labs(x = 'speed (mph)', y = 'Count')
-```
-:::
-:::::
-
-## Boxplot: Identify outliers
-
-::::: columns
-::: {.column width="50%"}
-**Height**
-
-```{r wildlife-height-boxplot, fig.width=7, fig.height=4, fig.align='center'}
-ggplot(wildlife_impacts) +
-    geom_boxplot(aes(x = height)) + #<<
-    labs(x = 'Height (ft)', y = NULL)
-```
-:::
-
-::: {.column width="50%"}
-**Speed**
-
-```{r wildlife-speed-boxplot, fig.width=7, fig.height=4, fig.align='center'}
-ggplot(wildlife_impacts) +
-    geom_boxplot(aes(x = speed)) + #<<
-    labs(x = 'Speed (mph)', y = NULL)
-```
-:::
-:::::
-
-## Histogram and Boxplot
-
-::::: columns
-::: {.column width="50%"}
-**Histogram**
-
--   Skewness
--   Modes
-
-```{r, ref.label="wildlife-speed-hist", echo=FALSE, fig.width=7, fig.height=5, fig.align='center'}
-```
-:::
-
-::: {.column width="50%"}
-**Boxplot**
-
--   Outliers
-
-<br><br>
-
-```{r, ref.label="wildlife-speed-boxplot", echo=FALSE, fig.width=7, fig.height=5, fig.align='center'}
-```
-:::
-:::::
-::::::::::::::::::::::::::::::::::::::::
