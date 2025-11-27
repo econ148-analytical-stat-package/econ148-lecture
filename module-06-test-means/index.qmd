@@ -33,7 +33,7 @@ knitr::opts_chunk$set(comment = "",
                       )
 
 ## working directory
-setwd("~/christopherllones-files/class-materials/econ148-lecture/m6-test-means")
+setwd("c:\\Users\\viser\\OneDrive\\Dokumen\\Github repository\\econ148-lecture\\module-06-test-means")
 
 ## Libraries
 library(tidyverse)
