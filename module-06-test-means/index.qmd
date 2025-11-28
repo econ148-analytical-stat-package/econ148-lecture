@@ -51,49 +51,41 @@ theme_set(theme_bw(base_size = 18)) # Set theme for all ggplots
 
 ## Lessons
 
--   Introduction to hypothesis testing
+-   
 
--   Parametric vs non-parametric tests
-
--   Independent samples t-test
-
--   Paired samples t-test
-
--   One-way ANOVA
-
--   Two-way ANOVA
-
--   Chi-square test
+    -   Introduction to hypothesis testing
+    -   Parametric vs non-parametric tests
+    -   Independent samples t-test
+    -   Paired samples t-test
+    -   One-way ANOVA
+    -   Two-way ANOVA
+    -   Chi-square test
 
 # Lesson 1: Introduction to hypothesis testing?
 
 ## What is hypothesis testing?
-
 -   Hypothesis testing is a statistical method used to make inferences or draw conclusions about a population based on sample data.
 
 -   It involves evaluating two competing hypotheses to determine if there is enough evidence to support a particular claim.
 
 ## Key Concepts in Hypothesis Testing
 
-:::::: columns
-::::: incremental
-::: {.column width="50%"}
-**Null Hypothesis (H₀)**
+::::: columns
+::: column
+### **Null Hypothesis (H₀)**
 
 -   A statement suggesting no effect, no difference, or no relationship exists. This is the hypothesis that is tested.
-
 -   Example: "There is no difference in the average test scores between two groups."
 :::
 
-::: {.column width="50%"}
-**Alternative Hypothesis (H₁ or Ha)**
+::: column
+### **Alternative Hypothesis (H₁ or Ha)**
 
 -   A statement that contradicts the null hypothesis, proposing that there is a significant effect or difference.
-
 -   Example: "There is a significant difference in the average test scores between two groups."
 :::
 :::::
-::::::
+
 
 ## Steps in Hypothesis Testing
 
@@ -108,39 +100,45 @@ theme_set(theme_bw(base_size = 18)) # Set theme for all ggplots
 
 5.  **Make a decision**:
 
--   Reject H₀ if the test statistic shows significant evidence against H₀ (i.e., p-value \< α).
--   Fail to reject H₀ if there is not enough evidence (i.e., p-value ≥ α).
+- 
+  -   Reject H₀ if the test statistic shows significant evidence against H₀ (i.e., p-value \< α).
+  -   Fail to reject H₀ if there is not enough evidence (i.e., p-value ≥ α).
 :::
 
 ## Types of Errors
 
-:::::: columns
-::::: incremental
+::::: columns
+:::: incremental
 ::: {.column width="50%"}
 **Type I Error (False Positive)**
 
--   Rejecting H₀ when it is actually true.
-
--   Example: Concluding there is a difference when there isn’t.
+- 
+  -   Rejecting H₀ when it is actually true.
+  -   Example: Concluding there is a difference when there isn’t.
 :::
 
 ::: {.column width="50%"}
 **Type II Error (False Negative)**
 
--   Failing to reject H₀ when it is false.
-
--   Example: Concluding there is no difference when there actually is.
+- 
+  -   Failing to reject H₀ when it is false.
+  -   Example: Concluding there is no difference when there actually is.
 :::
+::::
 :::::
-::::::
+
+
 
 ## Test Statistic and P-Value
 
--   The test statistic is a value calculated from the sample data used to decide whether to reject the null hypothesis.
+- 
+  -   The test statistic is a value calculated from the sample data used to decide whether to reject the null hypothesis.
 
--   The p-value is the probability of obtaining a result at least as extreme as the one observed, given that H₀ is true.
+  -   The p-value is the probability of obtaining a result at least as extreme as the one observed, given that H₀ is true.
 
-    -   If p-value \< α, reject H₀; otherwise, fail to reject H₀.
+      -   If p-value \< α, reject H₀; otherwise, fail to reject H₀.
+
+
 
 # Check-up quiz!
 
@@ -183,6 +181,7 @@ theme_set(theme_bw(base_size = 18)) # Set theme for all ggplots
 -   [Rejecting the null hypothesis when it is true]{.correct}
 
 -   Accepting the null hypothesis when it is false.
+
 
 ## What is the significance level (α) typically set at in hypothesis testing? {.quiz-question}
 
@@ -243,7 +242,7 @@ knitr::include_graphics("plot/idependent-t-tst.png")
 
 ## Independent sample t-test
 
-::: callout-tip
+::: {.callout-tip style="font-size: 2.0em;"}
 ## Steps in Hypothesis testing
 
 1.  State the hypotheses
@@ -262,7 +261,7 @@ knitr::include_graphics("plot/idependent-t-tst.png")
 
 ## Independent sample t-test
 
-::: callout-tip
+::: {.callout-tip style="font-size: 2.0em;"}
 ## Activitiy: Comparison two independent group
 
 Using the **mpg** dataset, test whether there is a statistically significant difference in the hwy miles per gallon (hwy) between 4-cylinder and 8-cylinder automobiles.
@@ -329,7 +328,7 @@ t.test(hwy ~ cyl, data = mpg_dta, var.equal = FALSE, na.rm = TRUE)
 
 ## Independent sample t-test
 
-::: callout-tip
+::: {.callout-tip style="font-size: 2.0em;"}
 ## Solution
 
 1.  State the Null and Alternative Hypotheses
@@ -345,7 +344,7 @@ t.test(hwy ~ cyl, data = mpg_dta, var.equal = FALSE, na.rm = TRUE)
 
 ## Independent sample t-test
 
-::: callout-tip
+::: {.callout-tip style="font-size: 2.0em;"}
 ## Solution
 
 3.  Test Assumptions
@@ -365,7 +364,7 @@ t.test(hwy ~ cyl, data = mpg_dta, var.equal = FALSE, na.rm = TRUE)
 
 ## Independent sample t-test
 
-::: callout-tip
+::: {.callout-tip style="font-size: 2.0em;"}
 ## Solution
 
 5.  Decision
@@ -427,7 +426,7 @@ wilcox.test(hwy ~ cyl, data = mpg_dta, exact = FALSE)
 
 ## R Activity: Mann-Whitney U test
 
-::: callout-tip
+::: {.callout-tip style="font-size: 2.0em;"}
 ## Instructions
 
 1.  Load the diamonds dataset from the `ggplot2` package. Filter the data to include only "Very Good" and "Premium" cut diamonds. Sample 1000 observations from each group to ensure the Shapiro-Wilk test can be applied.
@@ -815,3 +814,5 @@ report::report(aov_result)
 ```
 :::
 :::::
+
+::::::::::::::::::::::::::::::::::::::::::::::
