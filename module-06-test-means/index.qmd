@@ -209,13 +209,13 @@ theme_set(theme_bw(base_size = 18)) # Set theme for all ggplots
 
 <br>
 
-+-----------------------------------------------------------------------------------------------------------------------------------+----------------------------------------------------------------------+----------------------------------------------------------------------------------------------------------------+
-| Purpose                                                                                                                           | Data types                                                           | Usage                                                                                                          |
-+===================================================================================================================================+======================================================================+================================================================================================================+
-| -   To determine if there is a significant differences between two groups in a dataset, either in means, means, or distributions. | -   Continuous data (e.g., height, test scores, income)              | -   Comparing average performance between two independent groups (e.g., test scores of two classes)            |
-|                                                                                                                                   | -   Ordinal data (e.g., satisfaction rating, ranks)                  | -   Comparing means when groups have unequal variances (e.g., salaries across department)                      |
-|                                                                                                                                   | -   Assumptions about data (normality, equal variances) vary by test | -   Comparing medians of two groups when data isn’t normally distributed (e.g., customer satisfaction scores). |
-+-----------------------------------------------------------------------------------------------------------------------------------+----------------------------------------------------------------------+----------------------------------------------------------------------------------------------------------------+
++-------------------------------------------------------------------------------------------------------------------------------------+----------------------------------------------------------------------+----------------------------------------------------------------------------------------------------------------+
+| Purpose                                                                                                                             | Data types                                                           | Usage                                                                                                          |
++=====================================================================================================================================+======================================================================+================================================================================================================+
+| -   To determine if there is a significant differences between two groups in a dataset, either in means, medians, or distributions. | -   Continuous data (e.g., height, test scores, income)              | -   Comparing average performance between two independent groups (e.g., test scores of two classes)            |
+|                                                                                                                                     | -   Ordinal data (e.g., satisfaction rating, ranks)                  | -   Comparing means when groups have unequal variances (e.g., salaries across department)                      |
+|                                                                                                                                     | -   Assumptions about data (normality, equal variances) vary by test | -   Comparing medians of two groups when data isn’t normally distributed (e.g., customer satisfaction scores). |
++-------------------------------------------------------------------------------------------------------------------------------------+----------------------------------------------------------------------+----------------------------------------------------------------------------------------------------------------+
 
 ## Independent samples t-test
 
@@ -520,7 +520,7 @@ wilcox.test(price ~ cut, data = diamond_dataset, exact = FALSE)
 
 ## Dependent t-test
 
-::: callout-tip
+:::  {.callout-tip style="font-size: 2.0em;"}
 -   Steps in hypothesis testing:
 
     1.  State the hypotheses.
@@ -538,7 +538,7 @@ wilcox.test(price ~ cut, data = diamond_dataset, exact = FALSE)
 
 ## Dependent t-test
 
-::: callout-tip
+:::  {.callout-tip style="font-size: 2.0em;"}
 ## Activity: Dependent t-test
 
 Using the a synthetic data on training scores of before and after a training program, test whether there is a statistically significant difference in the scores before and after the training program.
@@ -703,7 +703,7 @@ ggwithinstats(
 
 ## One-way Anova
 
-::: callout-tip
+:::  {.callout-tip style="font-size: 2.0em;"}
 ## Steps in Hypothesis testing
 
 1.  State the hypotheses
@@ -815,5 +815,3 @@ report::report(aov_result)
 ```
 :::
 :::::
-
-::::::::::::::::::::::::::::::::::::::::::::::
