@@ -33,7 +33,9 @@ knitr::opts_chunk$set(comment = "",
                       )
 
 ## working directory
-setwd("c:\\Users\\viser\\OneDrive\\Dokumen\\Github repository\\econ148-lecture\\module-06-test-means")
+#setwd("c:\\Users\\viser\\OneDrive\\Dokumen\\Github repository\\econ148-lecture\\module-06-test-means")
+
+setwd("c:\\Users\\chris\\Documents\\Github-repository\\econ148-lecture\\module-06-test-means")
 
 ## Libraries
 library(tidyverse)
@@ -64,6 +66,7 @@ theme_set(theme_bw(base_size = 18)) # Set theme for all ggplots
 # Lesson 1: Introduction to hypothesis testing?
 
 ## What is hypothesis testing?
+
 -   Hypothesis testing is a statistical method used to make inferences or draw conclusions about a population based on sample data.
 
 -   It involves evaluating two competing hypotheses to determine if there is enough evidence to support a particular claim.
@@ -86,7 +89,6 @@ theme_set(theme_bw(base_size = 18)) # Set theme for all ggplots
 :::
 :::::
 
-
 ## Steps in Hypothesis Testing
 
 ::: incremental
@@ -100,45 +102,45 @@ theme_set(theme_bw(base_size = 18)) # Set theme for all ggplots
 
 5.  **Make a decision**:
 
-- 
-  -   Reject H₀ if the test statistic shows significant evidence against H₀ (i.e., p-value \< α).
-  -   Fail to reject H₀ if there is not enough evidence (i.e., p-value ≥ α).
+-   
+
+    -   Reject H₀ if the test statistic shows significant evidence against H₀ (i.e., p-value \< α).
+    -   Fail to reject H₀ if there is not enough evidence (i.e., p-value ≥ α).
 :::
 
 ## Types of Errors
 
-::::: columns
-:::: incremental
+:::::: columns
+::::: incremental
 ::: {.column width="50%"}
 **Type I Error (False Positive)**
 
-- 
-  -   Rejecting H₀ when it is actually true.
-  -   Example: Concluding there is a difference when there isn’t.
+-   
+
+    -   Rejecting H₀ when it is actually true.
+    -   Example: Concluding there is a difference when there isn’t.
 :::
 
 ::: {.column width="50%"}
 **Type II Error (False Negative)**
 
-- 
-  -   Failing to reject H₀ when it is false.
-  -   Example: Concluding there is no difference when there actually is.
+-   
+
+    -   Failing to reject H₀ when it is false.
+    -   Example: Concluding there is no difference when there actually is.
 :::
-::::
 :::::
-
-
+::::::
 
 ## Test Statistic and P-Value
 
-- 
-  -   The test statistic is a value calculated from the sample data used to decide whether to reject the null hypothesis.
+-   
 
-  -   The p-value is the probability of obtaining a result at least as extreme as the one observed, given that H₀ is true.
+    -   The test statistic is a value calculated from the sample data used to decide whether to reject the null hypothesis.
 
-      -   If p-value \< α, reject H₀; otherwise, fail to reject H₀.
+    -   The p-value is the probability of obtaining a result at least as extreme as the one observed, given that H₀ is true.
 
-
+        -   If p-value \< α, reject H₀; otherwise, fail to reject H₀.
 
 # Check-up quiz!
 
@@ -181,7 +183,6 @@ theme_set(theme_bw(base_size = 18)) # Set theme for all ggplots
 -   [Rejecting the null hypothesis when it is true]{.correct}
 
 -   Accepting the null hypothesis when it is false.
-
 
 ## What is the significance level (α) typically set at in hypothesis testing? {.quiz-question}
 
