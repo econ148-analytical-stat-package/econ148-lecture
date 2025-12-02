@@ -1,7 +1,7 @@
 ---
 title: ". "
 title-slide-attributes:
-  data-background-image: "plot/module-2-title-page.png"
+  data-background-image: "plot/econ148-title-page.png"
   data-background-size: "cover"
 format: 
   revealjs:
@@ -11,7 +11,7 @@ format:
     code-summary: "code"
     chalkboard: true
     slide-number: true
-    footer: "Econ 149: Analytical and statistical packages 2"
+    footer: "Econ 148: Analytical and statistical packages for economics 1"
     quiz:
       defaultCorrect: "Correct!"
       defaultIncorrect: "Incorrect!"
@@ -33,14 +33,14 @@ knitr::opts_chunk$set(comment = "",
                       )
 
 ## working directory
-# setwd("C:/Users/chris/Documents/Github-repository/econ149-lecture/module-2-correlation")
-setwd("D:/Githu-repository/econ149-lecture/module-2-correlation")
+here::here("module-07-correlation")
 
 ## Libraries
 library(tidyverse)
 library(glue)
 library(patchwork)
 library(kableExtra)
+library(here)
 
 # reading data
 
@@ -62,6 +62,10 @@ theme_set(theme_bw(base_size = 18)) # Set theme for all ggplots
 
     -   Purpose is to measure the strength and direction of the relationship between two variables.
 
+    -   It takes values between -1 (perfect negative) and +1 (perfect positive).
+
+    -   A correlation of 0 indicates no relationship between the variables.
+
 ## Correlation
 
 <br>
@@ -80,7 +84,8 @@ knitr::include_graphics("https://images.wondershare.com/edrawmax/articles2024/sc
 
     -   Can be done by calculating the covariance
 
-::: callout-note
+::: {.callout-note style="font-size: 2.0em;"}
+
 ## Sample data: Adverts watched and toffee purchases
 
 ```{r}
@@ -108,80 +113,89 @@ data_sample
 knitr::include_graphics("plot/plot-measuring-relationship-covariance.jpeg")
 ```
 
+
+## Guessing the correlation
+
+
+
+
+
+
+
+
 ## Variance
 
--
-  - variance tell us by how much scores deviates from the mean for a single variable.
-  - it is closely linked to the sum of squares
-  - covariance is similar -  it tells us by how much scores on two variables differ from their respective means.
-  
-  
+-   
+
+    -   variance tell us by how much scores deviates from the mean for a single variable.
+    -   it is closely linked to the sum of squares
+    -   covariance is similar - it tells us by how much scores on two variables differ from their respective means.
+
 $$
 \text{variance} = \frac{\Sigma(x_i - \bar{x})^2}{N-1} = \frac{\Sigma(x_i - \bar{x}) (x_i - \bar{x})}{N-1}
 $$
 
 ## Covariance
 
-- 
-  - calculate the error between the mean and each subject's score for the first variable ($X$).
-  - calculate the error between the mean and their score for the second variable ($y$)
-  - multiply these error values
-  - add these values and you get the cross product deviations
-  - the covariance is the average cross-product deviation.
-  
+-   
+
+    -   calculate the error between the mean and each subject's score for the first variable ($X$).
+    -   calculate the error between the mean and their score for the second variable ($y$)
+    -   multiply these error values
+    -   add these values and you get the cross product deviations
+    -   the covariance is the average cross-product deviation.
+
 $$
 \text{cov(x, y)} = \frac{\Sigma(x_i - \bar{x}) (y_i - \bar{y})}{N-1}
 $$
 
 ## Problems with covariance
 
-- 
-  - It depends upon the units of measurement
-    - e.g., the covariance of two variables measured in miles might be 4.25, but if the same scores are converted to kilometers, the covariance is 11.
-    
-  - One solution: standardized it!
-    - divide the standard deviations of both variable
-    
+-   
+
+    -   It depends upon the units of measurement
+        -   e.g., the covariance of two variables measured in miles might be 4.25, but if the same scores are converted to kilometers, the covariance is 11.
+    -   One solution: standardized it!
+        -   divide the standard deviations of both variable
 
 ## Correlation
 
--
-  - the standardized version of covariance is known as the correlatino coefficient.
-  - it is relatively unaffected by units of measurement.
+-   
 
+    -   the standardized version of covariance is known as the correlatino coefficient.
+    -   it is relatively unaffected by units of measurement.
 
 $$
 \text{cov(x, y)} = \frac{cov_{xy}}{s_x s_y} =\frac{\Sigma(x_i - \bar{x}) (y_i - \bar{y})}{(N-1) s_x s_y} 
 $$
 
-
 ## Correlation coefficient interpretation
 
-+-------------------------+-------------+------------------------+-------------+
-| Correlation coefficient | Psychology  | Politics and economics | Medicine    |
-+:=======================:+:===========:+:======================:+:===========:+
-| ± 1.0                   | Perfect     | Perfect                | Perfect     |
-+-------------------------+-------------+------------------------+-------------+
-| ± 0.9                   | Strong      | Very strong            | Very strong |
-+-------------------------+-------------+------------------------+-------------+
-| ± 0.8                   | Strong      | Very strong            | Very strong |
-+-------------------------+-------------+------------------------+-------------+
-| ± 0.7                   | Strong      | Very strong            | Moderate    |
-+-------------------------+-------------+------------------------+-------------+
-| ± 0.6                   | Moderate    | Strong                 | Moderate    |
-+-------------------------+-------------+------------------------+-------------+
-| ± 0.5                   | Moderate    | Strong                 | Fair        |
-+-------------------------+-------------+------------------------+-------------+
-| ± 0.4                   | Moderate    | Strong                 | Fair        |
-+-------------------------+-------------+------------------------+-------------+
-| ± 0.3                   | Weak        | Moderate               | Fair        |
-+-------------------------+-------------+------------------------+-------------+
-| ± 0.2                   | Weak        | Weak                   | Poor        |
-+-------------------------+-------------+------------------------+-------------+
-| ± 0.1                   | Weak        | Negligible             | Poor        |
-+-------------------------+-------------+------------------------+-------------+
-| ± 0.0                   | Zero        | None                   | None        |
-+-------------------------+-------------+------------------------+-------------+
++-------------------------+--------------+------------------------+--------------+
+| Correlation coefficient | Psychology   | Politics and economics | Medicine     |
++:=======================:+:============:+:======================:+:============:+
+| ± 1.0                   | Perfect      | Perfect                | Perfect      |
++-------------------------+--------------+------------------------+--------------+
+| ± 0.9                   | Strong       | Very strong            | Very strong  |
++-------------------------+--------------+------------------------+--------------+
+| ± 0.8                   | Strong       | Very strong            | Very strong  |
++-------------------------+--------------+------------------------+--------------+
+| ± 0.7                   | Strong       | Very strong            | Moderate     |
++-------------------------+--------------+------------------------+--------------+
+| ± 0.6                   | Moderate     | Strong                 | Moderate     |
++-------------------------+--------------+------------------------+--------------+
+| ± 0.5                   | Moderate     | Strong                 | Fair         |
++-------------------------+--------------+------------------------+--------------+
+| ± 0.4                   | Moderate     | Strong                 | Fair         |
++-------------------------+--------------+------------------------+--------------+
+| ± 0.3                   | Weak         | Moderate               | Fair         |
++-------------------------+--------------+------------------------+--------------+
+| ± 0.2                   | Weak         | Weak                   | Poor         |
++-------------------------+--------------+------------------------+--------------+
+| ± 0.1                   | Weak         | Negligible             | Poor         |
++-------------------------+--------------+------------------------+--------------+
+| ± 0.0                   | Zero         | None                   | None         |
++-------------------------+--------------+------------------------+--------------+
 
 ::: aside
 Source: Akoglu, H. (2018). User’s guide to correlation coefficients. Turkish Journal of Emergency Medicine, 18(3), 91–93. https://doi.org/10.1016/j.tjem.2018.08.001
