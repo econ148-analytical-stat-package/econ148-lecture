@@ -1,0 +1,453 @@
+---
+title: ". "
+title-slide-attributes:
+  data-background-image: "plot/module-2-title-page.png"
+  data-background-size: "cover"
+format: 
+  revealjs:
+    theme: [simple, custom.scss]
+    preview-links: true
+    code-fold: false
+    code-summary: "code"
+    chalkboard: true
+    slide-number: true
+    footer: "Econ 149: Analytical and statistical packages 2"
+    quiz:
+      defaultCorrect: "Correct!"
+      defaultIncorrect: "Incorrect!"
+revealjs-plugins:
+  - quiz
+engine: knitr
+from: markdown+emoji
+editor: visual
+---
+
+```{r}
+#| echo: false
+#| include: false
+knitr::opts_chunk$set(comment = "", 
+                      collapse = TRUE,
+                      fig.align = "center",
+                      fig.width = 8,
+                      fig.height = 7
+                      )
+
+## working directory
+# setwd("C:/Users/chris/Documents/Github-repository/econ149-lecture/module-2-correlation")
+setwd("D:/Githu-repository/econ149-lecture/module-2-correlation")
+
+## Libraries
+library(tidyverse)
+library(glue)
+library(patchwork)
+library(kableExtra)
+
+# reading data
+
+
+# setting the theme
+theme_set(theme_bw(base_size = 18)) # Set theme for all ggplots
+
+```
+
+# Correlation Analysis
+
+## Correlation
+
+-   
+
+    -   Is a measure of association between two quantitative variables.
+
+    -   A way to measure the extent to which two variables are related.
+
+    -   Purpose is to measure the strength and direction of the relationship between two variables.
+
+## Correlation
+
+<br>
+
+```{r}
+#| fig-cap: "Source: [edrawmax.wondershare.com](https://edrawmax.wondershare.com/graphs-and-charts-tips/scatter-graph-correlation.html)"
+
+knitr::include_graphics("https://images.wondershare.com/edrawmax/articles2024/scatter-graph-correlation/scatter-graph-correlation-01.jpg")
+```
+
+## Measuring relationships
+
+-   
+
+    -   We need to see whether one variable increases, the other increases, decreases or stay the same
+
+    -   Can be done by calculating the covariance
+
+::: callout-note
+## Sample data: Adverts watched and toffee purchases
+
+```{r}
+data_sample <- data.frame(
+  Person = 1:5,
+  Adverts = c(5, 4, 4, 6, 8),
+  Packets = c(8, 9, 10, 13, 15)
+)
+```
+:::
+
+```{r}
+#| echo: true
+
+data_sample
+```
+
+## Measuring relationship
+
+-   
+
+    -   Adverts watched and toffee purchases
+
+```{r}
+knitr::include_graphics("plot/plot-measuring-relationship-covariance.jpeg")
+```
+
+## Variance
+
+-
+  - variance tell us by how much scores deviates from the mean for a single variable.
+  - it is closely linked to the sum of squares
+  - covariance is similar -  it tells us by how much scores on two variables differ from their respective means.
+  
+  
+$$
+\text{variance} = \frac{\Sigma(x_i - \bar{x})^2}{N-1} = \frac{\Sigma(x_i - \bar{x}) (x_i - \bar{x})}{N-1}
+$$
+
+## Covariance
+
+- 
+  - calculate the error between the mean and each subject's score for the first variable ($X$).
+  - calculate the error between the mean and their score for the second variable ($y$)
+  - multiply these error values
+  - add these values and you get the cross product deviations
+  - the covariance is the average cross-product deviation.
+  
+$$
+\text{cov(x, y)} = \frac{\Sigma(x_i - \bar{x}) (y_i - \bar{y})}{N-1}
+$$
+
+## Problems with covariance
+
+- 
+  - It depends upon the units of measurement
+    - e.g., the covariance of two variables measured in miles might be 4.25, but if the same scores are converted to kilometers, the covariance is 11.
+    
+  - One solution: standardized it!
+    - divide the standard deviations of both variable
+    
+
+## Correlation
+
+-
+  - the standardized version of covariance is known as the correlatino coefficient.
+  - it is relatively unaffected by units of measurement.
+
+
+$$
+\text{cov(x, y)} = \frac{cov_{xy}}{s_x s_y} =\frac{\Sigma(x_i - \bar{x}) (y_i - \bar{y})}{(N-1) s_x s_y} 
+$$
+
+
+## Correlation coefficient interpretation
+
++-------------------------+-------------+------------------------+-------------+
+| Correlation coefficient | Psychology  | Politics and economics | Medicine    |
++:=======================:+:===========:+:======================:+:===========:+
+| ± 1.0                   | Perfect     | Perfect                | Perfect     |
++-------------------------+-------------+------------------------+-------------+
+| ± 0.9                   | Strong      | Very strong            | Very strong |
++-------------------------+-------------+------------------------+-------------+
+| ± 0.8                   | Strong      | Very strong            | Very strong |
++-------------------------+-------------+------------------------+-------------+
+| ± 0.7                   | Strong      | Very strong            | Moderate    |
++-------------------------+-------------+------------------------+-------------+
+| ± 0.6                   | Moderate    | Strong                 | Moderate    |
++-------------------------+-------------+------------------------+-------------+
+| ± 0.5                   | Moderate    | Strong                 | Fair        |
++-------------------------+-------------+------------------------+-------------+
+| ± 0.4                   | Moderate    | Strong                 | Fair        |
++-------------------------+-------------+------------------------+-------------+
+| ± 0.3                   | Weak        | Moderate               | Fair        |
++-------------------------+-------------+------------------------+-------------+
+| ± 0.2                   | Weak        | Weak                   | Poor        |
++-------------------------+-------------+------------------------+-------------+
+| ± 0.1                   | Weak        | Negligible             | Poor        |
++-------------------------+-------------+------------------------+-------------+
+| ± 0.0                   | Zero        | None                   | None        |
++-------------------------+-------------+------------------------+-------------+
+
+::: aside
+Source: Akoglu, H. (2018). User’s guide to correlation coefficients. Turkish Journal of Emergency Medicine, 18(3), 91–93. https://doi.org/10.1016/j.tjem.2018.08.001
+:::
+
+## Correlation
+
+::::: columns
+::: {.column width="30%"}
+```{{r}}
+# Use the built-in 'mtcars' dataset
+data <- mtcars
+
+# Calculate correlation coefficient
+correlation <- cor(data$mpg, data$wt)
+
+# Create scatter plot
+ggplot(data, aes(x = wt, y = mpg)) +
+  geom_point(color = "blue", alpha = 0.7) +
+  labs(
+    title = "Scatter Plot of Miles Per Gallon vs Car Weight",
+    x = "Car Weight (1000 lbs)",
+    y = "Miles Per Gallon (MPG)"
+  ) +
+  annotate("text", 
+           x = max(data$wt) * 0.7, 
+           y = max(data$mpg) * 0.9, 
+           label = paste("Correlation:", round(correlation, 2)),
+           size = 6,
+           color = "red") +
+  theme_minimal()
+```
+:::
+
+::: {.column width="70%"}
+```{r}
+#| echo: false
+#| fig-align: center
+#| fig-height: 6
+#| fig-width: 8
+
+# Use the built-in 'mtcars' dataset
+data <- mtcars
+
+# Calculate correlation coefficient
+correlation <- cor(data$mpg, data$wt)
+
+# Create scatter plot
+ggplot(data, aes(x = wt, y = mpg)) +
+  geom_point(color = "blue", alpha = 0.7) +
+  labs(
+    title = "Scatter Plot of Miles Per Gallon vs Car Weight",
+    x = "Car Weight (1000 lbs)",
+    y = "Miles Per Gallon (MPG)"
+  ) +
+  annotate("text", 
+           x = max(data$wt) * 0.7, 
+           y = max(data$mpg) * 0.9, 
+           label = paste("Correlation:", round(correlation, 2)),
+           size = 6,
+           color = "red") +
+  theme_minimal(base_size = 12)
+```
+:::
+:::::
+
+## Correlation vs Causation
+
+-   two things that goes together may not necessarily mean that there is causation
+
+-   one variable can be strongly related to another, yet not cause it.
+
+-   Correlation does not imply causality.
+
+<br>
+
+```{r}
+knitr::include_graphics("https://nulib.github.io/moderndive_book/images/causation.png")
+```
+
+## Correlation
+
++--------------+-----------------------------+-------------------------------------------------------------------------------------------+
+| Type         | Data type                   | When to use                                                                               |
++==============+=============================+===========================================================================================+
+| -   Pearson  | -   Continuous              | -   both variables are continuous and normally distributed and the relationship is linear |
+|              | -   Normally distributed    |                                                                                           |
++--------------+-----------------------------+-------------------------------------------------------------------------------------------+
+| -   Spearman | -   Continuous (non-normal) | -   when data is ordinal, or the relationship is monotonic but not linear                 |
+|              | -   Ordinal                 |                                                                                           |
++--------------+-----------------------------+-------------------------------------------------------------------------------------------+
+
+## Pearson correlation
+
+::: callout-tip
+## R activity
+
+Test if there is a relationship between mpg and car weight using `mtcars` dataset.
+:::
+
+::::: columns
+::: {.column width="50%"}
+Step 1: read in data
+
+```{r}
+#| echo: true
+
+data(mtcars)
+head(mtcars)
+```
+:::
+
+::: {.column width="50%"}
+Step 2: normality test
+
+```{r}
+#| echo: true
+
+shapiro.test(mtcars$wt)
+shapiro.test(mtcars$mpg)
+
+```
+:::
+:::::
+
+## Pearson correlation
+
+::::: columns
+::: {.column width="50%"}
+Step 3: Create scatterplot
+
+```{r}
+#| echo: true
+
+mtcars |> 
+  ggplot(aes(wt, mpg)) +
+  geom_point(size = 2) +
+  theme_minimal(base_size = 12)
+```
+:::
+
+::: {.column width="50%"}
+Step 4: Perform pearson correlation
+
+```{r}
+#| echo: true
+
+cor.test(mtcars$mpg, mtcars$wt, method = "pearson")
+```
+:::
+:::::
+
+## Spearman correlation
+
+::: callout-tip
+## R activity
+
+Test if there is a relationship between mpg and car horse power using `mtcars` dataset.
+:::
+
+::::: columns
+::: {.column width="50%"}
+Step 1: read in data
+
+```{r}
+#| echo: true
+
+data(mtcars)
+head(mtcars)
+```
+:::
+
+::: {.column width="50%"}
+Step 2: normality test
+
+```{r}
+#| echo: true
+
+shapiro.test(mtcars$hp)
+shapiro.test(mtcars$mpg)
+
+```
+:::
+:::::
+
+## Spearman correlation
+
+::::: columns
+::: {.column width="50%"}
+Step 3: Create scatterplot
+
+```{r}
+#| echo: true
+
+mtcars |> 
+  ggplot(aes(hp, mpg)) +
+  geom_point(size = 2) +
+  theme_minimal(base_size = 12)
+```
+:::
+
+::: {.column width="50%"}
+Step 4: Perform spearman correlation
+
+```{r}
+#| echo: true
+
+cor.test(mtcars$mpg, mtcars$wt, method = "spearman")
+```
+:::
+:::::
+
+# Check-up quiz
+
+## What does correlation analysis aim to determine? {.quiz-question}
+
+-   The cause-and-effect relationship between two variables.
+
+-   [The strength and direction of the linear relationship between two variables]{.correct}
+
+-   The difference in means between two groups.
+
+-   The probability of an event occurring.
+
+## Which of the following correlation coefficients indicates the strongest relationship? {.quiz-question}
+
+-   0.25
+
+-   [-0.70]{.correct}
+
+-   0.10
+
+-   0.50
+
+## A correlation coefficient of -0.80 suggests: {.quiz-question}
+
+-   A strong positive relationship.
+
+-   A weak positive relationship.
+
+-   [A strong negative relationship]{.correct}
+
+-   No relationship.
+
+## What is the range of values for a correlation coefficient? {.quiz-question}
+
+-   0 to 1
+
+-   [-1 to 1]{.correct}
+
+-   -∞ to ∞
+
+-   0 to ∞
+
+## Which of the following factors can influence the correlation coefficient? {.quiz-question}
+
+-   Outliers in the data.
+
+-   The units of measurement of the variables.
+
+-   The sample size.
+
+-   [All of the above]{.correct}
+
+# 
+
+```{r}
+knitr::include_graphics("plot/econ149-hex-logo.png")
+```
