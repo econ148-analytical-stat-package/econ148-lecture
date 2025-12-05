@@ -85,7 +85,6 @@ knitr::include_graphics("https://images.wondershare.com/edrawmax/articles2024/sc
     -   Can be done by calculating the covariance
 
 ::: {.callout-note style="font-size: 2.0em;"}
-
 ## Sample data: Adverts watched and toffee purchases
 
 ```{r}
@@ -113,13 +112,7 @@ data_sample
 knitr::include_graphics("plot/plot-measuring-relationship-covariance.jpeg")
 ```
 
-
 ## Guessing the correlation
-
-
-
-
-
 
 
 
