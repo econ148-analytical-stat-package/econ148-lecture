@@ -33,7 +33,7 @@ knitr::opts_chunk$set(comment = "",
                       )
 
 ## working directory
-here::here("module-07-correlation")
+setwd(here::here("module-07-correlation"))
 
 ## Libraries
 library(tidyverse)
