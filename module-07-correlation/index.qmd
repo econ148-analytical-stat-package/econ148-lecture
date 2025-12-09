@@ -7,6 +7,7 @@ format:
   revealjs:
     theme: [simple, custom.scss]
     preview-links: true
+    math: katex
     code-fold: false
     code-summary: "code"
     chalkboard: true
@@ -85,7 +86,6 @@ knitr::include_graphics("https://images.wondershare.com/edrawmax/articles2024/sc
     -   Can be done by calculating the covariance
 
 ::: {.callout-note style="font-size: 2.0em;"}
-
 ## Sample data: Adverts watched and toffee purchases
 
 ```{r}
@@ -112,16 +112,6 @@ data_sample
 ```{r}
 knitr::include_graphics("plot/plot-measuring-relationship-covariance.jpeg")
 ```
-
-
-## Guessing the correlation
-
-
-
-
-
-
-
 
 ## Variance
 
@@ -169,6 +159,12 @@ $$
 \text{cov(x, y)} = \frac{cov_{xy}}{s_x s_y} =\frac{\Sigma(x_i - \bar{x}) (y_i - \bar{y})}{(N-1) s_x s_y} 
 $$
 
+<br>
+
+$$
+r = \frac{\Sigma{xy} - \frac{(\Sigma{x}) (\Sigma{y})}{n}}{\sqrt{[\Sigma x^2 - \frac{(\Sigma x)^2}{n}][\Sigma x^2 - \frac{(\Sigma y)^2}{n}]}}
+$$
+
 ## Correlation coefficient interpretation
 
 +-------------------------+--------------+------------------------+--------------+
@@ -200,6 +196,95 @@ $$
 ::: aside
 Source: Akoglu, H. (2018). User’s guide to correlation coefficients. Turkish Journal of Emergency Medicine, 18(3), 91–93. https://doi.org/10.1016/j.tjem.2018.08.001
 :::
+
+## Correlation
+
+:::: columns
+::: column
+
+- **sample dataset**
+
+```{r}
+#| echo: true
+sample_data <- tibble(
+  subject = 1:5,
+  x = c(20, 0, 1, 12, 3),
+  y = c(7, 0, 2, 5, 3)
+)
+
+sample_data
+```
+
+:::
+
+::: column
+
+- **manual calculations**
+```{r}
+#| echo: true
+sample_comp_data <- 
+  sample_data |> 
+  summarise(
+    sum_x = sum(x),
+    sum_y = sum(y),
+    sum_x2 = sum(x^2),
+    sum_y2 = sum(y^2),
+    sum_xy = sum(x * y),
+  )
+
+sample_comp_data
+```
+
+<br>
+
+```{r}
+#| echo: true
+
+r <- with(sample_comp_data,
+          (sum_xy - (sum_x * sum_y) / nrow(sample_data)) /
+            sqrt((sum_x2 - (sum_x^2) / nrow(sample_data)) *
+                   (sum_y2 - (sum_y^2) / nrow(sample_data)))
+)
+
+r
+```
+:::
+::::
+
+
+## Correlation
+
+:::: columns
+::: column
+
+- **sample dataset**
+
+```{r}
+#| echo: true
+sample_data <- tibble(
+  subject = 1:5,
+  x = c(20, 0, 1, 12, 3),
+  y = c(7, 0, 2, 5, 3)
+)
+
+sample_data
+```
+
+:::
+
+::: column
+
+- **using R function**
+```{r}
+#| echo: true
+
+## correlation test
+cor.test(sample_data$x, sample_data$y, method = "pearson")
+```
+
+:::
+::::
+
 
 ## Correlation
 
@@ -290,7 +375,7 @@ knitr::include_graphics("https://nulib.github.io/moderndive_book/images/causatio
 
 ## Pearson correlation
 
-::: callout-tip
+::: {.callout-tip style="font-size: 2.0em;"}
 ## R activity
 
 Test if there is a relationship between mpg and car weight using `mtcars` dataset.
@@ -332,8 +417,8 @@ Step 3: Create scatterplot
 
 mtcars |> 
   ggplot(aes(wt, mpg)) +
-  geom_point(size = 2) +
-  theme_minimal(base_size = 12)
+  geom_point(size = 4) +
+  theme_minimal(base_size = 16)
 ```
 :::
 
@@ -350,7 +435,7 @@ cor.test(mtcars$mpg, mtcars$wt, method = "pearson")
 
 ## Spearman correlation
 
-::: callout-tip
+::: {.callout-note style="font-size: 2.0em;"}
 ## R activity
 
 Test if there is a relationship between mpg and car horse power using `mtcars` dataset.
@@ -463,5 +548,5 @@ cor.test(mtcars$mpg, mtcars$wt, method = "spearman")
 # 
 
 ```{r}
-knitr::include_graphics("plot/econ149-hex-logo.png")
+knitr::include_graphics("plot/econ148-hex-logo.png")
 ```
