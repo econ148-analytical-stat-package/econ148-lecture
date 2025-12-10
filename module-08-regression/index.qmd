@@ -132,6 +132,73 @@ $$
 knitr::include_graphics("plot/simle-linear-reg.png")
 ```
 
+
+## Deriving the Ordinary Least Squares (OLS) estimators
+
+- In order to estimate the regression model one needs data
+- A random sample of $n$ observations
+
+  - $(x_1, y_1)$ ← first observation
+  - $(x_2, y_2)$ ← second observation
+  - $(x_3, y_3)$ ← third observation
+  - ...
+  - $(x_n, y_n)$ ← nth observation
+
+
+## Deriving the Ordinary Least Squares (OLS) estimators
+
+- Defining regression residuals
+  - $\hat{u_i} = y_i - \hat{y_i} = y_i - (\hat{\beta_0} + \hat{\beta_1}x_i)$
+
+<br>
+
+- Minimize the sum of squared residuals (SSR)
+  - $\text{min} \Sigma_{i=1}^n \hat{u_i}^2$ → $\hat{\beta_0}, \hat{\beta_1}$
+
+<br>
+
+- OLS estimator
+  - $\hat{\beta_1} = \frac{Cov(X,Y)}{Var(X)} = \frac{\Sigma_{i=1}^n (x_i - \bar{x})(y_i - \bar{y})}{\Sigma_{i=1}^n (x_i - \bar{x})^2}$
+  - $\hat{\beta_0} = \bar{y} - \hat{\beta_1}\bar{x}$
+
+
+## Simple linear regression model
+
+<br>
+
+```{r}
+knitr::include_graphics("plot/OLS fit.png")
+```
+
+::: aside
+Source: Wooldridge, J. M. (2020). Introductory Econometrics: A Modern Approach (7th ed.). Cengage Learning.
+:::
+
+
+## Simple regression model
+
+- Wage and education
+  - $wage = \beta_0 + \beta_1 educ + u$
+
+- fitted regression
+  - $\hat{wage} = -0.90 + 0.54 educ$
+  - Interpretation: in the sample, one more year of education was associated with an increase in hourly wage by $0.54.
+
+
+```{r}
+#| echo: true
+
+# sample data
+wage_dta <- wooldridge::wage1
+
+# fitting the model
+model <- lm(wage ~ educ, data = wage_dta)
+broom::tidy(model)
+```
+
+
+
+
 ## Simple linear regression
 
 ::: {.callout-tip style="font-size: 2.0em;"}
@@ -224,6 +291,9 @@ Step 3: Interpret results
     -   example: a 1 unit increase in price decreases the pie sales by 24.03 pies per week.
 :::
 :::::
+
+
+
 
 ## Multiple linear regression
 
@@ -420,6 +490,25 @@ effect_plot(model, pred = Advertising, plot.points = TRUE, jitter = 0.5, interva
 ```
 :::
 :::::
+
+
+## Multiple linear regression
+
+```{r}
+library(visreg)
+
+visreg(model, "Advertising", gg = TRUE)
+```
+
+```{r}
+df |> 
+  ggplot(aes(Advertising, Pie_Sales)) +
+  geom_point(size = 2) +
+  geom_smooth(method = "lm", se = TRUE)
+```
+
+
+
 
 # Check-up quiz
 
