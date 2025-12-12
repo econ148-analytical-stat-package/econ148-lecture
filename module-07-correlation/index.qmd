@@ -113,13 +113,6 @@ data_sample
 knitr::include_graphics("plot/plot-measuring-relationship-covariance.jpeg")
 ```
 
-<<<<<<< HEAD
-=======
-## Guessing the correlation
-
-
-
->>>>>>> 67b17b9d055190c7c92a22d9ec9698743d82130e
 ## Variance
 
 -   
@@ -206,10 +199,9 @@ Source: Akoglu, H. (2018). User’s guide to correlation coefficients. Turkish J
 
 ## Correlation
 
-:::: columns
+::::: columns
 ::: column
-
-- **sample dataset**
+-   **sample dataset**
 
 ```{r}
 #| echo: true
@@ -221,12 +213,11 @@ sample_data <- tibble(
 
 sample_data
 ```
-
 :::
 
 ::: column
+-   **manual calculations**
 
-- **manual calculations**
 ```{r}
 #| echo: true
 sample_comp_data <- 
@@ -256,15 +247,13 @@ r <- with(sample_comp_data,
 r
 ```
 :::
-::::
-
+:::::
 
 ## Correlation
 
-:::: columns
+::::: columns
 ::: column
-
-- **sample dataset**
+-   **sample dataset**
 
 ```{r}
 #| echo: true
@@ -276,22 +265,19 @@ sample_data <- tibble(
 
 sample_data
 ```
-
 :::
 
 ::: column
+-   **using R function**
 
-- **using R function**
 ```{r}
 #| echo: true
 
 ## correlation test
 cor.test(sample_data$x, sample_data$y, method = "pearson")
 ```
-
 :::
-::::
-
+:::::
 
 ## Correlation
 
