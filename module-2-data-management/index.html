@@ -1,0 +1,2331 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<script src="index_files/libs/clipboard/clipboard.min.js"></script>
+<script src="index_files/libs/quarto-html/tabby.min.js"></script>
+<script src="index_files/libs/quarto-html/popper.min.js"></script>
+<script src="index_files/libs/quarto-html/tippy.umd.min.js"></script>
+<link href="index_files/libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="index_files/libs/quarto-html/light-border.css" rel="stylesheet">
+<link href="index_files/libs/quarto-html/quarto-syntax-highlighting-64a204ab8560d761af7679ceaba22944.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
+  <meta name="generator" content="quarto-1.10.18">
+
+  <title>.</title>
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+  <link rel="stylesheet" href="index_files/libs/revealjs/dist/reset.css">
+  <link rel="stylesheet" href="index_files/libs/revealjs/dist/reveal.css">
+  <style>
+    /* Default styles provided by pandoc.
+    ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+    */
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: 1.5em;}
+    div.column{flex: auto;}
+    @media screen {
+    div.columns{gap: min(4vw, 1.5em);}
+    div.column{overflow-x: auto;}
+    }
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    ul.task-list{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+      vertical-align: middle;
+    }
+    /* CSS for syntax highlighting */
+    html { -webkit-text-size-adjust: 100%; }
+    pre > code.sourceCode { white-space: pre; position: relative; }
+    pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+    pre > code.sourceCode > span:empty { height: 1.2em; }
+    .sourceCode { overflow: visible; }
+    code.sourceCode > span { color: inherit; text-decoration: inherit; }
+    div.sourceCode { margin: 1em 0; }
+    pre.sourceCode { margin: 0; }
+    @media screen {
+    div.sourceCode { overflow: auto; }
+    }
+    @media print {
+    pre > code.sourceCode { white-space: pre-wrap; }
+    pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+    }
+    pre.numberSource code
+      { counter-reset: source-line 0; }
+    pre.numberSource code > span
+      { position: relative; left: -4em; counter-increment: source-line; }
+    pre.numberSource code > span > a:first-child::before
+      { content: counter(source-line);
+        position: relative; left: -1em; text-align: right; vertical-align: baseline;
+        border: none; display: inline-block;
+        -webkit-touch-callout: none; -webkit-user-select: none;
+        -khtml-user-select: none; -moz-user-select: none;
+        -ms-user-select: none; user-select: none;
+        padding: 0 4px; width: 4em;
+        color: #aaaaaa;
+      }
+    pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+    div.sourceCode
+      { color: #003b4f; background-color: #f1f3f5; }
+    @media screen {
+    pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+    }
+    code span { color: #003b4f; } /* Normal */
+    code span.al { color: #ad0000; } /* Alert */
+    code span.an { color: #5e5e5e; } /* Annotation */
+    code span.at { color: #657422; } /* Attribute */
+    code span.bn { color: #ad0000; } /* BaseN */
+    code span.bu { } /* BuiltIn */
+    code span.cf { color: #003b4f; font-weight: bold; } /* ControlFlow */
+    code span.ch { color: #20794d; } /* Char */
+    code span.cn { color: #8f5902; } /* Constant */
+    code span.co { color: #5e5e5e; } /* Comment */
+    code span.cv { color: #5e5e5e; font-style: italic; } /* CommentVar */
+    code span.do { color: #5e5e5e; font-style: italic; } /* Documentation */
+    code span.dt { color: #ad0000; } /* DataType */
+    code span.dv { color: #ad0000; } /* DecVal */
+    code span.er { color: #ad0000; } /* Error */
+    code span.ex { } /* Extension */
+    code span.fl { color: #ad0000; } /* Float */
+    code span.fu { color: #4758ab; } /* Function */
+    code span.im { color: #00769e; } /* Import */
+    code span.in { color: #5e5e5e; } /* Information */
+    code span.kw { color: #003b4f; font-weight: bold; } /* Keyword */
+    code span.op { color: #5e5e5e; } /* Operator */
+    code span.ot { color: #003b4f; } /* Other */
+    code span.pp { color: #ad0000; } /* Preprocessor */
+    code span.sc { color: #5e5e5e; } /* SpecialChar */
+    code span.ss { color: #20794d; } /* SpecialString */
+    code span.st { color: #20794d; } /* String */
+    code span.va { color: #111111; } /* Variable */
+    code span.vs { color: #20794d; } /* VerbatimString */
+    code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
+  </style>
+  <link rel="stylesheet" href="index_files/libs/revealjs/dist/theme/quarto-e0ad6ea7d92914c5b3a8ee92e461613a.css">
+  <link href="index_files/libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
+  <link href="index_files/libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
+  <link href="index_files/libs/revealjs/plugin/reveal-menu/quarto-menu.css" rel="stylesheet">
+  <link href="index_files/libs/revealjs/plugin/reveal-chalkboard/font-awesome/css/all.css" rel="stylesheet">
+  <link href="index_files/libs/revealjs/plugin/reveal-chalkboard/style.css" rel="stylesheet">
+  <link href="index_files/libs/revealjs/plugin/reveal-quiz/quiz.css" rel="stylesheet">
+  <link href="index_files/libs/revealjs/plugin/quarto-support/footer.css" rel="stylesheet">
+  <style type="text/css">
+    .reveal div.sourceCode {
+      margin: 0;
+      overflow: auto;
+    }
+    .reveal div.hanging-indent {
+      margin-left: 1em;
+      text-indent: -1em;
+    }
+    .reveal .slide:not(.center) {
+      height: 100%;
+    }
+    .reveal .slide.scrollable {
+      overflow-y: auto;
+    }
+    .reveal .footnotes {
+      height: 100%;
+      overflow-y: auto;
+    }
+    .reveal .slide .absolute {
+      position: absolute;
+      display: block;
+    }
+    .reveal .footnotes ol {
+      counter-reset: ol;
+      list-style-type: none; 
+      margin-left: 0;
+    }
+    .reveal .footnotes ol li:before {
+      counter-increment: ol;
+      content: counter(ol) ". "; 
+    }
+    .reveal .footnotes ol li > p:first-child {
+      display: inline-block;
+    }
+    .reveal .slide ul,
+    .reveal .slide ol {
+      margin-bottom: 0.5em;
+    }
+    .reveal .slide ul li,
+    .reveal .slide ol li {
+      margin-top: 0.4em;
+      margin-bottom: 0.2em;
+    }
+    .reveal .slide ul[role="tablist"] li {
+      margin-bottom: 0;
+    }
+    .reveal .slide ul li > *:first-child,
+    .reveal .slide ol li > *:first-child {
+      margin-block-start: 0;
+    }
+    .reveal .slide ul li > *:last-child,
+    .reveal .slide ol li > *:last-child {
+      margin-block-end: 0;
+    }
+    .reveal .slide .columns:nth-child(3) {
+      margin-block-start: 0.8em;
+    }
+    .reveal blockquote {
+      box-shadow: none;
+    }
+    .reveal .tippy-content>* {
+      margin-top: 0.2em;
+      margin-bottom: 0.7em;
+    }
+    .reveal .tippy-content>*:last-child {
+      margin-bottom: 0.2em;
+    }
+    .reveal .slide > img.stretch.quarto-figure-center,
+    .reveal .slide > img.r-stretch.quarto-figure-center {
+      display: block;
+      margin-left: auto;
+      margin-right: auto; 
+    }
+    .reveal .slide > img.stretch.quarto-figure-left,
+    .reveal .slide > img.r-stretch.quarto-figure-left  {
+      display: block;
+      margin-left: 0;
+      margin-right: auto; 
+    }
+    .reveal .slide > img.stretch.quarto-figure-right,
+    .reveal .slide > img.r-stretch.quarto-figure-right  {
+      display: block;
+      margin-left: auto;
+      margin-right: 0; 
+    }
+  </style>
+</head>
+<body class="quarto-light">
+  <div class="reveal">
+    <div class="slides">
+
+<section id="title-slide" data-background-image="img/module-2-title-page.png" data-background-size="cover" class="quarto-title-block center">
+  <h1 class="title">.</h1>
+
+<div class="quarto-title-authors">
+</div>
+
+</section>
+<section id="overview" class="slide level2">
+<h2>Overview</h2>
+<ul>
+<li class="fragment">Dataframe and tibble</li>
+<li class="fragment">Introduction to Tidyverse</li>
+<li class="fragment">Basic data wrangling with <code>dplyr</code></li>
+<li class="fragment">Data reshaping</li>
+<li class="fragment">Case studies</li>
+</ul>
+</section>
+<section id="section" class="title-slide slide level1 center">
+<h1></h1>
+<div style="font-size: 80%; text-align: center;">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="img/r_first_then_new.png" class="quarto-figure quarto-figure-center" style="width:90.0%"></p>
+</figure>
+</div>
+<p>Illustration adopted from <a href="https://twitter.com/allison_horst">Allison Horst</a></p>
+</div>
+</section>
+
+<section>
+<section id="introduction-to-tidyverse" class="title-slide slide level1 center">
+<h1>Introduction to Tidyverse</h1>
+
+</section>
+<section id="tidyverse-package" class="slide level2 center-text">
+<h2>Tidyverse package</h2>
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="img/tidyverse.png" class="quarto-figure quarto-figure-center" style="width:50.0%;height:60.0%"></p>
+</figure>
+</div>
+</section>
+<section id="what-is-tidyverse" class="slide level2">
+<h2>What is tidyverse?</h2>
+<p>A collection of R packages designed for data science.</p>
+<p>All packages share an underlying philosophy, grammar, and data structure.</p>
+<center>
+<img src="https://rstudio-education.github.io/tidyverse-cookbook/images/data-science-workflow.png" style="width:60%">
+</center>
+</section>
+<section id="section-1" class="slide level2">
+<h2></h2>
+<center>
+<img src="https://www.openscapes.org/img/blog/tidydata/tidydata_1.jpg" style="width:80%">
+</center>
+<div style="font-size:70%; text-align:center;">
+<p>Illustration adopted from <a href="https://github.com/allisonhorst">Allison Horst</a></p>
+</div>
+</section>
+<section id="section-2" class="slide level2">
+<h2></h2>
+<center>
+<img src="https://www.openscapes.org/img/blog/tidydata/tidydata_2.jpg" style="width: 80%">
+</center>
+<div style="font-size:70%; text-align:center;">
+<p>Illustration adopted from <a href="https://github.com/allisonhorst">Allison Horst</a></p>
+</div>
+</section>
+<section id="section-3" class="slide level2">
+<h2></h2>
+<div class="center-text">
+<p><strong>Tidy data makes it easier for reproducibility and reuse</strong></p>
+</div>
+<center>
+<img src="https://www.openscapes.org/img/blog/tidydata/tidydata_5.jpg" style="width: 80%">
+</center>
+<div style="font-size:70%; text-align:center;">
+<p>Illustration adopted from <a href="https://github.com/allisonhorst">Allison Horst</a></p>
+</div>
+</section>
+<section id="section-4" class="slide level2">
+<h2></h2>
+<div class="center-text">
+<p><strong>Yehey! Tidy Data for the win!</strong></p>
+</div>
+<center>
+<img src="https://www.openscapes.org/img/blog/tidydata/tidydata_6.jpg" style="width: 70%">
+</center>
+<div style="font-size:70%; text-align:center;">
+<p>Illustration adopted from <a href="https://github.com/allisonhorst">Allison Horst</a></p>
+</div>
+</section></section>
+<section>
+<section id="data-structures" class="title-slide slide level1 center">
+<h1>Data structures</h1>
+
+</section>
+<section id="data-structure" class="slide level2">
+<h2>Data structure</h2>
+<ul>
+<li>R has a variety of holding data</li>
+<li>e.g., scalars, vectors, matrices, arrays, dataframes</li>
+</ul>
+
+<img data-src="img/data-structure.png" class="r-stretch quarto-figure-center"><p class="caption">R Data Structure. Source: Kabacoff (2011) R in Action</p></section>
+<section id="vectors" class="slide level2">
+<h2>Vectors</h2>
+<ul>
+<li>vectors are one dimnensional arrays that can hold numeric, character, or logical data</li>
+<li>combine function <code>c()</code> is used to form a vector</li>
+</ul>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb1-1"><a href="" aria-label="1"></a><span class="in">```{r}</span></span>
+<span id="cb1-2"><a href="" aria-label="2"></a>a <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">5</span>, <span class="dv">3</span>, <span class="dv">6</span>, <span class="sc">-</span><span class="dv">2</span>, <span class="dv">4</span>)</span>
+<span id="cb1-3"><a href="" aria-label="3"></a>b <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"one"</span>, <span class="st">"two"</span>, <span class="st">"three"</span>)</span>
+<span id="cb1-4"><a href="" aria-label="4"></a>c <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="cn">TRUE</span>, <span class="cn">TRUE</span>, <span class="cn">TRUE</span>, <span class="cn">FALSE</span>, <span class="cn">TRUE</span>, <span class="cn">FALSE</span>)</span>
+<span id="cb1-5"><a href="" aria-label="5"></a><span class="in">```</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<ul>
+<li class="fragment"><code>a</code> is a numeric vector</li>
+<li class="fragment"><code>b</code> is a character vector</li>
+<li class="fragment"><code>c</code> is a logical vector</li>
+</ul>
+</section>
+<section id="vectors-1" class="slide level2">
+<h2>Vectors</h2>
+<ul>
+<li>vectors are one dimnensional arrays that can hold numeric, character, or logical data</li>
+<li>combine function <code>c()</code> is used to form a vector</li>
+<li>scalars are one-element vectors. They’re used to hold constants.
+<ul>
+<li>e.g., <code>f &lt;- 3</code>, g <code>&lt;- "US"</code> and <code>h &lt;- TRUE</code></li>
+</ul></li>
+</ul>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb2-1"><a href="" aria-label="1"></a><span class="in">```{r}</span></span>
+<span id="cb2-2"><a href="" aria-label="2"></a>a <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">5</span>, <span class="dv">3</span>, <span class="dv">6</span>, <span class="sc">-</span><span class="dv">2</span>, <span class="dv">4</span>)</span>
+<span id="cb2-3"><a href="" aria-label="3"></a>b <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"one"</span>, <span class="st">"two"</span>, <span class="st">"three"</span>)</span>
+<span id="cb2-4"><a href="" aria-label="4"></a>c <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="cn">TRUE</span>, <span class="cn">TRUE</span>, <span class="cn">TRUE</span>, <span class="cn">FALSE</span>, <span class="cn">TRUE</span>, <span class="cn">FALSE</span>)</span>
+<span id="cb2-5"><a href="" aria-label="5"></a><span class="in">```</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</section>
+<section id="vectors-2" class="slide level2">
+<h2>Vectors</h2>
+<div style="font-size:1.5em;">
+<div class="callout callout-note callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Remember</strong></p>
+</div>
+<div class="callout-content">
+<p>Data in a vector must only be one type or mode (numeric, character, or logical). You can’t mix modes in the same vector. If you try to mix data types (modes) in a vector, R automatically converts the elements of the vector to a single, common type.</p>
+</div>
+</div>
+</div>
+</div>
+<ul>
+<li><p>logicals and numerics, logicals → numeric (<code>TRUE = 1</code>,<code>FALSE = 0</code>)</p></li>
+<li><p>integers and numerics, integers → numeric</p></li>
+<li><p>anything with characters → character strings</p></li>
+</ul>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb3-1"><a href="" aria-label="1"></a><span class="in">```{r}</span></span>
+<span id="cb3-2"><a href="" aria-label="2"></a>my_vector <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="st">"hello"</span>, <span class="cn">TRUE</span>, <span class="fl">3.14</span>)</span>
+<span id="cb3-3"><a href="" aria-label="3"></a>my_vector</span>
+<span id="cb3-4"><a href="" aria-label="4"></a></span>
+<span id="cb3-5"><a href="" aria-label="5"></a><span class="co"># Check the type of the vector</span></span>
+<span id="cb3-6"><a href="" aria-label="6"></a><span class="fu">typeof</span>(my_vector)</span>
+<span id="cb3-7"><a href="" aria-label="7"></a><span class="in">```</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<pre><code>[1] "1"     "hello" "TRUE"  "3.14" 
+[1] "character"</code></pre>
+</div>
+</section>
+<section id="matrices" class="slide level2">
+<h2>Matrices</h2>
+<ul>
+<li>two-dimensional array where each element has the same data types</li>
+<li>matrices are created with the <code>matrix</code> function</li>
+</ul>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb5-1"><a href="" aria-label="1"></a><span class="in">```{r}</span></span>
+<span id="cb5-2"><a href="" aria-label="2"></a>y <span class="ot">&lt;-</span> <span class="fu">matrix</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">20</span>, <span class="at">nrow =</span> <span class="dv">5</span>, <span class="at">ncol =</span> <span class="dv">4</span>)</span>
+<span id="cb5-3"><a href="" aria-label="3"></a>y</span>
+<span id="cb5-4"><a href="" aria-label="4"></a><span class="in">```</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<pre><code>     [,1] [,2] [,3] [,4]
+[1,]    1    6   11   16
+[2,]    2    7   12   17
+[3,]    3    8   13   18
+[4,]    4    9   14   19
+[5,]    5   10   15   20</code></pre>
+</div>
+</section>
+<section id="matrices-1" class="slide level2">
+<h2>Matrices</h2>
+<ul>
+<li>two-dimensional array where each element has the same data types</li>
+<li>matrices are created with the <code>matrix</code> function</li>
+</ul>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb7-1"><a href="" aria-label="1"></a><span class="in">```{r}</span></span>
+<span id="cb7-2"><a href="" aria-label="2"></a><span class="co"># elements, row and column names</span></span>
+<span id="cb7-3"><a href="" aria-label="3"></a>cells <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">26</span>, <span class="dv">24</span>, <span class="dv">68</span>)</span>
+<span id="cb7-4"><a href="" aria-label="4"></a>rnames <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"R1"</span>, <span class="st">"R2"</span>)</span>
+<span id="cb7-5"><a href="" aria-label="5"></a>cnames <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"C1"</span>, <span class="st">"C2"</span>)</span>
+<span id="cb7-6"><a href="" aria-label="6"></a></span>
+<span id="cb7-7"><a href="" aria-label="7"></a><span class="co"># my matrix</span></span>
+<span id="cb7-8"><a href="" aria-label="8"></a>mymatrix <span class="ot">&lt;-</span> <span class="fu">matrix</span>(</span>
+<span id="cb7-9"><a href="" aria-label="9"></a>  cells,</span>
+<span id="cb7-10"><a href="" aria-label="10"></a>  <span class="at">nrow =</span> <span class="dv">2</span>,</span>
+<span id="cb7-11"><a href="" aria-label="11"></a>  <span class="at">ncol =</span> <span class="dv">2</span>,</span>
+<span id="cb7-12"><a href="" aria-label="12"></a>  <span class="at">byrow =</span> <span class="cn">TRUE</span>,</span>
+<span id="cb7-13"><a href="" aria-label="13"></a>  <span class="at">dimnames =</span> <span class="fu">list</span>(rnames, cnames)</span>
+<span id="cb7-14"><a href="" aria-label="14"></a>)</span>
+<span id="cb7-15"><a href="" aria-label="15"></a></span>
+<span id="cb7-16"><a href="" aria-label="16"></a><span class="co"># print matrix</span></span>
+<span id="cb7-17"><a href="" aria-label="17"></a>mymatrix</span>
+<span id="cb7-18"><a href="" aria-label="18"></a><span class="in">```</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<pre><code>   C1 C2
+R1  1 26
+R2 24 68</code></pre>
+</div>
+</section>
+<section id="data-frame" class="slide level2">
+<h2>Data frame</h2>
+<ul>
+<li><p>a more general than a matrix in that different columns can contain different modes of data</p></li>
+<li><p>similar to the datasets you’d typically see in SAS, SPSS, and Stata</p></li>
+<li><p>data frames are the most common data structure you’ll deal with in R</p></li>
+</ul>
+
+<img data-src="https://r4ds.hadley.nz/images/tidy-1.png" class="r-stretch quarto-figure-center"><p class="caption">Source: Wickham 2025. R for Data Science 2nd ed</p></section>
+<section id="data-frame-1" class="slide level2">
+<h2>Data frame</h2>
+<ul>
+<li>data frames are the most common data structure you will be working in R</li>
+<li>you can create a data frame using <code>data.frame()</code> function</li>
+</ul>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb9"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb9-1"><a href="" aria-label="1"></a><span class="in">```{r}</span></span>
+<span id="cb9-2"><a href="" aria-label="2"></a><span class="do">## creating column vector</span></span>
+<span id="cb9-3"><a href="" aria-label="3"></a>patientID <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">4</span>)</span>
+<span id="cb9-4"><a href="" aria-label="4"></a>age <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">25</span>, <span class="dv">34</span>, <span class="dv">28</span>, <span class="dv">52</span>)</span>
+<span id="cb9-5"><a href="" aria-label="5"></a>diabetes <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"Type1"</span>, <span class="st">"Type2"</span>, <span class="st">"Type1"</span>, <span class="st">"Type1"</span>)</span>
+<span id="cb9-6"><a href="" aria-label="6"></a>status <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"Poor"</span>, <span class="st">"Improved"</span>, <span class="st">"Excellent"</span>, <span class="st">"Poor"</span>)</span>
+<span id="cb9-7"><a href="" aria-label="7"></a></span>
+<span id="cb9-8"><a href="" aria-label="8"></a><span class="do">## using data.frame to create patient_data frame</span></span>
+<span id="cb9-9"><a href="" aria-label="9"></a>patientdata <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(patientID, age, diabetes, status)</span>
+<span id="cb9-10"><a href="" aria-label="10"></a></span>
+<span id="cb9-11"><a href="" aria-label="11"></a><span class="do">## print patient data frame</span></span>
+<span id="cb9-12"><a href="" aria-label="12"></a>patientdata</span>
+<span id="cb9-13"><a href="" aria-label="13"></a><span class="in">```</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<pre><code>  patientID age diabetes    status
+1         1  25    Type1      Poor
+2         2  34    Type2  Improved
+3         3  28    Type1 Excellent
+4         4  52    Type1      Poor</code></pre>
+</div>
+</section>
+<section id="tibble" class="slide level2">
+<h2>Tibble</h2>
+<ul>
+<li>a modern reimagining of <code>data.frame</code></li>
+<li>tibbles are data frames</li>
+<li>create a tibble from individual vectors using <code>tibble()</code> function</li>
+</ul>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb11"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb11-1"><a href="" aria-label="1"></a><span class="in">```{r}</span></span>
+<span id="cb11-2"><a href="" aria-label="2"></a><span class="fu">tibble</span>(</span>
+<span id="cb11-3"><a href="" aria-label="3"></a>  <span class="at">x =</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">5</span>,</span>
+<span id="cb11-4"><a href="" aria-label="4"></a>  <span class="at">y =</span> <span class="dv">1</span>,</span>
+<span id="cb11-5"><a href="" aria-label="5"></a>  <span class="at">z =</span> x<span class="sc">^</span><span class="dv">2</span> <span class="sc">+</span> y</span>
+<span id="cb11-6"><a href="" aria-label="6"></a>)</span>
+<span id="cb11-7"><a href="" aria-label="7"></a><span class="in">```</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<pre><code># A tibble: 5 × 3
+      x     y     z
+  &lt;int&gt; &lt;dbl&gt; &lt;dbl&gt;
+1     1     1     2
+2     2     1     5
+3     3     1    10
+4     4     1    17
+5     5     1    26</code></pre>
+</div>
+</section>
+<section id="tibble-1" class="slide level2">
+<h2>Tibble</h2>
+<ul>
+<li>we can coerce a data frame to a tibble using <code>as_tibble</code> function</li>
+</ul>
+<div class="columns">
+<div class="column">
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb13"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb13-1"><a href="" aria-label="1"></a><span class="in">```{r}</span></span>
+<span id="cb13-2"><a href="" aria-label="2"></a>iris</span>
+<span id="cb13-3"><a href="" aria-label="3"></a><span class="in">```</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<pre><code>    Sepal.Length Sepal.Width Petal.Length Petal.Width    Species
+1            5.1         3.5          1.4         0.2     setosa
+2            4.9         3.0          1.4         0.2     setosa
+3            4.7         3.2          1.3         0.2     setosa
+4            4.6         3.1          1.5         0.2     setosa
+5            5.0         3.6          1.4         0.2     setosa
+6            5.4         3.9          1.7         0.4     setosa
+7            4.6         3.4          1.4         0.3     setosa
+8            5.0         3.4          1.5         0.2     setosa
+9            4.4         2.9          1.4         0.2     setosa
+10           4.9         3.1          1.5         0.1     setosa
+11           5.4         3.7          1.5         0.2     setosa
+12           4.8         3.4          1.6         0.2     setosa
+13           4.8         3.0          1.4         0.1     setosa
+14           4.3         3.0          1.1         0.1     setosa
+15           5.8         4.0          1.2         0.2     setosa
+16           5.7         4.4          1.5         0.4     setosa
+17           5.4         3.9          1.3         0.4     setosa
+18           5.1         3.5          1.4         0.3     setosa
+19           5.7         3.8          1.7         0.3     setosa
+20           5.1         3.8          1.5         0.3     setosa
+21           5.4         3.4          1.7         0.2     setosa
+22           5.1         3.7          1.5         0.4     setosa
+23           4.6         3.6          1.0         0.2     setosa
+24           5.1         3.3          1.7         0.5     setosa
+25           4.8         3.4          1.9         0.2     setosa
+26           5.0         3.0          1.6         0.2     setosa
+27           5.0         3.4          1.6         0.4     setosa
+28           5.2         3.5          1.5         0.2     setosa
+29           5.2         3.4          1.4         0.2     setosa
+30           4.7         3.2          1.6         0.2     setosa
+31           4.8         3.1          1.6         0.2     setosa
+32           5.4         3.4          1.5         0.4     setosa
+33           5.2         4.1          1.5         0.1     setosa
+34           5.5         4.2          1.4         0.2     setosa
+35           4.9         3.1          1.5         0.2     setosa
+36           5.0         3.2          1.2         0.2     setosa
+37           5.5         3.5          1.3         0.2     setosa
+38           4.9         3.6          1.4         0.1     setosa
+39           4.4         3.0          1.3         0.2     setosa
+40           5.1         3.4          1.5         0.2     setosa
+41           5.0         3.5          1.3         0.3     setosa
+42           4.5         2.3          1.3         0.3     setosa
+43           4.4         3.2          1.3         0.2     setosa
+44           5.0         3.5          1.6         0.6     setosa
+45           5.1         3.8          1.9         0.4     setosa
+46           4.8         3.0          1.4         0.3     setosa
+47           5.1         3.8          1.6         0.2     setosa
+48           4.6         3.2          1.4         0.2     setosa
+49           5.3         3.7          1.5         0.2     setosa
+50           5.0         3.3          1.4         0.2     setosa
+51           7.0         3.2          4.7         1.4 versicolor
+52           6.4         3.2          4.5         1.5 versicolor
+53           6.9         3.1          4.9         1.5 versicolor
+54           5.5         2.3          4.0         1.3 versicolor
+55           6.5         2.8          4.6         1.5 versicolor
+56           5.7         2.8          4.5         1.3 versicolor
+57           6.3         3.3          4.7         1.6 versicolor
+58           4.9         2.4          3.3         1.0 versicolor
+59           6.6         2.9          4.6         1.3 versicolor
+60           5.2         2.7          3.9         1.4 versicolor
+61           5.0         2.0          3.5         1.0 versicolor
+62           5.9         3.0          4.2         1.5 versicolor
+63           6.0         2.2          4.0         1.0 versicolor
+64           6.1         2.9          4.7         1.4 versicolor
+65           5.6         2.9          3.6         1.3 versicolor
+66           6.7         3.1          4.4         1.4 versicolor
+67           5.6         3.0          4.5         1.5 versicolor
+68           5.8         2.7          4.1         1.0 versicolor
+69           6.2         2.2          4.5         1.5 versicolor
+70           5.6         2.5          3.9         1.1 versicolor
+71           5.9         3.2          4.8         1.8 versicolor
+72           6.1         2.8          4.0         1.3 versicolor
+73           6.3         2.5          4.9         1.5 versicolor
+74           6.1         2.8          4.7         1.2 versicolor
+75           6.4         2.9          4.3         1.3 versicolor
+76           6.6         3.0          4.4         1.4 versicolor
+77           6.8         2.8          4.8         1.4 versicolor
+78           6.7         3.0          5.0         1.7 versicolor
+79           6.0         2.9          4.5         1.5 versicolor
+80           5.7         2.6          3.5         1.0 versicolor
+81           5.5         2.4          3.8         1.1 versicolor
+82           5.5         2.4          3.7         1.0 versicolor
+83           5.8         2.7          3.9         1.2 versicolor
+84           6.0         2.7          5.1         1.6 versicolor
+85           5.4         3.0          4.5         1.5 versicolor
+86           6.0         3.4          4.5         1.6 versicolor
+87           6.7         3.1          4.7         1.5 versicolor
+88           6.3         2.3          4.4         1.3 versicolor
+89           5.6         3.0          4.1         1.3 versicolor
+90           5.5         2.5          4.0         1.3 versicolor
+91           5.5         2.6          4.4         1.2 versicolor
+92           6.1         3.0          4.6         1.4 versicolor
+93           5.8         2.6          4.0         1.2 versicolor
+94           5.0         2.3          3.3         1.0 versicolor
+95           5.6         2.7          4.2         1.3 versicolor
+96           5.7         3.0          4.2         1.2 versicolor
+97           5.7         2.9          4.2         1.3 versicolor
+98           6.2         2.9          4.3         1.3 versicolor
+99           5.1         2.5          3.0         1.1 versicolor
+100          5.7         2.8          4.1         1.3 versicolor
+101          6.3         3.3          6.0         2.5  virginica
+102          5.8         2.7          5.1         1.9  virginica
+103          7.1         3.0          5.9         2.1  virginica
+104          6.3         2.9          5.6         1.8  virginica
+105          6.5         3.0          5.8         2.2  virginica
+106          7.6         3.0          6.6         2.1  virginica
+107          4.9         2.5          4.5         1.7  virginica
+108          7.3         2.9          6.3         1.8  virginica
+109          6.7         2.5          5.8         1.8  virginica
+110          7.2         3.6          6.1         2.5  virginica
+111          6.5         3.2          5.1         2.0  virginica
+112          6.4         2.7          5.3         1.9  virginica
+113          6.8         3.0          5.5         2.1  virginica
+114          5.7         2.5          5.0         2.0  virginica
+115          5.8         2.8          5.1         2.4  virginica
+116          6.4         3.2          5.3         2.3  virginica
+117          6.5         3.0          5.5         1.8  virginica
+118          7.7         3.8          6.7         2.2  virginica
+119          7.7         2.6          6.9         2.3  virginica
+120          6.0         2.2          5.0         1.5  virginica
+121          6.9         3.2          5.7         2.3  virginica
+122          5.6         2.8          4.9         2.0  virginica
+123          7.7         2.8          6.7         2.0  virginica
+124          6.3         2.7          4.9         1.8  virginica
+125          6.7         3.3          5.7         2.1  virginica
+126          7.2         3.2          6.0         1.8  virginica
+127          6.2         2.8          4.8         1.8  virginica
+128          6.1         3.0          4.9         1.8  virginica
+129          6.4         2.8          5.6         2.1  virginica
+130          7.2         3.0          5.8         1.6  virginica
+131          7.4         2.8          6.1         1.9  virginica
+132          7.9         3.8          6.4         2.0  virginica
+133          6.4         2.8          5.6         2.2  virginica
+134          6.3         2.8          5.1         1.5  virginica
+135          6.1         2.6          5.6         1.4  virginica
+136          7.7         3.0          6.1         2.3  virginica
+137          6.3         3.4          5.6         2.4  virginica
+138          6.4         3.1          5.5         1.8  virginica
+139          6.0         3.0          4.8         1.8  virginica
+140          6.9         3.1          5.4         2.1  virginica
+141          6.7         3.1          5.6         2.4  virginica
+142          6.9         3.1          5.1         2.3  virginica
+143          5.8         2.7          5.1         1.9  virginica
+144          6.8         3.2          5.9         2.3  virginica
+145          6.7         3.3          5.7         2.5  virginica
+146          6.7         3.0          5.2         2.3  virginica
+147          6.3         2.5          5.0         1.9  virginica
+148          6.5         3.0          5.2         2.0  virginica
+149          6.2         3.4          5.4         2.3  virginica
+150          5.9         3.0          5.1         1.8  virginica</code></pre>
+</div>
+</div><div class="column">
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb15"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb15-1"><a href="" aria-label="1"></a><span class="in">```{r}</span></span>
+<span id="cb15-2"><a href="" aria-label="2"></a><span class="fu">as_tibble</span>(iris)</span>
+<span id="cb15-3"><a href="" aria-label="3"></a><span class="in">```</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<pre><code># A tibble: 150 × 5
+   Sepal.Length Sepal.Width Petal.Length Petal.Width Species
+          &lt;dbl&gt;       &lt;dbl&gt;        &lt;dbl&gt;       &lt;dbl&gt; &lt;fct&gt;  
+ 1          5.1         3.5          1.4         0.2 setosa 
+ 2          4.9         3            1.4         0.2 setosa 
+ 3          4.7         3.2          1.3         0.2 setosa 
+ 4          4.6         3.1          1.5         0.2 setosa 
+ 5          5           3.6          1.4         0.2 setosa 
+ 6          5.4         3.9          1.7         0.4 setosa 
+ 7          4.6         3.4          1.4         0.3 setosa 
+ 8          5           3.4          1.5         0.2 setosa 
+ 9          4.4         2.9          1.4         0.2 setosa 
+10          4.9         3.1          1.5         0.1 setosa 
+# ℹ 140 more rows</code></pre>
+</div>
+</div></div>
+</section></section>
+<section>
+<section id="check-up-quiz" class="title-slide slide level1 center">
+<h1>check-up quiz</h1>
+
+</section>
+<section id="which-of-the-following-is-not-a-basic-data-structure-in-r" class="slide level2 quiz-question">
+<h2>Which of the following is NOT a basic data structure in R?</h2>
+<ul>
+<li>Vector</li>
+<li>Matrix</li>
+<li>Array</li>
+<li><span class="correct" data-explanation="Correct! R’s basic data structures include scalars, vectors, matrices, arrays, data frames, and lists. Functions are not considered data structures; they are tools for computation.">Function</span></li>
+</ul>
+</section>
+<section id="what-is-the-correct-description-of-a-vector-in-r" class="slide level2 quiz-question">
+<h2>What is the correct description of a vector in R?</h2>
+<ul>
+<li>A two‑dimensional array with elements of the same type</li>
+<li><span class="correct" data-explanation="Correct! Vectors are the simplest data structure in R. They are one‑dimensional and must contain elements of the same type (numeric, character, or logical)">A one‑dimensional array that can hold numeric, character, or logical data</span></li>
+<li>A collection of variables of different modes stored in columns</li>
+<li>A hierarchical structure for storing lists</li>
+</ul>
+</section>
+<section id="what-happens-if-you-mix-data-types-in-a-vector" class="slide level2 quiz-question">
+<h2>What happens if you mix data types in a vector?</h2>
+<ul>
+<li>R throws an error and stops execution</li>
+<li><span class="correct" data-explanation="Correct! R enforces homogeneity in vectors. If you mix types, R coerces them into a common type (e.g., numbers + characters → character).">R automatically converts all elements to a single common type</span></li>
+<li>R stores each element in its original type</li>
+<li>R creates a list instead of a vector</li>
+</ul>
+</section>
+<section id="which-function-is-used-to-create-a-matrix-in-r" class="slide level2 quiz-question">
+<h2>Which function is used to create a matrix in R?</h2>
+<ul>
+<li>c()<br>
+</li>
+<li>data.frame()<br>
+</li>
+<li><span class="correct" data-explanation="Correct! The matrix() function creates two‑dimensional arrays where all elements are of the same type.Unlike matrices, which require all elements to be of the same type, data frames allow each column to store different types (numeric, character, logical). This makes them more flexible and widely used in R.">matrix()</span><br>
+</li>
+<li>array()</li>
+</ul>
+</section>
+<section id="how-does-a-data-frame-differ-from-a-matrix-in-r" class="slide level2 quiz-question">
+<h2>How does a data frame differ from a matrix in R?</h2>
+<ul>
+<li>A data frame can only hold numeric data</li>
+<li><span class="correct" data-explanation="Correct! Unlike matrices, which require all elements to be of the same type, data frames allow each column to store different types (numeric, character, logical). This makes them more flexible and widely used in R.">A data frame allows different columns to contain different modes of data</span></li>
+<li>A data frame is limited to two dimensions</li>
+<li>A data frame cannot be printed in tabular form</li>
+</ul>
+</section></section>
+<section>
+<section id="reading-data-into-r" class="title-slide slide level1 center">
+<h1>Reading data into R</h1>
+
+</section>
+<section id="importing-data" class="slide level2">
+<h2>Importing data</h2>
+<ul>
+<li><p>SPSS, Stata, SAS files: <a href="https://haven.tidyverse.org/">haven package</a></p></li>
+<li><p>Excel files: <a href="https://readxl.tidyverse.org/">readxl package</a></p></li>
+<li><p>CSV files: <a href="https://readr.tidyverse.org/">readr package</a></p></li>
+</ul>
+</section>
+<section id="importing-data-into-r" class="slide level2">
+<h2>Importing data into R</h2>
+<h4 id="spss-stata-sas-using-haven-package">SPSS, Stata &amp; SAS using <a href="https://haven.tidyverse.org/">haven package</a></h4>
+<div class="columns">
+<div class="column">
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb17"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="" aria-label="1"></a><span class="co"># loading haven package</span></span>
+<span id="cb17-2"><a href="" aria-label="2"></a><span class="fu">library</span>(haven)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<p><br></p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb18"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="" aria-label="1"></a><span class="co"># SPSS</span></span>
+<span id="cb18-2"><a href="" aria-label="2"></a><span class="fu">read_sav</span>(<span class="st">"path/data.sav"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<p><br></p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb19"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="" aria-label="1"></a><span class="co"># Stata</span></span>
+<span id="cb19-2"><a href="" aria-label="2"></a><span class="fu">read_dta</span>(<span class="st">"path/data.dta"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<p><br></p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb20"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href="" aria-label="1"></a><span class="co"># SAS</span></span>
+<span id="cb20-2"><a href="" aria-label="2"></a><span class="fu">read_sas</span>(<span class="st">"path/data.sas7bdat"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</div><div class="column">
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="img/haven.png" class="quarto-figure quarto-figure-center" style="width:40.0%"></p>
+</figure>
+</div>
+</div>
+</div>
+</div></div>
+</section>
+<section id="importing-data-into-r-1" class="slide level2">
+<h2>Importing data into R</h2>
+<h4 id="excel-files-using-readxl-package">Excel files using <a href="https://readxl.tidyverse.org/">readxl package</a></h4>
+<p><br></p>
+<div class="columns">
+<div class="column" style="width:70%;">
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb21"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="" aria-label="1"></a><span class="fu">library</span>(readxl)</span>
+<span id="cb21-2"><a href="" aria-label="2"></a><span class="fu">read_excel</span>(<span class="st">"path/dataset.xls"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<div class="cell">
+<pre><code># A tibble: 32 × 11
+     mpg   cyl  disp    hp  drat    wt  qsec    vs    am  gear  carb
+   &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;
+ 1  21       6  160    110  3.9   2.62  16.5     0     1     4     4
+ 2  21       6  160    110  3.9   2.88  17.0     0     1     4     4
+ 3  22.8     4  108     93  3.85  2.32  18.6     1     1     4     1
+ 4  21.4     6  258    110  3.08  3.22  19.4     1     0     3     1
+ 5  18.7     8  360    175  3.15  3.44  17.0     0     0     3     2
+ 6  18.1     6  225    105  2.76  3.46  20.2     1     0     3     1
+ 7  14.3     8  360    245  3.21  3.57  15.8     0     0     3     4
+ 8  24.4     4  147.    62  3.69  3.19  20       1     0     4     2
+ 9  22.8     4  141.    95  3.92  3.15  22.9     1     0     4     2
+10  19.2     6  168.   123  3.92  3.44  18.3     1     0     4     4
+# ℹ 22 more rows</code></pre>
+</div>
+</div><div class="column" style="width:30%;">
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="img/readxl.png" class="quarto-figure quarto-figure-center" style="width:40.0%"></p>
+</figure>
+</div>
+</div>
+</div>
+</div></div>
+</section>
+<section id="importing-data-into-r-2" class="slide level2">
+<h2>Importing data into R</h2>
+<h4 id="csv-files-using-readr-package">CSV files using <a href="https://readr.tidyverse.org/">readr package</a></h4>
+<p><br></p>
+<div class="columns">
+<div class="column" style="width:60%;">
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb23"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href="" aria-label="1"></a><span class="fu">install.packages</span>(<span class="st">"readr"</span>)</span>
+<span id="cb23-2"><a href="" aria-label="2"></a><span class="fu">library</span>(readr)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<p><br></p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb24"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a href="" aria-label="1"></a><span class="co"># comma separated (CSV) files</span></span>
+<span id="cb24-2"><a href="" aria-label="2"></a><span class="fu">read_csv</span>(<span class="st">"path/data.csv"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<p><br></p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb25"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a href="" aria-label="1"></a><span class="co"># tab separated files</span></span>
+<span id="cb25-2"><a href="" aria-label="2"></a><span class="fu">read_tsv</span>(<span class="st">"path/data.tsv"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<p><br></p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb26"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb26-1"><a href="" aria-label="1"></a><span class="co"># general delimited files</span></span>
+<span id="cb26-2"><a href="" aria-label="2"></a><span class="fu">read_delim</span>(<span class="st">"path/data.delim"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</div><div class="column" style="width:40%;">
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="img/readr.png" class="quarto-figure quarto-figure-center" style="width:40.0%"></p>
+</figure>
+</div>
+</div>
+</div>
+</div></div>
+</section></section>
+<section>
+<section id="check-up-quiz-1" class="title-slide slide level1 center">
+<h1>Check-up quiz</h1>
+
+</section>
+<section id="which-r-package-is-used-to-import-spss-stata-and-sas-files" class="slide level2 quiz-question">
+<h2>Which R package is used to import SPSS, Stata, and SAS files?</h2>
+<ul>
+<li>readr<br>
+</li>
+<li><span class="correct" data-explanation="Correct! The haven package is designed to import data from SPSS (.sav), Stata (.dta), and SAS (.sas7bdat) files.">haven</span><br>
+</li>
+<li>readxl<br>
+</li>
+<li>tidyr</li>
+</ul>
+</section>
+<section id="if-you-want-to-import-excel-files-into-r-which-function-should-you-use" class="slide level2 quiz-question">
+<h2>If you want to import Excel files into R, which function should you use?</h2>
+<ul>
+<li>read_csv()<br>
+</li>
+<li><span class="correct" data-explanation="Correct! The readxl package provides the read_excel() function to import .xls or .xlsx files.">read_excel()</span><br>
+</li>
+<li>read_sav()<br>
+</li>
+<li>read_tsv()</li>
+</ul>
+</section>
+<section id="which-function-from-the-readr-package-is-used-to-import-commaseparated-values-csv-files" class="slide level2 quiz-question">
+<h2>Which function from the readr package is used to import comma‑separated values (CSV) files?</h2>
+<ul>
+<li><span class="correct" data-explanation="Correct! The readr package includes read_csv() for CSV files, read_tsv() for tab‑separated files, and read_delim() for general delimited files.">read_csv()</span><br>
+</li>
+<li>read_delim()<br>
+</li>
+<li>read_tsv()<br>
+</li>
+<li>read_excel()</li>
+</ul>
+</section>
+<section id="which-of-the-following-statements-about-importing-data-into-r-is-true" class="slide level2 quiz-question">
+<h2>Which of the following statements about importing data into R is TRUE?</h2>
+<ul>
+<li>read_sav() is used for Excel files</li>
+<li><span class="correct" data-explanation="Correct! The readr package provides read_tsv() specifically for tab‑separated files.">read_tsv() is used for tab‑separated files</span></li>
+<li>read_excel() is part of the readr package</li>
+<li>read_dta() is used for CSV files</li>
+</ul>
+</section>
+<section id="which-package-would-you-use-if-you-need-to-import-a-dataset-saved-in-stata-format-.dta" class="slide level2 quiz-question">
+<h2>Which package would you use if you need to import a dataset saved in Stata format (.dta)?</h2>
+<ul>
+<li>readxl<br>
+</li>
+<li>readr<br>
+</li>
+<li><span class="correct" data-explanation="Correct! The haven package supports importing Stata files using the read_dta() function.">haven</span><br>
+</li>
+<li>tidyr</li>
+</ul>
+</section></section>
+<section>
+<section id="basic-data-wrangling-with-dplyr" class="title-slide slide level1 center">
+<h1>Basic data wrangling with <code>dplyr</code></h1>
+
+</section>
+<section id="data-wrangling-using-dplyr" class="slide level2 center-text">
+<h2>Data wrangling using <code>dplyr</code></h2>
+<center>
+<img src="https://github.com/allisonhorst/stats-illustrations/blob/23bb6fe3d5bd6792d85744f8ff18dc7ec22585cd/rstats-artwork/dplyr_wrangling.png?raw=true" style="width:55%">
+</center>
+<div style="font-size:70%; text-align:center;">
+<p>Illustration adopted from <a href="https://github.com/allisonhorst">Allison Horst</a></p>
+</div>
+</section>
+<section id="dplyr" class="slide level2">
+<h2><code>dplyr</code></h2>
+<div class="columns">
+<div class="column">
+<p><strong>Overview</strong></p>
+<ul>
+<li><p><code>select()</code> picks variables based on their names</p></li>
+<li><p><code>mutate()</code> adds new variables</p></li>
+<li><p><code>filter()</code> picks cases based on their values</p></li>
+<li><p><code>summarise()</code> reduces multiple values down to a single summary</p></li>
+<li><p><code>arrange()</code> change the ordering of the rows</p></li>
+</ul>
+
+</div><div class="column">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="img/dplyr.png" class="quarto-figure quarto-figure-center"></p>
+</figure>
+</div>
+</div></div>
+<aside><div>
+<p>see <code>dplyr</code> <a href="https://github.com/rstudio/cheatsheets/blob/cd775237fd6de08df51e69941fe01967ecd9bdc2/data-transformation.pdf">cheatsheets</a></p>
+</div></aside></section>
+<section id="select" class="slide level2">
+<h2><code>select()</code></h2>
+<div class="columns">
+<div class="column" style="width:50%;">
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb27"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb27-1"><a href="" aria-label="1"></a><span class="in">```{r}</span></span>
+<span id="cb27-2"><a href="" aria-label="2"></a>data</span>
+<span id="cb27-3"><a href="" aria-label="3"></a><span class="in">```</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p><br></p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb28"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb28-1"><a href="" aria-label="1"></a>data</span>
+<span id="cb28-2"><a href="" aria-label="2"></a><span class="co"># A tibble: 1,704 × 6</span></span>
+<span id="cb28-3"><a href="" aria-label="3"></a>   country     continent  year lifeExp      pop gdpPercap</span>
+<span id="cb28-4"><a href="" aria-label="4"></a>   <span class="sc">&lt;</span>fct<span class="sc">&gt;</span>       <span class="er">&lt;</span>fct<span class="sc">&gt;</span>     <span class="er">&lt;</span>int<span class="sc">&gt;</span>   <span class="er">&lt;</span>dbl<span class="sc">&gt;</span>    <span class="er">&lt;</span>int<span class="sc">&gt;</span>     <span class="er">&lt;</span>dbl<span class="sc">&gt;</span></span>
+<span id="cb28-5"><a href="" aria-label="5"></a> <span class="dv">1</span> Afghanistan Asia       <span class="dv">1952</span>    <span class="fl">28.8</span>  <span class="dv">8425333</span>      <span class="fl">779.</span></span>
+<span id="cb28-6"><a href="" aria-label="6"></a> <span class="dv">2</span> Afghanistan Asia       <span class="dv">1957</span>    <span class="fl">30.3</span>  <span class="dv">9240934</span>      <span class="fl">821.</span></span>
+<span id="cb28-7"><a href="" aria-label="7"></a> <span class="dv">3</span> Afghanistan Asia       <span class="dv">1962</span>    <span class="fl">32.0</span> <span class="dv">10267083</span>      <span class="fl">853.</span></span>
+<span id="cb28-8"><a href="" aria-label="8"></a> <span class="dv">4</span> Afghanistan Asia       <span class="dv">1967</span>    <span class="fl">34.0</span> <span class="dv">11537966</span>      <span class="fl">836.</span></span>
+<span id="cb28-9"><a href="" aria-label="9"></a> <span class="dv">5</span> Afghanistan Asia       <span class="dv">1972</span>    <span class="fl">36.1</span> <span class="dv">13079460</span>      <span class="fl">740.</span></span>
+<span id="cb28-10"><a href="" aria-label="10"></a> <span class="dv">6</span> Afghanistan Asia       <span class="dv">1977</span>    <span class="fl">38.4</span> <span class="dv">14880372</span>      <span class="fl">786.</span></span>
+<span id="cb28-11"><a href="" aria-label="11"></a> <span class="dv">7</span> Afghanistan Asia       <span class="dv">1982</span>    <span class="fl">39.9</span> <span class="dv">12881816</span>      <span class="fl">978.</span></span>
+<span id="cb28-12"><a href="" aria-label="12"></a> <span class="dv">8</span> Afghanistan Asia       <span class="dv">1987</span>    <span class="fl">40.8</span> <span class="dv">13867957</span>      <span class="fl">852.</span></span>
+<span id="cb28-13"><a href="" aria-label="13"></a> <span class="dv">9</span> Afghanistan Asia       <span class="dv">1992</span>    <span class="fl">41.7</span> <span class="dv">16317921</span>      <span class="fl">649.</span></span>
+<span id="cb28-14"><a href="" aria-label="14"></a><span class="dv">10</span> Afghanistan Asia       <span class="dv">1997</span>    <span class="fl">41.8</span> <span class="dv">22227415</span>      <span class="fl">635.</span></span>
+<span id="cb28-15"><a href="" aria-label="15"></a><span class="co"># ℹ 1,694 more rows</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</div><div class="column" style="width:50%;">
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb29"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb29-1"><a href="" aria-label="1"></a><span class="in">```{r}</span></span>
+<span id="cb29-2"><a href="" aria-label="2"></a><span class="fu">select</span>(data, continent, country, pop)</span>
+<span id="cb29-3"><a href="" aria-label="3"></a><span class="in">```</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p><br></p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb30"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb30-1"><a href="" aria-label="1"></a><span class="fu">select</span>(data, continent, country, pop)</span>
+<span id="cb30-2"><a href="" aria-label="2"></a><span class="co"># A tibble: 1,704 × 3</span></span>
+<span id="cb30-3"><a href="" aria-label="3"></a>   continent country          pop</span>
+<span id="cb30-4"><a href="" aria-label="4"></a>   <span class="sc">&lt;</span>fct<span class="sc">&gt;</span>     <span class="er">&lt;</span>fct<span class="sc">&gt;</span>          <span class="er">&lt;</span>int<span class="sc">&gt;</span></span>
+<span id="cb30-5"><a href="" aria-label="5"></a> <span class="dv">1</span> Asia      Afghanistan  <span class="dv">8425333</span></span>
+<span id="cb30-6"><a href="" aria-label="6"></a> <span class="dv">2</span> Asia      Afghanistan  <span class="dv">9240934</span></span>
+<span id="cb30-7"><a href="" aria-label="7"></a> <span class="dv">3</span> Asia      Afghanistan <span class="dv">10267083</span></span>
+<span id="cb30-8"><a href="" aria-label="8"></a> <span class="dv">4</span> Asia      Afghanistan <span class="dv">11537966</span></span>
+<span id="cb30-9"><a href="" aria-label="9"></a> <span class="dv">5</span> Asia      Afghanistan <span class="dv">13079460</span></span>
+<span id="cb30-10"><a href="" aria-label="10"></a> <span class="dv">6</span> Asia      Afghanistan <span class="dv">14880372</span></span>
+<span id="cb30-11"><a href="" aria-label="11"></a> <span class="dv">7</span> Asia      Afghanistan <span class="dv">12881816</span></span>
+<span id="cb30-12"><a href="" aria-label="12"></a> <span class="dv">8</span> Asia      Afghanistan <span class="dv">13867957</span></span>
+<span id="cb30-13"><a href="" aria-label="13"></a> <span class="dv">9</span> Asia      Afghanistan <span class="dv">16317921</span></span>
+<span id="cb30-14"><a href="" aria-label="14"></a><span class="dv">10</span> Asia      Afghanistan <span class="dv">22227415</span></span>
+<span id="cb30-15"><a href="" aria-label="15"></a><span class="co"># ℹ 1,694 more rows</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</div></div>
+</section>
+<section id="select-1" class="slide level2">
+<h2><code>select()</code></h2>
+<p>We can also <strong>remove</strong> variables with a <strong><code>-</code></strong> (minus)</p>
+<div class="columns">
+<div class="column">
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb31"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb31-1"><a href="" aria-label="1"></a><span class="in">```{r}</span></span>
+<span id="cb31-2"><a href="" aria-label="2"></a>data</span>
+<span id="cb31-3"><a href="" aria-label="3"></a><span class="in">```</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p><br></p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb32"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb32-1"><a href="" aria-label="1"></a>data</span>
+<span id="cb32-2"><a href="" aria-label="2"></a><span class="co"># A tibble: 1,704 × 6</span></span>
+<span id="cb32-3"><a href="" aria-label="3"></a>   country     continent  year lifeExp      pop gdpPercap</span>
+<span id="cb32-4"><a href="" aria-label="4"></a>   <span class="sc">&lt;</span>fct<span class="sc">&gt;</span>       <span class="er">&lt;</span>fct<span class="sc">&gt;</span>     <span class="er">&lt;</span>int<span class="sc">&gt;</span>   <span class="er">&lt;</span>dbl<span class="sc">&gt;</span>    <span class="er">&lt;</span>int<span class="sc">&gt;</span>     <span class="er">&lt;</span>dbl<span class="sc">&gt;</span></span>
+<span id="cb32-5"><a href="" aria-label="5"></a> <span class="dv">1</span> Afghanistan Asia       <span class="dv">1952</span>    <span class="fl">28.8</span>  <span class="dv">8425333</span>      <span class="fl">779.</span></span>
+<span id="cb32-6"><a href="" aria-label="6"></a> <span class="dv">2</span> Afghanistan Asia       <span class="dv">1957</span>    <span class="fl">30.3</span>  <span class="dv">9240934</span>      <span class="fl">821.</span></span>
+<span id="cb32-7"><a href="" aria-label="7"></a> <span class="dv">3</span> Afghanistan Asia       <span class="dv">1962</span>    <span class="fl">32.0</span> <span class="dv">10267083</span>      <span class="fl">853.</span></span>
+<span id="cb32-8"><a href="" aria-label="8"></a> <span class="dv">4</span> Afghanistan Asia       <span class="dv">1967</span>    <span class="fl">34.0</span> <span class="dv">11537966</span>      <span class="fl">836.</span></span>
+<span id="cb32-9"><a href="" aria-label="9"></a> <span class="dv">5</span> Afghanistan Asia       <span class="dv">1972</span>    <span class="fl">36.1</span> <span class="dv">13079460</span>      <span class="fl">740.</span></span>
+<span id="cb32-10"><a href="" aria-label="10"></a> <span class="dv">6</span> Afghanistan Asia       <span class="dv">1977</span>    <span class="fl">38.4</span> <span class="dv">14880372</span>      <span class="fl">786.</span></span>
+<span id="cb32-11"><a href="" aria-label="11"></a> <span class="dv">7</span> Afghanistan Asia       <span class="dv">1982</span>    <span class="fl">39.9</span> <span class="dv">12881816</span>      <span class="fl">978.</span></span>
+<span id="cb32-12"><a href="" aria-label="12"></a> <span class="dv">8</span> Afghanistan Asia       <span class="dv">1987</span>    <span class="fl">40.8</span> <span class="dv">13867957</span>      <span class="fl">852.</span></span>
+<span id="cb32-13"><a href="" aria-label="13"></a> <span class="dv">9</span> Afghanistan Asia       <span class="dv">1992</span>    <span class="fl">41.7</span> <span class="dv">16317921</span>      <span class="fl">649.</span></span>
+<span id="cb32-14"><a href="" aria-label="14"></a><span class="dv">10</span> Afghanistan Asia       <span class="dv">1997</span>    <span class="fl">41.8</span> <span class="dv">22227415</span>      <span class="fl">635.</span></span>
+<span id="cb32-15"><a href="" aria-label="15"></a><span class="co"># ℹ 1,694 more rows</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</div><div class="column">
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb33"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb33-1"><a href="" aria-label="1"></a><span class="in">```{r}</span></span>
+<span id="cb33-2"><a href="" aria-label="2"></a><span class="fu">select</span>(data, <span class="sc">-</span>year, <span class="sc">-</span>pop)</span>
+<span id="cb33-3"><a href="" aria-label="3"></a><span class="in">```</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p><br></p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb34"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb34-1"><a href="" aria-label="1"></a><span class="fu">select</span>(data, <span class="sc">-</span>year, <span class="sc">-</span>pop)</span>
+<span id="cb34-2"><a href="" aria-label="2"></a><span class="co"># A tibble: 1,704 × 4</span></span>
+<span id="cb34-3"><a href="" aria-label="3"></a>   country     continent lifeExp gdpPercap</span>
+<span id="cb34-4"><a href="" aria-label="4"></a>   <span class="sc">&lt;</span>fct<span class="sc">&gt;</span>       <span class="er">&lt;</span>fct<span class="sc">&gt;</span>       <span class="er">&lt;</span>dbl<span class="sc">&gt;</span>     <span class="er">&lt;</span>dbl<span class="sc">&gt;</span></span>
+<span id="cb34-5"><a href="" aria-label="5"></a> <span class="dv">1</span> Afghanistan Asia         <span class="fl">28.8</span>      <span class="fl">779.</span></span>
+<span id="cb34-6"><a href="" aria-label="6"></a> <span class="dv">2</span> Afghanistan Asia         <span class="fl">30.3</span>      <span class="fl">821.</span></span>
+<span id="cb34-7"><a href="" aria-label="7"></a> <span class="dv">3</span> Afghanistan Asia         <span class="fl">32.0</span>      <span class="fl">853.</span></span>
+<span id="cb34-8"><a href="" aria-label="8"></a> <span class="dv">4</span> Afghanistan Asia         <span class="fl">34.0</span>      <span class="fl">836.</span></span>
+<span id="cb34-9"><a href="" aria-label="9"></a> <span class="dv">5</span> Afghanistan Asia         <span class="fl">36.1</span>      <span class="fl">740.</span></span>
+<span id="cb34-10"><a href="" aria-label="10"></a> <span class="dv">6</span> Afghanistan Asia         <span class="fl">38.4</span>      <span class="fl">786.</span></span>
+<span id="cb34-11"><a href="" aria-label="11"></a> <span class="dv">7</span> Afghanistan Asia         <span class="fl">39.9</span>      <span class="fl">978.</span></span>
+<span id="cb34-12"><a href="" aria-label="12"></a> <span class="dv">8</span> Afghanistan Asia         <span class="fl">40.8</span>      <span class="fl">852.</span></span>
+<span id="cb34-13"><a href="" aria-label="13"></a> <span class="dv">9</span> Afghanistan Asia         <span class="fl">41.7</span>      <span class="fl">649.</span></span>
+<span id="cb34-14"><a href="" aria-label="14"></a><span class="dv">10</span> Afghanistan Asia         <span class="fl">41.8</span>      <span class="fl">635.</span></span>
+<span id="cb34-15"><a href="" aria-label="15"></a><span class="co"># ℹ 1,694 more rows</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</div></div>
+</section>
+<section id="select-2" class="slide level2">
+<h2><code>select()</code></h2>
+<p><strong>Selection helpers</strong></p>
+<p>These <em>selection helpers</em> match variables according to a given pattern.</p>
+<ul>
+<li><p><code>starts_with()</code> starts with a prefix</p></li>
+<li><p><code>ends_with()</code> ends with a suffix</p></li>
+<li><p><code>contains()</code> contains a literal string</p></li>
+<li><p><code>matches()</code> matches regular expression</p></li>
+</ul>
+</section>
+<section id="filter" class="slide level2">
+<h2><code>filter()</code></h2>
+<div class="columns">
+<div class="column" style="width:50%;">
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb35"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb35-1"><a href="" aria-label="1"></a><span class="in">```{r}</span></span>
+<span id="cb35-2"><a href="" aria-label="2"></a>data</span>
+<span id="cb35-3"><a href="" aria-label="3"></a><span class="in">```</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p><br></p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb36"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb36-1"><a href="" aria-label="1"></a>data</span>
+<span id="cb36-2"><a href="" aria-label="2"></a><span class="co"># A tibble: 1,704 × 6</span></span>
+<span id="cb36-3"><a href="" aria-label="3"></a>   country     continent  year lifeExp      pop gdpPercap</span>
+<span id="cb36-4"><a href="" aria-label="4"></a>   <span class="sc">&lt;</span>fct<span class="sc">&gt;</span>       <span class="er">&lt;</span>fct<span class="sc">&gt;</span>     <span class="er">&lt;</span>int<span class="sc">&gt;</span>   <span class="er">&lt;</span>dbl<span class="sc">&gt;</span>    <span class="er">&lt;</span>int<span class="sc">&gt;</span>     <span class="er">&lt;</span>dbl<span class="sc">&gt;</span></span>
+<span id="cb36-5"><a href="" aria-label="5"></a> <span class="dv">1</span> Afghanistan Asia       <span class="dv">1952</span>    <span class="fl">28.8</span>  <span class="dv">8425333</span>      <span class="fl">779.</span></span>
+<span id="cb36-6"><a href="" aria-label="6"></a> <span class="dv">2</span> Afghanistan Asia       <span class="dv">1957</span>    <span class="fl">30.3</span>  <span class="dv">9240934</span>      <span class="fl">821.</span></span>
+<span id="cb36-7"><a href="" aria-label="7"></a> <span class="dv">3</span> Afghanistan Asia       <span class="dv">1962</span>    <span class="fl">32.0</span> <span class="dv">10267083</span>      <span class="fl">853.</span></span>
+<span id="cb36-8"><a href="" aria-label="8"></a> <span class="dv">4</span> Afghanistan Asia       <span class="dv">1967</span>    <span class="fl">34.0</span> <span class="dv">11537966</span>      <span class="fl">836.</span></span>
+<span id="cb36-9"><a href="" aria-label="9"></a> <span class="dv">5</span> Afghanistan Asia       <span class="dv">1972</span>    <span class="fl">36.1</span> <span class="dv">13079460</span>      <span class="fl">740.</span></span>
+<span id="cb36-10"><a href="" aria-label="10"></a> <span class="dv">6</span> Afghanistan Asia       <span class="dv">1977</span>    <span class="fl">38.4</span> <span class="dv">14880372</span>      <span class="fl">786.</span></span>
+<span id="cb36-11"><a href="" aria-label="11"></a> <span class="dv">7</span> Afghanistan Asia       <span class="dv">1982</span>    <span class="fl">39.9</span> <span class="dv">12881816</span>      <span class="fl">978.</span></span>
+<span id="cb36-12"><a href="" aria-label="12"></a> <span class="dv">8</span> Afghanistan Asia       <span class="dv">1987</span>    <span class="fl">40.8</span> <span class="dv">13867957</span>      <span class="fl">852.</span></span>
+<span id="cb36-13"><a href="" aria-label="13"></a> <span class="dv">9</span> Afghanistan Asia       <span class="dv">1992</span>    <span class="fl">41.7</span> <span class="dv">16317921</span>      <span class="fl">649.</span></span>
+<span id="cb36-14"><a href="" aria-label="14"></a><span class="dv">10</span> Afghanistan Asia       <span class="dv">1997</span>    <span class="fl">41.8</span> <span class="dv">22227415</span>      <span class="fl">635.</span></span>
+<span id="cb36-15"><a href="" aria-label="15"></a><span class="co"># ℹ 1,694 more rows</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</div><div class="column" style="width:50%;">
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb37"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb37-1"><a href="" aria-label="1"></a><span class="in">```{r}</span></span>
+<span id="cb37-2"><a href="" aria-label="2"></a><span class="fu">filter</span>(data, country <span class="sc">==</span> <span class="st">"Philippines"</span>)</span>
+<span id="cb37-3"><a href="" aria-label="3"></a><span class="in">```</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p><br></p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb38"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb38-1"><a href="" aria-label="1"></a><span class="fu">filter</span>(data, country <span class="sc">==</span> <span class="st">"Philippines"</span>)</span>
+<span id="cb38-2"><a href="" aria-label="2"></a><span class="co"># A tibble: 12 × 6</span></span>
+<span id="cb38-3"><a href="" aria-label="3"></a>   country     continent  year lifeExp      pop gdpPercap</span>
+<span id="cb38-4"><a href="" aria-label="4"></a>   <span class="sc">&lt;</span>fct<span class="sc">&gt;</span>       <span class="er">&lt;</span>fct<span class="sc">&gt;</span>     <span class="er">&lt;</span>int<span class="sc">&gt;</span>   <span class="er">&lt;</span>dbl<span class="sc">&gt;</span>    <span class="er">&lt;</span>int<span class="sc">&gt;</span>     <span class="er">&lt;</span>dbl<span class="sc">&gt;</span></span>
+<span id="cb38-5"><a href="" aria-label="5"></a> <span class="dv">1</span> Philippines Asia       <span class="dv">1952</span>    <span class="fl">47.8</span> <span class="dv">22438691</span>     <span class="fl">1273.</span></span>
+<span id="cb38-6"><a href="" aria-label="6"></a> <span class="dv">2</span> Philippines Asia       <span class="dv">1957</span>    <span class="fl">51.3</span> <span class="dv">26072194</span>     <span class="fl">1548.</span></span>
+<span id="cb38-7"><a href="" aria-label="7"></a> <span class="dv">3</span> Philippines Asia       <span class="dv">1962</span>    <span class="fl">54.8</span> <span class="dv">30325264</span>     <span class="fl">1650.</span></span>
+<span id="cb38-8"><a href="" aria-label="8"></a> <span class="dv">4</span> Philippines Asia       <span class="dv">1967</span>    <span class="fl">56.4</span> <span class="dv">35356600</span>     <span class="fl">1814.</span></span>
+<span id="cb38-9"><a href="" aria-label="9"></a> <span class="dv">5</span> Philippines Asia       <span class="dv">1972</span>    <span class="fl">58.1</span> <span class="dv">40850141</span>     <span class="fl">1989.</span></span>
+<span id="cb38-10"><a href="" aria-label="10"></a> <span class="dv">6</span> Philippines Asia       <span class="dv">1977</span>    <span class="fl">60.1</span> <span class="dv">46850962</span>     <span class="fl">2373.</span></span>
+<span id="cb38-11"><a href="" aria-label="11"></a> <span class="dv">7</span> Philippines Asia       <span class="dv">1982</span>    <span class="fl">62.1</span> <span class="dv">53456774</span>     <span class="fl">2603.</span></span>
+<span id="cb38-12"><a href="" aria-label="12"></a> <span class="dv">8</span> Philippines Asia       <span class="dv">1987</span>    <span class="fl">64.2</span> <span class="dv">60017788</span>     <span class="fl">2190.</span></span>
+<span id="cb38-13"><a href="" aria-label="13"></a> <span class="dv">9</span> Philippines Asia       <span class="dv">1992</span>    <span class="fl">66.5</span> <span class="dv">67185766</span>     <span class="fl">2279.</span></span>
+<span id="cb38-14"><a href="" aria-label="14"></a><span class="dv">10</span> Philippines Asia       <span class="dv">1997</span>    <span class="fl">68.6</span> <span class="dv">75012988</span>     <span class="fl">2537.</span></span>
+<span id="cb38-15"><a href="" aria-label="15"></a><span class="dv">11</span> Philippines Asia       <span class="dv">2002</span>    <span class="fl">70.3</span> <span class="dv">82995088</span>     <span class="fl">2651.</span></span>
+<span id="cb38-16"><a href="" aria-label="16"></a><span class="dv">12</span> Philippines Asia       <span class="dv">2007</span>    <span class="fl">71.7</span> <span class="dv">91077287</span>     <span class="fl">3190.</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</div></div>
+</section>
+<section id="mutate" class="slide level2">
+<h2><code>mutate()</code></h2>
+<p>The <code>mutate</code> function will take a statement similar to this:</p>
+<ul>
+<li><p><code>variable_name</code> = <code>do_some_calculation</code></p></li>
+<li><p><code>variable_name</code> will be attached at the end of the dataset.</p></li>
+</ul>
+</section>
+<section id="mutate-1" class="slide level2">
+<h2><code>mutate()</code></h2>
+<p>Let’s calculate the <code>gdp</code></p>
+<div class="columns">
+<div class="column">
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb39"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb39-1"><a href="" aria-label="1"></a><span class="in">```{r}</span></span>
+<span id="cb39-2"><a href="" aria-label="2"></a>data</span>
+<span id="cb39-3"><a href="" aria-label="3"></a><span class="in">```</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p><br></p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb40"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb40-1"><a href="" aria-label="1"></a>data</span>
+<span id="cb40-2"><a href="" aria-label="2"></a><span class="co"># A tibble: 1,704 × 6</span></span>
+<span id="cb40-3"><a href="" aria-label="3"></a>   country     continent  year lifeExp      pop gdpPercap</span>
+<span id="cb40-4"><a href="" aria-label="4"></a>   <span class="sc">&lt;</span>fct<span class="sc">&gt;</span>       <span class="er">&lt;</span>fct<span class="sc">&gt;</span>     <span class="er">&lt;</span>int<span class="sc">&gt;</span>   <span class="er">&lt;</span>dbl<span class="sc">&gt;</span>    <span class="er">&lt;</span>int<span class="sc">&gt;</span>     <span class="er">&lt;</span>dbl<span class="sc">&gt;</span></span>
+<span id="cb40-5"><a href="" aria-label="5"></a> <span class="dv">1</span> Afghanistan Asia       <span class="dv">1952</span>    <span class="fl">28.8</span>  <span class="dv">8425333</span>      <span class="fl">779.</span></span>
+<span id="cb40-6"><a href="" aria-label="6"></a> <span class="dv">2</span> Afghanistan Asia       <span class="dv">1957</span>    <span class="fl">30.3</span>  <span class="dv">9240934</span>      <span class="fl">821.</span></span>
+<span id="cb40-7"><a href="" aria-label="7"></a> <span class="dv">3</span> Afghanistan Asia       <span class="dv">1962</span>    <span class="fl">32.0</span> <span class="dv">10267083</span>      <span class="fl">853.</span></span>
+<span id="cb40-8"><a href="" aria-label="8"></a> <span class="dv">4</span> Afghanistan Asia       <span class="dv">1967</span>    <span class="fl">34.0</span> <span class="dv">11537966</span>      <span class="fl">836.</span></span>
+<span id="cb40-9"><a href="" aria-label="9"></a> <span class="dv">5</span> Afghanistan Asia       <span class="dv">1972</span>    <span class="fl">36.1</span> <span class="dv">13079460</span>      <span class="fl">740.</span></span>
+<span id="cb40-10"><a href="" aria-label="10"></a> <span class="dv">6</span> Afghanistan Asia       <span class="dv">1977</span>    <span class="fl">38.4</span> <span class="dv">14880372</span>      <span class="fl">786.</span></span>
+<span id="cb40-11"><a href="" aria-label="11"></a> <span class="dv">7</span> Afghanistan Asia       <span class="dv">1982</span>    <span class="fl">39.9</span> <span class="dv">12881816</span>      <span class="fl">978.</span></span>
+<span id="cb40-12"><a href="" aria-label="12"></a> <span class="dv">8</span> Afghanistan Asia       <span class="dv">1987</span>    <span class="fl">40.8</span> <span class="dv">13867957</span>      <span class="fl">852.</span></span>
+<span id="cb40-13"><a href="" aria-label="13"></a> <span class="dv">9</span> Afghanistan Asia       <span class="dv">1992</span>    <span class="fl">41.7</span> <span class="dv">16317921</span>      <span class="fl">649.</span></span>
+<span id="cb40-14"><a href="" aria-label="14"></a><span class="dv">10</span> Afghanistan Asia       <span class="dv">1997</span>    <span class="fl">41.8</span> <span class="dv">22227415</span>      <span class="fl">635.</span></span>
+<span id="cb40-15"><a href="" aria-label="15"></a><span class="co"># ℹ 1,694 more rows</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</div><div class="column">
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb41"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb41-1"><a href="" aria-label="1"></a><span class="in">```{r}</span></span>
+<span id="cb41-2"><a href="" aria-label="2"></a><span class="fu">mutate</span>(data, <span class="at">GDP =</span> gdpPercap <span class="sc">*</span> pop)</span>
+<span id="cb41-3"><a href="" aria-label="3"></a><span class="in">```</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p><br></p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb42"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb42-1"><a href="" aria-label="1"></a><span class="fu">mutate</span>(data, <span class="at">GDP =</span> gdpPercap <span class="sc">*</span> pop)</span>
+<span id="cb42-2"><a href="" aria-label="2"></a><span class="co"># A tibble: 1,704 × 7</span></span>
+<span id="cb42-3"><a href="" aria-label="3"></a>   country     continent  year lifeExp      pop gdpPercap          GDP</span>
+<span id="cb42-4"><a href="" aria-label="4"></a>   <span class="sc">&lt;</span>fct<span class="sc">&gt;</span>       <span class="er">&lt;</span>fct<span class="sc">&gt;</span>     <span class="er">&lt;</span>int<span class="sc">&gt;</span>   <span class="er">&lt;</span>dbl<span class="sc">&gt;</span>    <span class="er">&lt;</span>int<span class="sc">&gt;</span>     <span class="er">&lt;</span>dbl<span class="sc">&gt;</span>        <span class="er">&lt;</span>dbl<span class="sc">&gt;</span></span>
+<span id="cb42-5"><a href="" aria-label="5"></a> <span class="dv">1</span> Afghanistan Asia       <span class="dv">1952</span>    <span class="fl">28.8</span>  <span class="dv">8425333</span>      <span class="fl">779.</span>  <span class="fl">6567086330.</span></span>
+<span id="cb42-6"><a href="" aria-label="6"></a> <span class="dv">2</span> Afghanistan Asia       <span class="dv">1957</span>    <span class="fl">30.3</span>  <span class="dv">9240934</span>      <span class="fl">821.</span>  <span class="fl">7585448670.</span></span>
+<span id="cb42-7"><a href="" aria-label="7"></a> <span class="dv">3</span> Afghanistan Asia       <span class="dv">1962</span>    <span class="fl">32.0</span> <span class="dv">10267083</span>      <span class="fl">853.</span>  <span class="fl">8758855797.</span></span>
+<span id="cb42-8"><a href="" aria-label="8"></a> <span class="dv">4</span> Afghanistan Asia       <span class="dv">1967</span>    <span class="fl">34.0</span> <span class="dv">11537966</span>      <span class="fl">836.</span>  <span class="fl">9648014150.</span></span>
+<span id="cb42-9"><a href="" aria-label="9"></a> <span class="dv">5</span> Afghanistan Asia       <span class="dv">1972</span>    <span class="fl">36.1</span> <span class="dv">13079460</span>      <span class="fl">740.</span>  <span class="fl">9678553274.</span></span>
+<span id="cb42-10"><a href="" aria-label="10"></a> <span class="dv">6</span> Afghanistan Asia       <span class="dv">1977</span>    <span class="fl">38.4</span> <span class="dv">14880372</span>      <span class="fl">786.</span> <span class="fl">11697659231.</span></span>
+<span id="cb42-11"><a href="" aria-label="11"></a> <span class="dv">7</span> Afghanistan Asia       <span class="dv">1982</span>    <span class="fl">39.9</span> <span class="dv">12881816</span>      <span class="fl">978.</span> <span class="fl">12598563401.</span></span>
+<span id="cb42-12"><a href="" aria-label="12"></a> <span class="dv">8</span> Afghanistan Asia       <span class="dv">1987</span>    <span class="fl">40.8</span> <span class="dv">13867957</span>      <span class="fl">852.</span> <span class="fl">11820990309.</span></span>
+<span id="cb42-13"><a href="" aria-label="13"></a> <span class="dv">9</span> Afghanistan Asia       <span class="dv">1992</span>    <span class="fl">41.7</span> <span class="dv">16317921</span>      <span class="fl">649.</span> <span class="fl">10595901589.</span></span>
+<span id="cb42-14"><a href="" aria-label="14"></a><span class="dv">10</span> Afghanistan Asia       <span class="dv">1997</span>    <span class="fl">41.8</span> <span class="dv">22227415</span>      <span class="fl">635.</span> <span class="fl">14121995875.</span></span>
+<span id="cb42-15"><a href="" aria-label="15"></a><span class="co"># ℹ 1,694 more rows</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</div></div>
+</section>
+<section id="rename" class="slide level2">
+<h2><code>rename()</code></h2>
+<p>Changes the variable name while keeping all else intact.</p>
+<ul>
+<li><code>new_variable_name</code> = <code>old_variable_name</code></li>
+</ul>
+<div class="columns">
+<div class="column">
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb43"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb43-1"><a href="" aria-label="1"></a><span class="in">```{r}</span></span>
+<span id="cb43-2"><a href="" aria-label="2"></a>data</span>
+<span id="cb43-3"><a href="" aria-label="3"></a><span class="in">```</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p><br></p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb44"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb44-1"><a href="" aria-label="1"></a>data</span>
+<span id="cb44-2"><a href="" aria-label="2"></a><span class="co"># A tibble: 1,704 × 6</span></span>
+<span id="cb44-3"><a href="" aria-label="3"></a>   country     continent  year lifeExp      pop gdpPercap</span>
+<span id="cb44-4"><a href="" aria-label="4"></a>   <span class="sc">&lt;</span>fct<span class="sc">&gt;</span>       <span class="er">&lt;</span>fct<span class="sc">&gt;</span>     <span class="er">&lt;</span>int<span class="sc">&gt;</span>   <span class="er">&lt;</span>dbl<span class="sc">&gt;</span>    <span class="er">&lt;</span>int<span class="sc">&gt;</span>     <span class="er">&lt;</span>dbl<span class="sc">&gt;</span></span>
+<span id="cb44-5"><a href="" aria-label="5"></a> <span class="dv">1</span> Afghanistan Asia       <span class="dv">1952</span>    <span class="fl">28.8</span>  <span class="dv">8425333</span>      <span class="fl">779.</span></span>
+<span id="cb44-6"><a href="" aria-label="6"></a> <span class="dv">2</span> Afghanistan Asia       <span class="dv">1957</span>    <span class="fl">30.3</span>  <span class="dv">9240934</span>      <span class="fl">821.</span></span>
+<span id="cb44-7"><a href="" aria-label="7"></a> <span class="dv">3</span> Afghanistan Asia       <span class="dv">1962</span>    <span class="fl">32.0</span> <span class="dv">10267083</span>      <span class="fl">853.</span></span>
+<span id="cb44-8"><a href="" aria-label="8"></a> <span class="dv">4</span> Afghanistan Asia       <span class="dv">1967</span>    <span class="fl">34.0</span> <span class="dv">11537966</span>      <span class="fl">836.</span></span>
+<span id="cb44-9"><a href="" aria-label="9"></a> <span class="dv">5</span> Afghanistan Asia       <span class="dv">1972</span>    <span class="fl">36.1</span> <span class="dv">13079460</span>      <span class="fl">740.</span></span>
+<span id="cb44-10"><a href="" aria-label="10"></a> <span class="dv">6</span> Afghanistan Asia       <span class="dv">1977</span>    <span class="fl">38.4</span> <span class="dv">14880372</span>      <span class="fl">786.</span></span>
+<span id="cb44-11"><a href="" aria-label="11"></a> <span class="dv">7</span> Afghanistan Asia       <span class="dv">1982</span>    <span class="fl">39.9</span> <span class="dv">12881816</span>      <span class="fl">978.</span></span>
+<span id="cb44-12"><a href="" aria-label="12"></a> <span class="dv">8</span> Afghanistan Asia       <span class="dv">1987</span>    <span class="fl">40.8</span> <span class="dv">13867957</span>      <span class="fl">852.</span></span>
+<span id="cb44-13"><a href="" aria-label="13"></a> <span class="dv">9</span> Afghanistan Asia       <span class="dv">1992</span>    <span class="fl">41.7</span> <span class="dv">16317921</span>      <span class="fl">649.</span></span>
+<span id="cb44-14"><a href="" aria-label="14"></a><span class="dv">10</span> Afghanistan Asia       <span class="dv">1997</span>    <span class="fl">41.8</span> <span class="dv">22227415</span>      <span class="fl">635.</span></span>
+<span id="cb44-15"><a href="" aria-label="15"></a><span class="co"># ℹ 1,694 more rows</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</div><div class="column">
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb45"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb45-1"><a href="" aria-label="1"></a><span class="in">```{r}</span></span>
+<span id="cb45-2"><a href="" aria-label="2"></a><span class="fu">rename</span>(data, <span class="at">population =</span> pop)</span>
+<span id="cb45-3"><a href="" aria-label="3"></a><span class="in">```</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p><br></p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb46"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb46-1"><a href="" aria-label="1"></a><span class="fu">rename</span>(data, <span class="at">population =</span> pop)</span>
+<span id="cb46-2"><a href="" aria-label="2"></a><span class="co"># A tibble: 1,704 × 6</span></span>
+<span id="cb46-3"><a href="" aria-label="3"></a>   country     continent  year lifeExp population gdpPercap</span>
+<span id="cb46-4"><a href="" aria-label="4"></a>   <span class="sc">&lt;</span>fct<span class="sc">&gt;</span>       <span class="er">&lt;</span>fct<span class="sc">&gt;</span>     <span class="er">&lt;</span>int<span class="sc">&gt;</span>   <span class="er">&lt;</span>dbl<span class="sc">&gt;</span>      <span class="er">&lt;</span>int<span class="sc">&gt;</span>     <span class="er">&lt;</span>dbl<span class="sc">&gt;</span></span>
+<span id="cb46-5"><a href="" aria-label="5"></a> <span class="dv">1</span> Afghanistan Asia       <span class="dv">1952</span>    <span class="fl">28.8</span>    <span class="dv">8425333</span>      <span class="fl">779.</span></span>
+<span id="cb46-6"><a href="" aria-label="6"></a> <span class="dv">2</span> Afghanistan Asia       <span class="dv">1957</span>    <span class="fl">30.3</span>    <span class="dv">9240934</span>      <span class="fl">821.</span></span>
+<span id="cb46-7"><a href="" aria-label="7"></a> <span class="dv">3</span> Afghanistan Asia       <span class="dv">1962</span>    <span class="fl">32.0</span>   <span class="dv">10267083</span>      <span class="fl">853.</span></span>
+<span id="cb46-8"><a href="" aria-label="8"></a> <span class="dv">4</span> Afghanistan Asia       <span class="dv">1967</span>    <span class="fl">34.0</span>   <span class="dv">11537966</span>      <span class="fl">836.</span></span>
+<span id="cb46-9"><a href="" aria-label="9"></a> <span class="dv">5</span> Afghanistan Asia       <span class="dv">1972</span>    <span class="fl">36.1</span>   <span class="dv">13079460</span>      <span class="fl">740.</span></span>
+<span id="cb46-10"><a href="" aria-label="10"></a> <span class="dv">6</span> Afghanistan Asia       <span class="dv">1977</span>    <span class="fl">38.4</span>   <span class="dv">14880372</span>      <span class="fl">786.</span></span>
+<span id="cb46-11"><a href="" aria-label="11"></a> <span class="dv">7</span> Afghanistan Asia       <span class="dv">1982</span>    <span class="fl">39.9</span>   <span class="dv">12881816</span>      <span class="fl">978.</span></span>
+<span id="cb46-12"><a href="" aria-label="12"></a> <span class="dv">8</span> Afghanistan Asia       <span class="dv">1987</span>    <span class="fl">40.8</span>   <span class="dv">13867957</span>      <span class="fl">852.</span></span>
+<span id="cb46-13"><a href="" aria-label="13"></a> <span class="dv">9</span> Afghanistan Asia       <span class="dv">1992</span>    <span class="fl">41.7</span>   <span class="dv">16317921</span>      <span class="fl">649.</span></span>
+<span id="cb46-14"><a href="" aria-label="14"></a><span class="dv">10</span> Afghanistan Asia       <span class="dv">1997</span>    <span class="fl">41.8</span>   <span class="dv">22227415</span>      <span class="fl">635.</span></span>
+<span id="cb46-15"><a href="" aria-label="15"></a><span class="co"># ℹ 1,694 more rows</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</div></div>
+</section>
+<section id="arrange" class="slide level2">
+<h2><code>arrange()</code></h2>
+<p>You can order data by variable to show the highest or lowest values first.</p>
+<div class="columns">
+<div class="column">
+<p>consider <code>lifeExp</code> default is lowest first</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb47"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb47-1"><a href="" aria-label="1"></a><span class="in">```{r}</span></span>
+<span id="cb47-2"><a href="" aria-label="2"></a>data</span>
+<span id="cb47-3"><a href="" aria-label="3"></a><span class="in">```</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p><br></p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb48"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb48-1"><a href="" aria-label="1"></a>data</span>
+<span id="cb48-2"><a href="" aria-label="2"></a><span class="co"># A tibble: 1,704 × 6</span></span>
+<span id="cb48-3"><a href="" aria-label="3"></a>   country     continent  year lifeExp      pop gdpPercap</span>
+<span id="cb48-4"><a href="" aria-label="4"></a>   <span class="sc">&lt;</span>fct<span class="sc">&gt;</span>       <span class="er">&lt;</span>fct<span class="sc">&gt;</span>     <span class="er">&lt;</span>int<span class="sc">&gt;</span>   <span class="er">&lt;</span>dbl<span class="sc">&gt;</span>    <span class="er">&lt;</span>int<span class="sc">&gt;</span>     <span class="er">&lt;</span>dbl<span class="sc">&gt;</span></span>
+<span id="cb48-5"><a href="" aria-label="5"></a> <span class="dv">1</span> Afghanistan Asia       <span class="dv">1952</span>    <span class="fl">28.8</span>  <span class="dv">8425333</span>      <span class="fl">779.</span></span>
+<span id="cb48-6"><a href="" aria-label="6"></a> <span class="dv">2</span> Afghanistan Asia       <span class="dv">1957</span>    <span class="fl">30.3</span>  <span class="dv">9240934</span>      <span class="fl">821.</span></span>
+<span id="cb48-7"><a href="" aria-label="7"></a> <span class="dv">3</span> Afghanistan Asia       <span class="dv">1962</span>    <span class="fl">32.0</span> <span class="dv">10267083</span>      <span class="fl">853.</span></span>
+<span id="cb48-8"><a href="" aria-label="8"></a> <span class="dv">4</span> Afghanistan Asia       <span class="dv">1967</span>    <span class="fl">34.0</span> <span class="dv">11537966</span>      <span class="fl">836.</span></span>
+<span id="cb48-9"><a href="" aria-label="9"></a> <span class="dv">5</span> Afghanistan Asia       <span class="dv">1972</span>    <span class="fl">36.1</span> <span class="dv">13079460</span>      <span class="fl">740.</span></span>
+<span id="cb48-10"><a href="" aria-label="10"></a> <span class="dv">6</span> Afghanistan Asia       <span class="dv">1977</span>    <span class="fl">38.4</span> <span class="dv">14880372</span>      <span class="fl">786.</span></span>
+<span id="cb48-11"><a href="" aria-label="11"></a> <span class="dv">7</span> Afghanistan Asia       <span class="dv">1982</span>    <span class="fl">39.9</span> <span class="dv">12881816</span>      <span class="fl">978.</span></span>
+<span id="cb48-12"><a href="" aria-label="12"></a> <span class="dv">8</span> Afghanistan Asia       <span class="dv">1987</span>    <span class="fl">40.8</span> <span class="dv">13867957</span>      <span class="fl">852.</span></span>
+<span id="cb48-13"><a href="" aria-label="13"></a> <span class="dv">9</span> Afghanistan Asia       <span class="dv">1992</span>    <span class="fl">41.7</span> <span class="dv">16317921</span>      <span class="fl">649.</span></span>
+<span id="cb48-14"><a href="" aria-label="14"></a><span class="dv">10</span> Afghanistan Asia       <span class="dv">1997</span>    <span class="fl">41.8</span> <span class="dv">22227415</span>      <span class="fl">635.</span></span>
+<span id="cb48-15"><a href="" aria-label="15"></a><span class="co"># ℹ 1,694 more rows</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</div><div class="column">
+<p><code>desc()</code> sort <code>lifeExp</code> from highest to lowest</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb49"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb49-1"><a href="" aria-label="1"></a><span class="in">```{r}</span></span>
+<span id="cb49-2"><a href="" aria-label="2"></a><span class="fu">arrange</span>(data, <span class="fu">desc</span>(lifeExp))</span>
+<span id="cb49-3"><a href="" aria-label="3"></a><span class="in">```</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p><br></p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb50"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb50-1"><a href="" aria-label="1"></a><span class="fu">arrange</span>(data, <span class="fu">desc</span>(lifeExp))</span>
+<span id="cb50-2"><a href="" aria-label="2"></a><span class="co"># A tibble: 1,704 × 6</span></span>
+<span id="cb50-3"><a href="" aria-label="3"></a>   country          continent  year lifeExp       pop gdpPercap</span>
+<span id="cb50-4"><a href="" aria-label="4"></a>   <span class="sc">&lt;</span>fct<span class="sc">&gt;</span>            <span class="er">&lt;</span>fct<span class="sc">&gt;</span>     <span class="er">&lt;</span>int<span class="sc">&gt;</span>   <span class="er">&lt;</span>dbl<span class="sc">&gt;</span>     <span class="er">&lt;</span>int<span class="sc">&gt;</span>     <span class="er">&lt;</span>dbl<span class="sc">&gt;</span></span>
+<span id="cb50-5"><a href="" aria-label="5"></a> <span class="dv">1</span> Japan            Asia       <span class="dv">2007</span>    <span class="fl">82.6</span> <span class="dv">127467972</span>    <span class="fl">31656.</span></span>
+<span id="cb50-6"><a href="" aria-label="6"></a> <span class="dv">2</span> Hong Kong, China Asia       <span class="dv">2007</span>    <span class="fl">82.2</span>   <span class="dv">6980412</span>    <span class="fl">39725.</span></span>
+<span id="cb50-7"><a href="" aria-label="7"></a> <span class="dv">3</span> Japan            Asia       <span class="dv">2002</span>    <span class="dv">82</span>   <span class="dv">127065841</span>    <span class="fl">28605.</span></span>
+<span id="cb50-8"><a href="" aria-label="8"></a> <span class="dv">4</span> Iceland          Europe     <span class="dv">2007</span>    <span class="fl">81.8</span>    <span class="dv">301931</span>    <span class="fl">36181.</span></span>
+<span id="cb50-9"><a href="" aria-label="9"></a> <span class="dv">5</span> Switzerland      Europe     <span class="dv">2007</span>    <span class="fl">81.7</span>   <span class="dv">7554661</span>    <span class="fl">37506.</span></span>
+<span id="cb50-10"><a href="" aria-label="10"></a> <span class="dv">6</span> Hong Kong, China Asia       <span class="dv">2002</span>    <span class="fl">81.5</span>   <span class="dv">6762476</span>    <span class="fl">30209.</span></span>
+<span id="cb50-11"><a href="" aria-label="11"></a> <span class="dv">7</span> Australia        Oceania    <span class="dv">2007</span>    <span class="fl">81.2</span>  <span class="dv">20434176</span>    <span class="fl">34435.</span></span>
+<span id="cb50-12"><a href="" aria-label="12"></a> <span class="dv">8</span> Spain            Europe     <span class="dv">2007</span>    <span class="fl">80.9</span>  <span class="dv">40448191</span>    <span class="fl">28821.</span></span>
+<span id="cb50-13"><a href="" aria-label="13"></a> <span class="dv">9</span> Sweden           Europe     <span class="dv">2007</span>    <span class="fl">80.9</span>   <span class="dv">9031088</span>    <span class="fl">33860.</span></span>
+<span id="cb50-14"><a href="" aria-label="14"></a><span class="dv">10</span> Israel           Asia       <span class="dv">2007</span>    <span class="fl">80.7</span>   <span class="dv">6426679</span>    <span class="fl">25523.</span></span>
+<span id="cb50-15"><a href="" aria-label="15"></a><span class="co"># ℹ 1,694 more rows</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</div></div>
+</section>
+<section id="group_by-and-summarise" class="slide level2">
+<h2><code>group_by</code> and <code>summarise()</code></h2>
+<ul>
+<li><p>Use when you want to aggregate your data (by groups).</p></li>
+<li><p>Sometimes we want to calculate group statistics.</p></li>
+</ul>
+<p><br></p>
+<div class="{style=&quot;fig.align=&quot;center&quot;;&quot;}">
+<p><img src="https://learn.r-journalism.com/wrangling/dplyr/images/groupby.png" style="width: 60%"></p>
+</div>
+</section>
+<section id="group_by-and-summarise-1" class="slide level2">
+<h2><code>group_by</code> and <code>summarise()</code></h2>
+<p>Suppose we want to know the average population by continent.</p>
+<div class="columns">
+<div class="column">
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb51"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb51-1"><a href="" aria-label="1"></a><span class="in">```{r}</span></span>
+<span id="cb51-2"><a href="" aria-label="2"></a>data</span>
+<span id="cb51-3"><a href="" aria-label="3"></a><span class="in">```</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p><br></p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb52"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb52-1"><a href="" aria-label="1"></a>data</span>
+<span id="cb52-2"><a href="" aria-label="2"></a><span class="co"># A tibble: 1,704 × 6</span></span>
+<span id="cb52-3"><a href="" aria-label="3"></a>   country     continent  year lifeExp      pop gdpPercap</span>
+<span id="cb52-4"><a href="" aria-label="4"></a>   <span class="sc">&lt;</span>fct<span class="sc">&gt;</span>       <span class="er">&lt;</span>fct<span class="sc">&gt;</span>     <span class="er">&lt;</span>int<span class="sc">&gt;</span>   <span class="er">&lt;</span>dbl<span class="sc">&gt;</span>    <span class="er">&lt;</span>int<span class="sc">&gt;</span>     <span class="er">&lt;</span>dbl<span class="sc">&gt;</span></span>
+<span id="cb52-5"><a href="" aria-label="5"></a> <span class="dv">1</span> Afghanistan Asia       <span class="dv">1952</span>    <span class="fl">28.8</span>  <span class="dv">8425333</span>      <span class="fl">779.</span></span>
+<span id="cb52-6"><a href="" aria-label="6"></a> <span class="dv">2</span> Afghanistan Asia       <span class="dv">1957</span>    <span class="fl">30.3</span>  <span class="dv">9240934</span>      <span class="fl">821.</span></span>
+<span id="cb52-7"><a href="" aria-label="7"></a> <span class="dv">3</span> Afghanistan Asia       <span class="dv">1962</span>    <span class="fl">32.0</span> <span class="dv">10267083</span>      <span class="fl">853.</span></span>
+<span id="cb52-8"><a href="" aria-label="8"></a> <span class="dv">4</span> Afghanistan Asia       <span class="dv">1967</span>    <span class="fl">34.0</span> <span class="dv">11537966</span>      <span class="fl">836.</span></span>
+<span id="cb52-9"><a href="" aria-label="9"></a> <span class="dv">5</span> Afghanistan Asia       <span class="dv">1972</span>    <span class="fl">36.1</span> <span class="dv">13079460</span>      <span class="fl">740.</span></span>
+<span id="cb52-10"><a href="" aria-label="10"></a> <span class="dv">6</span> Afghanistan Asia       <span class="dv">1977</span>    <span class="fl">38.4</span> <span class="dv">14880372</span>      <span class="fl">786.</span></span>
+<span id="cb52-11"><a href="" aria-label="11"></a> <span class="dv">7</span> Afghanistan Asia       <span class="dv">1982</span>    <span class="fl">39.9</span> <span class="dv">12881816</span>      <span class="fl">978.</span></span>
+<span id="cb52-12"><a href="" aria-label="12"></a> <span class="dv">8</span> Afghanistan Asia       <span class="dv">1987</span>    <span class="fl">40.8</span> <span class="dv">13867957</span>      <span class="fl">852.</span></span>
+<span id="cb52-13"><a href="" aria-label="13"></a> <span class="dv">9</span> Afghanistan Asia       <span class="dv">1992</span>    <span class="fl">41.7</span> <span class="dv">16317921</span>      <span class="fl">649.</span></span>
+<span id="cb52-14"><a href="" aria-label="14"></a><span class="dv">10</span> Afghanistan Asia       <span class="dv">1997</span>    <span class="fl">41.8</span> <span class="dv">22227415</span>      <span class="fl">635.</span></span>
+<span id="cb52-15"><a href="" aria-label="15"></a><span class="co"># ℹ 1,694 more rows</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</div><div class="column">
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb53"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb53-1"><a href="" aria-label="1"></a><span class="in">```{r}</span></span>
+<span id="cb53-2"><a href="" aria-label="2"></a>grouped_by_continent <span class="ot">&lt;-</span> <span class="fu">group_by</span>(data, continent)</span>
+<span id="cb53-3"><a href="" aria-label="3"></a><span class="fu">summarise</span>(grouped_by_continent, <span class="at">avg_pop =</span> <span class="fu">mean</span>(pop))</span>
+<span id="cb53-4"><a href="" aria-label="4"></a><span class="in">```</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p><br></p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb54"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb54-1"><a href="" aria-label="1"></a>grouped_by_continent <span class="ot">&lt;-</span> <span class="fu">group_by</span>(data, continent)</span>
+<span id="cb54-2"><a href="" aria-label="2"></a><span class="fu">summarise</span>(grouped_by_continent, <span class="at">avg_pop =</span> <span class="fu">mean</span>(pop))</span>
+<span id="cb54-3"><a href="" aria-label="3"></a><span class="co"># A tibble: 5 × 2</span></span>
+<span id="cb54-4"><a href="" aria-label="4"></a>  continent   avg_pop</span>
+<span id="cb54-5"><a href="" aria-label="5"></a>  <span class="sc">&lt;</span>fct<span class="sc">&gt;</span>         <span class="er">&lt;</span>dbl<span class="sc">&gt;</span></span>
+<span id="cb54-6"><a href="" aria-label="6"></a><span class="dv">1</span> Africa     <span class="fl">9916003.</span></span>
+<span id="cb54-7"><a href="" aria-label="7"></a><span class="dv">2</span> Americas  <span class="fl">24504795.</span></span>
+<span id="cb54-8"><a href="" aria-label="8"></a><span class="dv">3</span> Asia      <span class="fl">77038722.</span></span>
+<span id="cb54-9"><a href="" aria-label="9"></a><span class="dv">4</span> Europe    <span class="fl">17169765.</span></span>
+<span id="cb54-10"><a href="" aria-label="10"></a><span class="dv">5</span> Oceania    <span class="fl">8874672.</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</div></div>
+</section>
+<section id="group_by-and-summarise-2" class="slide level2">
+<h2><code>group_by</code> and <code>summarise()</code></h2>
+<p>Suppose we want to know the average population by continent.</p>
+<div class="columns">
+<div class="column">
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb55"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb55-1"><a href="" aria-label="1"></a><span class="in">```{r}</span></span>
+<span id="cb55-2"><a href="" aria-label="2"></a>data</span>
+<span id="cb55-3"><a href="" aria-label="3"></a><span class="in">```</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p><br></p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb56"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb56-1"><a href="" aria-label="1"></a>data</span>
+<span id="cb56-2"><a href="" aria-label="2"></a><span class="co"># A tibble: 1,704 × 6</span></span>
+<span id="cb56-3"><a href="" aria-label="3"></a>   country     continent  year lifeExp      pop gdpPercap</span>
+<span id="cb56-4"><a href="" aria-label="4"></a>   <span class="sc">&lt;</span>fct<span class="sc">&gt;</span>       <span class="er">&lt;</span>fct<span class="sc">&gt;</span>     <span class="er">&lt;</span>int<span class="sc">&gt;</span>   <span class="er">&lt;</span>dbl<span class="sc">&gt;</span>    <span class="er">&lt;</span>int<span class="sc">&gt;</span>     <span class="er">&lt;</span>dbl<span class="sc">&gt;</span></span>
+<span id="cb56-5"><a href="" aria-label="5"></a> <span class="dv">1</span> Afghanistan Asia       <span class="dv">1952</span>    <span class="fl">28.8</span>  <span class="dv">8425333</span>      <span class="fl">779.</span></span>
+<span id="cb56-6"><a href="" aria-label="6"></a> <span class="dv">2</span> Afghanistan Asia       <span class="dv">1957</span>    <span class="fl">30.3</span>  <span class="dv">9240934</span>      <span class="fl">821.</span></span>
+<span id="cb56-7"><a href="" aria-label="7"></a> <span class="dv">3</span> Afghanistan Asia       <span class="dv">1962</span>    <span class="fl">32.0</span> <span class="dv">10267083</span>      <span class="fl">853.</span></span>
+<span id="cb56-8"><a href="" aria-label="8"></a> <span class="dv">4</span> Afghanistan Asia       <span class="dv">1967</span>    <span class="fl">34.0</span> <span class="dv">11537966</span>      <span class="fl">836.</span></span>
+<span id="cb56-9"><a href="" aria-label="9"></a> <span class="dv">5</span> Afghanistan Asia       <span class="dv">1972</span>    <span class="fl">36.1</span> <span class="dv">13079460</span>      <span class="fl">740.</span></span>
+<span id="cb56-10"><a href="" aria-label="10"></a> <span class="dv">6</span> Afghanistan Asia       <span class="dv">1977</span>    <span class="fl">38.4</span> <span class="dv">14880372</span>      <span class="fl">786.</span></span>
+<span id="cb56-11"><a href="" aria-label="11"></a> <span class="dv">7</span> Afghanistan Asia       <span class="dv">1982</span>    <span class="fl">39.9</span> <span class="dv">12881816</span>      <span class="fl">978.</span></span>
+<span id="cb56-12"><a href="" aria-label="12"></a> <span class="dv">8</span> Afghanistan Asia       <span class="dv">1987</span>    <span class="fl">40.8</span> <span class="dv">13867957</span>      <span class="fl">852.</span></span>
+<span id="cb56-13"><a href="" aria-label="13"></a> <span class="dv">9</span> Afghanistan Asia       <span class="dv">1992</span>    <span class="fl">41.7</span> <span class="dv">16317921</span>      <span class="fl">649.</span></span>
+<span id="cb56-14"><a href="" aria-label="14"></a><span class="dv">10</span> Afghanistan Asia       <span class="dv">1997</span>    <span class="fl">41.8</span> <span class="dv">22227415</span>      <span class="fl">635.</span></span>
+<span id="cb56-15"><a href="" aria-label="15"></a><span class="co"># ℹ 1,694 more rows</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</div><div class="column">
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb57"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb57-1"><a href="" aria-label="1"></a><span class="in">```{r}</span></span>
+<span id="cb57-2"><a href="" aria-label="2"></a>grouped_by_continent <span class="ot">&lt;-</span> <span class="fu">group_by</span>(data, continent)</span>
+<span id="cb57-3"><a href="" aria-label="3"></a>summarised_data <span class="ot">&lt;-</span> <span class="fu">summarise</span>(grouped_by_continent, <span class="at">avg_pop =</span> <span class="fu">mean</span>(pop))</span>
+<span id="cb57-4"><a href="" aria-label="4"></a><span class="fu">arrange</span>(summarised_data, <span class="fu">desc</span>(avg_pop))</span>
+<span id="cb57-5"><a href="" aria-label="5"></a><span class="in">```</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p><br></p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb58"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb58-1"><a href="" aria-label="1"></a>grouped_by_continent <span class="ot">&lt;-</span> <span class="fu">group_by</span>(data, continent)</span>
+<span id="cb58-2"><a href="" aria-label="2"></a>summarised_data <span class="ot">&lt;-</span> <span class="fu">summarise</span>(grouped_by_continent, <span class="at">avg_pop =</span> <span class="fu">mean</span>(pop))</span>
+<span id="cb58-3"><a href="" aria-label="3"></a><span class="fu">arrange</span>(summarised_data, <span class="fu">desc</span>(avg_pop))</span>
+<span id="cb58-4"><a href="" aria-label="4"></a><span class="co"># A tibble: 5 × 2</span></span>
+<span id="cb58-5"><a href="" aria-label="5"></a>  continent   avg_pop</span>
+<span id="cb58-6"><a href="" aria-label="6"></a>  <span class="sc">&lt;</span>fct<span class="sc">&gt;</span>         <span class="er">&lt;</span>dbl<span class="sc">&gt;</span></span>
+<span id="cb58-7"><a href="" aria-label="7"></a><span class="dv">1</span> Asia      <span class="fl">77038722.</span></span>
+<span id="cb58-8"><a href="" aria-label="8"></a><span class="dv">2</span> Americas  <span class="fl">24504795.</span></span>
+<span id="cb58-9"><a href="" aria-label="9"></a><span class="dv">3</span> Europe    <span class="fl">17169765.</span></span>
+<span id="cb58-10"><a href="" aria-label="10"></a><span class="dv">4</span> Africa     <span class="fl">9916003.</span></span>
+<span id="cb58-11"><a href="" aria-label="11"></a><span class="dv">5</span> Oceania    <span class="fl">8874672.</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</div></div>
+</section>
+<section id="section-5" class="slide level2" data-transition="fade" data-auto-animate="true">
+<h2 data-id="quarto-animate-title"></h2>
+<div class="columns">
+<div class="column">
+<h3 id="too-many-codes">Too many codes!</h3>
+<h3 id="its-hard-to-follow">It’s hard to follow!</h3>
+<h3 id="its-hard-to-keep-track-of-the-codes">It’s hard to keep track of the codes!</h3>
+</div><div class="column">
+<p><img data-src="img/teary.gif"></p>
+</div></div>
+</section>
+<section id="section-6" class="slide level2" data-transition="fade" data-auto-animate="true">
+<h2 data-id="quarto-animate-title"></h2>
+<center>
+<img src="https://rpodcast.github.io/officer-advrmarkdown/img/magrittr.png" style="width: 50%">
+</center>
+<h3 class="center-text" id="or-pipe-operator"><code>%&gt;%</code> or <code>|&gt;</code>pipe operator</h3>
+</section>
+<section id="the-and-operator" class="slide level2">
+<h2>The <code>%&gt;%</code> and <code>|&gt;</code> operator</h2>
+<p>The <strong><code>%&gt;%</code></strong> or <strong><code>|&gt;</code></strong> helps your write code in a way that is easier to read and understand.</p>
+<div class="columns">
+<div class="column">
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb59"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb59-1"><a href="" aria-label="1"></a><span class="in">```{r}</span></span>
+<span id="cb59-2"><a href="" aria-label="2"></a>grouped_by_continent <span class="ot">&lt;-</span> <span class="fu">group_by</span>(data, continent)</span>
+<span id="cb59-3"><a href="" aria-label="3"></a>summarised_data <span class="ot">&lt;-</span> <span class="fu">summarise</span>(grouped_by_continent, <span class="at">avg_pop =</span> <span class="fu">mean</span>(pop))</span>
+<span id="cb59-4"><a href="" aria-label="4"></a><span class="fu">arrange</span>(summarised_data, <span class="fu">desc</span>(avg_pop))</span>
+<span id="cb59-5"><a href="" aria-label="5"></a><span class="in">```</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p><br></p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb60"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb60-1"><a href="" aria-label="1"></a>grouped_by_continent <span class="ot">&lt;-</span> <span class="fu">group_by</span>(data, continent)</span>
+<span id="cb60-2"><a href="" aria-label="2"></a>summarised_data <span class="ot">&lt;-</span> <span class="fu">summarise</span>(grouped_by_continent, <span class="at">avg_pop =</span> <span class="fu">mean</span>(pop))</span>
+<span id="cb60-3"><a href="" aria-label="3"></a><span class="fu">arrange</span>(summarised_data, <span class="fu">desc</span>(avg_pop))</span>
+<span id="cb60-4"><a href="" aria-label="4"></a><span class="co"># A tibble: 5 × 2</span></span>
+<span id="cb60-5"><a href="" aria-label="5"></a>  continent   avg_pop</span>
+<span id="cb60-6"><a href="" aria-label="6"></a>  <span class="sc">&lt;</span>fct<span class="sc">&gt;</span>         <span class="er">&lt;</span>dbl<span class="sc">&gt;</span></span>
+<span id="cb60-7"><a href="" aria-label="7"></a><span class="dv">1</span> Asia      <span class="fl">77038722.</span></span>
+<span id="cb60-8"><a href="" aria-label="8"></a><span class="dv">2</span> Americas  <span class="fl">24504795.</span></span>
+<span id="cb60-9"><a href="" aria-label="9"></a><span class="dv">3</span> Europe    <span class="fl">17169765.</span></span>
+<span id="cb60-10"><a href="" aria-label="10"></a><span class="dv">4</span> Africa     <span class="fl">9916003.</span></span>
+<span id="cb60-11"><a href="" aria-label="11"></a><span class="dv">5</span> Oceania    <span class="fl">8874672.</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</div><div class="column">
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb61"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb61-1"><a href="" aria-label="1"></a><span class="in">```{r}</span></span>
+<span id="cb61-2"><a href="" aria-label="2"></a>data <span class="sc">%&gt;%</span> </span>
+<span id="cb61-3"><a href="" aria-label="3"></a>  <span class="fu">group_by</span>(continent) <span class="sc">%&gt;%</span> </span>
+<span id="cb61-4"><a href="" aria-label="4"></a>  <span class="fu">summarise</span>(<span class="at">avg_pop =</span> <span class="fu">mean</span>(pop)) <span class="sc">%&gt;%</span> </span>
+<span id="cb61-5"><a href="" aria-label="5"></a>  <span class="fu">arrange</span>(<span class="fu">desc</span>(avg_pop))</span>
+<span id="cb61-6"><a href="" aria-label="6"></a><span class="in">```</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p><br></p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb62"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb62-1"><a href="" aria-label="1"></a>data <span class="sc">%&gt;%</span></span>
+<span id="cb62-2"><a href="" aria-label="2"></a>  <span class="fu">group_by</span>(continent) <span class="sc">%&gt;%</span></span>
+<span id="cb62-3"><a href="" aria-label="3"></a>  <span class="fu">summarise</span>(<span class="at">avg_pop =</span> <span class="fu">mean</span>(pop)) <span class="sc">%&gt;%</span></span>
+<span id="cb62-4"><a href="" aria-label="4"></a>  <span class="fu">arrange</span>(<span class="fu">desc</span>(avg_pop))</span>
+<span id="cb62-5"><a href="" aria-label="5"></a><span class="co"># A tibble: 5 × 2</span></span>
+<span id="cb62-6"><a href="" aria-label="6"></a>  continent   avg_pop</span>
+<span id="cb62-7"><a href="" aria-label="7"></a>  <span class="sc">&lt;</span>fct<span class="sc">&gt;</span>         <span class="er">&lt;</span>dbl<span class="sc">&gt;</span></span>
+<span id="cb62-8"><a href="" aria-label="8"></a><span class="dv">1</span> Asia      <span class="fl">77038722.</span></span>
+<span id="cb62-9"><a href="" aria-label="9"></a><span class="dv">2</span> Americas  <span class="fl">24504795.</span></span>
+<span id="cb62-10"><a href="" aria-label="10"></a><span class="dv">3</span> Europe    <span class="fl">17169765.</span></span>
+<span id="cb62-11"><a href="" aria-label="11"></a><span class="dv">4</span> Africa     <span class="fl">9916003.</span></span>
+<span id="cb62-12"><a href="" aria-label="12"></a><span class="dv">5</span> Oceania    <span class="fl">8874672.</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</div></div>
+</section>
+<section id="theoperator" class="slide level2">
+<h2>The<code>%&gt;%</code>operator</h2>
+<p>What is the average life expectancy of Asian countries per year?</p>
+<div class="columns">
+<div class="column">
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb63"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb63-1"><a href="" aria-label="1"></a><span class="in">```{r}</span></span>
+<span id="cb63-2"><a href="" aria-label="2"></a>filtered_by_asia <span class="ot">&lt;-</span> <span class="fu">filter</span>(data, continent <span class="sc">==</span> <span class="st">"Asia"</span>)</span>
+<span id="cb63-3"><a href="" aria-label="3"></a>grouped_by_country_year <span class="ot">&lt;-</span> <span class="fu">group_by</span>(filtered_by_asia, country, year)</span>
+<span id="cb63-4"><a href="" aria-label="4"></a><span class="fu">summarise</span>(grouped_by_country_year, <span class="at">avg_lifeExp =</span> <span class="fu">mean</span>(lifeExp))</span>
+<span id="cb63-5"><a href="" aria-label="5"></a><span class="in">```</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p><br></p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb64"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb64-1"><a href="" aria-label="1"></a>filtered_by_asia <span class="ot">&lt;-</span> <span class="fu">filter</span>(data, continent <span class="sc">==</span> <span class="st">"Asia"</span>)</span>
+<span id="cb64-2"><a href="" aria-label="2"></a>grouped_by_country_year <span class="ot">&lt;-</span> <span class="fu">group_by</span>(filtered_by_asia, country, year)</span>
+<span id="cb64-3"><a href="" aria-label="3"></a><span class="fu">summarise</span>(grouped_by_country_year, <span class="at">avg_lifeExp =</span> <span class="fu">mean</span>(lifeExp))</span>
+<span id="cb64-4"><a href="" aria-label="4"></a><span class="co"># A tibble: 396 × 3</span></span>
+<span id="cb64-5"><a href="" aria-label="5"></a><span class="co"># Groups:   country [33]</span></span>
+<span id="cb64-6"><a href="" aria-label="6"></a>   country      year avg_lifeExp</span>
+<span id="cb64-7"><a href="" aria-label="7"></a>   <span class="sc">&lt;</span>fct<span class="sc">&gt;</span>       <span class="er">&lt;</span>int<span class="sc">&gt;</span>       <span class="er">&lt;</span>dbl<span class="sc">&gt;</span></span>
+<span id="cb64-8"><a href="" aria-label="8"></a> <span class="dv">1</span> Afghanistan  <span class="dv">1952</span>        <span class="fl">28.8</span></span>
+<span id="cb64-9"><a href="" aria-label="9"></a> <span class="dv">2</span> Afghanistan  <span class="dv">1957</span>        <span class="fl">30.3</span></span>
+<span id="cb64-10"><a href="" aria-label="10"></a> <span class="dv">3</span> Afghanistan  <span class="dv">1962</span>        <span class="fl">32.0</span></span>
+<span id="cb64-11"><a href="" aria-label="11"></a> <span class="dv">4</span> Afghanistan  <span class="dv">1967</span>        <span class="fl">34.0</span></span>
+<span id="cb64-12"><a href="" aria-label="12"></a> <span class="dv">5</span> Afghanistan  <span class="dv">1972</span>        <span class="fl">36.1</span></span>
+<span id="cb64-13"><a href="" aria-label="13"></a> <span class="dv">6</span> Afghanistan  <span class="dv">1977</span>        <span class="fl">38.4</span></span>
+<span id="cb64-14"><a href="" aria-label="14"></a> <span class="dv">7</span> Afghanistan  <span class="dv">1982</span>        <span class="fl">39.9</span></span>
+<span id="cb64-15"><a href="" aria-label="15"></a> <span class="dv">8</span> Afghanistan  <span class="dv">1987</span>        <span class="fl">40.8</span></span>
+<span id="cb64-16"><a href="" aria-label="16"></a> <span class="dv">9</span> Afghanistan  <span class="dv">1992</span>        <span class="fl">41.7</span></span>
+<span id="cb64-17"><a href="" aria-label="17"></a><span class="dv">10</span> Afghanistan  <span class="dv">1997</span>        <span class="fl">41.8</span></span>
+<span id="cb64-18"><a href="" aria-label="18"></a><span class="co"># ℹ 386 more rows</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</div><div class="column">
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb65"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb65-1"><a href="" aria-label="1"></a><span class="in">```{r}</span></span>
+<span id="cb65-2"><a href="" aria-label="2"></a>data <span class="sc">%&gt;%</span> </span>
+<span id="cb65-3"><a href="" aria-label="3"></a>  <span class="fu">filter</span>(continent <span class="sc">==</span> <span class="st">"Asia"</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb65-4"><a href="" aria-label="4"></a>  <span class="fu">group_by</span>(country, year) <span class="sc">%&gt;%</span> </span>
+<span id="cb65-5"><a href="" aria-label="5"></a>  <span class="fu">summarise</span>(<span class="at">avg_lifeExp =</span> <span class="fu">mean</span>(lifeExp))</span>
+<span id="cb65-6"><a href="" aria-label="6"></a><span class="in">```</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p><br></p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb66"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb66-1"><a href="" aria-label="1"></a>data <span class="sc">%&gt;%</span></span>
+<span id="cb66-2"><a href="" aria-label="2"></a>  <span class="fu">filter</span>(continent <span class="sc">==</span> <span class="st">"Asia"</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb66-3"><a href="" aria-label="3"></a>  <span class="fu">group_by</span>(country, year) <span class="sc">%&gt;%</span></span>
+<span id="cb66-4"><a href="" aria-label="4"></a>  <span class="fu">summarise</span>(<span class="at">avg_lifeExp =</span> <span class="fu">mean</span>(lifeExp))</span>
+<span id="cb66-5"><a href="" aria-label="5"></a><span class="co"># A tibble: 396 × 3</span></span>
+<span id="cb66-6"><a href="" aria-label="6"></a><span class="co"># Groups:   country [33]</span></span>
+<span id="cb66-7"><a href="" aria-label="7"></a>   country      year avg_lifeExp</span>
+<span id="cb66-8"><a href="" aria-label="8"></a>   <span class="sc">&lt;</span>fct<span class="sc">&gt;</span>       <span class="er">&lt;</span>int<span class="sc">&gt;</span>       <span class="er">&lt;</span>dbl<span class="sc">&gt;</span></span>
+<span id="cb66-9"><a href="" aria-label="9"></a> <span class="dv">1</span> Afghanistan  <span class="dv">1952</span>        <span class="fl">28.8</span></span>
+<span id="cb66-10"><a href="" aria-label="10"></a> <span class="dv">2</span> Afghanistan  <span class="dv">1957</span>        <span class="fl">30.3</span></span>
+<span id="cb66-11"><a href="" aria-label="11"></a> <span class="dv">3</span> Afghanistan  <span class="dv">1962</span>        <span class="fl">32.0</span></span>
+<span id="cb66-12"><a href="" aria-label="12"></a> <span class="dv">4</span> Afghanistan  <span class="dv">1967</span>        <span class="fl">34.0</span></span>
+<span id="cb66-13"><a href="" aria-label="13"></a> <span class="dv">5</span> Afghanistan  <span class="dv">1972</span>        <span class="fl">36.1</span></span>
+<span id="cb66-14"><a href="" aria-label="14"></a> <span class="dv">6</span> Afghanistan  <span class="dv">1977</span>        <span class="fl">38.4</span></span>
+<span id="cb66-15"><a href="" aria-label="15"></a> <span class="dv">7</span> Afghanistan  <span class="dv">1982</span>        <span class="fl">39.9</span></span>
+<span id="cb66-16"><a href="" aria-label="16"></a> <span class="dv">8</span> Afghanistan  <span class="dv">1987</span>        <span class="fl">40.8</span></span>
+<span id="cb66-17"><a href="" aria-label="17"></a> <span class="dv">9</span> Afghanistan  <span class="dv">1992</span>        <span class="fl">41.7</span></span>
+<span id="cb66-18"><a href="" aria-label="18"></a><span class="dv">10</span> Afghanistan  <span class="dv">1997</span>        <span class="fl">41.8</span></span>
+<span id="cb66-19"><a href="" aria-label="19"></a><span class="co"># ℹ 386 more rows</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</div></div>
+</section>
+<section id="the-operator" class="slide level2">
+<h2>The <code>%&gt;%</code> operator</h2>
+<p><br></p>
+<div class="columns">
+<div class="column">
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb67"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb67-1"><a href="" aria-label="1"></a><span class="in">```{r}</span></span>
+<span id="cb67-2"><a href="" aria-label="2"></a>filtered_by_asia <span class="ot">&lt;-</span> <span class="fu">filter</span>(data, continent <span class="sc">==</span> <span class="st">"Asia"</span>)</span>
+<span id="cb67-3"><a href="" aria-label="3"></a>grouped_by_country <span class="ot">&lt;-</span> <span class="fu">group_by</span>(filtered_by_asia, country)</span>
+<span id="cb67-4"><a href="" aria-label="4"></a>summarised_by_country <span class="ot">&lt;-</span> <span class="fu">summarise</span>(grouped_by_country, <span class="at">avg_lifeExp =</span> <span class="fu">mean</span>(lifeExp))</span>
+<span id="cb67-5"><a href="" aria-label="5"></a><span class="fu">arrange</span>(summarised_by_country, <span class="fu">desc</span>(avg_lifeExp))</span>
+<span id="cb67-6"><a href="" aria-label="6"></a><span class="in">```</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p><br></p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb68"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb68-1"><a href="" aria-label="1"></a>filtered_by_asia <span class="ot">&lt;-</span> <span class="fu">filter</span>(data, continent <span class="sc">==</span> <span class="st">"Asia"</span>)</span>
+<span id="cb68-2"><a href="" aria-label="2"></a>grouped_by_country <span class="ot">&lt;-</span> <span class="fu">group_by</span>(filtered_by_asia, country)</span>
+<span id="cb68-3"><a href="" aria-label="3"></a>summarised_by_country <span class="ot">&lt;-</span> <span class="fu">summarise</span>(</span>
+<span id="cb68-4"><a href="" aria-label="4"></a>  grouped_by_country,</span>
+<span id="cb68-5"><a href="" aria-label="5"></a>  <span class="at">avg_lifeExp =</span> <span class="fu">mean</span>(lifeExp)</span>
+<span id="cb68-6"><a href="" aria-label="6"></a>)</span>
+<span id="cb68-7"><a href="" aria-label="7"></a><span class="fu">arrange</span>(summarised_by_country, <span class="fu">desc</span>(avg_lifeExp))</span>
+<span id="cb68-8"><a href="" aria-label="8"></a><span class="co"># A tibble: 33 × 2</span></span>
+<span id="cb68-9"><a href="" aria-label="9"></a>   country          avg_lifeExp</span>
+<span id="cb68-10"><a href="" aria-label="10"></a>   <span class="sc">&lt;</span>fct<span class="sc">&gt;</span>                  <span class="er">&lt;</span>dbl<span class="sc">&gt;</span></span>
+<span id="cb68-11"><a href="" aria-label="11"></a> <span class="dv">1</span> Japan                   <span class="fl">74.8</span></span>
+<span id="cb68-12"><a href="" aria-label="12"></a> <span class="dv">2</span> Israel                  <span class="fl">73.6</span></span>
+<span id="cb68-13"><a href="" aria-label="13"></a> <span class="dv">3</span> Hong Kong, China        <span class="fl">73.5</span></span>
+<span id="cb68-14"><a href="" aria-label="14"></a> <span class="dv">4</span> Singapore               <span class="fl">71.2</span></span>
+<span id="cb68-15"><a href="" aria-label="15"></a> <span class="dv">5</span> Taiwan                  <span class="fl">70.3</span></span>
+<span id="cb68-16"><a href="" aria-label="16"></a> <span class="dv">6</span> Kuwait                  <span class="fl">68.9</span></span>
+<span id="cb68-17"><a href="" aria-label="17"></a> <span class="dv">7</span> Sri Lanka               <span class="fl">66.5</span></span>
+<span id="cb68-18"><a href="" aria-label="18"></a> <span class="dv">8</span> Lebanon                 <span class="fl">65.9</span></span>
+<span id="cb68-19"><a href="" aria-label="19"></a> <span class="dv">9</span> Bahrain                 <span class="fl">65.6</span></span>
+<span id="cb68-20"><a href="" aria-label="20"></a><span class="dv">10</span> Korea, Rep.             <span class="fl">65.0</span></span>
+<span id="cb68-21"><a href="" aria-label="21"></a><span class="co"># ℹ 23 more rows</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</div><div class="column">
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb69"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb69-1"><a href="" aria-label="1"></a><span class="in">```{r}</span></span>
+<span id="cb69-2"><a href="" aria-label="2"></a>data <span class="sc">%&gt;%</span> </span>
+<span id="cb69-3"><a href="" aria-label="3"></a>  <span class="fu">filter</span>(continent <span class="sc">==</span> <span class="st">"Asia"</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb69-4"><a href="" aria-label="4"></a>  <span class="fu">group_by</span>(country) <span class="sc">%&gt;%</span> </span>
+<span id="cb69-5"><a href="" aria-label="5"></a>  <span class="fu">summarise</span>(<span class="at">avg_lifeExp =</span> <span class="fu">mean</span>(lifeExp)) <span class="sc">%&gt;%</span> </span>
+<span id="cb69-6"><a href="" aria-label="6"></a>  <span class="fu">arrange</span>(<span class="fu">desc</span>(avg_lifeExp))</span>
+<span id="cb69-7"><a href="" aria-label="7"></a><span class="in">```</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p><br></p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb70"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb70-1"><a href="" aria-label="1"></a>data <span class="sc">%&gt;%</span></span>
+<span id="cb70-2"><a href="" aria-label="2"></a>  <span class="fu">filter</span>(continent <span class="sc">==</span> <span class="st">"Asia"</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb70-3"><a href="" aria-label="3"></a>  <span class="fu">group_by</span>(country) <span class="sc">%&gt;%</span></span>
+<span id="cb70-4"><a href="" aria-label="4"></a>  <span class="fu">summarise</span>(<span class="at">avg_lifeExp =</span> <span class="fu">mean</span>(lifeExp)) <span class="sc">%&gt;%</span></span>
+<span id="cb70-5"><a href="" aria-label="5"></a>  <span class="fu">arrange</span>(<span class="fu">desc</span>(avg_lifeExp))</span>
+<span id="cb70-6"><a href="" aria-label="6"></a><span class="co"># A tibble: 33 × 2</span></span>
+<span id="cb70-7"><a href="" aria-label="7"></a>   country          avg_lifeExp</span>
+<span id="cb70-8"><a href="" aria-label="8"></a>   <span class="sc">&lt;</span>fct<span class="sc">&gt;</span>                  <span class="er">&lt;</span>dbl<span class="sc">&gt;</span></span>
+<span id="cb70-9"><a href="" aria-label="9"></a> <span class="dv">1</span> Japan                   <span class="fl">74.8</span></span>
+<span id="cb70-10"><a href="" aria-label="10"></a> <span class="dv">2</span> Israel                  <span class="fl">73.6</span></span>
+<span id="cb70-11"><a href="" aria-label="11"></a> <span class="dv">3</span> Hong Kong, China        <span class="fl">73.5</span></span>
+<span id="cb70-12"><a href="" aria-label="12"></a> <span class="dv">4</span> Singapore               <span class="fl">71.2</span></span>
+<span id="cb70-13"><a href="" aria-label="13"></a> <span class="dv">5</span> Taiwan                  <span class="fl">70.3</span></span>
+<span id="cb70-14"><a href="" aria-label="14"></a> <span class="dv">6</span> Kuwait                  <span class="fl">68.9</span></span>
+<span id="cb70-15"><a href="" aria-label="15"></a> <span class="dv">7</span> Sri Lanka               <span class="fl">66.5</span></span>
+<span id="cb70-16"><a href="" aria-label="16"></a> <span class="dv">8</span> Lebanon                 <span class="fl">65.9</span></span>
+<span id="cb70-17"><a href="" aria-label="17"></a> <span class="dv">9</span> Bahrain                 <span class="fl">65.6</span></span>
+<span id="cb70-18"><a href="" aria-label="18"></a><span class="dv">10</span> Korea, Rep.             <span class="fl">65.0</span></span>
+<span id="cb70-19"><a href="" aria-label="19"></a><span class="co"># ℹ 23 more rows</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</div></div>
+</section></section>
+<section>
+<section id="check-up-quiz-2" class="title-slide slide level1 center">
+<h1>Check-up quiz</h1>
+
+</section>
+<section id="which-dplyr-function-is-used-to-select-specific-columns-from-a-dataset" class="slide level2 quiz-question">
+<h2>Which dplyr function is used to select specific columns from a dataset?</h2>
+<ul>
+<li>filter()<br>
+</li>
+<li>mutate()<br>
+</li>
+<li><span class="correct" data-explanation="Correct! The select() function picks variables (columns) based on their names.">select()</span><br>
+</li>
+<li>summarise()</li>
+</ul>
+</section>
+<section id="which-dplyr-function-is-used-to-add-new-variables-to-a-dataset" class="slide level2 quiz-question">
+<h2>Which dplyr function is used to add new variables to a dataset?</h2>
+<ul>
+<li>arrange()<br>
+</li>
+<li><span class="correct" data-explanation="Correct! The mutate() function creates new variables by applying calculations or transformations, attaching them at the end of the dataset.">mutate()</span><br>
+</li>
+<li>summarise()<br>
+</li>
+<li>filter()</li>
+</ul>
+</section>
+<section id="if-you-want-to-keep-only-rows-where-country-philippines-which-function-should-you-use" class="slide level2 quiz-question">
+<h2>If you want to keep only rows where country == “Philippines”, which function should you use?</h2>
+<ul>
+<li>select()<br>
+</li>
+<li><span class="correct" data-explanation="Correct! The filter() function selects cases (rows) based on their values, such as keeping only rows where country == &quot;Philippines&quot;.">filter()</span><br>
+</li>
+<li>arrange()<br>
+</li>
+<li>mutate()</li>
+</ul>
+</section>
+<section id="which-dplyr-function-reduces-multiple-values-down-to-a-single-summary-statistic-e.g.-mean-sum" class="slide level2 quiz-question">
+<h2>Which dplyr function reduces multiple values down to a single summary statistic (e.g., mean, sum)?</h2>
+<ul>
+<li>mutate()<br>
+</li>
+<li><span class="correct" data-explanation="Correct! The summarise() function collapses multiple values into a single summary, such as calculating averages or totals.">summarise()</span><br>
+</li>
+<li>arrange()<br>
+</li>
+<li>select()</li>
+</ul>
+</section>
+<section id="which-dplyr-function-is-used-to-reorder-rows-in-a-dataset" class="slide level2 quiz-question">
+<h2>Which dplyr function is used to reorder rows in a dataset?</h2>
+<ul>
+<li><span class="correct" data-explanation="Correct! The arrange() function changes the ordering of rows based on specified variables.">arrange()</span><br>
+</li>
+<li>mutate()<br>
+</li>
+<li>filter()<br>
+</li>
+<li>select()</li>
+</ul>
+</section></section>
+<section>
+<section id="basic-data-transformation" class="title-slide slide level1 center">
+<h1>Basic data transformation</h1>
+
+</section>
+<section id="reshaping-data" class="slide level2">
+<h2>Reshaping data</h2>
+<ul>
+<li><p>the process of changing the structure or layout of a dataset without altering its actual content.</p></li>
+<li><p>it helps organize data into formats that are easier to analyze, visualize, or model.</p></li>
+<li><p>same information, different arrangement.</p></li>
+</ul>
+<p><br></p>
+<div class="columns">
+<div class="column">
+<p><strong>wide formt → long format</strong> <img data-src="img/pivot_longer.png"></p>
+</div><div class="column">
+<p><strong>long format → wide format</strong> <img data-src="img/pivot_wider.png"></p>
+</div></div>
+<!-- end columns -->
+</section>
+<section id="reshaping-data-1" class="slide level2">
+<h2>Reshaping data</h2>
+<ul>
+<li><code>tidyr</code> package provides powerful functions for reshaping:
+<ul>
+<li><code>pivot_longer()</code> → converts wide data into long format.</li>
+<li><code>pivot_wider()</code> → converts long data into wide format.</li>
+</ul></li>
+</ul>
+<p><br></p>
+<div class="columns">
+<div class="column">
+<p><strong>wide formt → long format</strong> <img data-src="img/pivot_longer.png"></p>
+</div><div class="column">
+<p><strong>long format → wide format</strong> <img data-src="img/pivot_wider.png"></p>
+</div></div>
+<!-- end columns -->
+</section>
+<section id="wide-data-format" class="slide level2">
+<h2>Wide data format</h2>
+<ul>
+<li><p>each subject or observation occupies a single row, with multiple variables spread across columns.</p></li>
+<li><p>one row per entity, many columns for repeated measures.</p></li>
+<li><p>easier for human readability and simple summaries. Often used in spreadsheets.</p></li>
+</ul>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb71"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb71-1"><a href="" aria-label="1"></a><span class="in">```{r}</span></span>
+<span id="cb71-2"><a href="" aria-label="2"></a><span class="fu">read_excel</span>(<span class="st">"data/urbanpop.xlsx"</span>)</span>
+<span id="cb71-3"><a href="" aria-label="3"></a><span class="in">```</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<pre><code># A tibble: 209 × 8
+   country               `1960`    `1961`    `1962`  `1963` `1964` `1965` `1966`
+   &lt;chr&gt;                  &lt;dbl&gt;     &lt;dbl&gt;     &lt;dbl&gt;   &lt;dbl&gt;  &lt;dbl&gt;  &lt;dbl&gt;  &lt;dbl&gt;
+ 1 Afghanistan           769308   814923.   858522.  9.04e5 9.51e5 1.00e6 1.06e6
+ 2 Albania               494443   511803.   529439.  5.47e5 5.66e5 5.84e5 6.03e5
+ 3 Algeria              3293999  3515148.  3739963.  3.97e6 4.22e6 4.49e6 4.65e6
+ 4 American Samoa            NA    13660.    14166.  1.48e4 1.54e4 1.60e4 1.67e4
+ 5 Andorra                   NA     8724.     9700.  1.07e4 1.19e4 1.31e4 1.42e4
+ 6 Angola                521205   548265.   579695.  6.12e5 6.45e5 6.79e5 7.18e5
+ 7 Antigua and Barbuda    21699    21635.    21664.  2.17e4 2.18e4 2.19e4 2.20e4
+ 8 Argentina           15224096 15545223. 15912120.  1.63e7 1.67e7 1.70e7 1.74e7
+ 9 Armenia               957974  1008597.  1061426.  1.12e6 1.17e6 1.23e6 1.28e6
+10 Aruba                  24996    28140.    28533.  2.88e4 2.89e4 2.91e4 2.93e4
+# ℹ 199 more rows</code></pre>
+</div>
+</section>
+<section id="long-data-format" class="slide level2">
+<h2>Long data format</h2>
+<ul>
+<li><p>each measurement or observation is stored in its own row, with variables indicating who, what, and when.</p></li>
+<li><p>multiple rows per entity, fewer columns.</p></li>
+<li><p>referred for statistical modeling, visualization (e.g., <code>ggplot2</code> in R), and tidy data principles.</p></li>
+</ul>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb73"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb73-1"><a href="" aria-label="1"></a><span class="in">```{r}</span></span>
+<span id="cb73-2"><a href="" aria-label="2"></a><span class="fu">read_excel</span>(<span class="st">"data/urbanpop.xlsx"</span>) <span class="sc">|&gt;</span></span>
+<span id="cb73-3"><a href="" aria-label="3"></a>  <span class="fu">pivot_longer</span>(<span class="at">cols =</span> <span class="st">`</span><span class="at">1960</span><span class="st">`</span><span class="sc">:</span><span class="st">`</span><span class="at">1966</span><span class="st">`</span>, <span class="at">names_to =</span> <span class="st">"year"</span>, <span class="at">values_to =</span> <span class="st">"urban_pop"</span>)</span>
+<span id="cb73-4"><a href="" aria-label="4"></a><span class="in">```</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<pre><code># A tibble: 1,463 × 3
+   country     year  urban_pop
+   &lt;chr&gt;       &lt;chr&gt;     &lt;dbl&gt;
+ 1 Afghanistan 1960    769308 
+ 2 Afghanistan 1961    814923.
+ 3 Afghanistan 1962    858522.
+ 4 Afghanistan 1963    903914.
+ 5 Afghanistan 1964    951226.
+ 6 Afghanistan 1965   1000582.
+ 7 Afghanistan 1966   1058743.
+ 8 Albania     1960    494443 
+ 9 Albania     1961    511803.
+10 Albania     1962    529439.
+# ℹ 1,453 more rows</code></pre>
+</div>
+</section>
+<section id="wide-long-data-format" class="slide level2">
+<h2>Wide → Long data format</h2>
+<ul>
+<li><code>pivot_longer()</code> function “lengthens” data by collapsing several coumns into two</li>
+<li>original column names → names</li>
+<li>data values → value</li>
+</ul>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb75"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb75-1"><a href="" aria-label="1"></a><span class="in">```{r}</span></span>
+<span id="cb75-2"><a href="" aria-label="2"></a><span class="co">#| eval: false</span></span>
+<span id="cb75-3"><a href="" aria-label="3"></a></span>
+<span id="cb75-4"><a href="" aria-label="4"></a><span class="fu">pivot_longer</span>(data, cols, <span class="at">names_to =</span> <span class="st">"name"</span>, <span class="at">values_to =</span> <span class="st">"value"</span>)</span>
+<span id="cb75-5"><a href="" aria-label="5"></a><span class="in">```</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+
+<img data-src="img/pivot_longer.png" class="r-stretch"></section>
+<section id="wide-long-data-format-1" class="slide level2">
+<h2>Wide → Long data format</h2>
+<ul>
+<li><code>pivot_longer()</code> function “lengthens” data by collapsing several coumns into two</li>
+<li>original column names → names</li>
+<li>data values → value</li>
+</ul>
+<div class="columns">
+<div class="column">
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb76"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb76-1"><a href="" aria-label="1"></a><span class="fu">read_excel</span>(<span class="st">"data/urbanpop.xlsx"</span>)</span>
+<span id="cb76-2"><a href="" aria-label="2"></a><span class="co"># A tibble: 209 × 8</span></span>
+<span id="cb76-3"><a href="" aria-label="3"></a>   country               <span class="st">`</span><span class="at">1960</span><span class="st">`</span>    <span class="st">`</span><span class="at">1961</span><span class="st">`</span>    <span class="st">`</span><span class="at">1962</span><span class="st">`</span>  <span class="st">`</span><span class="at">1963</span><span class="st">`</span> <span class="st">`</span><span class="at">1964</span><span class="st">`</span> <span class="st">`</span><span class="at">1965</span><span class="st">`</span> <span class="st">`</span><span class="at">1966</span><span class="st">`</span></span>
+<span id="cb76-4"><a href="" aria-label="4"></a>   <span class="sc">&lt;</span>chr<span class="sc">&gt;</span>                  <span class="er">&lt;</span>dbl<span class="sc">&gt;</span>     <span class="er">&lt;</span>dbl<span class="sc">&gt;</span>     <span class="er">&lt;</span>dbl<span class="sc">&gt;</span>   <span class="er">&lt;</span>dbl<span class="sc">&gt;</span>  <span class="er">&lt;</span>dbl<span class="sc">&gt;</span>  <span class="er">&lt;</span>dbl<span class="sc">&gt;</span>  <span class="er">&lt;</span>dbl<span class="sc">&gt;</span></span>
+<span id="cb76-5"><a href="" aria-label="5"></a> <span class="dv">1</span> Afghanistan           <span class="dv">769308</span>   <span class="fl">814923.</span>   <span class="fl">858522.</span>  <span class="fl">9.04e5</span> <span class="fl">9.51e5</span> <span class="fl">1.00e6</span> <span class="fl">1.06e6</span></span>
+<span id="cb76-6"><a href="" aria-label="6"></a> <span class="dv">2</span> Albania               <span class="dv">494443</span>   <span class="fl">511803.</span>   <span class="fl">529439.</span>  <span class="fl">5.47e5</span> <span class="fl">5.66e5</span> <span class="fl">5.84e5</span> <span class="fl">6.03e5</span></span>
+<span id="cb76-7"><a href="" aria-label="7"></a> <span class="dv">3</span> Algeria              <span class="dv">3293999</span>  <span class="fl">3515148.</span>  <span class="fl">3739963.</span>  <span class="fl">3.97e6</span> <span class="fl">4.22e6</span> <span class="fl">4.49e6</span> <span class="fl">4.65e6</span></span>
+<span id="cb76-8"><a href="" aria-label="8"></a> <span class="dv">4</span> American Samoa            <span class="cn">NA</span>    <span class="fl">13660.</span>    <span class="fl">14166.</span>  <span class="fl">1.48e4</span> <span class="fl">1.54e4</span> <span class="fl">1.60e4</span> <span class="fl">1.67e4</span></span>
+<span id="cb76-9"><a href="" aria-label="9"></a> <span class="dv">5</span> Andorra                   <span class="cn">NA</span>     <span class="fl">8724.</span>     <span class="fl">9700.</span>  <span class="fl">1.07e4</span> <span class="fl">1.19e4</span> <span class="fl">1.31e4</span> <span class="fl">1.42e4</span></span>
+<span id="cb76-10"><a href="" aria-label="10"></a> <span class="dv">6</span> Angola                <span class="dv">521205</span>   <span class="fl">548265.</span>   <span class="fl">579695.</span>  <span class="fl">6.12e5</span> <span class="fl">6.45e5</span> <span class="fl">6.79e5</span> <span class="fl">7.18e5</span></span>
+<span id="cb76-11"><a href="" aria-label="11"></a> <span class="dv">7</span> Antigua and Barbuda    <span class="dv">21699</span>    <span class="fl">21635.</span>    <span class="fl">21664.</span>  <span class="fl">2.17e4</span> <span class="fl">2.18e4</span> <span class="fl">2.19e4</span> <span class="fl">2.20e4</span></span>
+<span id="cb76-12"><a href="" aria-label="12"></a> <span class="dv">8</span> Argentina           <span class="dv">15224096</span> <span class="fl">15545223.</span> <span class="fl">15912120.</span>  <span class="fl">1.63e7</span> <span class="fl">1.67e7</span> <span class="fl">1.70e7</span> <span class="fl">1.74e7</span></span>
+<span id="cb76-13"><a href="" aria-label="13"></a> <span class="dv">9</span> Armenia               <span class="dv">957974</span>  <span class="fl">1008597.</span>  <span class="fl">1061426.</span>  <span class="fl">1.12e6</span> <span class="fl">1.17e6</span> <span class="fl">1.23e6</span> <span class="fl">1.28e6</span></span>
+<span id="cb76-14"><a href="" aria-label="14"></a><span class="dv">10</span> Aruba                  <span class="dv">24996</span>    <span class="fl">28140.</span>    <span class="fl">28533.</span>  <span class="fl">2.88e4</span> <span class="fl">2.89e4</span> <span class="fl">2.91e4</span> <span class="fl">2.93e4</span></span>
+<span id="cb76-15"><a href="" aria-label="15"></a><span class="co"># ℹ 199 more rows</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</div><div class="column">
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb77"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb77-1"><a href="" aria-label="1"></a><span class="fu">read_excel</span>(<span class="st">"data/urbanpop.xlsx"</span>) <span class="sc">|&gt;</span></span>
+<span id="cb77-2"><a href="" aria-label="2"></a>  <span class="fu">pivot_longer</span>(<span class="at">cols =</span> <span class="st">`</span><span class="at">1960</span><span class="st">`</span><span class="sc">:</span><span class="st">`</span><span class="at">1966</span><span class="st">`</span>, <span class="at">names_to =</span> <span class="st">"year"</span>, <span class="at">values_to =</span> <span class="st">"urban_pop"</span>)</span>
+<span id="cb77-3"><a href="" aria-label="3"></a><span class="co"># A tibble: 1,463 × 3</span></span>
+<span id="cb77-4"><a href="" aria-label="4"></a>   country     year  urban_pop</span>
+<span id="cb77-5"><a href="" aria-label="5"></a>   <span class="sc">&lt;</span>chr<span class="sc">&gt;</span>       <span class="er">&lt;</span>chr<span class="sc">&gt;</span>     <span class="er">&lt;</span>dbl<span class="sc">&gt;</span></span>
+<span id="cb77-6"><a href="" aria-label="6"></a> <span class="dv">1</span> Afghanistan <span class="dv">1960</span>    <span class="dv">769308</span> </span>
+<span id="cb77-7"><a href="" aria-label="7"></a> <span class="dv">2</span> Afghanistan <span class="dv">1961</span>    <span class="fl">814923.</span></span>
+<span id="cb77-8"><a href="" aria-label="8"></a> <span class="dv">3</span> Afghanistan <span class="dv">1962</span>    <span class="fl">858522.</span></span>
+<span id="cb77-9"><a href="" aria-label="9"></a> <span class="dv">4</span> Afghanistan <span class="dv">1963</span>    <span class="fl">903914.</span></span>
+<span id="cb77-10"><a href="" aria-label="10"></a> <span class="dv">5</span> Afghanistan <span class="dv">1964</span>    <span class="fl">951226.</span></span>
+<span id="cb77-11"><a href="" aria-label="11"></a> <span class="dv">6</span> Afghanistan <span class="dv">1965</span>   <span class="fl">1000582.</span></span>
+<span id="cb77-12"><a href="" aria-label="12"></a> <span class="dv">7</span> Afghanistan <span class="dv">1966</span>   <span class="fl">1058743.</span></span>
+<span id="cb77-13"><a href="" aria-label="13"></a> <span class="dv">8</span> Albania     <span class="dv">1960</span>    <span class="dv">494443</span> </span>
+<span id="cb77-14"><a href="" aria-label="14"></a> <span class="dv">9</span> Albania     <span class="dv">1961</span>    <span class="fl">511803.</span></span>
+<span id="cb77-15"><a href="" aria-label="15"></a><span class="dv">10</span> Albania     <span class="dv">1962</span>    <span class="fl">529439.</span></span>
+<span id="cb77-16"><a href="" aria-label="16"></a><span class="co"># ℹ 1,453 more rows</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</div></div>
+<!-- end columns -->
+</section>
+<section id="long-wide-data-format" class="slide level2">
+<h2>Long → Wide data format</h2>
+<ul>
+<li><p>inverse of <code>pivot_longer()</code>, widening data by expanding two columns into many</p></li>
+<li><p>used when a dataset is “too long” - an observation is scattered across multiple rows</p></li>
+</ul>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb78"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb78-1"><a href="" aria-label="1"></a><span class="in">```{r}</span></span>
+<span id="cb78-2"><a href="" aria-label="2"></a><span class="co">#| eval: false</span></span>
+<span id="cb78-3"><a href="" aria-label="3"></a><span class="fu">pivot_wider</span>(data, <span class="at">names_from =</span> <span class="st">"name"</span>, <span class="at">values_to =</span> <span class="st">"cases"</span>)</span>
+<span id="cb78-4"><a href="" aria-label="4"></a><span class="in">```</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+
+<img data-src="img/pivot_wider.png" class="r-stretch"></section>
+<section id="long-wide-data-format-1" class="slide level2">
+<h2>Long → Wide data format</h2>
+<ul>
+<li><p>inverse of <code>pivot_longer()</code>, widening data by expanding two columns into many</p></li>
+<li><p>used when a dataset is “too long” - an observation is scattered across multiple rows</p></li>
+</ul>
+<div class="columns">
+<div class="column">
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb79"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb79-1"><a href="" aria-label="1"></a>urban_pop_long</span>
+<span id="cb79-2"><a href="" aria-label="2"></a><span class="co"># A tibble: 1,463 × 3</span></span>
+<span id="cb79-3"><a href="" aria-label="3"></a>   country     year  urban_pop</span>
+<span id="cb79-4"><a href="" aria-label="4"></a>   <span class="sc">&lt;</span>chr<span class="sc">&gt;</span>       <span class="er">&lt;</span>chr<span class="sc">&gt;</span>     <span class="er">&lt;</span>dbl<span class="sc">&gt;</span></span>
+<span id="cb79-5"><a href="" aria-label="5"></a> <span class="dv">1</span> Afghanistan <span class="dv">1960</span>    <span class="dv">769308</span> </span>
+<span id="cb79-6"><a href="" aria-label="6"></a> <span class="dv">2</span> Afghanistan <span class="dv">1961</span>    <span class="fl">814923.</span></span>
+<span id="cb79-7"><a href="" aria-label="7"></a> <span class="dv">3</span> Afghanistan <span class="dv">1962</span>    <span class="fl">858522.</span></span>
+<span id="cb79-8"><a href="" aria-label="8"></a> <span class="dv">4</span> Afghanistan <span class="dv">1963</span>    <span class="fl">903914.</span></span>
+<span id="cb79-9"><a href="" aria-label="9"></a> <span class="dv">5</span> Afghanistan <span class="dv">1964</span>    <span class="fl">951226.</span></span>
+<span id="cb79-10"><a href="" aria-label="10"></a> <span class="dv">6</span> Afghanistan <span class="dv">1965</span>   <span class="fl">1000582.</span></span>
+<span id="cb79-11"><a href="" aria-label="11"></a> <span class="dv">7</span> Afghanistan <span class="dv">1966</span>   <span class="fl">1058743.</span></span>
+<span id="cb79-12"><a href="" aria-label="12"></a> <span class="dv">8</span> Albania     <span class="dv">1960</span>    <span class="dv">494443</span> </span>
+<span id="cb79-13"><a href="" aria-label="13"></a> <span class="dv">9</span> Albania     <span class="dv">1961</span>    <span class="fl">511803.</span></span>
+<span id="cb79-14"><a href="" aria-label="14"></a><span class="dv">10</span> Albania     <span class="dv">1962</span>    <span class="fl">529439.</span></span>
+<span id="cb79-15"><a href="" aria-label="15"></a><span class="co"># ℹ 1,453 more rows</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</div><div class="column">
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb80"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb80-1"><a href="" aria-label="1"></a>urban_pop_long <span class="sc">|&gt;</span></span>
+<span id="cb80-2"><a href="" aria-label="2"></a>  <span class="fu">pivot_wider</span>(<span class="at">names_from =</span> year, <span class="at">values_from =</span> urban_pop)</span>
+<span id="cb80-3"><a href="" aria-label="3"></a><span class="co"># A tibble: 209 × 8</span></span>
+<span id="cb80-4"><a href="" aria-label="4"></a>   country               <span class="st">`</span><span class="at">1960</span><span class="st">`</span>    <span class="st">`</span><span class="at">1961</span><span class="st">`</span>    <span class="st">`</span><span class="at">1962</span><span class="st">`</span>  <span class="st">`</span><span class="at">1963</span><span class="st">`</span> <span class="st">`</span><span class="at">1964</span><span class="st">`</span> <span class="st">`</span><span class="at">1965</span><span class="st">`</span> <span class="st">`</span><span class="at">1966</span><span class="st">`</span></span>
+<span id="cb80-5"><a href="" aria-label="5"></a>   <span class="sc">&lt;</span>chr<span class="sc">&gt;</span>                  <span class="er">&lt;</span>dbl<span class="sc">&gt;</span>     <span class="er">&lt;</span>dbl<span class="sc">&gt;</span>     <span class="er">&lt;</span>dbl<span class="sc">&gt;</span>   <span class="er">&lt;</span>dbl<span class="sc">&gt;</span>  <span class="er">&lt;</span>dbl<span class="sc">&gt;</span>  <span class="er">&lt;</span>dbl<span class="sc">&gt;</span>  <span class="er">&lt;</span>dbl<span class="sc">&gt;</span></span>
+<span id="cb80-6"><a href="" aria-label="6"></a> <span class="dv">1</span> Afghanistan           <span class="dv">769308</span>   <span class="fl">814923.</span>   <span class="fl">858522.</span>  <span class="fl">9.04e5</span> <span class="fl">9.51e5</span> <span class="fl">1.00e6</span> <span class="fl">1.06e6</span></span>
+<span id="cb80-7"><a href="" aria-label="7"></a> <span class="dv">2</span> Albania               <span class="dv">494443</span>   <span class="fl">511803.</span>   <span class="fl">529439.</span>  <span class="fl">5.47e5</span> <span class="fl">5.66e5</span> <span class="fl">5.84e5</span> <span class="fl">6.03e5</span></span>
+<span id="cb80-8"><a href="" aria-label="8"></a> <span class="dv">3</span> Algeria              <span class="dv">3293999</span>  <span class="fl">3515148.</span>  <span class="fl">3739963.</span>  <span class="fl">3.97e6</span> <span class="fl">4.22e6</span> <span class="fl">4.49e6</span> <span class="fl">4.65e6</span></span>
+<span id="cb80-9"><a href="" aria-label="9"></a> <span class="dv">4</span> American Samoa            <span class="cn">NA</span>    <span class="fl">13660.</span>    <span class="fl">14166.</span>  <span class="fl">1.48e4</span> <span class="fl">1.54e4</span> <span class="fl">1.60e4</span> <span class="fl">1.67e4</span></span>
+<span id="cb80-10"><a href="" aria-label="10"></a> <span class="dv">5</span> Andorra                   <span class="cn">NA</span>     <span class="fl">8724.</span>     <span class="fl">9700.</span>  <span class="fl">1.07e4</span> <span class="fl">1.19e4</span> <span class="fl">1.31e4</span> <span class="fl">1.42e4</span></span>
+<span id="cb80-11"><a href="" aria-label="11"></a> <span class="dv">6</span> Angola                <span class="dv">521205</span>   <span class="fl">548265.</span>   <span class="fl">579695.</span>  <span class="fl">6.12e5</span> <span class="fl">6.45e5</span> <span class="fl">6.79e5</span> <span class="fl">7.18e5</span></span>
+<span id="cb80-12"><a href="" aria-label="12"></a> <span class="dv">7</span> Antigua and Barbuda    <span class="dv">21699</span>    <span class="fl">21635.</span>    <span class="fl">21664.</span>  <span class="fl">2.17e4</span> <span class="fl">2.18e4</span> <span class="fl">2.19e4</span> <span class="fl">2.20e4</span></span>
+<span id="cb80-13"><a href="" aria-label="13"></a> <span class="dv">8</span> Argentina           <span class="dv">15224096</span> <span class="fl">15545223.</span> <span class="fl">15912120.</span>  <span class="fl">1.63e7</span> <span class="fl">1.67e7</span> <span class="fl">1.70e7</span> <span class="fl">1.74e7</span></span>
+<span id="cb80-14"><a href="" aria-label="14"></a> <span class="dv">9</span> Armenia               <span class="dv">957974</span>  <span class="fl">1008597.</span>  <span class="fl">1061426.</span>  <span class="fl">1.12e6</span> <span class="fl">1.17e6</span> <span class="fl">1.23e6</span> <span class="fl">1.28e6</span></span>
+<span id="cb80-15"><a href="" aria-label="15"></a><span class="dv">10</span> Aruba                  <span class="dv">24996</span>    <span class="fl">28140.</span>    <span class="fl">28533.</span>  <span class="fl">2.88e4</span> <span class="fl">2.89e4</span> <span class="fl">2.91e4</span> <span class="fl">2.93e4</span></span>
+<span id="cb80-16"><a href="" aria-label="16"></a><span class="co"># ℹ 199 more rows</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</div></div>
+<!-- end columns -->
+</section></section>
+<section id="section-7" class="title-slide slide level1 center">
+<h1></h1>
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="img/econ148-hex-logo.png" class="quarto-figure quarto-figure-center" style="width:40.0%;height:40.0%"></p>
+</figure>
+</div>
+
+</section>
+    </div>
+  <div class="quarto-auto-generated-content" style="display: none;">
+<div class="footer footer-default">
+<p>Econ 148: Analytical and statistical packages for economics 1</p>
+</div>
+</div></div>
+
+  <script>window.backupDefine = window.define; window.define = undefined;</script>
+  <script src="index_files/libs/revealjs/dist/reveal.js"></script>
+  <!-- reveal.js plugins -->
+  <script src="index_files/libs/revealjs/plugin/quarto-line-highlight/line-highlight.js"></script>
+  <script src="index_files/libs/revealjs/plugin/pdf-export/pdfexport.js"></script>
+  <script src="index_files/libs/revealjs/plugin/reveal-menu/menu.js"></script>
+  <script src="index_files/libs/revealjs/plugin/reveal-menu/quarto-menu.js"></script>
+  <script src="index_files/libs/revealjs/plugin/reveal-chalkboard/plugin.js"></script>
+  <script src="index_files/libs/revealjs/plugin/reveal-quiz/quiz.js"></script>
+  <script src="index_files/libs/revealjs/plugin/quarto-support/support.js"></script>
+  
+
+  <script src="index_files/libs/revealjs/plugin/notes/notes.js"></script>
+  <script src="index_files/libs/revealjs/plugin/search/search.js"></script>
+  <script src="index_files/libs/revealjs/plugin/zoom/zoom.js"></script>
+  <script src="index_files/libs/revealjs/plugin/math/math.js"></script>
+  <script>window.define = window.backupDefine; window.backupDefine = undefined;</script>
+
+  <script>
+
+      // Full list of configuration options available at:
+      // https://revealjs.com/config/
+      Reveal.initialize({
+'controlsAuto': true,
+'previewLinksAuto': false,
+'pdfSeparateFragments': false,
+'autoAnimateEasing': "ease",
+'autoAnimateDuration': 1,
+'autoAnimateUnmatched': true,
+'jumpToSlide': true,
+'menu': {"side":"left","useTextContentForMissingTitles":true,"markers":false,"loadIcons":false,"custom":[{"title":"Tools","icon":"<i class=\"fas fa-gear\"></i>","content":"<ul class=\"slide-menu-items\">\n<li class=\"slide-tool-item active\" data-item=\"0\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.fullscreen(event)\"><kbd>f</kbd> Fullscreen</a></li>\n<li class=\"slide-tool-item\" data-item=\"1\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.speakerMode(event)\"><kbd>s</kbd> Speaker View</a></li>\n<li class=\"slide-tool-item\" data-item=\"2\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.overview(event)\"><kbd>o</kbd> Slide Overview</a></li>\n<li class=\"slide-tool-item\" data-item=\"3\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.togglePdfExport(event)\"><kbd>e</kbd> PDF Export Mode</a></li>\n<li class=\"slide-tool-item\" data-item=\"4\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.toggleScrollView(event)\"><kbd>r</kbd> Scroll View Mode</a></li>\n<li class=\"slide-tool-item\" data-item=\"5\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.toggleChalkboard(event)\"><kbd>b</kbd> Toggle Chalkboard</a></li>\n<li class=\"slide-tool-item\" data-item=\"6\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.toggleNotesCanvas(event)\"><kbd>c</kbd> Toggle Notes Canvas</a></li>\n<li class=\"slide-tool-item\" data-item=\"7\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.downloadDrawings(event)\"><kbd>d</kbd> Download Drawings</a></li>\n<li class=\"slide-tool-item\" data-item=\"8\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.keyboardHelp(event)\"><kbd>?</kbd> Keyboard Help</a></li>\n</ul>"}],"openButton":true},
+'chalkboard': {"buttons":true},
+'quiz': {"checkKey":"c","resetKey":"q","shuffleKey":"t","allowNumberKeys":true,"disableOnCheck":false,"shuffleOptions":true,"defaultCorrect":"Correct!","defaultIncorrect":"Incorrect!"},
+'smaller': false,
+ 
+        // Display controls in the bottom right corner
+        controls: false,
+
+        // Help the user learn the controls by providing hints, for example by
+        // bouncing the down arrow when they first encounter a vertical slide
+        controlsTutorial: false,
+
+        // Determines where controls appear, "edges" or "bottom-right"
+        controlsLayout: 'edges',
+
+        // Visibility rule for backwards navigation arrows; "faded", "hidden"
+        // or "visible"
+        controlsBackArrows: 'faded',
+
+        // Display a presentation progress bar
+        progress: true,
+
+        // Display the page number of the current slide
+        slideNumber: 'c/t',
+
+        // 'all', 'print', or 'speaker'
+        showSlideNumber: 'all',
+
+        // Add the current slide number to the URL hash so that reloading the
+        // page/copying the URL will return you to the same slide
+        hash: true,
+
+        // Start with 1 for the hash rather than 0
+        hashOneBasedIndex: false,
+
+        // Flags if we should monitor the hash and change slides accordingly
+        respondToHashChanges: true,
+
+        // Push each slide change to the browser history
+        history: true,
+
+        // Enable keyboard shortcuts for navigation
+        keyboard: true,
+
+        // Enable the slide overview mode
+        overview: true,
+
+        // Disables the default reveal.js slide layout (scaling and centering)
+        // so that you can use custom CSS layout
+        disableLayout: false,
+
+        // Vertical centering of slides
+        center: false,
+
+        // Enables touch navigation on devices with touch input
+        touch: true,
+
+        // Loop the presentation
+        loop: false,
+
+        // Change the presentation direction to be RTL
+        rtl: false,
+
+        // see https://revealjs.com/vertical-slides/#navigation-mode
+        navigationMode: 'linear',
+
+        // Randomizes the order of slides each time the presentation loads
+        shuffle: false,
+
+        // Turns fragments on and off globally
+        fragments: true,
+
+        // Flags whether to include the current fragment in the URL,
+        // so that reloading brings you to the same fragment position
+        fragmentInURL: false,
+
+        // Flags if the presentation is running in an embedded mode,
+        // i.e. contained within a limited portion of the screen
+        embedded: false,
+
+        // Flags if we should show a help overlay when the questionmark
+        // key is pressed
+        help: true,
+
+        // Flags if it should be possible to pause the presentation (blackout)
+        pause: true,
+
+        // Flags if speaker notes should be visible to all viewers
+        showNotes: false,
+
+        // Global override for autoplaying embedded media (null/true/false)
+        autoPlayMedia: null,
+
+        // Global override for preloading lazy-loaded iframes (null/true/false)
+        preloadIframes: null,
+
+        // Number of milliseconds between automatically proceeding to the
+        // next slide, disabled when set to 0, this value can be overwritten
+        // by using a data-autoslide attribute on your slides
+        autoSlide: 0,
+
+        // Stop auto-sliding after user input
+        autoSlideStoppable: true,
+
+        // Use this method for navigation when auto-sliding
+        autoSlideMethod: null,
+
+        // Specify the average time in seconds that you think you will spend
+        // presenting each slide. This is used to show a pacing timer in the
+        // speaker view
+        defaultTiming: null,
+
+        // Enable slide navigation via mouse wheel
+        mouseWheel: false,
+
+        // The display mode that will be used to show slides
+        display: 'block',
+
+        // Hide cursor if inactive
+        hideInactiveCursor: true,
+
+        // Time before the cursor is hidden (in ms)
+        hideCursorTime: 5000,
+
+        // Opens links in an iframe preview overlay
+        previewLinks: true,
+
+        // Transition style (none/fade/slide/convex/concave/zoom)
+        transition: 'none',
+
+        // Transition speed (default/fast/slow)
+        transitionSpeed: 'default',
+
+        // Transition style for full page slide backgrounds
+        // (none/fade/slide/convex/concave/zoom)
+        backgroundTransition: 'none',
+
+        // Number of slides away from the current that are visible
+        viewDistance: 3,
+
+        // Number of slides away from the current that are visible on mobile
+        // devices. It is advisable to set this to a lower number than
+        // viewDistance in order to save resources.
+        mobileViewDistance: 2,
+
+        // The "normal" size of the presentation, aspect ratio will be preserved
+        // when the presentation is scaled to fit different resolutions. Can be
+        // specified using percentage units.
+        width: 1050,
+
+        height: 700,
+
+        // Factor of the display size that should remain empty around the content
+        margin: 0.1,
+
+        math: {
+          mathjax: 'https://cdn.jsdelivr.net/npm/mathjax@2.7.9/MathJax.js',
+          config: 'TeX-AMS_HTML-full',
+          tex2jax: {
+            inlineMath: [['\\(','\\)']],
+            displayMath: [['\\[','\\]']],
+            balanceBraces: true,
+            processEscapes: false,
+            processRefs: true,
+            processEnvironments: true,
+            preview: 'TeX',
+            skipTags: ['script','noscript','style','textarea','pre','code'],
+            ignoreClass: 'tex2jax_ignore',
+            processClass: 'tex2jax_process'
+          },
+        },
+
+        // reveal.js plugins
+        plugins: [QuartoLineHighlight, PdfExport, RevealMenu, RevealChalkboard, RevealQuiz, QuartoSupport,
+
+          RevealMath,
+          RevealNotes,
+          RevealSearch,
+          RevealZoom
+        ]
+      });
+    </script>
+    
+
+    <script>
+
+      // htmlwidgets need to know to resize themselves when slides are shown/hidden.
+
+      // Fire the "slideenter" event (handled by htmlwidgets.js) when the current
+
+      // slide changes (different for each slide format).
+
+      (function () {
+
+        // dispatch for htmlwidgets
+
+        function fireSlideEnter() {
+
+          const event = window.document.createEvent("Event");
+
+          event.initEvent("slideenter", true, true);
+
+          window.document.dispatchEvent(event);
+
+        }
+
+    
+
+        function fireSlideChanged(previousSlide, currentSlide) {
+
+          fireSlideEnter();
+
+    
+
+          // dispatch for shiny
+
+          if (window.jQuery) {
+
+            if (previousSlide) {
+
+              window.jQuery(previousSlide).trigger("hidden");
+
+            }
+
+            if (currentSlide) {
+
+              window.jQuery(currentSlide).trigger("shown");
+
+            }
+
+          }
+
+        }
+
+    
+
+        // hookup for slidy
+
+        if (window.w3c_slidy) {
+
+          window.w3c_slidy.add_observer(function (slide_num) {
+
+            // slide_num starts at position 1
+
+            fireSlideChanged(null, w3c_slidy.slides[slide_num - 1]);
+
+          });
+
+        }
+
+    
+
+      })();
+
+    </script>
+
+    
+
+    <script id="quarto-html-after-body" type="application/javascript">
+      window.document.addEventListener("DOMContentLoaded", function (event) {
+        const tabsets =  window.document.querySelectorAll(".panel-tabset-tabby")
+        tabsets.forEach(function(tabset) {
+          const tabby = new Tabby('#' + tabset.id);
+        });
+        const isCodeAnnotation = (el) => {
+          for (const clz of el.classList) {
+            if (clz.startsWith('code-annotation-')) {                     
+              return true;
+            }
+          }
+          return false;
+        }
+        const onCopySuccess = function(e) {
+          // button target
+          const button = e.trigger;
+          // don't keep focus
+          button.blur();
+          // flash "checked"
+          button.classList.add('code-copy-button-checked');
+          var currentTitle = button.getAttribute("title");
+          button.setAttribute("title", "Copied!");
+          let tooltip;
+          if (window.bootstrap) {
+            button.setAttribute("data-bs-toggle", "tooltip");
+            button.setAttribute("data-bs-placement", "left");
+            button.setAttribute("data-bs-title", "Copied!");
+            tooltip = new bootstrap.Tooltip(button, 
+              { trigger: "manual", 
+                customClass: "code-copy-button-tooltip",
+                offset: [0, -8]});
+            tooltip.show();    
+          }
+          setTimeout(function() {
+            if (tooltip) {
+              tooltip.hide();
+              button.removeAttribute("data-bs-title");
+              button.removeAttribute("data-bs-toggle");
+              button.removeAttribute("data-bs-placement");
+            }
+            button.setAttribute("title", currentTitle);
+            button.classList.remove('code-copy-button-checked');
+          }, 1000);
+          // clear code selection
+          e.clearSelection();
+        }
+        const getTextToCopy = function(trigger) {
+          const outerScaffold = trigger.parentElement.cloneNode(true);
+          const codeEl = outerScaffold.querySelector('code');
+          for (const childEl of codeEl.children) {
+            if (isCodeAnnotation(childEl)) {
+              childEl.remove();
+            }
+          }
+          return codeEl.innerText;
+        }
+        const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+          text: getTextToCopy
+        });
+        clipboard.on('success', onCopySuccess);
+        if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+          const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+            text: getTextToCopy,
+            container: window.document.getElementById('quarto-embedded-source-code-modal')
+          });
+          clipboardModal.on('success', onCopySuccess);
+        }
+          var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+          var mailtoRegex = new RegExp(/^mailto:/);
+            var filterRegex = new RegExp('/' + window.location.host + '/');
+          var isInternal = (href) => {
+              return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+          }
+          // Inspect non-navigation links and adorn them if external
+         var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+          for (var i=0; i<links.length; i++) {
+            const link = links[i];
+            if (!isInternal(link.href)) {
+              // undo the damage that might have been done by quarto-nav.js in the case of
+              // links that we want to consider external
+              if (link.dataset.originalHref !== undefined) {
+                link.href = link.dataset.originalHref;
+              }
+            }
+          }
+        function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+          const config = {
+            allowHTML: true,
+            maxWidth: 500,
+            delay: 100,
+            arrow: false,
+            appendTo: function(el) {
+                return el.closest('section.slide') || el.parentElement;
+            },
+            interactive: true,
+            interactiveBorder: 10,
+            theme: 'light-border',
+            placement: 'bottom-start',
+          };
+          if (contentFn) {
+            config.content = contentFn;
+          }
+          if (onTriggerFn) {
+            config.onTrigger = onTriggerFn;
+          }
+          if (onUntriggerFn) {
+            config.onUntrigger = onUntriggerFn;
+          }
+            config['offset'] = [0,0];
+            config['maxWidth'] = 700;
+          window.tippy(el, config); 
+        }
+        const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+        for (var i=0; i<noterefs.length; i++) {
+          const ref = noterefs[i];
+          tippyHover(ref, function() {
+            // use id or data attribute instead here
+            let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+            try { href = new URL(href).hash; } catch {}
+            const id = href.replace(/^#\/?/, "");
+            const note = window.document.getElementById(id);
+            if (note) {
+              return note.innerHTML;
+            } else {
+              return "";
+            }
+          });
+        }
+        const findCites = (el) => {
+          const parentEl = el.parentElement;
+          if (parentEl) {
+            const cites = parentEl.dataset.cites;
+            if (cites) {
+              return {
+                el,
+                cites: cites.split(' ')
+              };
+            } else {
+              return findCites(el.parentElement)
+            }
+          } else {
+            return undefined;
+          }
+        };
+        var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+        for (var i=0; i<bibliorefs.length; i++) {
+          const ref = bibliorefs[i];
+          const citeInfo = findCites(ref);
+          if (citeInfo) {
+            tippyHover(citeInfo.el, function() {
+              var popup = window.document.createElement('div');
+              citeInfo.cites.forEach(function(cite) {
+                var citeDiv = window.document.createElement('div');
+                citeDiv.classList.add('hanging-indent');
+                citeDiv.classList.add('csl-entry');
+                var biblioDiv = window.document.getElementById('ref-' + cite);
+                if (biblioDiv) {
+                  citeDiv.innerHTML = biblioDiv.innerHTML;
+                }
+                popup.appendChild(citeDiv);
+              });
+              return popup.innerHTML;
+            });
+          }
+        }
+      });
+      </script>
+    
+
+</body></html>

@@ -36,11 +36,11 @@ library(tidyverse)
 ## Overview
 
 ::: incremental
--   What is R?
--   Installing R and RStudio
--   R objects
--   Packages and help pages
--   R notation
+- What is R?
+- Installing R and RStudio
+- R objects
+- Packages and help pages
+- R notation
 :::
 
 # 
@@ -55,19 +55,19 @@ Illustration adopted from [Allison Horst](https://twitter.com/allison_horst)
 
 ## So ... what is R programming?
 
--   **R** is a language + an eco-system
-    -   a free and open-source programming language
-    -   statistical analysis, graphics representation, and reporting
-    -   an eco-system of many high-quality user-contributed libraries/packages
-    -   freely available under the GNU General Public License, and pre-compiled binary versions are provided for various operating systems (e.g., Linux, Windows, and Mac)
+- **R** is a language + an eco-system
+  - a free and open-source programming language
+  - statistical analysis, graphics representation, and reporting
+  - an eco-system of many high-quality user-contributed libraries/packages
+  - freely available under the GNU General Public License, and pre-compiled binary versions are provided for various operating systems (e.g., Linux, Windows, and Mac)
 
 ::: incremental
--   Before, R is known for its statistical analysis toolkits
--   Nowadays R is capable of many other tasks
-    -   tools that facilitates the whole data analysis workflow
-    -   tools for web technology
-    -   even this presentation is made in R!
-    -   also our class website is entirely built in R!
+- Before, R is known for its statistical analysis toolkits
+- Nowadays R is capable of many other tasks
+  - tools that facilitates the whole data analysis workflow
+  - tools for web technology
+  - even this presentation is made in R!
+  - also our class website is entirely built in R!
 :::
 
 ## The History of R programming
@@ -130,32 +130,32 @@ Source: [DataFlair](https://data-flair.training/blogs/r-applications/)
 
 ## RStudio interface: `Console window`
 
--   located in the bottom-left
--   where you often will find the output of your coding and computations
+- located in the bottom-left
+- where you often will find the output of your coding and computations
 
 ![](img/console-pane.png){fig-align="center"}
 
 ## RStudio interface: `Source window`
 
--   located in the top-left
--   *source* can be understood as any type of file, e.g. data, programming code, notes, etc.
--   edit script, text, markdown, website, others
+- located in the top-left
+- *source* can be understood as any type of file, e.g. data, programming code, notes, etc.
+- edit script, text, markdown, website, others
 
 ![](img/source-pane.png){width="70%" height="70%" fig-align="center"}
 
 ## RStudio interface: `Environment/ History/ Connections/ Tutorials`
 
--   located in the top-right
--   **Environment:** shows saved R objects
--   **History:** computation you run in the console will be stored
--   **Connections:** allows the user to tab into external databases directly
--   **Tutorials:** additional materials to learn R and RStudio
+- located in the top-right
+- **Environment:** shows saved R objects
+- **History:** computation you run in the console will be stored
+- **Connections:** allows the user to tab into external databases directly
+- **Tutorials:** additional materials to learn R and RStudio
 
 ![](img/environment-pane.png){width="80%" height="80%" fig-align="center"}
 
 ## RStudio interface: `Files/ Plots/ Packages/ Help/ Viewer`
 
--   located in the bottom-right
+- located in the bottom-right
 
 ![](img/file-plot-pane.png){width="80%" height="80%" fig-align="center"}
 
@@ -165,11 +165,11 @@ Source: [DataFlair](https://data-flair.training/blogs/r-applications/)
 
 ::::: columns
 ::: {.column width="60%"}
--   You can consider R objects as **saving information**
+- You can consider R objects as **saving information**
 
--   e.g., text, number, matrix, vector, dataframe
+- e.g., text, number, matrix, vector, dataframe
 
--   In another words everything in R is an object
+- In another words everything in R is an object
 :::
 
 ::: {.column width="40%"}
@@ -179,7 +179,7 @@ Source: [DataFlair](https://data-flair.training/blogs/r-applications/)
 
 ## R objects
 
--   Objects in R are assigned a value using ←
+- Objects in R are assigned a value using ←
 
 :::::::::: columns
 :::::: column
@@ -278,11 +278,11 @@ student
 
 ::::: columns
 ::: column
--   Collection of functions that load into your working environment.
+- Collection of functions that load into your working environment.
 
--   A package contains code that other R users have prepared for the community.
+- A package contains code that other R users have prepared for the community.
 
--   Installing a package
+- Installing a package
 
 ```{r}
 #| eval: false
@@ -291,7 +291,7 @@ student
 install.packages("tidyverse")
 ```
 
--   Loading a package
+- Loading a package
 
 ```{r}
 #| eval: false
@@ -310,8 +310,8 @@ library(tidyverse)
 
 ## R functions
 
--   R comes with built-in functions
--   For example, you can round a number with `round` function
+- R comes with built-in functions
+- For example, you can round a number with `round` function
 
 ::::: columns
 ::: column
@@ -333,8 +333,8 @@ factorial(3)
 
 ## Arguments
 
--   data that you pass into the function is called the function’s argument
--   Linking functions together, R resolves them from innermost operation to the outermost
+- data that you pass into the function is called the function’s argument
+- Linking functions together, R resolves them from innermost operation to the outermost
 
 ``` r
 die <- 1:6
@@ -353,10 +353,10 @@ round(mean(die))
 
 ## Arguments
 
--   use `args` functions if you are not sure with the argument's name in a function
--   some `arguments` are optional
-    -   they come with a default value
-    -   e.g., `digits` is already set to `0`
+- use `args` functions if you are not sure with the argument's name in a function
+- some `arguments` are optional
+  - they come with a default value
+  - e.g., `digits` is already set to `0`
 
 ```{r}
 #| echo: fenced
@@ -366,15 +366,14 @@ args(round)
 
 ## Sample with replacements
 
--   `sample(x, size, replace = FALSE, prob = NULL)`
--   `sample` will return `size` elements from the vector
--   `sample` takes two **arguments**: a vector named `x` and a number named `size`
+- `sample(x, size, replace = FALSE, prob = NULL)`
+- `sample` will return `size` elements from the vector
+- `sample` takes two **arguments**: a vector named `x` and a number named `size`
 
 ```{r}
 #| echo: fenced
 sample(x = 1:4, size = 2)
 ```
-
 
 ## Sample with replacements
 
@@ -388,7 +387,6 @@ die <- 1:6
 sample(x = die, size = 2, replace = TRUE)
 ```
 
-
 ## Function constructor
 
 - functions in R has three basic parts: name, body of code, and set of arguments
@@ -397,7 +395,6 @@ sample(x = die, size = 2, replace = TRUE)
 #| echo: fenced
 my_function <- function() {}
 ```
-
 
 ## Function constructor
 
@@ -412,15 +409,13 @@ roll <- function() {
 }
 ```
 
-
-## Function constructor 
+## Function constructor
 
 ![](https://rstudio-education.github.io/hopr/images/hopr_0106.png)
 
-
 # R notation
 
-## Selecting values 
+## Selecting values
 
 - R has notation for selecting values from R objects
 - `data[row, column]`
@@ -432,7 +427,6 @@ gapminder_dta <- gapminder::gapminder
 gapminder_dta[1, ]
 ```
 
-
 ## Selecting values
 
 - R has notation for selecting values from R objects
@@ -442,7 +436,6 @@ gapminder_dta[1, ]
 #| echo: fenced
 gapminder_dta[, 2]
 ```
-
 
 ## Selecting values
 
@@ -454,7 +447,6 @@ gapminder_dta[, 2]
 
 gapminder_dta[3, 2]
 ```
-
 
 # 
 
