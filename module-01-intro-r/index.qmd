@@ -24,25 +24,23 @@ editor: visual
 knitr::opts_chunk$set(comment = "", collapse = TRUE)
 
 ## working directory
-setwd("C:/Users/chris/Documents/Github-repository/econ148-lecture/module-01-intro-r")
+
+setwd(here::here("module-01-intro-r"))
 
 ## libraries
 library(tidyverse)
 
 ## theme
-
 ```
 
 ## Overview
 
 ::: incremental
+-   What is R?
+-   Installing R and RStudio
 -   R objects
-
--   R packages
-
--   Reading data in R
-
--   Basic data wrangling
+-   Packages and help pages
+-   R notation
 :::
 
 # 
@@ -53,13 +51,123 @@ library(tidyverse)
 Illustration adopted from [Allison Horst](https://twitter.com/allison_horst)
 :::
 
+# What is R?
+
+## So ... what is R programming?
+
+-   **R** is a language + an eco-system
+    -   a free and open-source programming language
+    -   statistical analysis, graphics representation, and reporting
+    -   an eco-system of many high-quality user-contributed libraries/packages
+    -   freely available under the GNU General Public License, and pre-compiled binary versions are provided for various operating systems (e.g., Linux, Windows, and Mac)
+
+::: incremental
+-   Before, R is known for its statistical analysis toolkits
+-   Nowadays R is capable of many other tasks
+    -   tools that facilitates the whole data analysis workflow
+    -   tools for web technology
+    -   even this presentation is made in R!
+    -   also our class website is entirely built in R!
+:::
+
+## The History of R programming
+
+<br>
+
+::: {.box style="padding-bottom:56.25%; position:relative; display:block; width:100%"}
+<iframe width="100%" height="100%" src="https://www.youtube.com/embed/iq_biXEIx-U?si=qq-ArfqGkbO9oYGm" frameborder="0" allowfullscreen style="position:absolute; top:0; left: 0">
+
+</iframe>
+:::
+
+## Uses of R programming
+
+<br>
+
+![](img/use-r.png){fig-align="center" width="90%" height="90%"}
+
+::: {style="font-size: 0.8em;"}
+Source: [DataFlair](https://data-flair.training/blogs/r-applications/)
+:::
+
+## Why R for future economists and analysts?
+
+<br>
+
+::: {.callout-tip style="font-size: 2.5em;"}
+## Reading assingment
+
+[Why should economist use R? A peek at my journey!](https://www.hanomics.com/post/why-should-economists-use-r-a-peek-at-my-journey) by Hany Abdel-Latif
+:::
+
+> *"R is a powerful, flexible, and free software environment that allows economists to analyze data, estimate models, and visualize results in a reproducible way."*
+
+# Installing R and RStudio
+
+## Installing R and RStudio on Windows
+
+<br>
+
+::: {.box style="padding-bottom:56.25%; position:relative; display:block; width:100%"}
+<iframe width="100%" height="100%" src="https://www.youtube.com/embed/mxNrU902uyc?si=4ZpkkJWR0U4t9DRV" frameborder="0" allowfullscreen style="position:absolute; top:0; left: 0">
+
+</iframe>
+:::
+
+## Installing R and RStudio on Mac/MacOS
+
+<br>
+
+::: {.box style="padding-bottom:56.25%; position:relative; display:block; width:100%"}
+<iframe width="100%" height="100%" src="https://www.youtube.com/embed/I5WIMX4LK8M?si=KTR7GarK-JAB6Kej" frameborder="0" allowfullscreen style="position:absolute; top:0; left: 0">
+
+</iframe>
+:::
+
+## RStudio interface
+
+![](img/rstudio-interface.png){height="90%" width="90%" fig-align="center"}
+
+## RStudio interface: `Console window`
+
+-   located in the bottom-left
+-   where you often will find the output of your coding and computations
+
+![](img/console-pane.png){fig-align="center"}
+
+## RStudio interface: `Source window`
+
+-   located in the top-left
+-   *source* can be understood as any type of file, e.g. data, programming code, notes, etc.
+-   edit script, text, markdown, website, others
+
+![](img/source-pane.png){width="70%" height="70%" fig-align="center"}
+
+## RStudio interface: `Environment/ History/ Connections/ Tutorials`
+
+-   located in the top-right
+-   **Environment:** shows saved R objects
+-   **History:** computation you run in the console will be stored
+-   **Connections:** allows the user to tab into external databases directly
+-   **Tutorials:** additional materials to learn R and RStudio
+
+![](img/environment-pane.png){width="80%" height="80%" fig-align="center"}
+
+## RStudio interface: `Files/ Plots/ Packages/ Help/ Viewer`
+
+-   located in the bottom-right
+
+![](img/file-plot-pane.png){width="80%" height="80%" fig-align="center"}
+
+# R objects and packages
+
 ## R Objects
 
 ::::: columns
 ::: {.column width="60%"}
 -   You can consider R objects as **saving information**
 
--   e.g., text, number, matrix, vectro, dataframe
+-   e.g., text, number, matrix, vector, dataframe
 
 -   In another words everything in R is an object
 :::
@@ -198,814 +306,155 @@ library(tidyverse)
 :::
 :::::
 
-## Importing data
+# Functions
 
--   SPSS, Stata, SAS files: [haven package](https://haven.tidyverse.org/)
+## R functions
 
--   Excel files: [readxl package](https://readxl.tidyverse.org/)
-
--   CSV files: [readr package](https://readr.tidyverse.org/)
-
-## Importing data into R
-
-#### SPSS, Stata & SAS using [haven package](https://haven.tidyverse.org/)
+-   R comes with built-in functions
+-   For example, you can round a number with `round` function
 
 ::::: columns
 ::: column
 ```{r}
-#| echo: true
-#| eval: false
-
-# loading haven package
-library(haven)
+#| echo: fenced
+round(3.1415)
 ```
 
-<br>
-
 ```{r}
-#| echo: true
-#| eval: false
+#| echo: fenced
 
-# SPSS
-read_sav("path/data.sav")
-```
-
-<br>
-
-```{r}
-#| echo: true
-#| eval: false
-
-# Stata
-read_dta("path/data.dta")
-```
-
-<br>
-
-```{r}
-#| echo: true
-#| eval: false
-
-# SAS
-read_sas("path/data.sas7bdat")
+factorial(3)
 ```
 :::
 
 ::: column
-```{r}
-#| echo: false
-#| fig-align: center
-#| out-width: "40%"
-
-knitr::include_graphics("img/haven.png")
-```
 :::
 :::::
 
-## Importing data into R
+## Arguments
 
-#### Excel files using [readxl package](https://readxl.tidyverse.org/)
+-   data that you pass into the function is called the function’s argument
+-   Linking functions together, R resolves them from innermost operation to the outermost
 
-<br>
+``` r
+die <- 1:6
 
-::::: columns
-::: {.column width="60%"}
-```{r}
-#| echo: true
-#| eval: false
-library(readxl)
-read_excel("path/dataset.xls")
+mean(1:6)
+## 3.5
+
+mean(die)
+## 3.5
+
+round(mean(die))
+## 4
 ```
 
-```{r echo=FALSE}
-#| echo: false
-#| results: hold 
+![](https://rstudio-education.github.io/hopr/images/hopr_0105.png){fig-align="center" width="120%" height="120%"}
 
-dataset_xl_sample <- readxl::readxl_example("datasets.xlsx")
-readxl::read_excel(dataset_xl_sample)
-```
-:::
+## Arguments
 
-::: {.column width="40%"}
-```{r}
-#| echo: false
-#| fig-align: center
-#| out-width: "40%"
-
-knitr::include_graphics("img/readxl.png")
-```
-:::
-:::::
-
-## Importing data into R
-
-#### CSV files using [readr package](https://readr.tidyverse.org/)
-
-<br>
-
-::::: columns
-::: {.column width="60%"}
-```{r}
-#| echo: true
-#| eval: false
-
-install.packages("readr")
-library(readr)
-```
-
-<br>
+-   use `args` functions if you are not sure with the argument's name in a function
+-   some `arguments` are optional
+    -   they come with a default value
+    -   e.g., `digits` is already set to `0`
 
 ```{r}
-#| echo: true
-#| eval: false
+#| echo: fenced
 
-# comma separated (CSV) files
-read_csv("path/data.csv")
+args(round)
 ```
 
-<br>
+## Sample with replacements
 
-```{r eval=FALSE}
-#| echo: true
-#| eval: false
-
-# tab separated files
-read_tsv("path/data.tsv")
-```
-
-<br>
-
-```{r eval=FALSE}
-#| echo: true
-#| eval: false
-
-# general delimited files
-read_delim("path/data.delim")
-```
-:::
-
-::: {.column width="40%"}
-```{r}
-#| echo: false
-#| fig-align: center
-#| out-width: "40%"
-
-knitr::include_graphics("img/readr.png")
-```
-:::
-:::::
-
-## Basic data wrangling with Tidyverse {.center-text}
-
-![](img/tidyverse.png){height="60%" width="50%" fig-align="center"}
-
-## What is tidyverse?
-
-A collection of R packages designed for data science.
-
-All packages share an underlying philosophy, grammar, and data structure.
-
-<center><img src="https://rstudio-education.github.io/tidyverse-cookbook/images/data-science-workflow.png" style="width:60%"/></center>
-
-## 
-
-<center><img src="https://www.openscapes.org/img/blog/tidydata/tidydata_1.jpg" style="width:80%"/></center>
-
-::: {style="font-size:70%; text-align:center;"}
-Illustration adopted from [Allison Horst](https://github.com/allisonhorst)
-:::
-
-## 
-
-<center><img src="https://www.openscapes.org/img/blog/tidydata/tidydata_2.jpg" style="width: 80%"/></center>
-
-::: {style="font-size:70%; text-align:center;"}
-Illustration adopted from [Allison Horst](https://github.com/allisonhorst)
-:::
-
-## 
-
-::: center-text
-**Tidy data makes it easier for reproducibility and reuse**
-:::
-
-<center><img src="https://www.openscapes.org/img/blog/tidydata/tidydata_5.jpg" style="width: 80%"/></center>
-
-::: {style="font-size:70%; text-align:center;"}
-Illustration adopted from [Allison Horst](https://github.com/allisonhorst)
-:::
-
-## 
-
-::: center-text
-**Yehey! Tidy Data for the win!**
-:::
-
-<center><img src="https://www.openscapes.org/img/blog/tidydata/tidydata_6.jpg" style="width: 70%"/></center>
-
-::: {style="font-size:70%; text-align:center;"}
-Illustration adopted from [Allison Horst](https://github.com/allisonhorst)
-:::
-
-## Data wrangling using `dplyr` {.center-text}
-
-<center><img src="https://github.com/allisonhorst/stats-illustrations/blob/23bb6fe3d5bd6792d85744f8ff18dc7ec22585cd/rstats-artwork/dplyr_wrangling.png?raw=true" style="width:55%"/></center>
-
-::: {style="font-size:70%; text-align:center;"}
-Illustration adopted from [Allison Horst](https://github.com/allisonhorst)
-:::
-
-## `dplyr`
-
-:::::: columns
-:::: column
-**Overview**
-
--   `select()` picks variables based on their names
-
--   `mutate()` adds new variables
-
--   `filter()` picks cases based on their values
-
--   `summarise()` reduces multiple values down to a single summary
-
--   `arrange()` change the ordering of the rows
-
-::: aside
-see `dplyr` [cheatsheets](https://github.com/rstudio/cheatsheets/blob/cd775237fd6de08df51e69941fe01967ecd9bdc2/data-transformation.pdf)
-:::
-::::
-
-::: column
-![](img/dplyr.png){fig-align="center"}
-:::
-::::::
-
-## `select()`
-
-::::: columns
-::: {.column width="50%"}
-```{r echo=FALSE}
-data <- gapminder::gapminder
-```
+-   `sample(x, size, replace = FALSE, prob = NULL)`
+-   `sample` will return `size` elements from the vector
+-   `sample` takes two **arguments**: a vector named `x` and a number named `size`
 
 ```{r}
-#| eval: false
-#| echo: true
-
-data
+#| echo: fenced
+sample(x = 1:4, size = 2)
 ```
 
-<br>
+
+## Sample with replacements
+
+- by default `sample` builds a sample *without replacement*
+- `replace = TRUE` causes sample to *sample with replacement*
 
 ```{r}
-#| echo: true
-#| class-output: "remark-code"
+#| echo: fenced
+die <- 1:6
 
-data
-```
-:::
-
-::: {.column width="50%"}
-```{r}
-#| eval: false
-#| echo: true
-select(data, continent, country, pop)
+sample(x = die, size = 2, replace = TRUE)
 ```
 
-<br>
+
+## Function constructor
+
+- functions in R has three basic parts: name, body of code, and set of arguments
 
 ```{r}
-#| echo: true
-#| class-output: "remark-code"
-
-select(data, continent, country, pop)
+#| echo: fenced
+my_function <- function() {}
 ```
-:::
-:::::
 
-## `select()`
 
-We can also **remove** variables with a **`-`** (minus)
+## Function constructor
 
-::::: columns
-::: column
-```{r echo=FALSE}
-data <- gapminder::gapminder
-```
+- `function` will build a function between braces
 
 ```{r}
-#| echo: true
-#| eval: false
-
-data
+#| echo: fenced
+roll <- function() {
+  die <- 1:6
+  dice <- sample(die, size = 2, replace = TRUE)
+  sum(dice)
+}
 ```
 
-<br>
+
+## Function constructor 
+
+![](https://rstudio-education.github.io/hopr/images/hopr_0106.png)
+
+
+# R notation
+
+## Selecting values 
+
+- R has notation for selecting values from R objects
+- `data[row, column]`
 
 ```{r}
-#| echo: true
-#| class-output: "remark-code"
+#| echo: fenced
+gapminder_dta <- gapminder::gapminder
 
-data
-```
-:::
-
-::: column
-```{r}
-#| echo: true
-#| eval: false
-
-select(data, -year, -pop)
+gapminder_dta[1, ]
 ```
 
-<br>
+
+## Selecting values
+
+- R has notation for selecting values from R objects
+- `data[row, column]`
 
 ```{r}
-#| echo: true
-#| class-output: "remark-code"
-
-select(data, -year, -pop)
-```
-:::
-:::::
-
-## `select()`
-
-**Selection helpers**
-
-These *selection helpers* match variables according to a given pattern.
-
--   `starts_with()` starts with a prefix
-
--   `ends_with()` ends with a suffix
-
--   `contains()` contains a literal string
-
--   `matches()` matches regular expression
-
-## `filter()`
-
-::::: columns
-::: {.column width="50%"}
-```{r}
-#| echo: true
-#| eval: false
-data
+#| echo: fenced
+gapminder_dta[, 2]
 ```
 
-<br>
+
+## Selecting values
+
+- R has notation for selecting values from R objects
+- `data[row, column]`
 
 ```{r}
-#| echo: true
-#| class-output: "remark-code"
+#| echo: fenced
 
-data
-```
-:::
-
-::: {.column width="50%"}
-```{r}
-#| echo: true
-#| eval: false
-
-filter(data, country == "Philippines")
+gapminder_dta[3, 2]
 ```
 
-<br>
-
-```{r}
-#| echo: true
-#| class-output: "remark-code"
-
-filter(data, country == "Philippines")
-```
-:::
-:::::
-
-## `mutate()`
-
-The `mutate` function will take a statement similar to this:
-
--   `variable_name` = `do_some_calculation`
-
--   `variable_name` will be attached at the end of the dataset.
-
-## `mutate()`
-
-Let's calculate the `gdp`
-
-::::: columns
-::: column
-```{r}
-#| echo: true
-#| eval: false
-
-data
-```
-
-<br>
-
-```{r}
-#| echo: true
-#| class-output: "remark-code"
-
-data
-```
-:::
-
-::: column
-```{r}
-#| echo: true
-#| eval: false
-
-mutate(data, GDP = gdpPercap * pop)
-```
-
-<br>
-
-```{r}
-#| echo: true
-#| class-output: "remark-code"
-
-mutate(data, GDP = gdpPercap * pop)
-```
-:::
-:::::
-
-## `rename()`
-
-Changes the variable name while keeping all else intact.
-
--   `new_variable_name` = `old_variable_name`
-
-::::: columns
-::: column
-```{r}
-#| echo: true
-#| eval: false
-
-data
-```
-
-<br>
-
-```{r}
-#| echo: true
-#| class-output: "remark-code"
-
-data
-```
-:::
-
-::: column
-```{r}
-#| echo: true
-#| eval: false
-
-rename(data, population = pop)
-```
-
-<br>
-
-```{r}
-#| echo: true
-#| class-output: "remark-code"
-
-rename(data, population = pop)
-```
-:::
-:::::
-
-## `arrange()`
-
-You can order data by variable to show the highest or lowest values first.
-
-::::: columns
-::: column
-consider `lifeExp` default is lowest first
-
-```{r}
-#| echo: true
-#| eval: false
-
-data
-```
-
-<br>
-
-```{r}
-#| echo: true
-#| class-output: "remark-code"
-
-data
-```
-:::
-
-::: column
-`desc()` sort `lifeExp` from highest to lowest
-
-```{r}
-#| echo: true
-#| eval: false
-
-arrange(data, desc(lifeExp))
-```
-
-<br>
-
-```{r}
-#| echo: true
-#| class-output: "remark-code"
-
-arrange(data, desc(lifeExp))
-```
-:::
-:::::
-
-## `group_by` and `summarise()`
-
--   Use when you want to aggregate your data (by groups).
-
--   Sometimes we want to calculate group statistics.
-
-<br>
-
-::: {style="fig.align="center";"}
-<img src="https://learn.r-journalism.com/wrangling/dplyr/images/groupby.png" style="width: 60%"/>
-:::
-
-## `group_by` and `summarise()`
-
-Suppose we want to know the average population by continent.
-
-::::: columns
-::: column
-```{r}
-#| echo: true
-#| eval: false
-
-data
-```
-
-<br>
-
-```{r}
-#| echo: true
-#| class-output: "remark-code"
-
-data
-```
-:::
-
-::: column
-```{r}
-#| echo: true
-#| eval: false
-
-grouped_by_continent <- group_by(data, continent)
-summarise(grouped_by_continent, avg_pop = mean(pop))
-```
-
-<br>
-
-```{r}
-#| echo: true
-#| class-output: "remark-code"
-
-grouped_by_continent <- group_by(data, continent)
-summarise(grouped_by_continent, avg_pop = mean(pop))
-```
-:::
-:::::
-
-## `group_by` and `summarise()`
-
-Suppose we want to know the average population by continent.
-
-::::: columns
-::: column
-```{r}
-#| echo: true
-#| eval: false
-
-data
-```
-
-<br>
-
-```{r}
-#| echo: true
-#| class-output: "remark-code"
-
-data
-```
-:::
-
-::: column
-```{r}
-#| echo: true
-#| eval: false
-
-grouped_by_continent <- group_by(data, continent)
-summarised_data <- summarise(grouped_by_continent, avg_pop = mean(pop))
-arrange(summarised_data, desc(avg_pop))
-```
-
-<br>
-
-```{r}
-#| echo: true
-#| class-output: "remark-code"
-
-grouped_by_continent <- group_by(data, continent)
-summarised_data <- summarise(grouped_by_continent, avg_pop = mean(pop))
-arrange(summarised_data, desc(avg_pop))
-```
-:::
-:::::
-
-##  {transition="fade" auto-animate="true"}
-
-::::: columns
-::: column
-### Too many codes!
-
-### It's hard to follow!
-
-### It's hard to keep track of the codes!
-:::
-
-::: column
-![](img/teary.gif)
-:::
-:::::
-
-##  {transition="fade" auto-animate="true"}
-
-<center><img src="https://rpodcast.github.io/officer-advrmarkdown/img/magrittr.png" style="width: 50%"/></center>
-
-### `%>%` or `|>`pipe operator {.center-text}
-
-## The `%>%` and `|>` operator
-
-The **`%>%`** or **`|>`** helps your write code in a way that is easier to read and understand.
-
-::::: columns
-::: column
-```{r}
-#| echo: true
-#| eval: false
-
-grouped_by_continent <- group_by(data, continent)
-summarised_data <- summarise(grouped_by_continent, avg_pop = mean(pop))
-arrange(summarised_data, desc(avg_pop))
-```
-
-<br>
-
-```{r}
-#| echo: true
-#| class-output: "remark-code"
-
-grouped_by_continent <- group_by(data, continent)
-summarised_data <- summarise(grouped_by_continent, avg_pop = mean(pop))
-arrange(summarised_data, desc(avg_pop))
-```
-:::
-
-::: column
-```{r}
-#| echo: true
-#| eval: false
-
-data %>% 
-  group_by(continent) %>% 
-  summarise(avg_pop = mean(pop)) %>% 
-  arrange(desc(avg_pop))
-```
-
-<br>
-
-```{r}
-#| echo: true
-#| class-output: "remark-code"
-
-data %>% 
-  group_by(continent) %>% 
-  summarise(avg_pop = mean(pop)) %>% 
-  arrange(desc(avg_pop))
-```
-:::
-:::::
-
-## The`%>%`operator
-
-What is the average life expectancy of Asian countries per year?
-
-::::: columns
-::: column
-```{r}
-#| echo: true
-#| eval: false
-
-filtered_by_asia <- filter(data, continent == "Asia")
-grouped_by_country_year <- group_by(filtered_by_asia, country, year)
-summarise(grouped_by_country_year, avg_lifeExp = mean(lifeExp))
-```
-
-<br>
-
-```{r}
-#| echo: true
-#| class-output: "remark-code"
-
-filtered_by_asia <- filter(data, continent == "Asia")
-grouped_by_country_year <- group_by(filtered_by_asia, country, year)
-summarise(grouped_by_country_year, avg_lifeExp = mean(lifeExp))
-```
-:::
-
-::: column
-```{r}
-#| echo: true
-#| eval: false
-
-data %>% 
-  filter(continent == "Asia") %>% 
-  group_by(country, year) %>% 
-  summarise(avg_lifeExp = mean(lifeExp))
-```
-
-<br>
-
-```{r}
-#| echo: true
-#| class-output: "remark-code"
-
-data %>% 
-  filter(continent == "Asia") %>% 
-  group_by(country, year) %>% 
-  summarise(avg_lifeExp = mean(lifeExp))
-```
-:::
-:::::
-
-## The `%>%` operator
-
-::::: columns
-::: column
-```{r}
-#| echo: true
-#| eval: false
-
-filtered_by_asia <- filter(data, continent == "Asia")
-grouped_by_country <- group_by(filtered_by_asia, country)
-summarised_by_country <- summarise(grouped_by_country, avg_lifeExp = mean(lifeExp))
-arrange(summarised_by_country, desc(avg_lifeExp))
-```
-
-<br>
-
-```{r}
-#| echo: true
-#| class-output: "remark-code"
-
-filtered_by_asia <- filter(data, continent == "Asia")
-grouped_by_country <- group_by(filtered_by_asia, country)
-summarised_by_country <- summarise(grouped_by_country, avg_lifeExp = mean(lifeExp))
-arrange(summarised_by_country, desc(avg_lifeExp))
-```
-:::
-
-::: column
-```{r}
-#| echo: true
-#| eval: false
-
-data %>% 
-  filter(continent == "Asia") %>% 
-  group_by(country) %>% 
-  summarise(avg_lifeExp = mean(lifeExp)) %>% 
-  arrange(desc(avg_lifeExp))
-```
-
-<br>
-
-```{r}
-#| echo: true
-#| class-output: "remark-code"
-
-data %>% 
-  filter(continent == "Asia") %>% 
-  group_by(country) %>% 
-  summarise(avg_lifeExp = mean(lifeExp)) %>% 
-  arrange(desc(avg_lifeExp))
-```
-:::
-:::::
-
-# Let's practice
 
 # 
 
