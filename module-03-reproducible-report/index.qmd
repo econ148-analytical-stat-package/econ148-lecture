@@ -37,13 +37,13 @@ theme_set(theme_minimal()) +
 
 ## Outline
 
--   Introduction to Quarto
+- Introduction to Quarto
 
--   Quarto document elements
+- Quarto document elements
 
--   Exercise: generating report
+- Exercise: generating report
 
--   Improving report
+- Improving report
 
 # Introduction to Quarto
 
@@ -55,13 +55,13 @@ theme_set(theme_minimal()) +
 ::: column
 ### Reproducibility {.center-text}
 
--   Obtaining computational results using the same input data, computational steps, methods, code and conditions of analysis.
+- Obtaining computational results using the same input data, computational steps, methods, code and conditions of analysis.
 :::
 
 ::: column
 ### Replicability {.center-text}
 
--   Obtaining consistent results across studies aimed at answering the same scientific question, each of which has obtained its own data.
+- Obtaining consistent results across studies aimed at answering the same scientific question, each of which has obtained its own data.
 :::
 :::::
 
@@ -79,21 +79,21 @@ theme_set(theme_minimal()) +
 ::: column
 ### Reproducibility {.center-text}
 
--   same procedures
+- same procedures
 
--   same data
+- same data
 
--   same code
+- same code
 :::
 
 ::: column
 ### Replicability {.center-text}
 
--   same procedures
+- same procedures
 
--   new data
+- new data
 
--   new code
+- new code
 :::
 :::::
 
@@ -129,11 +129,11 @@ theme_set(theme_minimal()) +
 
 ## YAML
 
--   YAML header
+- YAML header
 
--   Output types
+- Output types
 
--   adding and formatting date
+- adding and formatting date
 
 ## YAML
 
@@ -141,11 +141,11 @@ theme_set(theme_minimal()) +
 
 ::::: columns
 ::: {.column width="50%"}
--   refers to the metadata at the top of the document
+- refers to the metadata at the top of the document
 
--   define the structure, appearance, and behavior
+- define the structure, appearance, and behavior
 
--   enclosed by 3 dashes `---`
+- enclosed by 3 dashes `---`
 :::
 
 ::: {.column width="50%"}
@@ -167,15 +167,15 @@ editor: visual
 
 ::::: columns
 ::: {.column width="50%"}
--   `title`: title of the document
+- `title`: title of the document
 
--   `author`: author of the document
+- `author`: author of the document
 
--   `date`: date of the document
+- `date`: date of the document
 
--   `format`: output format
+- `format`: output format
 
--   `editor`: editor used to create the document
+- `editor`: editor used to create the document
 :::
 
 ::: {.column width="50%"}
@@ -193,19 +193,19 @@ editor: visual
 
 ## Code chunk
 
--   adding code chunk
+- adding code chunk
 
--   adding code comments
+- adding code comments
 
 ## Code chunk
 
 ::::: columns
 ::: {.column width="50%"}
--   section of executable code embedded in the document
+- section of executable code embedded in the document
 
--   enable to run code and display output
+- enable to run code and display output
 
--   enclosed by three back ticks and curly braces
+- enclosed by three back ticks and curly braces
 :::
 
 ::: {.column width="50%"}
@@ -215,23 +215,23 @@ editor: visual
 
 ## Text
 
--   adding and formatting texts
+- adding and formatting texts
 
--   adding headers
+- adding headers
 
--   adding sentences
+- adding sentences
 
--   inline code
+- inline code
 
--   including links and images
+- including links and images
 
 ## Text
 
 ::::: columns
 ::: {.column width="50%"}
--   Quarto supports various fomatting elements to create rich content.
+- Quarto supports various fomatting elements to create rich content.
 
--   Headers, paragraphs, lists, and inline code are some of the elements that can be used to create content.
+- Headers, paragraphs, lists, and inline code are some of the elements that can be used to create content.
 :::
 
 ::: {.column width="50%" style="text-align: center;"}
@@ -260,9 +260,9 @@ This is **bold** and *italic* text.
 
 ::::: columns
 ::: {.column width="50%"}
--   Unordered lists: use `-` or `*` for bullet points.
+- Unordered lists: use `-` or `*` for bullet points.
 
--   Ordered lists: use numbers followed by periods.
+- Ordered lists: use numbers followed by periods.
 :::
 
 ::: {.column width="50%"}
@@ -275,9 +275,9 @@ This is **bold** and *italic* text.
 2. Second
 ```
 
--   Item 1
+- Item 1
 
--   Item 2
+- Item 2
 
 <br>
 
@@ -293,9 +293,9 @@ This is **bold** and *italic* text.
 
 ::::: columns
 ::: {.column width="50%"}
--   `Links: [Link text](https://example.com)`
+- `Links: [Link text](https://example.com)`
 
--   `Images: ![Alt text](path/to/image.png)`
+- `Images: ![Alt text](path/to/image.png)`
 :::
 
 ::: {.column width="50%"}

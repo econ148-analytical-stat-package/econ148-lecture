@@ -45,4 +45,28 @@ p_ssr <- ggplot(df, aes(x, y)) +
 
 
 
+### explore
+library(openintro)
+openintro::gpa_iq
 
+
+model_sample <- lm(salary ~ roe, data = wooldridge::ceosal1 |> filter(salary < 5000))
+summary(model_sample)
+
+# Scatter plot with regression line
+visreg(model_sample, "salary")
+predict_dta <- broom::augment(model_sample) |> select(roe, salary, .fitted, .resid)
+predict_dta |> 
+  summarise(sum_resid = round(sum(.resid), 3),
+            m_roe = mean(roe))
+
+
+visreg(model_sample, "roe", gg = TRUE)
+
+
+ceosal_sub <- wooldridge::ceosal1 |> filter(salary < 5000)
+model_sample <- lm(salary ~ roe, data = ceosal_sub)
+summary(model_sample)
+
+# visreg will now work
+visreg(model_sample, "roe", gg = TRUE)
